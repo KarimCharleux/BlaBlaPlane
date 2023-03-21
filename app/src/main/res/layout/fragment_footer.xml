@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF9800"
+    android:gravity="center"
+    android:orientation="horizontal"
+    tools:context="com.example.blablaplane.Fragment_Footer_Menu">
+
+
+    <ImageView
+        android:id="@+id/item1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:src="@drawable/footer_magnifying_glass" />
+
+    <ImageView
+        android:id="@+id/item2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:src="@drawable/footer_plus" />
+
+    <ImageView
+        android:id="@+id/item3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:src="@drawable/footer_logo" />
+
+    <ImageView
+        android:id="@+id/item4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:src="@drawable/footer_conversation" />
+
+    <ImageView
+        android:id="@+id/item5"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:src="@drawable/footer_avatar" />
+
+
+</LinearLayout>
