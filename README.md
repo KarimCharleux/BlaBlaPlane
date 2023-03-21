@@ -1,2 +1,2 @@
 # BlaBlaPlane
-La meilleur application de covoiturage dans les airs ! 
+La meilleur application de covoiturage dans les airs ! ✈
