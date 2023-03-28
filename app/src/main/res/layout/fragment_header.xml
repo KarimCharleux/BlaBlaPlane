@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="70dp"
-    tools:context=".header"
-    >
+    tools:context=".header">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -14,7 +13,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="68dp"
-        app:cardCornerRadius="70dp">
+        app:cardCornerRadius="30dp">
 
         <ImageView
             android:layout_width="wrap_content"
