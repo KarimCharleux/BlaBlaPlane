@@ -1,23 +1,27 @@
-name : CI
-  
-  on:
-    push:
-      branches:[ develop ]
+name: CI
+
+on:
+  push:
+    branches:
+      - 'develop'
+  pull_request:
+    branches: 
+      - 'develop'
       
-    workflow_dispatch:
+  workflow_dispatch:
   
-  jobs:
-    build:
-      runs_on : ubuntu-latest
+jobs:
+  build:
+    runs-on: ubuntu-latest
       
-      steps:
-        -uses: actions/checkout@v2
+    steps:
+      - uses: actions/checkout@v2
         
-        -name : Run Linter
-          run: ./gradlew lintDebug
+      - name: Run Linter
+        run: ./gradlew lintDebug
           
-        -name : Upload html report
-          uses : actions/upload-artifact@v2
-          with :
-            name : index.html
-            path : app/build/reports/lints-results-debug.html
+      - name: Upload html report
+        uses: actions/upload-artifact@v2
+        with:
+          name: index.html
+          path: app/build/reports/lints-results-debug.html
