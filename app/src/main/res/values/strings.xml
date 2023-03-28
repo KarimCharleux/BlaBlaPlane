@@ -10,7 +10,5 @@
     <string name="destination">Destination</string>
     <string name="search">Rechercher</string>
 
-    /*Sizes*/
-    <string name="font_size">30dp</string>
 
 </resources>
