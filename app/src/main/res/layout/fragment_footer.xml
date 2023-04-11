@@ -2,47 +2,86 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FF9800"
+    android:layout_height="60dp"
+    android:background="#789456"
     android:gravity="center"
+    android:id="@+id/fragmentFooter"
     android:orientation="horizontal"
     tools:context="com.example.blablaplane.Fragment_Footer_Menu">
 
 
-    <ImageView
-        android:id="@+id/item1"
+    <LinearLayout
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_weight="1"
-        android:src="@drawable/footer_magnifying_glass" />
+        android:background="@android:color/transparent"
+        android:layout_weight="1">
 
-    <ImageView
-        android:id="@+id/item2"
+        <ImageButton
+            android:id="@+id/buttonSearching"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/footer_magnifying_glass" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_weight="1"
-        android:src="@drawable/footer_plus" />
+        android:background="@android:color/transparent"
+        android:layout_weight="1">
+        <ImageButton
+            android:id="@+id/buttonAdding"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:backgroundTint="@null"
+            android:background="@android:color/transparent"
+            android:src="@drawable/footer_plus" />
+    </LinearLayout>
 
-    <ImageView
-        android:id="@+id/item3"
+    <LinearLayout
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_weight="1"
-        android:src="@drawable/footer_logo" />
+        android:background="@android:color/transparent"
+        android:layout_weight="1">
+        <ImageButton
+            android:id="@+id/buttonDefault"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/footer_logo" />
+    </LinearLayout>
 
-    <ImageView
-        android:id="@+id/item4"
+    <LinearLayout
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_weight="1"
-        android:src="@drawable/footer_conversation" />
+        android:background="@android:color/transparent"
+        android:layout_weight="1">
+        <ImageButton
+            android:id="@+id/buttonChatting"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/footer_conversation" />
+    </LinearLayout>
 
-    <ImageView
-        android:id="@+id/item5"
+    <LinearLayout
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_weight="1"
-        android:src="@drawable/footer_avatar" />
-
+        android:background="@android:color/transparent"
+        android:layout_weight="1">
+        <ImageButton
+            android:id="@+id/buttonProfile"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/footer_avatar" />
+    </LinearLayout>
 
 </LinearLayout>
