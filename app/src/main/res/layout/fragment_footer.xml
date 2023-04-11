@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="60dp"
-    android:background="#789456"
+    android:background="@android:color/transparent"
     android:gravity="center"
     android:id="@+id/fragmentFooter"
     android:orientation="horizontal"
