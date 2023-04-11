@@ -3,7 +3,6 @@ package com.example.blablaplane.object;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Currency;
 import java.util.Date;
 import java.util.Locale;
 
@@ -99,7 +98,7 @@ public class Trip {
      * @return String in the format "00:00"
      */
     public String getDepartureTime() {
-        return dateFormatter.format(getDepartureDate()).substring(11, 16);
+        return dateFormatter.format(getDepartureDate()).substring(11, 16).replace(":", "h");
     }
 
     /**
@@ -108,7 +107,7 @@ public class Trip {
      * @return String in the format "00:00"
      */
     public String getArrivalTime() {
-        return dateFormatter.format(getArrivalDate()).substring(11, 16);
+        return dateFormatter.format(getArrivalDate()).substring(11, 16).replace(":", "h");
     }
 
     /**

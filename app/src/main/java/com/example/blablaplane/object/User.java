@@ -1,5 +1,7 @@
 package com.example.blablaplane.object;
 
+import java.util.List;
+
 public class User {
     private final int id;
     private String name;
@@ -8,8 +10,9 @@ public class User {
     private String password;
     private String phone;
     private float rating;
+    private List<Plane> planes;
 
-    public User(int id, String name, String surname, String email, String password, String phone, float rating) {
+    public User(int id, String name, String surname, String email, String password, String phone, float rating, List<Plane> planes) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -17,6 +20,7 @@ public class User {
         this.password = password;
         this.phone = phone;
         this.rating = rating;
+        this.planes = planes;
     }
 
     public int getId() {
@@ -45,5 +49,9 @@ public class User {
 
     public String getRating() {
         return "★ " + this.rating + "/5";
+    }
+
+    public List<Plane> getPlanes() {
+        return this.planes;
     }
 }

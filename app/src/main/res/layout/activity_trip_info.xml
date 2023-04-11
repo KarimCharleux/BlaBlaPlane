@@ -43,6 +43,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
+                android:contentDescription="Departure location"
                 app:srcCompat="@drawable/location_pin" />
 
             <TextView
@@ -78,6 +79,7 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="-5dp"
+                android:contentDescription="Duration of the flight"
                 app:srcCompat="@drawable/plane_arrow" />
 
             <TextView
@@ -100,6 +102,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
+                android:contentDescription="Arrival location"
                 app:srcCompat="@drawable/location_pin" />
 
             <TextView
@@ -173,6 +176,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
+                android:contentDescription="User profile"
                 app:srcCompat="@drawable/profile1" />
 
             <LinearLayout
@@ -256,6 +260,7 @@
                     android:layout_height="52dp"
                     android:background="#39C3FD"
                     android:padding="10dp"
+                    android:contentDescription="Plane profile"
                     app:srcCompat="@drawable/small_plane" />
             </androidx.cardview.widget.CardView>
 
@@ -305,5 +310,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView2" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/header"
+        android:name="com.example.blablaplane.Fragment_Footer_Menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout="@layout/fragment_footer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
