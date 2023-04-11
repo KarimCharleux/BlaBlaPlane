@@ -37,8 +37,8 @@ public class Fragment_Footer_Menu extends Fragment implements View.OnClickListen
         Intent intentNavigateNewPage;
         switch (v.getId()) {
             case R.id.buttonSearching:
-                /*intentNavigateNewPage = new Intent(getActivity(), SearchingPage.class);
-                startActivity(intentNavigateNewPage);*/
+                intentNavigateNewPage = new Intent(getActivity(), Accueil.class);
+                startActivity(intentNavigateNewPage);
                 break;
             case R.id.buttonAdding:
                 /*intentNavigateNewPage = new Intent(getActivity(), AddingPage.class);
@@ -53,8 +53,8 @@ public class Fragment_Footer_Menu extends Fragment implements View.OnClickListen
                 startActivity(intentNavigateNewPage);*/
                 break;
             case R.id.buttonProfile:
-                /*intentNavigateNewPage = new Intent(getActivity(), profilePage.class);
-                startActivity(intentNavigateNewPage);*/
+                intentNavigateNewPage = new Intent(getActivity(), ProfileActivity.class);
+                startActivity(intentNavigateNewPage);
                 break;
             default:
                 break;
