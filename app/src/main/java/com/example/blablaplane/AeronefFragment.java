@@ -14,6 +14,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link AeronefFragment#newInstance} factory method to
@@ -47,5 +51,11 @@ public class AeronefFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        ListView listView = (ListView) view.findViewById(R.id.aeronef_list);
+        List<String> list = new ArrayList<>(Arrays.asList("avion a", "avion b"));
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, list);
+        listView.setAdapter(adapter);
+
     }
 }
