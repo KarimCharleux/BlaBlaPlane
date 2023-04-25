@@ -1,4 +1,7 @@
+package com.example.blablaplane;
+
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,8 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.blablaplane.R;
-import com.example.blablaplane.VehiculeArray;
+import java.io.Console;
 
 public class VehiculeAdapter extends BaseAdapter {
 
@@ -55,10 +57,11 @@ public class VehiculeAdapter extends BaseAdapter {
         ImageView image = vehiculeSelectionView.findViewById(R.id.IV_PLANE);
         TextView nbPassenger = vehiculeSelectionView.findViewById(R.id.NUMBER_PASSENGER);
 
+
         // Set the text of the view for the trip
         planeName.setText(vehiculeArray.get(i).getName());
-        image.setImageAlpha(vehiculeArray.get(i).getImg());
-        nbPassenger.setText(vehiculeArray.get(i).getCapacity());
+        image.setImageResource(vehiculeArray.get(i).getImg());
+        nbPassenger.setText(Integer.toString(vehiculeArray.get(i).getCapacity()));
 
         // Set the listener to the click on a trip
         vehiculeSelectionView.setOnClickListener(v -> {

@@ -7,7 +7,7 @@
     tools:context=".Publish_PriceVehicule_Activity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:name="com.example.blablaplane.header"
+        android:name="com.example.blablaplane.HeaderFragment"
         android:id="@+id/header_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
     
     <ListView
         android:id="@+id/LV_vehicule"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
         android:layout_marginTop="25dp"

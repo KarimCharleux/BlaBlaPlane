@@ -3,12 +3,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".vehiculeChoice">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".VehiculeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/vehicule_fragment_background"
+        android:paddingHorizontal="15dp">
 
+        <TextView
+            android:id="@+id/planeName"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:text="A380"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/IV_PLANE"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/footer_avatar"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+
+            app:layout_constraintRight_toLeftOf="@id/NUMBER_PASSENGER"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/NUMBER_PASSENGER"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginRight="25dp"
+            android:text="3"
+
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
