@@ -9,6 +9,35 @@
     <string name="start">Départ</string>
     <string name="destination">Destination</string>
     <string name="search">Rechercher</string>
+    <string name="surnamePilot">LUTUN</string>
+    <string name="namePilot">Théo</string>
+    <string name="photoPilote">User profile</string>
+    <string name="picePerPassanger">Prix total pour 1 passager</string>
+    <string name="priceTrip">200,00 €</string>
+    <string name="arrivalTime">13h35</string>
+    <string name="arrivalText">Nice</string>
+    <string name="location2">Arrival location</string>
+    <string name="durationTime">1h30</string>
+    <string name="arrowPlaneDescription">Durée du vol</string>
+    <string name="departureTime">12h05</string>
+    <string name="departureText">Paris</string>
+    <string name="departureLocationDescription">Localisation Départ</string>
+    <string name="ratingPilot">★ 2/5</string>
+    <string name="contactButton">Contacter</string>
+    <string name="photoPlane">Avion Profile</string>
+    <string name="namePlane">Cessna 140</string>
+    <string name="bookButton">Réserver</string>
+    <string name="dateText">Mercredi 17 mai</string>
+    <string name="buttonsearching">Button Rechercher</string>
+    <string name="buttonAdding">Button Ajouter</string>
+    <string name="buttondefault">button Home</string>
+    <string name="buttonChatting">Button Messages</string>
+    <string name="buttonProfile">Button Profile</string>
+    <string name="headerLogo">Header Logo</string>
+    <string name="route">route</string>
+    <string name="photoPilot">Photo Pilote</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
