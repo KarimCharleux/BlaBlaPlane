@@ -11,11 +11,11 @@ public class Trip {
     public static final SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private final int id;
     private final int pilotId;
-    private String departureDate;
-    private String arrivalDate;
-    private String departure;
-    private String arrival;
-    private Float price;
+    private final String departureDate;
+    private final String arrivalDate;
+    private final String departure;
+    private final String arrival;
+    private final Float price;
 
     public Trip(int id, String departureDate, String arrivalDate, String departure, String arrival, Float price, int pilot) {
         this.id = id;
@@ -111,11 +111,12 @@ public class Trip {
     }
 
     /**
-     * Get the departure date of the trip in the format "Thu, 01 Jan"
+     * Get the departure date of the trip in the format "Samedi 01 Janvier 2021"
      *
-     * @return String in the format "Thu, 01 Jan"
+     * @return String in the format "Samedi 01 Janvier 2021"
      */
     public String getDate() {
-        return dateFormatter.format(getDepartureDate()).substring(0, 10);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEEE dd MMMM yyyy", new Locale("fr", "FR"));
+        return simpleDateFormat.format(getDepartureDate()).substring(0, 1).toUpperCase() + simpleDateFormat.format(getDepartureDate()).substring(1);
     }
 }

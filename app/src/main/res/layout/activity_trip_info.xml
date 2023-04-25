@@ -8,7 +8,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView2"
-        android:name="com.example.blablaplane.Header"
+        android:name="com.example.blablaplane.HeaderFragment"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -156,7 +156,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:orientation="vertical"
@@ -165,7 +165,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -180,7 +180,7 @@
                 app:srcCompat="@drawable/profile1" />
 
             <LinearLayout
-                android:layout_width="170dp"
+                android:layout_width="155dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
@@ -215,7 +215,6 @@
                     android:text="★ 2/5" />
             </LinearLayout>
 
-
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -227,14 +226,14 @@
 
                 <Button
                     android:id="@+id/contactButton"
-                    android:layout_width="149dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#F1F1F1"
                     android:outlineSpotShadowColor="#F1F1F1"
                     android:text="Contacter"
                     android:textAllCaps="false"
                     android:textColor="#4A4A4A"
-                    android:textSize="20sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
 
@@ -259,8 +258,8 @@
                     android:layout_width="52dp"
                     android:layout_height="52dp"
                     android:background="#39C3FD"
-                    android:padding="10dp"
                     android:contentDescription="Plane profile"
+                    android:padding="10dp"
                     app:srcCompat="@drawable/small_plane" />
             </androidx.cardview.widget.CardView>
 
@@ -312,13 +311,13 @@
         app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView2" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/header"
+        android:id="@+id/footerTripInfo"
         android:name="com.example.blablaplane.Fragment_Footer_Menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
