@@ -18,7 +18,7 @@
             android:name=".Publish_SelectCity_Activity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Accueil"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,13 +27,11 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".Accueil"
-                android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".TripInfo"
+            android:exported="false" />
+        <activity
+            android:name=".ListTrip"
+            android:exported="false">
     </application>
 
 </manifest>
