@@ -61,16 +61,42 @@
         app:layout_constraintRight_toRightOf="@+id/frag_publish_txt_select"
         />
 
-    <Button
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/input_selectCity"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
 
-        android:text="Confirmer"
+        android:hint="Entrez une adresse"
         android:backgroundTint="@color/blue"
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frag_publish_LV"
+        />
+
+    <Button
+        android:id="@+id/btn_confirm_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_selectCity"
+        android:layout_marginTop="25dp"
+
+        android:backgroundTint="@color/blue"
+
+        android:hint="Rechercher"
+        />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_confirm_search"
+        android:layout_marginTop="25dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
