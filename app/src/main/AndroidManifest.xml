@@ -12,6 +12,10 @@
         android:theme="@style/Theme.BlaBlaPlane"
         tools:targetApi="31">
         <activity
+            android:name=".ConnexionActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".Accueil"
             android:exported="false"/>
         <activity

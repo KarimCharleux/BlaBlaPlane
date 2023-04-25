@@ -233,7 +233,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/footer"
-        android:name="com.example.blablaplane.HeaderFragment"
+        android:name="com.example.blablaplane.Fragment_Footer_Menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
