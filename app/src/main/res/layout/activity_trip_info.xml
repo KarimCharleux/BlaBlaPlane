@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TripActivity">
+    tools:context=".TripInfo">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView2"
-        android:name="com.example.blablaplane.header"
+        android:name="com.example.blablaplane.HeaderFragment"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,7 +30,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView2"
-        app:layout_constraintVertical_bias="0.064">
+        app:layout_constraintVertical_bias="0.081">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -43,6 +43,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
+                android:contentDescription="Departure location"
                 app:srcCompat="@drawable/location_pin" />
 
             <TextView
@@ -78,6 +79,7 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="-5dp"
+                android:contentDescription="Duration of the flight"
                 app:srcCompat="@drawable/plane_arrow" />
 
             <TextView
@@ -100,10 +102,11 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
+                android:contentDescription="Arrival location"
                 app:srcCompat="@drawable/location_pin" />
 
             <TextView
-                android:id="@+id/destinationText"
+                android:id="@+id/arrivalText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nice"
@@ -112,7 +115,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/destinationTime"
+                android:id="@+id/arrivalTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -153,7 +156,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:orientation="vertical"
@@ -162,7 +165,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -173,10 +176,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
+                android:contentDescription="User profile"
                 app:srcCompat="@drawable/profile1" />
 
             <LinearLayout
-                android:layout_width="170dp"
+                android:layout_width="155dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
@@ -186,7 +190,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/namePilote"
+                        android:id="@+id/namePilot"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="6dp"
@@ -195,7 +199,7 @@
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/surnamePilote"
+                        android:id="@+id/surnamePilot"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="LUTUN"
@@ -205,12 +209,11 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/rating"
+                    android:id="@+id/ratingPilot"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="★ 2/5" />
             </LinearLayout>
-
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
@@ -223,14 +226,14 @@
 
                 <Button
                     android:id="@+id/contactButton"
-                    android:layout_width="149dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#F1F1F1"
                     android:outlineSpotShadowColor="#F1F1F1"
                     android:text="Contacter"
                     android:textAllCaps="false"
                     android:textColor="#4A4A4A"
-                    android:textSize="20sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
 
@@ -255,6 +258,7 @@
                     android:layout_width="52dp"
                     android:layout_height="52dp"
                     android:background="#39C3FD"
+                    android:contentDescription="Plane profile"
                     android:padding="10dp"
                     app:srcCompat="@drawable/small_plane" />
             </androidx.cardview.widget.CardView>
@@ -292,5 +296,31 @@
             tools:layout_editor_absoluteX="105dp"
             tools:layout_editor_absoluteY="503dp" />
     </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mercredi 17 mai"
+        android:textColor="#054B68"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView2" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/footerTripInfo"
+        android:name="com.example.blablaplane.Fragment_Footer_Menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout="@layout/fragment_footer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

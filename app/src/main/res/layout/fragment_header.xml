@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="70dp"
-    tools:context=".HeaderFragment"
-    >
+    tools:context=".Header">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
