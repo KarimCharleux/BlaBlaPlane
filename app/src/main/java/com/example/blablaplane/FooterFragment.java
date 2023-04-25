@@ -43,8 +43,8 @@ public class FooterFragment extends Fragment implements View.OnClickListener {
                 startActivity(intentNavigateNewPage);*/
                 break;
             case R.id.buttonDefault:
-                /*intentNavigateNewPage = new Intent(getActivity(), defautlPage.class);
-                startActivity(intentNavigateNewPage);*/
+                intentNavigateNewPage = new Intent(getActivity(), MyTripActivity.class);
+                startActivity(intentNavigateNewPage);
                 break;
             case R.id.buttonChatting:
                 /*intentNavigateNewPage = new Intent(getActivity(), chattingPage.class);
