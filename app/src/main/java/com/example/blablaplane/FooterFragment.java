@@ -9,19 +9,17 @@ import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
 
-public class Fragment_Footer_Menu extends Fragment implements View.OnClickListener {
-
-    private ImageButton buttonSearching, buttonAdding, buttonDefault, buttonChatting, buttonProfile;
+public class FooterFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_footer, container, false);
 
-        buttonSearching = view.findViewById(R.id.buttonSearching);
-        buttonAdding = view.findViewById(R.id.buttonAdding);
-        buttonDefault = view.findViewById(R.id.buttonDefault);
-        buttonChatting = view.findViewById(R.id.buttonChatting);
-        buttonProfile = view.findViewById(R.id.buttonProfile);
+        ImageButton buttonSearching = view.findViewById(R.id.buttonSearching);
+        ImageButton buttonAdding = view.findViewById(R.id.buttonAdding);
+        ImageButton buttonDefault = view.findViewById(R.id.buttonDefault);
+        ImageButton buttonChatting = view.findViewById(R.id.buttonChatting);
+        ImageButton buttonProfile = view.findViewById(R.id.buttonProfile);
 
         buttonSearching.setOnClickListener(this);
         buttonAdding.setOnClickListener(this);
@@ -37,8 +35,8 @@ public class Fragment_Footer_Menu extends Fragment implements View.OnClickListen
         Intent intentNavigateNewPage;
         switch (v.getId()) {
             case R.id.buttonSearching:
-                /*intentNavigateNewPage = new Intent(getActivity(), SearchingPage.class);
-                startActivity(intentNavigateNewPage);*/
+                intentNavigateNewPage = new Intent(getActivity(), Home.class);
+                startActivity(intentNavigateNewPage);
                 break;
             case R.id.buttonAdding:
                 /*intentNavigateNewPage = new Intent(getActivity(), AddingPage.class);

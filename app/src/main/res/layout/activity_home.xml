@@ -5,14 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/accueil_background"
-    tools:context=".Accueil">
+    tools:context=".Home">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/header"
         android:name="com.example.blablaplane.HeaderFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/footer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:layout="@layout/fragment_header" />
 
     <LinearLayout
@@ -74,6 +79,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="20dp"
                     android:background="@drawable/circle"
+                    android:contentDescription="@string/start"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -81,11 +87,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="5dp"
-                    android:layout_marginStart="10dp"
+                    android:layout_margin="10dp"
                     android:text="@string/start"
                     android:textColor="#014752"
-                    android:textSize="30sp"
+                    android:textSize="25sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/startCircle"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -108,6 +113,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="20dp"
                     android:background="@drawable/circle"
+                    android:contentDescription="@string/destination"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -115,11 +121,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="5dp"
-                    android:layout_marginStart="10dp"
+                    android:layout_margin="10dp"
                     android:text="@string/destination"
                     android:textColor="#014752"
-                    android:textSize="30sp"
+                    android:textSize="25sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/Destiantioncircle"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -145,22 +150,23 @@
 
                     <ImageView
                         android:id="@+id/calendar"
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
-                        android:layout_marginStart="10dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="20dp"
+                        android:contentDescription="@string/date"
                         android:src="@drawable/calendar"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.434" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="5dp"
-                        android:layout_marginStart="10dp"
+                        android:layout_margin="10dp"
                         android:text="@string/date"
                         android:textColor="#014752"
-                        android:textSize="30sp"
+                        android:textSize="25sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/calendar"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -171,18 +177,18 @@
                     android:id="@+id/peopleBox"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:background="@drawable/number_people_stroke"
                     android:clickable="true"
-                    android:paddingVertical="5dp"
                     android:paddingHorizontal="5dp"
+                    android:paddingVertical="5dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:background="@drawable/person"
+                        android:contentDescription="@string/number_of_people"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/numberOfPeople"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -191,7 +197,8 @@
                         android:id="@+id/numberOfPeople"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="40dp"
+
+                        android:layout_marginEnd="10dp"
                         android:text="@string/number_of_people"
                         android:textColor="#014752"
                         android:textSize="30sp"
@@ -215,7 +222,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="5dp"
+                    android:layout_margin="10dp"
                     android:text="@string/search"
                     android:textColor="@color/white"
                     android:textSize="30sp"
@@ -233,9 +240,14 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/footer"
-        android:name="com.example.blablaplane.Fragment_Footer_Menu"
+        android:name="com.example.blablaplane.FooterFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         tools:layout="@layout/fragment_footer" />
 </androidx.constraintlayout.widget.ConstraintLayout>
