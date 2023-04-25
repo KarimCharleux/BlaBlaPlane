@@ -15,6 +15,9 @@
             android:name=".Publish_PriceVehicule_Activity"
             android:exported="false" />
         <activity
+            android:name=".Publish_SelectCity_Activity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

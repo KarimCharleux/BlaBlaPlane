@@ -1,68 +1,79 @@
 package com.example.blablaplane;
 
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationRequest;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.text.TextUtils;
+import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Publish_SelectCity_Activity#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class Publish_SelectCity_Activity extends Fragment {
+import com.example.blablaplane.Exceptions.NoPlacesAvailableException;
+
+import java.io.IOException;
+import java.util.List;
+
+
+public class Publish_SelectCity_Activity extends AppCompatActivity {
+
+    //systeme de recherche de localisation
+    private LocationRequest locationRequest;
+    private Location location;
+
 
     private ListView lv_city;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private Button btn_search;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public Publish_SelectCity_Activity() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment fragment_publish.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Publish_SelectCity_Activity newInstance(String param1, String param2) {
-        Publish_SelectCity_Activity fragment = new Publish_SelectCity_Activity();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.layout_publish_selectcity);
 
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        EditText input_city = findViewById(R.id.input_selectCity);
+
+        btn_search = findViewById(R.id.btn_confirm_search);
+
+        Log.d("CREATION BTN","creation");
+
+       btn_search.setOnClickListener(view -> {
+           String addressRequest = "";
+           //on recupere la valeur de l'input dans une string
+           addressRequest = input_city.getText().toString();
+
+           //on cree une liste d'adresses
+           List<Address> addressList;
+
+           Log.d("INPUT",addressRequest);
+
+           if(!TextUtils.isEmpty(addressRequest)){
+               Geocoder geocoder = new Geocoder(getApplicationContext());
+
+               try { addressList = geocoder.getFromLocationName(addressRequest,10);}
+               catch (IOException err){throw new NoPlacesAvailableException("No Places available");}
+
+               Log.d("GPS RESULTS",""+addressList.toString());
+
+               //si geocoder à trouver des résultats, on affiche des la listeview
+               if(!addressList.isEmpty()){
+                   //TODO : mettre en forme la listview
+
+               }
+               //sinon...
+               else{
+
+               }
+           }
+       });
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.layou_publish_selectcity, container, false);
-    }
+
+
 }
