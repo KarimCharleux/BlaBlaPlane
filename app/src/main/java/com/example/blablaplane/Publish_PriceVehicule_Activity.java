@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
-import com.example.blablaplane.object.VehiculeArray;
+import com.example.blablaplane.object.vehicule.VehiculeAdapter;
+import com.example.blablaplane.object.vehicule.VehiculeAdapterListener;
+import com.example.blablaplane.object.vehicule.VehiculeArray;
 
 public class Publish_PriceVehicule_Activity extends AppCompatActivity implements VehiculeAdapterListener {
 

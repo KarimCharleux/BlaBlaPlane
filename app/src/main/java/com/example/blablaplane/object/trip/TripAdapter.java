@@ -1,4 +1,4 @@
-package com.example.blablaplane;
+package com.example.blablaplane.object.trip;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,9 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.example.blablaplane.object.TripArray;
-import com.example.blablaplane.object.User;
-import com.example.blablaplane.object.UserArray;
+import com.example.blablaplane.R;
+import com.example.blablaplane.object.user.User;
+import com.example.blablaplane.object.user.UserArray;
 
 public class TripAdapter extends BaseAdapter {
 

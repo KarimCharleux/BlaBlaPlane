@@ -1,4 +1,4 @@
-package com.example.blablaplane.object;
+package com.example.blablaplane.object.messageProfil;
 
 import java.util.ArrayList;
 

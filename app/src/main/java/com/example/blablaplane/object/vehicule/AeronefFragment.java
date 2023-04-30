@@ -1,6 +1,4 @@
-package com.example.blablaplane;
-
-import static com.google.android.material.internal.ContextUtils.getActivity;
+package com.example.blablaplane.object.vehicule;
 
 import android.os.Bundle;
 
@@ -13,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.example.blablaplane.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;

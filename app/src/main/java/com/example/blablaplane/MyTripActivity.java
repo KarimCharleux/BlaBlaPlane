@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 
-import com.example.blablaplane.object.TripArray;
+import com.example.blablaplane.object.trip.TripAdapter;
+import com.example.blablaplane.object.trip.TripAdapterListener;
+import com.example.blablaplane.object.trip.TripArray;
 
 public class MyTripActivity extends AppCompatActivity implements TripAdapterListener {
 

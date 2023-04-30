@@ -1,4 +1,4 @@
-package com.example.blablaplane;
+package com.example.blablaplane.object.vehicule;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.blablaplane.object.VehiculeArray;
+import com.example.blablaplane.R;
 
 public class VehiculeAdapter extends BaseAdapter {
 

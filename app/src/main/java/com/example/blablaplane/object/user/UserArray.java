@@ -1,4 +1,4 @@
-package com.example.blablaplane.object;
+package com.example.blablaplane.object.user;
 
 import java.util.ArrayList;
 import java.util.Collections;

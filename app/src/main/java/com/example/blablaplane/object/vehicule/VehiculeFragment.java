@@ -1,4 +1,4 @@
-package com.example.blablaplane;
+package com.example.blablaplane.object.vehicule;
 
 import android.os.Bundle;
 
@@ -8,15 +8,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.blablaplane.R;
 
-public class TrajectFragment extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link VehiculeFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class VehiculeFragment extends Fragment {
 
-    public TrajectFragment() {
+    public VehiculeFragment() {
         // Required empty public constructor
     }
 
-    public static TrajectFragment newInstance() {
-        TrajectFragment fragment = new TrajectFragment();
+    public static VehiculeFragment newInstance() {
+        VehiculeFragment fragment = new VehiculeFragment();
         return fragment;
     }
 
@@ -28,6 +34,6 @@ public class TrajectFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_traject, container, false);
+        return inflater.inflate(R.layout.fragment_vehicule_choice, container, false);
     }
 }

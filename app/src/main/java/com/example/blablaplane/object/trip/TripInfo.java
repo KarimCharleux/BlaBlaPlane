@@ -1,16 +1,15 @@
-package com.example.blablaplane;
+package com.example.blablaplane.object.trip;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.blablaplane.object.Trip;
-import com.example.blablaplane.object.TripArray;
-import com.example.blablaplane.object.User;
-import com.example.blablaplane.object.UserArray;
-
-import java.text.NumberFormat;
+import com.example.blablaplane.R;
+import com.example.blablaplane.object.trip.Trip;
+import com.example.blablaplane.object.trip.TripArray;
+import com.example.blablaplane.object.user.User;
+import com.example.blablaplane.object.user.UserArray;
 
 public class TripInfo extends AppCompatActivity {
 

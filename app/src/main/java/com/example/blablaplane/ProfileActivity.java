@@ -1,24 +1,13 @@
 package com.example.blablaplane;
 
-import static com.google.android.material.internal.ContextUtils.getActivity;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.AttributeSet;
-import android.view.View;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.blablaplane.object.MessageProfilArray;
-import com.example.blablaplane.object.VehiculeArray;
+import com.example.blablaplane.object.vehicule.VehiculeAdapter;
+import com.example.blablaplane.object.vehicule.VehiculeAdapterListener;
+import com.example.blablaplane.object.vehicule.VehiculeArray;
 
 public class ProfileActivity extends AppCompatActivity implements VehiculeAdapterListener {
 

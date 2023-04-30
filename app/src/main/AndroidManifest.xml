@@ -38,10 +38,10 @@
             android:name=".Publish_SelectCity_Activity"
             android:exported="false" />
         <activity
-            android:name=".TripInfo"
+            android:name=".object.trip.TripInfo"
             android:exported="false" />
         <activity
-            android:name=".ListTrip"
+            android:name=".object.trip.ListTrip"
             android:exported="false"/>
         <activity
             android:name=".ProfileActivity"

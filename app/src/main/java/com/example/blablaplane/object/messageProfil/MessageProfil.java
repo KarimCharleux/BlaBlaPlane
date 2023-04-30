@@ -1,4 +1,4 @@
-package com.example.blablaplane.object;
+package com.example.blablaplane.object.messageProfil;
 
 import java.text.NumberFormat;
 import java.text.ParseException;

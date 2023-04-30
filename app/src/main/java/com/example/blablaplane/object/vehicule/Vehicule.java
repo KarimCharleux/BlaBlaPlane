@@ -1,4 +1,4 @@
-package com.example.blablaplane.object;
+package com.example.blablaplane.object.vehicule;
 
 public class Vehicule {
     private String name;

@@ -2,11 +2,12 @@ package com.example.blablaplane;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 
-import com.example.blablaplane.object.MessageProfilArray;
+import com.example.blablaplane.object.messageProfil.MessageProfilAdapter;
+import com.example.blablaplane.object.messageProfil.MessageProfilAdapterListener;
+import com.example.blablaplane.object.messageProfil.MessageProfilArray;
 
 public class MessageActivity extends AppCompatActivity implements MessageProfilAdapterListener {
 

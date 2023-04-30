@@ -1,4 +1,6 @@
-package com.example.blablaplane.object;
+package com.example.blablaplane.object.user;
+
+import com.example.blablaplane.object.vehicule.Plane;
 
 import java.util.List;
 

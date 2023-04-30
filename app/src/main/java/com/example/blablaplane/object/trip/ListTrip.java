@@ -1,4 +1,4 @@
-package com.example.blablaplane;
+package com.example.blablaplane.object.trip;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.blablaplane.object.TripArray;
+import com.example.blablaplane.R;
 
 public class ListTrip extends AppCompatActivity implements TripAdapterListener {
 
