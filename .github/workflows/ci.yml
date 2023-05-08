@@ -10,12 +10,26 @@ on:
       
   workflow_dispatch:
   
+
 jobs:
   build:
     runs-on: ubuntu-latest
       
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-iava@v3
+      - uses: gradle/gradle-build-action@v2
+
+      - name: build project
+        run: ./gradlew build
+        
+      
+
+  linter:
+    runs-on: ubuntu-latest
+      
+    steps:
+      - uses: actions/checkout@v3
         
       - name: Run Linter
         run: ./gradlew lintDebug

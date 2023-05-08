@@ -1,9 +1,10 @@
+*.DS_STORE
+
 # Built application files
 *.apk
 *.aar
 *.ap_
 *.aab
-
 # Files for the ART/Dalvik VM
 *.dex
 
