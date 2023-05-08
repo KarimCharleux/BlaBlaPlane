@@ -1,14 +1,16 @@
 name: CI
 
 on:
+  workflow_dispatch:
   push:
     branches:
-      - 'develop'
+      - "develop"
+      - "cicd"
   pull_request:
     branches: 
-      - 'develop'
-      
-  workflow_dispatch:
+      - "develop"
+      - "cicd"
+  
   
 
 jobs:
