@@ -2,4 +2,13 @@
 plugins {
     id 'com.android.application' version '7.4.1' apply false
     id 'com.android.library' version '7.4.1' apply false
+    id("org.sonarqube") version "4.0.0.2929"
+}
+
+sonarqube {
+  properties {
+    property("sonar.projectKey", "Blablaplane")
+    property("sonar.host.url", "http://129.151.225.149:9000")
+    property("sonar.token", "squ_733f9d41bfcd7810dc006322e70744fb4fca624a")
+  }
 }
