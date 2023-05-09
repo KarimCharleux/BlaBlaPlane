@@ -35,7 +35,7 @@ public class FooterFragment extends Fragment implements View.OnClickListener {
         Intent intentNavigateNewPage;
         switch (v.getId()) {
             case R.id.buttonSearching:
-                intentNavigateNewPage = new Intent(getActivity(), Home.class);
+                intentNavigateNewPage = new Intent(getActivity(), HomeActivity.class);
                 startActivity(intentNavigateNewPage);
                 break;
             case R.id.buttonAdding:

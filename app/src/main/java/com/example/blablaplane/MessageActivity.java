@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
-import com.example.blablaplane.object.messageProfil.MessageProfilAdapter;
-import com.example.blablaplane.object.messageProfil.MessageProfilAdapterListener;
-import com.example.blablaplane.object.messageProfil.MessageProfilArray;
+import com.example.blablaplane.object.message.MessageProfilAdapter;
+import com.example.blablaplane.object.message.MessageProfilAdapterListener;
+import com.example.blablaplane.object.message.MessageProfilArray;
 
 public class MessageActivity extends AppCompatActivity implements MessageProfilAdapterListener {
 
