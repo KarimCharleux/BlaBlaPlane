@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/traject_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/traject_fragment_backgroud"
+    android:clickable="true"
+    tools:context=".object.trip.TrajectFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="15dp">
+
+        <TextView
+            android:id="@+id/depart_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/departureTime"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/duration_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="-15dp"
+            android:text="@string/durationTime"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@id/depart_time"
+            app:layout_constraintTop_toBottomOf="@id/depart_time" />
+
+        <TextView
+            android:id="@+id/arrive_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/arrivalTime"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/depart_time"
+            app:layout_constraintTop_toBottomOf="@id/duration_time" />
+
+        <ImageView
+            android:id="@+id/route_image"
+            android:layout_width="50dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="15dp"
+            android:contentDescription="@string/route"
+            android:src="@drawable/traject_logo"
+            app:layout_constraintStart_toEndOf="@id/depart_time"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/departure_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/departureText"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/route_image"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/arrival_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/arrivalText"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/route_image"
+            app:layout_constraintTop_toBottomOf="@id/duration_time" />
+
+        <TextView
+            android:id="@+id/price_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/priceTrip"
+            android:textColor="#39c3fe"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/picture_profile"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="-5dp"
+            android:layout_marginTop="10dp"
+            android:paddingBottom="15dp"
+            android:src="@drawable/profile1"
+            app:layout_constraintStart_toStartOf="@id/depart_time"
+            app:layout_constraintTop_toBottomOf="@id/route_image"
+            android:contentDescription="@string/photoPilot" />
+
+        <TextView
+            android:id="@+id/first_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/namePilot"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintStart_toEndOf="@id/picture_profile"
+            app:layout_constraintTop_toTopOf="@id/picture_profile" />
+
+        <TextView
+            android:id="@+id/last_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/surnamePilot"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/first_name"
+            app:layout_constraintTop_toTopOf="@id/first_name" />
+
+        <TextView
+            android:id="@+id/rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@string/ratingPilot"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/picture_profile"
+            app:layout_constraintTop_toBottomOf="@id/first_name" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".object.messageProfil.MessageProfilFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="14dp"
+        android:layout_marginLeft="35dp">
+
+        <ImageView
+            android:id="@+id/pictureProfile"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/profile1"/>
+        <TextView
+            android:id="@+id/firstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/pictureProfile"
+            app:layout_constraintTop_toTopOf="@id/pictureProfile"
+            app:layout_constraintBottom_toBottomOf="@id/pictureProfile"
+            android:layout_marginLeft="20dp"
+            android:text="Martin"
+            android:textSize="24dp"
+            android:textColor="#4b4b4b"
+            />
+        <TextView
+            android:id="@+id/lastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/firstName"
+            app:layout_constraintTop_toTopOf="@id/pictureProfile"
+            app:layout_constraintBottom_toBottomOf="@id/pictureProfile"
+            android:layout_marginLeft="10dp"
+            android:text="ALBERT"
+            android:textStyle="bold"
+            android:textColor="#4b4b4b"
+            android:textSize="24dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
