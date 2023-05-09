@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BlaBlaPlane</string>
+
+    /* Accueil */
+
+    <string name="title">Des vols partagés pour des aventures inoubliables</string>
+    <string name="date">Aujourd\'hui</string>
+    <string name="number_of_people">1</string>
+    <string name="start">Départ</string>
+    <string name="destination">Destination</string>
+    <string name="search">Rechercher</string>
+
+
+</resources>
