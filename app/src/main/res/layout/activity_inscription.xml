@@ -23,11 +23,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="Inscription"
-            android:textSize="35dp"
-            android:layout_marginHorizontal="50dp"/>
+            android:style="@style/text_color_sub_category"/>
     </LinearLayout>
 
     <TextView
