@@ -14,7 +14,7 @@ public class InscriptionPage extends AppCompatActivity {
 
 
 
-    Fragment_Footer_Menu myFragment;
+    FooterFragment myFragment;
     CheckBox isPiloteCheckBox;
     CheckBox AirplaneCheckBox;
     CheckBox HelicopterCheckBox;
@@ -36,9 +36,10 @@ public class InscriptionPage extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        myFragment = new Fragment_Footer_Menu();
+        myFragment = new FooterFragment();
         fragmentTransaction.add(R.id.fragmentFooter, myFragment);
         fragmentTransaction.commit();
+
 
 
         this.isPiloteCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
