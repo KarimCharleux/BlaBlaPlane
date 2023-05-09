@@ -1,8 +1,10 @@
-package com.example.blablaplane;
+package com.example.blablaplane.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.blablaplane.R;
 
 public class InscriptionActivity extends AppCompatActivity {
 

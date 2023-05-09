@@ -12,22 +12,22 @@
         android:theme="@style/Theme.BlaBlaPlane"
         tools:targetApi="31">
         <activity
-            android:name=".MessageActivity"
+            android:name=".activity.MessageActivity"
             android:exported="true"/>
         <activity
-            android:name=".Publish_PriceVehicule_Activity"
+            android:name=".activity.Publish_PriceVehicule_Activity"
             android:exported="false"/>
         <activity
-            android:name=".MyTripActivity"
+            android:name=".activity.MyTripActivity"
             android:exported="false" />
         <activity
-            android:name=".InscriptionActivity"
+            android:name=".activity.InscriptionActivity"
             android:exported="false" />
         <activity
-            android:name=".ConnexionActivity"
+            android:name=".activity.ConnexionActivity"
             android:exported="false" />
         <activity
-            android:name=".Home"
+            android:name=".activity.Home_Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +35,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Publish_SelectCity_Activity"
+            android:name=".activity.Publish_SelectCity_Activity"
             android:exported="false" />
         <activity
             android:name=".object.trip.TripInfo"
@@ -44,7 +44,7 @@
             android:name=".object.trip.ListTrip"
             android:exported="false"/>
         <activity
-            android:name=".ProfileActivity"
+            android:name=".activity.ProfileActivity"
             android:exported="false"/>
     </application>
 

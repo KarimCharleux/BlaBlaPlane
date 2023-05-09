@@ -1,4 +1,4 @@
-package com.example.blablaplane;
+package com.example.blablaplane.activity;
 
 import android.location.Address;
 import android.location.Geocoder;
@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.blablaplane.Exceptions.NoPlacesAvailableException;
+import com.example.blablaplane.R;
 
 import java.io.IOException;
 import java.util.List;
@@ -35,7 +36,7 @@ public class Publish_SelectCity_Activity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_publish_selectcity);
+        setContentView(R.layout.activity_publish_selectcity);
 
         EditText input_city = findViewById(R.id.input_selectCity);
 

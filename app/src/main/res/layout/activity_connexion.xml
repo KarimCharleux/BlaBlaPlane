@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConnexionActivity">
+    tools:context=".activity.ConnexionActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/header"
-        android:name="com.example.blablaplane.HeaderFragment"
+        android:name="com.example.blablaplane.fragments.HeaderFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
