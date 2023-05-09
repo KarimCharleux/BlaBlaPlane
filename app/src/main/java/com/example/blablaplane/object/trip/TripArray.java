@@ -1,4 +1,4 @@
-package com.example.blablaplane.object;
+package com.example.blablaplane.object.trip;
 
 import java.util.ArrayList;
 

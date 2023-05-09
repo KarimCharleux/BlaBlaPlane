@@ -1,4 +1,4 @@
-package com.example.blablaplane;
+package com.example.blablaplane.object.messageProfil;
 
 import android.os.Bundle;
 
@@ -8,15 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.blablaplane.R;
 
-public class TrajectFragment extends Fragment {
+public class MessageProfilFragment extends Fragment {
 
-    public TrajectFragment() {
+    public MessageProfilFragment() {
         // Required empty public constructor
     }
 
-    public static TrajectFragment newInstance() {
-        TrajectFragment fragment = new TrajectFragment();
+    public static MessageProfilFragment newInstance(String param1, String param2) {
+        MessageProfilFragment fragment = new MessageProfilFragment();
         return fragment;
     }
 
@@ -28,6 +29,6 @@ public class TrajectFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_traject, container, false);
+        return inflater.inflate(R.layout.fragment_message_profil, container, false);
     }
 }

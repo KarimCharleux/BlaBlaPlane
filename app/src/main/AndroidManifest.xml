@@ -12,24 +12,40 @@
         android:theme="@style/Theme.BlaBlaPlane"
         tools:targetApi="31">
         <activity
-            android:name=".ConnexionActivity"
-            android:exported="false">
-        </activity>
+            android:name=".MessageActivity"
+            android:exported="true"/>
         <activity
-            android:name=".Accueil"
+            android:name=".Publish_PriceVehicule_Activity"
             android:exported="false"/>
         <activity
-            android:name=".TripInfo"
+            android:name=".MyTripActivity"
             android:exported="false" />
         <activity
-            android:name=".ListTrip"
+            android:name=".InscriptionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConnexionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Home"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Publish_SelectCity_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".object.trip.TripInfo"
+            android:exported="false" />
+        <activity
+            android:name=".object.trip.ListTrip"
+            android:exported="false"/>
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>

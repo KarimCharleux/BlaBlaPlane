@@ -1,19 +1,21 @@
 package com.example.blablaplane;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.example.blablaplane.object.trip.TripAdapter;
+import com.example.blablaplane.object.trip.TripAdapterListener;
+import com.example.blablaplane.object.trip.TripArray;
 
-import com.example.blablaplane.object.TripArray;
-
-public class ListTrip extends AppCompatActivity implements TripAdapterListener {
+public class MyTripActivity extends AppCompatActivity implements TripAdapterListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_trip);
+        setContentView(R.layout.activity_my_trip);
 
         // Get the list of trips
         TripArray tripArray = TripArray.getInstance();
@@ -33,7 +35,7 @@ public class ListTrip extends AppCompatActivity implements TripAdapterListener {
 
     @Override
     public void onTripClick(int tripId) {
-        Intent intent = new Intent(ListTrip.this, TripInfo.class);
+        Intent intent = new Intent(MyTripActivity.this, MyTripActivity.class);
         intent.putExtra("id", tripId);
         startActivity(intent);
     }
