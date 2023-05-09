@@ -19,12 +19,12 @@ public class TripAdapter extends BaseAdapter {
      */
     private TripAdapterListener listener;
 
-    private TripArray tripArray;
+    private final TripArray tripArray;
 
     /**
      * Mechanism to generate the graphic view from the XML file
      */
-    private LayoutInflater inflater;
+    private final LayoutInflater inflater;
 
     public TripAdapter(Context context, TripArray tripArray) {
         this.inflater = LayoutInflater.from(context);
@@ -62,8 +62,8 @@ public class TripAdapter extends BaseAdapter {
         TextView rating = tripView.findViewById(R.id.rate);
 
         // Set the text of the view for the trip
-        departure.setText(tripArray.get(i).getDeparture());
-        arrival.setText(tripArray.get(i).getArrival());
+        departure.setText(tripArray.get(i).getDeparture().getCityName());
+        arrival.setText(tripArray.get(i).getArrival().getCityName());
         duration.setText(tripArray.get(i).getDuration());
         price.setText(tripArray.get(i).getPrice());
 
