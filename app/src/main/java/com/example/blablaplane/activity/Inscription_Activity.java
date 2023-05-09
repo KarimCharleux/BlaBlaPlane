@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.blablaplane.R;
 
-public class InscriptionActivity extends AppCompatActivity {
+public class Inscription_Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

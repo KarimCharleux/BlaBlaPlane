@@ -220,6 +220,7 @@
                 app:layout_constraintTop_toBottomOf="@id/dateAndPeopleBox">
 
                 <TextView
+                    android:id="@+id/searchBoxText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"

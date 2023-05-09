@@ -1,4 +1,4 @@
-package com.example.blablaplane.object.messageProfil;
+package com.example.blablaplane.object.message;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,12 +14,12 @@ import com.example.blablaplane.R;
 public class MessageProfilAdapter extends BaseAdapter{
 
     private MessageProfilAdapterListener listener;
-    private MessageProfilArray messageProfilArray;
+    private final MessageProfilArray messageProfilArray;
 
     /**
      * Mechanism to generate the graphic view from the XML file
      */
-    private LayoutInflater inflater;
+    private final LayoutInflater inflater;
 
     public MessageProfilAdapter(Context context, MessageProfilArray messageProfilArray) {
         this.inflater = LayoutInflater.from(context);

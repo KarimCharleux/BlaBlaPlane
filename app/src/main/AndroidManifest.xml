@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -24,7 +27,7 @@
             android:name=".activity.InscriptionActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.ConnexionActivity"
+            android:name=".activity.Connexion_Activity"
             android:exported="false" />
         <activity
             android:name=".activity.Home_Activity"
@@ -38,14 +41,13 @@
             android:name=".activity.Publish_SelectCity_Activity"
             android:exported="false" />
         <activity
-            android:name=".object.trip.TripInfo"
+            android:name=".TripInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".object.trip.ListTrip"
-            android:exported="false"/>
+            android:name=".ListTripActivity"
+            android:exported="false" />
         <activity
             android:name=".activity.ProfileActivity"
             android:exported="false"/>
     </application>
-
 </manifest>

@@ -9,9 +9,9 @@ import com.example.blablaplane.CallBackInterface;
 import com.example.blablaplane.R;
 import com.example.blablaplane.factory.FragmentFactory;
 import com.example.blablaplane.fragments.FooterFragment;
-import com.example.blablaplane.object.messageProfil.MessageProfilAdapter;
-import com.example.blablaplane.object.messageProfil.MessageProfilAdapterListener;
-import com.example.blablaplane.object.messageProfil.MessageProfilArray;
+import com.example.blablaplane.object.message.MessageProfilAdapter;
+import com.example.blablaplane.object.message.MessageProfilAdapterListener;
+import com.example.blablaplane.object.message.MessageProfilArray;
 
 public class MessageActivity extends AppCompatActivity implements MessageProfilAdapterListener, CallBackInterface {
     FragmentFactory fragmentFactory;

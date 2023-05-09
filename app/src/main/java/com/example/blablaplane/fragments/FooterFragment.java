@@ -1,26 +1,20 @@
 package com.example.blablaplane.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.telecom.Call;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+
 import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.blablaplane.CallBackInterface;
-import com.example.blablaplane.activity.Home_Activity;
-import com.example.blablaplane.activity.MessageActivity;
-import com.example.blablaplane.activity.MyTripActivity;
-import com.example.blablaplane.activity.ProfileActivity;
+
 import com.example.blablaplane.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class FooterFragment extends Fragment {
 

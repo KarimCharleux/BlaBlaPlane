@@ -1,10 +1,6 @@
-package com.example.blablaplane.object.messageProfil;
+package com.example.blablaplane.object.message;
 
-import java.text.NumberFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 public class MessageProfil {
 

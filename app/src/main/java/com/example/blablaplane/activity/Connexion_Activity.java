@@ -4,11 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.blablaplane.CallBackInterface;
 import com.example.blablaplane.R;
 import com.example.blablaplane.fragments.FooterFragment;
 
-public class ConnexionActivity extends AppCompatActivity {
+public class Connexion_Activity extends AppCompatActivity {
     FooterFragment footerFragment;
 
     @Override

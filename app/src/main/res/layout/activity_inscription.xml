@@ -19,52 +19,54 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/connexion_inscription_header"
-        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/header">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Inscription"
-            android:textSize="35dp"
-            android:layout_marginHorizontal="50dp"/>
+            android:layout_marginHorizontal="50dp"
+            android:text="@string/inscription"
+            android:textSize="35sp" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/connexion_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/connexion_header"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:text="Créez votre profil"
-        android:textSize="25dp"
+        android:text="@string/createProfile"
         android:textColor="@color/black"
-        />
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/connexion_header" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="2dp"
+        android:layout_marginEnd="50dp"
+        android:contentDescription="@string/inscription"
         android:src="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/connexion_title"
-        android:layout_marginRight="50dp"/>
+        app:layout_constraintTop_toBottomOf="@id/connexion_title" />
 
     <EditText
         android:id="@+id/firstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
+        android:autofillHints=""
         android:background="@drawable/edit_text"
         android:ems="14"
-        android:hint="Prénom"
+        android:hint="@string/name"
         android:inputType="textPersonName"
-        android:paddingVertical="5dp"
         android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp"
         android:textColor="@color/black"
-        android:textSize="21dp"
         android:textCursorDrawable="@color/blue"
+        android:textSize="21sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/connexion_title" />
@@ -74,15 +76,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
+        android:autofillHints=""
         android:background="@drawable/edit_text"
         android:ems="14"
-        android:hint="Nom"
+        android:hint="@string/surname"
         android:inputType="textPersonName"
-        android:paddingVertical="5dp"
         android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp"
         android:textColor="@color/black"
-        android:textSize="21dp"
         android:textCursorDrawable="@color/blue"
+        android:textSize="21sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/firstName" />
@@ -92,15 +95,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
+        android:autofillHints=""
         android:background="@drawable/edit_text"
         android:ems="14"
-        android:hint="E-mail"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
-        android:paddingVertical="5dp"
         android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp"
         android:textColor="@color/black"
-        android:textSize="21dp"
         android:textCursorDrawable="@color/blue"
+        android:textSize="21sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lastName" />
@@ -110,14 +114,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
+        android:autofillHints=""
         android:background="@drawable/edit_text"
         android:ems="14"
-        android:hint="Mot de passe"
+        android:hint="@string/password"
         android:inputType="textPassword"
-        android:paddingVertical="5dp"
         android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp"
         android:textColor="@color/blue"
-        android:textSize="21dp"
+        android:textSize="21sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/EmailAddress" />
@@ -127,14 +132,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
+        android:autofillHints=""
         android:background="@drawable/edit_text"
         android:ems="14"
-        android:hint="Répétez le mot de passe"
+        android:hint="@string/repeatPassword"
         android:inputType="textPassword"
-        android:paddingVertical="5dp"
         android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp"
         android:textColor="@color/blue"
-        android:textSize="21dp"
+        android:textSize="21sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Password" />
@@ -143,48 +149,46 @@
         android:id="@+id/piloteCheckText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/piloteCheck"
+        android:text="@string/imPilot"
+        android:textColor="@color/black"
+        android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="@id/piloteCheck"
         app:layout_constraintStart_toStartOf="@id/RepeatPassword"
-        android:text="Je suis pilote"
-        android:textColor="@color/black"
-        android:textSize="17dp"/>
+        app:layout_constraintTop_toTopOf="@id/piloteCheck" />
+
     <CheckBox
         android:id="@+id/piloteCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/RepeatPassword"
+        android:buttonTint="@color/blue"
         app:layout_constraintStart_toEndOf="@id/piloteCheckText"
-        android:buttonTint="@color/blue"/>
+        app:layout_constraintTop_toBottomOf="@id/RepeatPassword" />
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="#39C3FD"
         app:cardCornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="30dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_bias="0.22000003">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#39C3FD"
-            android:outlineSpotShadowColor="#00BCD4"
             android:layout_gravity="center"
             android:layout_marginHorizontal="45dp"
             android:layout_marginVertical="5dp"
-            android:text="Inscription"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
+            android:backgroundTint="#39C3FD"
+            android:outlineSpotShadowColor="#00BCD4"
+            android:text="@string/inscription"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

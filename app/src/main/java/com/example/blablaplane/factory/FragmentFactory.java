@@ -9,12 +9,6 @@ import com.example.blablaplane.activity.Home_Activity;
 import com.example.blablaplane.activity.MessageActivity;
 import com.example.blablaplane.activity.MyTripActivity;
 import com.example.blablaplane.activity.ProfileActivity;
-import com.example.blablaplane.fragments.FooterFragment;
-import com.example.blablaplane.fragments.HeaderFragment;
-import com.example.blablaplane.object.messageProfil.MessageProfilFragment;
-import com.example.blablaplane.object.trip.TrajectFragment;
-import com.example.blablaplane.object.vehicule.AeronefFragment;
-import com.example.blablaplane.object.vehicule.VehiculeFragment;
 
 import java.util.List;
 

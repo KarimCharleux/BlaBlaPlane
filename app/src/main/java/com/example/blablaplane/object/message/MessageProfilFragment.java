@@ -1,4 +1,4 @@
-package com.example.blablaplane.object.messageProfil;
+package com.example.blablaplane.object.message;
 
 import android.os.Bundle;
 
@@ -17,8 +17,7 @@ public class MessageProfilFragment extends Fragment {
     }
 
     public static MessageProfilFragment newInstance(String param1, String param2) {
-        MessageProfilFragment fragment = new MessageProfilFragment();
-        return fragment;
+        return new MessageProfilFragment();
     }
 
     @Override
