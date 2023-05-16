@@ -26,7 +26,7 @@ public class PaymentActivity extends AppCompatActivity {
 
         for (Button button : buttons) {
             button.setOnClickListener(view -> {
-                Intent intentNavigateNewPage = new Intent(PaymentActivity.this, HomeActivity.class);
+                Intent intentNavigateNewPage = new Intent(PaymentActivity.this, ConfirmationActivity.class);
                 System.out.println("To ConfirmationPage");
                 PaymentActivity.this.startActivity(intentNavigateNewPage);
             });

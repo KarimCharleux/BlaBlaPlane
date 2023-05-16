@@ -29,7 +29,7 @@ public class ConfirmationActivity extends AppCompatActivity {
         backToHomeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentNavigateNewPage = new Intent(ConfirmationActivity.this, Home_Activity.class);
+                Intent intentNavigateNewPage = new Intent(ConfirmationActivity.this, HomeActivity.class);
                 System.out.println("VERS HOME");
                 ConfirmationActivity.this.startActivity(intentNavigateNewPage);
             }

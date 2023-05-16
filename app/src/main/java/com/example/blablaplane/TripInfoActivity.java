@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
 import com.example.blablaplane.activity.ConfirmationActivity;
-import com.example.blablaplane.activity.Paiement_Activity;
 import com.example.blablaplane.activity.PaymentActivity;
 import com.example.blablaplane.object.trip.Trip;
 import com.example.blablaplane.object.trip.TripArray;
