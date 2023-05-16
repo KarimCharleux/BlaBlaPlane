@@ -7,17 +7,16 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Trip {
-
     public static final SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private final int id;
     private final int pilotId;
     private final String departureDate;
     private final String arrivalDate;
-    private final String departure;
-    private final String arrival;
+    private final City departure;
+    private final City arrival;
     private final Float price;
 
-    public Trip(int id, String departureDate, String arrivalDate, String departure, String arrival, Float price, int pilot) {
+    public Trip(int id, String departureDate, String arrivalDate, City departure, City arrival, Float price, int pilot) {
         this.id = id;
         this.departureDate = departureDate;
         this.arrivalDate = arrivalDate;
@@ -49,11 +48,11 @@ public class Trip {
         return null;
     }
 
-    public String getDeparture() {
+    public City getDeparture() {
         return this.departure;
     }
 
-    public String getArrival() {
+    public City getArrival() {
         return this.arrival;
     }
 

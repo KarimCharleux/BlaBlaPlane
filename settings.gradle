@@ -14,4 +14,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "BlaBlaPlane"
 include ':app'
-include ':correction-td-2'
