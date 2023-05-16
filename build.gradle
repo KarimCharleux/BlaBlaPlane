@@ -8,7 +8,8 @@ plugins {
 sonarqube {
   properties {
     property("sonar.projectKey", "Blablaplane")
-    property("sonar.host.url", "http://129.151.225.149:9000")
-    property("sonar.token", "squ_733f9d41bfcd7810dc006322e70744fb4fca624a")
+    property("sonar.projectName", "Blablaplane")
+    property("sonar.host.url", "129.151.226.254:9000")
+    property("sonar.token", "squ_cb2df27e1e46699a26ab4a7486d53e329221a2f4")
   }
 }
