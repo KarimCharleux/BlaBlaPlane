@@ -10,13 +10,13 @@ public class CitySuggestion {
     
     
 
-    public static ArrayList<City> searchingClosestCity(String cityInput, int nbCities) {
-        ArrayList<City> citiesSuggestion = new ArrayList<>();
+    public static ArrayList<String> searchingClosestCity(String cityInput, int nbCities) {
+        ArrayList<String> citiesSuggestion = new ArrayList<>();
         HashMap<Integer,ArrayList<String>> citiesDistance = new HashMap<>();
         for (City city : City.values()) {
             String cityFormatted = city.name().toLowerCase();
             if (cityFormatted.length()>=cityInput.length()) {
-                int distance = distanceLevenshtein(cityFormatted, cityInput.toLowerCase());
+                int distance = distanceLevenshteinSimplifier(cityFormatted, cityInput.toLowerCase());
                 if (citiesDistance.containsKey(distance)) {
                     citiesDistance.get(distance).add(cityFormatted);
                 } else {
@@ -30,13 +30,13 @@ public class CitySuggestion {
         Collections.sort(allDistances);
         for (int i = 0; i < nbCities; i++) {
             for (String city : citiesDistance.get(allDistances.get(i))) {
-                citiesSuggestion.add(City.valueOf(city.toUpperCase()));
+                citiesSuggestion.add(city);
             }
         }
         return citiesSuggestion;
     }
 
-    private static int distanceLevenshtein(String cityName, String cityInput) {
+    private static int distanceLevenshteinSimplifier(String cityName, String cityInput) {
         int sizeDiff = Math.abs(cityName.length() - cityInput.length());
         int distance = 0;
         ArrayList<Integer> allDistances = new ArrayList<>();
