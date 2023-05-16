@@ -1,14 +1,32 @@
 <resources>
     <string name="app_name">BlaBlaPlane</string>
 
+    /* API */
+    <string name="api_googleMaps">AIzaSyAuHeVetKin8MDiHT5mrMGWDZ-24M5WwnA</string>
+
     /* Accueil */
 
-    <string name="title">Des vols partagés pour des aventures inoubliables</string>
-    <string name="date">Aujourd\'hui</string>
-    <string name="number_of_people">1</string>
-    <string name="start">Départ</string>
-    <string name="destination">Destination</string>
-    <string name="search">Rechercher</string>
+    <string name="ACCUEIL_title">Des vols partagés pour des aventures inoubliables</string>
+    <string name="ACCUEIL_date">Aujourd\'hui</string>
+    <string name="ACCUEIL_number_of_people">1</string>
+    <string name="ACCUEIL_start">Départ</string>
+    <string name="ACCUEIL_destination">Destination</string>
+    <string name="accueil8search">Rechercher</string>
+
+
+    /* RECHERCHE */
+
+    <string name="RESEARCH_selectionDepart">Sélectionnez  un lieu de départ :</string>
+    <string name="RESEARCH_btn_validate_text">Valider</string>
+
+        /* ERRORS */
+        <string name="RESEARCH_ERR_EmptyDeparturePlaces">VEUILLEZ SELECTIONNER UN LIEU !</string>
+
+        /*INTENT */
+        <string name="RESEARCH_INTENT_stratingPlace">StartingPlace</string>
+
+
+
 
     /* Trip */
 

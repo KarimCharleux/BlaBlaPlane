@@ -46,7 +46,7 @@ public class FooterFragment extends Fragment {
             IB.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    callBackInterface = (CallBackInterface) getActivity();
+                    setCallBackInterface((CallBackInterface) getActivity());
                     callBackInterface.callBackMethod(imageButtons.indexOf(IB));
                 }
             });
