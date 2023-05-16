@@ -10,14 +10,14 @@ import android.view.ViewGroup;
 
 import com.example.blablaplane.R;
 
-public class MessageProfilFragment extends Fragment {
+public class MessageProfileFragment extends Fragment {
 
-    public MessageProfilFragment() {
+    public MessageProfileFragment() {
         // Required empty public constructor
     }
 
-    public static MessageProfilFragment newInstance(String param1, String param2) {
-        return new MessageProfilFragment();
+    public static MessageProfileFragment newInstance(String param1, String param2) {
+        return new MessageProfileFragment();
     }
 
     @Override
@@ -28,6 +28,6 @@ public class MessageProfilFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_message_profil, container, false);
+        return inflater.inflate(R.layout.fragment_message_profile, container, false);
     }
 }

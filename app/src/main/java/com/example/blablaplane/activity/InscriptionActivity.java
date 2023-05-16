@@ -1,12 +1,12 @@
 package com.example.blablaplane.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.blablaplane.R;
 
-public class Inscription_Activity extends AppCompatActivity {
+public class InscriptionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.Paiement_Activity">
+    tools:context=".activity.PaymentActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/header"
@@ -22,30 +22,30 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="150dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:text="Choisir un moyen de paiement"
-            android:textStyle="bold"
+            android:layout_marginBottom="50dp"
+            android:text="@string/selectPayment"
             android:textAlignment="center"
-            android:textSize="25dp"
             android:textColor="@color/black"
-            android:layout_marginBottom="50dp"/>
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="40dp"
+            android:layout_marginVertical="5dp"
             android:backgroundTint="#e1e1e1"
-            app:cardCornerRadius="30dp"
-            android:layout_marginVertical="5dp">
+            app:cardCornerRadius="30dp">
 
             <Button
                 android:id="@+id/paypal_button"
@@ -53,19 +53,19 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#e1e1e1"
                 android:outlineSpotShadowColor="#e1e1e1"
-                android:text="Paypal"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:text="@string/paypal"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="40dp"
+            android:layout_marginVertical="5dp"
             android:backgroundTint="#e1e1e1"
-            app:cardCornerRadius="30dp"
-            android:layout_marginVertical="5dp">
+            app:cardCornerRadius="30dp">
 
             <Button
                 android:id="@+id/cb_button"
@@ -73,19 +73,19 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#e1e1e1"
                 android:outlineSpotShadowColor="#e1e1e1"
-                android:text="Carte Bancaire"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:text="@string/cardPayment"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="40dp"
+            android:layout_marginVertical="5dp"
             android:backgroundTint="#e1e1e1"
-            app:cardCornerRadius="30dp"
-            android:layout_marginVertical="5dp">
+            app:cardCornerRadius="30dp">
 
             <Button
                 android:id="@+id/apple_pay_button"
@@ -93,19 +93,19 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#e1e1e1"
                 android:outlineSpotShadowColor="#e1e1e1"
-                android:text="Apple Pay"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:text="@string/apple_pay"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="40dp"
+            android:layout_marginVertical="5dp"
             android:backgroundTint="#e1e1e1"
-            app:cardCornerRadius="30dp"
-            android:layout_marginVertical="5dp">
+            app:cardCornerRadius="30dp">
 
             <Button
                 android:id="@+id/google_pay_button"
@@ -113,10 +113,10 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#e1e1e1"
                 android:outlineSpotShadowColor="#e1e1e1"
-                android:text="Google Pay"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:text="@string/google_pay"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
@@ -133,6 +133,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         tools:layout="@layout/fragment_footer" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
