@@ -87,54 +87,68 @@
             app:layout_constraintRight_toRightOf="@id/suggestion"
             app:layout_constraintLeft_toLeftOf="@id/suggestion">
 
-            <ScrollView
-                android:id="@+id/menuScroll"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <LinearLayout
+            <LinearLayout
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/destination1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:background="@drawable/button_suggestion"
+                    android:text="Destination 1"/>
 
-                    <Button
-                        android:id="@+id/destination1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Destination 1"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/destination2"
+                    android:layout_marginTop="5px"
+                    android:alpha="0.84"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_suggestion"
+                    android:text="Destination 2"/>
 
-                    <Button
-                        android:id="@+id/destination2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Destination 2"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/destination3"
+                    android:layout_marginTop="5px"
+                    android:alpha="0.68"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_suggestion"
+                    android:text="Destination 3"/>
 
-                    <Button
-                        android:id="@+id/destination3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Destination 3"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/destination4"
+                    android:layout_marginTop="5px"
+                    android:alpha="0.52"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_suggestion"
+                    android:text="Destination 4"/>
 
-                    <Button
-                        android:id="@+id/destination4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Destination 4"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/destination5"
+                    android:layout_marginTop="5px"
+                    android:alpha="0.36"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_suggestion"
+                    android:text="Destination 5"/>
 
-                    <Button
-                        android:id="@+id/destination5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Destination 5"
-                        android:background="@null"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/destination6"
+                    android:layout_marginTop="5px"
+                    android:alpha="0.2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_suggestion"
+                    android:text="Destination 6"/>
 
-                    <Button
-                        android:id="@+id/destination6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Destination 6"/>
-
-                </LinearLayout>
+            </LinearLayout>
             </ScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
