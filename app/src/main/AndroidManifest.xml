@@ -15,27 +15,32 @@
         android:theme="@style/Theme.BlaBlaPlane"
         tools:targetApi="31">
         <activity
+            android:name=".activity.Paiement_Activity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activity.MessageActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".activity.Publish_PriceVehicule_Activity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.MyTripActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.InscriptionActivity"
+            android:name=".activity.Inscription_Activity"
             android:exported="false" />
         <activity
             android:name=".activity.Connexion_Activity"
             android:exported="false" />
         <activity
             android:name=".activity.Home_Activity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
         </activity>
         <activity
             android:name=".activity.Publish_SelectCity_Activity"
@@ -48,6 +53,7 @@
             android:exported="false" />
         <activity
             android:name=".activity.ProfileActivity"
-            android:exported="false"/>
+            android:exported="false" />
     </application>
+
 </manifest>
