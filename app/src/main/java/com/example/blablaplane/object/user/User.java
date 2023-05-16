@@ -1,12 +1,15 @@
 package com.example.blablaplane.object.user;
 
 import com.example.blablaplane.object.aircraft.Aircraft;
+import com.example.blablaplane.object.trip.Trip;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
 
     private final List<Aircraft> aircraftList;
+    private final List<Trip> myTripList;
     private final int id;
     private String name;
     private String surname;
@@ -24,6 +27,15 @@ public class User {
         this.phone = phone;
         this.rating = rating;
         this.aircraftList = aircraftList;
+        this.myTripList = new ArrayList<>();
+    }
+
+    public List<Trip> getMyTripList() {
+        return myTripList;
+    }
+
+    public boolean addNewTrip(Trip trip) {
+        return this.myTripList.add(trip);
     }
 
     public int getId() {
