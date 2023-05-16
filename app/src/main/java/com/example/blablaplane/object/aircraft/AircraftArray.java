@@ -12,7 +12,6 @@ public class AircraftArray extends ArrayList<Aircraft> {
         add(new Aircraft(0, "A380", 500, R.drawable.a380));
         add(new Aircraft(1,"RAFALE",1,R.drawable.rafale_fr));
         add(new Aircraft(2,"FALCON 9",6,R.drawable.falcon9));
-
         add(new Aircraft(3,"TIGRE",4, R.drawable.tigrefr));
         add(new Aircraft(4,"TRANSPORT",15,R.drawable.helicotransport));
     }
