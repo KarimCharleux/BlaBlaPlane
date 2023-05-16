@@ -15,6 +15,9 @@
             android:name=".MessageActivity"
             android:exported="true"/>
         <activity
+            android:name=".InscriptionPage"
+            android:exported="true">
+        <activity
             android:name=".Publish_PriceVehicule_Activity"
             android:exported="false"/>
         <activity
