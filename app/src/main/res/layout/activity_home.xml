@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/accueil_background"
-    tools:context=".HomeActivity">
+    tools:context=".activity.Home_Activity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/header"
-        android:name="com.example.blablaplane.HeaderFragment"
+        android:name="com.example.blablaplane.fragments.HeaderFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/footer"
@@ -240,7 +240,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/footer"
-        android:name="com.example.blablaplane.FooterFragment"
+        android:name="com.example.blablaplane.fragments.FooterFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

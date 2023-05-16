@@ -1,29 +1,38 @@
-package com.example.blablaplane;
+package com.example.blablaplane.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.ListView;
 
+import com.example.blablaplane.CallBackInterface;
+import com.example.blablaplane.R;
+import com.example.blablaplane.factory.FragmentFactory;
+import com.example.blablaplane.fragments.FooterFragment;
 import com.example.blablaplane.object.vehicule.VehiculeAdapter;
 import com.example.blablaplane.object.vehicule.VehiculeAdapterListener;
 import com.example.blablaplane.object.vehicule.VehiculeArray;
 
-public class Publish_PriceVehicule_Activity extends AppCompatActivity implements VehiculeAdapterListener {
+public class ProfileActivity extends AppCompatActivity implements VehiculeAdapterListener, CallBackInterface {
+    FragmentFactory fragmentFactory;
+    FooterFragment footerFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_activity_publish_price_vehicule);
 
-        // Get the list of trips
+        footerFragment = new FooterFragment();
+        fragmentFactory = new FragmentFactory();
+        setContentView(R.layout.activity_profile);
+
+        // Get the list of Message profils
         VehiculeArray vehiculeArray = VehiculeArray.getInstance();
 
         // Create the adapter
         VehiculeAdapter vehiculeAdapter = new VehiculeAdapter(getApplicationContext(), vehiculeArray);
 
-        // Retrieve the list of trips
-        ListView vehiculeList = findViewById(R.id.LV_vehicule);
+        // Retrieve the list of Message profils
+        ListView vehiculeList = findViewById(R.id.aeronef_list);
 
         // Set the adapter
         vehiculeList.setAdapter(vehiculeAdapter);
@@ -34,6 +43,11 @@ public class Publish_PriceVehicule_Activity extends AppCompatActivity implements
 
     @Override
     public void onVehiculeClick(int vehiculeId) {
-        System.out.println("GG CA FONCTIONNE");
+        return;
+    }
+
+    @Override
+    public void callBackMethod(int nb) {
+        fragmentFactory.changeActivity(nb,this);
     }
 }

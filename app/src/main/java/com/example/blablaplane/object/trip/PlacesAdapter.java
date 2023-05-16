@@ -1,4 +1,4 @@
-package com.example.blablaplane;
+package com.example.blablaplane.object.trip;
 
 import android.content.Context;
 import android.location.Address;
