@@ -52,4 +52,4 @@ jobs:
       - uses: gradle/gradle-build-action@v2
         
       - name: Run SonarQube
-        run: ./gradlew connectedAndroidTest
+        run: ./gradlew connectedAndroidTest 
