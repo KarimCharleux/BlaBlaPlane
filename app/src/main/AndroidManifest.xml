@@ -48,10 +48,10 @@
             android:name=".activity.PublishSelectCityActivity"
             android:exported="false" />
         <activity
-            android:name=".TripInfoActivity"
+            android:name=".activity.TripInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".ListTripActivity"
+            android:name=".activity.ListTripActivity"
             android:exported="false" />
         <activity
             android:name=".activity.ProfileActivity"

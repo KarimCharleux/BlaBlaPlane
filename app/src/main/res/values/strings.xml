@@ -75,6 +75,21 @@
     <string name="cardPayment">Carte Bancaire</string>
     <string name="apple_pay">Apple Pay</string>
     <string name="google_pay">Google Pay</string>
+    <string name="payment_valid">Paiement validé</string>
 
+    <string name="addToCalendar">Ajouter au calendrier</string>
+
+    <string name="phone">Téléphone</string>
+    <string name="pilot_expert">Pilote Expert</string>
+    <string name="emailExample">pierre.dubois@gmail.com</string>
+    <string name="phoneNumber">06 01 02 03 04</string>
+    <string name="identity">Pièce d’identité</string>
+    <string name="pilot_license">Brevet de pilote PPL</string>
+
+
+    /* Other */
+    <string name="modify">Modifier</string>
+    <string name="returnText">Retour</string>
+    <string name="confirmation">Confirmation</string>
 
 </resources>

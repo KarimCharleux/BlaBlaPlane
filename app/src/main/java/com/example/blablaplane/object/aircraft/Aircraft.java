@@ -22,6 +22,10 @@ public class Aircraft {
         return passengerCount;
     }
 
+    public String getCapacityText() {
+        return passengerCount + "";
+    }
+
     public String getName() {
         return name;
     }

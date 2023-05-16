@@ -22,59 +22,60 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="150dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:text="Paiement validé"
-            android:textStyle="bold"
+            android:layout_marginBottom="50dp"
+            android:text="@string/payment_valid"
             android:textAlignment="center"
-            android:textSize="30dp"
             android:textColor="@color/black"
-            android:layout_marginBottom="50dp"/>
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <ImageView
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:src="@drawable/confirmation_logo"/>
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/confirmation"
+            android:src="@drawable/confirmation_logo" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
             android:backgroundTint="#e1e1e1"
             app:cardCornerRadius="30dp"
-            android:layout_marginTop="40dp"
             app:layout_constraintVertical_bias="0.22000003">
 
-        <Button
-            android:id="@+id/AddToCalendarButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginVertical="5dp"
-            android:backgroundTint="#e1e1e1"
-            android:outlineSpotShadowColor="#e1e1e1"
-            android:text="Ajouter au calendrier"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
+            <Button
+                android:id="@+id/AddToCalendarButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="5dp"
+                android:backgroundTint="#e1e1e1"
+                android:outlineSpotShadowColor="#e1e1e1"
+                android:text="@string/addToCalendar"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:backgroundTint="#39C3FD"
             app:cardCornerRadius="30dp"
-            android:layout_marginTop="10dp"
             app:layout_constraintVertical_bias="0.22000003">
 
             <Button
@@ -85,7 +86,7 @@
                 android:layout_marginHorizontal="40dp"
                 android:backgroundTint="#39C3FD"
                 android:outlineSpotShadowColor="#e1e1e1"
-                android:text="Retour"
+                android:text="@string/returnText"
                 android:textSize="17sp"
                 android:textStyle="bold" />
 
@@ -105,7 +106,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         tools:layout="@layout/fragment_footer" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

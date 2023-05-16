@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.blablaplane.CallBackInterface;
-import com.example.blablaplane.ListTripActivity;
 import com.example.blablaplane.R;
 import com.example.blablaplane.factory.FragmentFactory;
 import com.example.blablaplane.fragments.FooterFragment;

@@ -32,7 +32,7 @@ public class ProfileActivity extends AppCompatActivity implements AircraftAdapte
         AircraftAdapter aircraftAdapter = new AircraftAdapter(getApplicationContext(), aircraftArray);
 
         // Retrieve the list of Message profiles
-        ListView aircraftList = findViewById(R.id.aeronef_list);
+        ListView aircraftList = findViewById(R.id.aircraft_list);
 
         // Set the adapter
         aircraftList.setAdapter(aircraftAdapter);

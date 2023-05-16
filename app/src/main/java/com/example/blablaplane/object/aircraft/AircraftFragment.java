@@ -1,5 +1,6 @@
 package com.example.blablaplane.object.aircraft;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +17,6 @@ import com.example.blablaplane.R;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,9 +42,10 @@ public class AircraftFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ListView listView = view.findViewById(R.id.aeronef_list);
+        ListView listView = view.findViewById(R.id.aircraft_list);
         List<String> list = new ArrayList<>(Arrays.asList("avion a", "avion b"));
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(Objects.requireNonNull(getActivity()).getApplicationContext(), android.R.layout.simple_list_item_1, list);
+        Context context = getContext() != null ? getContext().getApplicationContext() : null;
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(adapter);
     }
 }
