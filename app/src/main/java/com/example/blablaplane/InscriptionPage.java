@@ -15,6 +15,8 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.blablaplane.fragments.FooterFragment;
+
 import java.util.HashMap;
 
 public class InscriptionPage extends AppCompatActivity {
