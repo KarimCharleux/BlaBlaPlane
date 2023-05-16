@@ -15,7 +15,7 @@
         android:paddingHorizontal="15dp">
 
         <TextView
-            android:id="@+id/depart_time"
+            android:id="@+id/departureTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -36,11 +36,11 @@
             android:text="@string/durationTime"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@id/depart_time"
-            app:layout_constraintTop_toBottomOf="@id/depart_time" />
+            app:layout_constraintEnd_toEndOf="@id/departureTime"
+            app:layout_constraintTop_toBottomOf="@id/departureTime" />
 
         <TextView
-            android:id="@+id/arrive_time"
+            android:id="@+id/arrivalTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -48,7 +48,7 @@
             android:textColor="@color/black"
             android:textSize="22sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/depart_time"
+            app:layout_constraintStart_toStartOf="@id/departureTime"
             app:layout_constraintTop_toBottomOf="@id/duration_time" />
 
         <ImageView
@@ -58,7 +58,7 @@
             android:layout_marginTop="15dp"
             android:contentDescription="@string/route"
             android:src="@drawable/traject_logo"
-            app:layout_constraintStart_toEndOf="@id/depart_time"
+            app:layout_constraintStart_toEndOf="@id/departureTime"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -105,7 +105,7 @@
             android:layout_marginTop="10dp"
             android:paddingBottom="15dp"
             android:src="@drawable/profile1"
-            app:layout_constraintStart_toStartOf="@id/depart_time"
+            app:layout_constraintStart_toStartOf="@id/departureTime"
             app:layout_constraintTop_toBottomOf="@id/route_image"
             android:contentDescription="@string/photoPilot" />
 
