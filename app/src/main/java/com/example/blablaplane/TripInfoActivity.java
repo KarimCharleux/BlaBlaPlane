@@ -1,15 +1,20 @@
 package com.example.blablaplane;
 
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
+import com.example.blablaplane.activity.ConfirmationActivity;
+import com.example.blablaplane.activity.PaymentActivity;
 import com.example.blablaplane.object.trip.Trip;
 import com.example.blablaplane.object.trip.TripArray;
 import com.example.blablaplane.object.user.User;
@@ -37,6 +42,17 @@ public class TripInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trip_info);
+
+        Button bookButton = findViewById(R.id.bookButton);
+
+        bookButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentNavigateNewPage = new Intent(TripInfoActivity.this, PaymentActivity.class);
+                System.out.println("VERS PAIEMENT");
+                TripInfoActivity.this.startActivity(intentNavigateNewPage);
+            }
+        });
 
         // Get the trip id from the intent (ListTrip)
         int tripId = getIntent().getIntExtra("id", 0);
