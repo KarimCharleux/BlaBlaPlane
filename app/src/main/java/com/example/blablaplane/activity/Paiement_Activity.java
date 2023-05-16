@@ -31,7 +31,7 @@ public class Paiement_Activity extends AppCompatActivity {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intentNavigateNewPage = new Intent(Paiement_Activity.this, Home_Activity.class);
+                    Intent intentNavigateNewPage = new Intent(Paiement_Activity.this, ConfirmationActivity.class);
                     System.out.println("VERS CONFIRAMATION");
                     Paiement_Activity.this.startActivity(intentNavigateNewPage);
                 }

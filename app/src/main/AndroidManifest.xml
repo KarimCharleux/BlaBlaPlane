@@ -15,8 +15,11 @@
         android:theme="@style/Theme.BlaBlaPlane"
         tools:targetApi="31">
         <activity
+            android:name=".activity.ConfirmationActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.Paiement_Activity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activity.MessageActivity"
             android:exported="true" />
