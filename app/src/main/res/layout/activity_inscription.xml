@@ -24,7 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent">
         <TextView
             android:text="Inscription"
-            android:style="@style/text_color_sub_category"/>
+            android:style="@style/text_sub_category"/>
     </LinearLayout>
 
     <TextView
@@ -59,11 +59,12 @@
         android:inputType="textPersonName"
         android:paddingVertical="5dp"
         android:paddingHorizontal="15dp"
-        android:textColor="@color/black"
+        android:textColor="@color/blue"
         android:textSize="21dp"
         android:textCursorDrawable="@color/blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:sty
         app:layout_constraintTop_toBottomOf="@id/connexion_title" />
 
     <EditText
