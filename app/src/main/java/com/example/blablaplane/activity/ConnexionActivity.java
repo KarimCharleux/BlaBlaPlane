@@ -1,13 +1,13 @@
 package com.example.blablaplane.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.blablaplane.R;
 import com.example.blablaplane.fragments.FooterFragment;
 
-public class Connexion_Activity extends AppCompatActivity {
+public class ConnexionActivity extends AppCompatActivity {
     FooterFragment footerFragment;
 
     @Override

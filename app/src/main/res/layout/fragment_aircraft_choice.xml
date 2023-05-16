@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".object.vehicule.VehiculeFragment">
+    tools:context=".object.aircraft.AircraftChoiceFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/vehicule_fragment_background"
+        android:background="@drawable/aircraft_fragment_background"
         android:paddingHorizontal="15dp">
 
         <TextView
@@ -17,18 +17,17 @@
             android:layout_width="wrap_content"
 
             android:layout_height="wrap_content"
-            android:text="A380"
+            android:text="@string/a380"
 
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/IV_PLANE"
             android:layout_width="150dp"
             android:layout_height="80dp"
-
+            android:contentDescription="@string/aircraft"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -36,28 +35,24 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:src="@drawable/footer_avatar"
+            android:contentDescription="@string/nbPassenger"
             android:scaleX="0.5"
             android:scaleY="0.5"
+            android:src="@drawable/footer_avatar"
 
-            app:layout_constraintRight_toLeftOf="@id/NUMBER_PASSENGER"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            />
+            app:layout_constraintRight_toLeftOf="@id/NUMBER_PASSENGER"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/NUMBER_PASSENGER"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:layout_marginRight="25dp"
-            android:text="3"
-
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="25dp"
+            android:text="@string/number3"
             app:layout_constraintBottom_toBottomOf="parent"
-            />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

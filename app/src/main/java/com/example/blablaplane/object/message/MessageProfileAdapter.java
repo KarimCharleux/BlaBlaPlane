@@ -11,41 +11,41 @@ import android.widget.TextView;
 
 import com.example.blablaplane.R;
 
-public class MessageProfilAdapter extends BaseAdapter{
+public class MessageProfileAdapter extends BaseAdapter{
 
-    private MessageProfilAdapterListener listener;
-    private final MessageProfilArray messageProfilArray;
+    private MessageProfileAdapterListener listener;
+    private final MessageProfileArray messageProfileArray;
 
     /**
      * Mechanism to generate the graphic view from the XML file
      */
     private final LayoutInflater inflater;
 
-    public MessageProfilAdapter(Context context, MessageProfilArray messageProfilArray) {
+    public MessageProfileAdapter(Context context, MessageProfileArray messageProfileArray) {
         this.inflater = LayoutInflater.from(context);
-        this.messageProfilArray = messageProfilArray;
+        this.messageProfileArray = messageProfileArray;
     }
 
     @Override
     public int getCount() {
-            return messageProfilArray.size();
+            return messageProfileArray.size();
         }
 
     @Override
     public Object getItem(int i) {
-            return messageProfilArray.get(i);
+            return messageProfileArray.get(i);
         }
 
     @Override
     public long getItemId(int i) {
-            return messageProfilArray.get(i).getId();
+            return messageProfileArray.get(i).getId();
         }
 
     @Override
     public View getView(int i, View convertView, ViewGroup parent) {
         FrameLayout messageProfilView;
 
-        messageProfilView = (FrameLayout) (convertView == null ? inflater.inflate(R.layout.fragment_message_profil, parent, false) : convertView);
+        messageProfilView = (FrameLayout) (convertView == null ? inflater.inflate(R.layout.fragment_message_profile, parent, false) : convertView);
 
         // Retrieve the views
         TextView firstName = messageProfilView.findViewById(R.id.firstName);
@@ -53,8 +53,8 @@ public class MessageProfilAdapter extends BaseAdapter{
         ImageView pictureProfil = messageProfilView.findViewById(R.id.pictureProfile);
 
         // Set the text of the view for the trip
-        firstName.setText(messageProfilArray.get(i).getFirstName());
-        lastName.setText(messageProfilArray.get(i).getLastName());
+        firstName.setText(messageProfileArray.get(i).getFirstName());
+        lastName.setText(messageProfileArray.get(i).getLastName());
         pictureProfil.setImageResource(R.drawable.profile1); //A CHANGER
 
 
@@ -62,7 +62,7 @@ public class MessageProfilAdapter extends BaseAdapter{
         // Set the listener to the click on a trip
         messageProfilView.setOnClickListener(v -> {
             if (listener != null) {
-                listener.onMessageProfilClick(messageProfilArray.get(i).getId());
+                listener.onMessageProfileClick(messageProfileArray.get(i).getId());
             }
         });
 
@@ -74,7 +74,7 @@ public class MessageProfilAdapter extends BaseAdapter{
      *
      * @param listener Listener to the click on a trip
      */
-    public void setListener(MessageProfilAdapterListener listener) {
+    public void setListener(MessageProfileAdapterListener listener) {
             this.listener = listener;
         }
 

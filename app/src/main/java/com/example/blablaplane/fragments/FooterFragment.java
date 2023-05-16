@@ -1,17 +1,14 @@
 package com.example.blablaplane.fragments;
 
 import android.os.Bundle;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.blablaplane.CallBackInterface;
-
 import com.example.blablaplane.R;
 
 import java.util.ArrayList;
@@ -19,11 +16,6 @@ import java.util.ArrayList;
 public class FooterFragment extends Fragment {
 
     private CallBackInterface callBackInterface;
-    private ArrayList<ImageButton> imageButtons;
-
-    public void setCallBackInterface(CallBackInterface callBackInterface) {
-        this.callBackInterface = callBackInterface;
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -35,24 +27,22 @@ public class FooterFragment extends Fragment {
         ImageButton buttonChatting = view.findViewById(R.id.buttonChatting);
         ImageButton buttonProfile = view.findViewById(R.id.buttonProfile);
 
-
         ArrayList<ImageButton> imageButtons = new ArrayList<>();
 
-        imageButtons.add(buttonSearching);imageButtons.add(buttonAdding);imageButtons.add(buttonDefault);
+        imageButtons.add(buttonSearching);
+        imageButtons.add(buttonAdding);
+        imageButtons.add(buttonDefault);
         imageButtons.add(buttonChatting);
         imageButtons.add(buttonProfile);
 
-        for(ImageButton IB : imageButtons){
-            IB.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    callBackInterface = (CallBackInterface) getActivity();
-                    callBackInterface.callBackMethod(imageButtons.indexOf(IB));
-                }
+        for (ImageButton IB : imageButtons) {
+            IB.setOnClickListener(v -> {
+                callBackInterface = (CallBackInterface) getActivity();
+                assert callBackInterface != null;
+                callBackInterface.callBackMethod(imageButtons.indexOf(IB));
             });
         }
 
         return view;
     }
-
 }

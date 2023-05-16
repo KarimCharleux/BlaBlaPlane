@@ -3,28 +3,26 @@ package com.example.blablaplane.factory;
 import android.app.Activity;
 import android.content.Intent;
 
-import androidx.fragment.app.Fragment;
-
-import com.example.blablaplane.activity.Home_Activity;
+import com.example.blablaplane.activity.HomeActivity;
 import com.example.blablaplane.activity.MessageActivity;
 import com.example.blablaplane.activity.MyTripActivity;
 import com.example.blablaplane.activity.ProfileActivity;
 
-import java.util.List;
-
 public class FragmentFactory {
 
-    public FragmentFactory(){
+    public FragmentFactory() {
     }
 
-    public void changeActivity(int nb, Activity activity){
-        System.out.println("APPEL de l'activite :"+activity.getComponentName());
-        Intent intentNavigateNewPage = activity.getIntent();
+    public void changeActivity(int indexMenu, Activity activity) {
 
-        switch (nb) {
+        System.out.println("Call the activity :" + activity.getComponentName());
+
+        Intent intentNavigateNewPage;
+
+        switch (indexMenu) {
             case 0:
-                intentNavigateNewPage = new Intent(activity, Home_Activity.class);
-                System.out.println("VERS HOME");
+                intentNavigateNewPage = new Intent(activity, HomeActivity.class);
+                System.out.println("To HomeActivity");
                 activity.startActivity(intentNavigateNewPage);
                 break;
             case 1:
@@ -33,17 +31,17 @@ public class FragmentFactory {
                 break;
             case 2:
                 intentNavigateNewPage = new Intent(activity, MyTripActivity.class);
-                System.out.println("VERS MYTRIP");
+                System.out.println("To MyTripActivity");
                 activity.startActivity(intentNavigateNewPage);
                 break;
             case 3:
                 intentNavigateNewPage = new Intent(activity, MessageActivity.class);
-                System.out.println("VERS MESSAGE");
+                System.out.println("To MessageActivity");
                 activity.startActivity(intentNavigateNewPage);
                 break;
             case 4:
                 intentNavigateNewPage = new Intent(activity, ProfileActivity.class);
-                System.out.println("VERS PROFILE");
+                System.out.println("To ProfileActivity");
                 activity.startActivity(intentNavigateNewPage);
                 break;
             default:

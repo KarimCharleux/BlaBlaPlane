@@ -50,7 +50,7 @@ public class MyTripActivity extends AppCompatActivity implements TripAdapterList
     }
 
     @Override
-    public void callBackMethod(int nb) {
-        fragmentFactory.changeActivity(nb,this);
+    public void callBackMethod(int indexMenu) {
+        fragmentFactory.changeActivity(indexMenu,this);
     }
 }

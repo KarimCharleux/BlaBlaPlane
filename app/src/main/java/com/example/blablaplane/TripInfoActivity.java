@@ -15,6 +15,7 @@ import androidx.preference.PreferenceManager;
 
 import com.example.blablaplane.activity.ConfirmationActivity;
 import com.example.blablaplane.activity.Paiement_Activity;
+import com.example.blablaplane.activity.PaymentActivity;
 import com.example.blablaplane.object.trip.Trip;
 import com.example.blablaplane.object.trip.TripArray;
 import com.example.blablaplane.object.user.User;
@@ -48,7 +49,7 @@ public class TripInfoActivity extends AppCompatActivity {
         bookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentNavigateNewPage = new Intent(TripInfoActivity.this, Paiement_Activity.class);
+                Intent intentNavigateNewPage = new Intent(TripInfoActivity.this, PaymentActivity.class);
                 System.out.println("VERS PAIEMENT");
                 TripInfoActivity.this.startActivity(intentNavigateNewPage);
             }

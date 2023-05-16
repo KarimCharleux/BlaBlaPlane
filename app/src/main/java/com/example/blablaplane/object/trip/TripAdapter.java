@@ -50,7 +50,7 @@ public class TripAdapter extends BaseAdapter {
     public View getView(int i, View convertView, ViewGroup parent) {
         FrameLayout tripView;
 
-        tripView = (FrameLayout) (convertView == null ? inflater.inflate(R.layout.fragment_traject, parent, false) : convertView);
+        tripView = (FrameLayout) (convertView == null ? inflater.inflate(R.layout.fragment_trip_box, parent, false) : convertView);
 
         // Retrieve the views
         TextView departure = tripView.findViewById(R.id.departure_location);
