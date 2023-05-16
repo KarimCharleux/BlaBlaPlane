@@ -18,6 +18,9 @@ public class PaymentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
 
+        int tripId = getIntent().getIntExtra("id", 0);
+
+
         List<Button> buttons = new ArrayList<>();
         buttons.add(findViewById(R.id.paypal_button));
         buttons.add(findViewById(R.id.cb_button));
@@ -27,6 +30,7 @@ public class PaymentActivity extends AppCompatActivity {
         for (Button button : buttons) {
             button.setOnClickListener(view -> {
                 Intent intentNavigateNewPage = new Intent(PaymentActivity.this, ConfirmationActivity.class);
+                intentNavigateNewPage.putExtra("id", tripId);
                 System.out.println("To ConfirmationPage");
                 PaymentActivity.this.startActivity(intentNavigateNewPage);
             });

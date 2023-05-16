@@ -41,16 +41,17 @@ public class TripInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trip_info);
 
+        // Get the trip id from the intent (ListTrip)
+        int tripId = getIntent().getIntExtra("id", 0);
+
         Button bookButton = findViewById(R.id.bookButton);
 
         bookButton.setOnClickListener(view -> {
             Intent intentNavigateNewPage = new Intent(TripInfoActivity.this, PaymentActivity.class);
+            intentNavigateNewPage.putExtra("id", tripId);
             System.out.println("VERS PAIEMENT");
             TripInfoActivity.this.startActivity(intentNavigateNewPage);
         });
-
-        // Get the trip id from the intent (ListTrip)
-        int tripId = getIntent().getIntExtra("id", 0);
 
         // Trip info
         Trip trip = TripArray.getInstance().getTripById(tripId);
