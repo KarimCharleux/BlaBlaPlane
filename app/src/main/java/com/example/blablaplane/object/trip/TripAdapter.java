@@ -55,6 +55,8 @@ public class TripAdapter extends BaseAdapter {
         // Retrieve the views
         TextView departure = tripView.findViewById(R.id.departure_location);
         TextView arrival = tripView.findViewById(R.id.arrival_location);
+        TextView departureTime = tripView.findViewById(R.id.departureTime);
+        TextView arrivalTime = tripView.findViewById(R.id.arrivalTime);
         TextView duration = tripView.findViewById(R.id.duration_time);
         TextView price = tripView.findViewById(R.id.price_text);
         TextView firstName = tripView.findViewById(R.id.first_name);
@@ -64,6 +66,8 @@ public class TripAdapter extends BaseAdapter {
         // Set the text of the view for the trip
         departure.setText(tripArray.get(i).getDeparture().getCityName());
         arrival.setText(tripArray.get(i).getArrival().getCityName());
+        departureTime.setText(tripArray.get(i).getDepartureTime());
+        arrivalTime.setText(tripArray.get(i).getArrivalTime());
         duration.setText(tripArray.get(i).getDuration());
         price.setText(tripArray.get(i).getPrice());
 

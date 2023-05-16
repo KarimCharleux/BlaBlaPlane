@@ -63,7 +63,7 @@ public class AircraftAdapter extends BaseAdapter {
         // Set the text of the view for the trip
         planeName.setText(aircraftArray.get(i).getName());
         image.setImageResource(aircraftArray.get(i).getImage());
-        nbPassenger.setText(aircraftArray.get(i).getCapacity());
+        nbPassenger.setText(String.valueOf(aircraftArray.get(i).getCapacity()));
 
         // Set the listener to the click on a trip
         aircraftSelectionView.setOnClickListener(v -> {
