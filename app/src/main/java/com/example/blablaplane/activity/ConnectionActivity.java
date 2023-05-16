@@ -5,12 +5,15 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.blablaplane.R;
+import com.example.blablaplane.fragments.FooterFragment;
 
-public class InscriptionActivity extends AppCompatActivity {
+public class ConnectionActivity extends AppCompatActivity {
+    FooterFragment footerFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inscription);
+        footerFragment = new FooterFragment();
+        setContentView(R.layout.activity_connection);
     }
 }

@@ -14,8 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BlaBlaPlane"
         tools:targetApi="31">
+
         <activity
             android:name=".activity.PaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.LandingActivity"
             android:exported="false" />
         <activity
             android:name=".activity.MessageActivity"
@@ -30,10 +34,10 @@
             android:name=".activity.MyTripActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.InscriptionActivity"
+            android:name=".activity.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.ConnexionActivity"
+            android:name=".activity.ConnectionActivity"
             android:exported="false" />
         <activity
             android:name=".activity.HomeActivity"
