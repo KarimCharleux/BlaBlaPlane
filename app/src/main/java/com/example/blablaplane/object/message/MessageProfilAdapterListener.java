@@ -1,4 +1,4 @@
-package com.example.blablaplane.object.messageProfil;
+package com.example.blablaplane.object.message;
 
 public interface MessageProfilAdapterListener {
 

@@ -9,6 +9,9 @@
     <string name="start">Départ</string>
     <string name="destination">Destination</string>
     <string name="search">Rechercher</string>
+
+    /* Trip */
+
     <string name="surnamePilot">LUTUN</string>
     <string name="namePilot">Théo</string>
     <string name="photoPilote">User profile</string>
@@ -33,11 +36,25 @@
     <string name="buttondefault">button Home</string>
     <string name="buttonChatting">Button Messages</string>
     <string name="buttonProfile">Button Profile</string>
+    <string name="pictureProfile">Photo Profile</string>
     <string name="headerLogo">Header Logo</string>
     <string name="route">route</string>
     <string name="photoPilot">Photo Pilote</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    /* Connexion */
+    <string name="connection">Connexion</string>
+    <string name="enterId">Renseignez vos identifiants</string>
+    <string name="email">E-mail</string>
+    <string name="password">Mot de passe</string>
+    <string name="forgotPassword">Mot de passe oublié ?</string>
+
+    /* Inscription */
+    <string name="inscription">Inscription</string>
+    <string name="createProfile">Créez votre profil</string>
+    <string name="name">Prénom</string>
+    <string name="surname">Nom</string>
+    <string name="repeatPassword">Répétez le mot de passe</string>
+    <string name="imPilot">Je suis pilote</string>
 
 
 </resources>

@@ -1,5 +1,6 @@
 package com.example.blablaplane.object.trip;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 
 public class TripArray extends ArrayList<Trip> {
@@ -7,12 +8,12 @@ public class TripArray extends ArrayList<Trip> {
 
     private TripArray() {
         super();
-        add(new Trip(0, "2021-05-01 10:00:00", "2021-05-01 12:00:00", "Nice", "Paris", 400.5F, 3));
-        add(new Trip(1, "2021-05-01 10:00:00", "2021-05-01 12:00:00", "Roma", "Milano", 100F, 1));
-        add(new Trip(2, "2021-05-01 10:00:00", "2021-05-01 12:00:00", "Milano", "Roma", 250F, 2));
-        add(new Trip(3, "2021-05-01 10:00:00", "2021-05-01 12:00:00", "Paris", "Milano", 200F, 2));
-        add(new Trip(4, "2021-05-01 10:00:00", "2021-05-01 12:00:00", "Paris", "Roma", 110F, 1));
-        add(new Trip(5, "2021-05-01 10:00:00", "2021-05-01 12:00:00", "Roma", "Paris", 150F, 1));
+        add(new Trip(0, "2021-05-01 08:25:00", "2021-05-01 12:20:00", City.NICE, City.PARIS, 400.5F, 3));
+        add(new Trip(1, "2021-05-01 10:00:00", "2021-05-01 15:25:00", City.BORDEAUX, City.LILLE, 100F, 1));
+        add(new Trip(2, "2021-05-01 12:00:00", "2021-05-01 21:40:00", City.BERLIN, City.PARIS, 250F, 2));
+        add(new Trip(3, "2021-05-01 22:05:00", "2021-05-01 23:00:00", City.MONTPELLIER, City.PARIS, 200F, 2));
+        add(new Trip(4, "2021-05-01 17:12:00", "2021-05-01 18:00:00", City.MARSEILLE, City.STRASBOURG, 110F, 1));
+        add(new Trip(5, "2021-05-01 02:45:00", "2021-05-01 08:06:00", City.AMSTERDAM, City.PISE, 150F, 1));
     }
 
     /**
@@ -66,10 +67,12 @@ public class TripArray extends ArrayList<Trip> {
      * @param date      the departure date
      * @return a TripArray containing all the trips of the pilot
      */
-    public TripArray getTripsByDepartureAndArrival(String departure, String arrival, String date) {
+    public TripArray getTripsByDepartureAndArrival(String departure, String arrival, String date) throws ParseException {
         TripArray trips = new TripArray();
         for (Trip trip : this) {
-            if (trip.getDeparture().equals(departure) && trip.getArrival().equals(arrival) && trip.getDepartureDate().equals(date)) {
+            if (trip.getDeparture().equals(City.getCityByName(departure))
+                    && trip.getArrival().equals(City.getCityByName(arrival))
+                    && trip.getDepartureDate().equals(Trip.dateFormatter.parse(date))) {
                 trips.add(trip);
             }
         }

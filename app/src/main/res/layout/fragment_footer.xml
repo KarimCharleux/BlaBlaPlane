@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="horizontal"
     android:padding="7dp"
-    tools:context="com.example.blablaplane.FooterFragment">
+    tools:context="com.example.blablaplane.fragments.FooterFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

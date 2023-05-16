@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Publish_PriceVehicule_Activity">
+    tools:context=".activity.Publish_PriceVehicule_Activity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:name="com.example.blablaplane.HeaderFragment"
+        android:name="com.example.blablaplane.fragments.HeaderFragment"
         android:id="@+id/header_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
