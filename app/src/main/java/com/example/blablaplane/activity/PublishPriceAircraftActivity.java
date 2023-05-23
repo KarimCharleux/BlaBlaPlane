@@ -18,23 +18,23 @@ public class PublishPriceAircraftActivity extends AppCompatActivity implements A
         setContentView(R.layout.activity_publish_price_aircraft);
 
         // Get the list of trips
-        AircraftArray aircraftArray = AircraftArray.getInstance();
+        AircraftArray vehiculeArray = AircraftArray.getInstance();
 
         // Create the adapter
-        AircraftAdapter aircraftAdapter = new AircraftAdapter(getApplicationContext(), aircraftArray);
+        AircraftAdapter vehiculeAdapter = new AircraftAdapter(getApplicationContext(), vehiculeArray);
 
         // Retrieve the list of trips
-        ListView aircraftList = findViewById(R.id.LV_aircraft);
+        ListView vehiculeList = findViewById(R.id.LV_aircraft);
 
         // Set the adapter
-        aircraftList.setAdapter(aircraftAdapter);
+        vehiculeList.setAdapter(vehiculeAdapter);
 
         // Set the listener
-        aircraftAdapter.setListener(this);
+        vehiculeAdapter.setListener(this);
     }
 
     @Override
-    public void onAircraftClick(int aircraftId) {
-        System.out.println("Aircraft clicked : " + aircraftId);
+    public void onAircraftClick(int vehiculeId) {
+        System.out.println("GG CA FONCTIONNE");
     }
 }
