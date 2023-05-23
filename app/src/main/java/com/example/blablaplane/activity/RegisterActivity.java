@@ -37,19 +37,19 @@ public class RegisterActivity extends AppCompatActivity {
         Button register = findViewById(R.id.RegisterButton);
         register.setOnClickListener(v -> {
             if (firstName.getText().toString().isEmpty() || lastName.getText().toString().isEmpty() || email.getText().toString().isEmpty() || password.getText().toString().isEmpty() || confirmPassword.getText().toString().isEmpty() || phone.getText().toString().isEmpty()) {
-                Toast.makeText(RegisterActivity.this, "Veuillez remplir tous les champs !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "⚠️ Veuillez remplir tous les champs !", Toast.LENGTH_SHORT).show();
                 return;
             }
             if (!password.getText().toString().equals(confirmPassword.getText().toString())) {
-                Toast.makeText(RegisterActivity.this, "Les mots de passes doivent être les mêmes !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "⚠️ Les mots de passes doivent être les mêmes !", Toast.LENGTH_SHORT).show();
                 return;
             }
             if (!email.getText().toString().matches(DataBase.EMAIL_REGEX)) {
-                Toast.makeText(RegisterActivity.this, "Veuillez entrer une adresse mail valide !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "⚠️ Veuillez entrer une adresse mail valide !", Toast.LENGTH_SHORT).show();
                 return;
             }
             if (!phone.getText().toString().matches(DataBase.PHONE_REGEX)) {
-                Toast.makeText(RegisterActivity.this, "Veuillez entrer un numéro de téléphone valide !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "⚠️ Veuillez entrer un numéro de téléphone valide !", Toast.LENGTH_SHORT).show();
                 return;
             }
             User user = new User(firstName.getText().toString(), lastName.getText().toString(), email.getText().toString(), password.getText().toString(), phone.getText().toString(), 5);
@@ -62,7 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.exists()) {
                         // User already exists
-                        Toast.makeText(RegisterActivity.this, "Cet email est déjà utilisé !", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "⚠️ Cet email est déjà utilisé !", Toast.LENGTH_SHORT).show();
                     } else {
                         // User does not exist so create it
                         DataBase.USERS_REFERENCE.child(user.getId()).setValue(user).addOnCompleteListener(task -> {
@@ -74,19 +74,19 @@ public class RegisterActivity extends AppCompatActivity {
                                 editor.apply();
 
                                 // Go to the home page and display a confirmation message
-                                Toast.makeText(RegisterActivity.this, "Votre compte a bien été créé ✅", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "✅ Votre compte a bien été créé", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
                                 startActivity(intent);
                             } else {
-                                Toast.makeText(RegisterActivity.this, "Erreur lors de la création du compte, veuillez réessayer", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "⚠️ Erreur lors de la création du compte, veuillez réessayer", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
                 }
 
                 @Override
-                public void onCancelled(DatabaseError databaseError) {
-                    // Here should be an error message
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(RegisterActivity.this, "⚠️ Erreur lors de la création du compte, veuillez réessayer", Toast.LENGTH_SHORT).show();
                 }
             });
         });
