@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "825027690440",
+    "project_id": "blablaplane-ad945",
+    "storage_bucket": "blablaplane-ad945.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:825027690440:android:8fad3c7406c486dfe54afd",
+        "android_client_info": {
+          "package_name": "com.example.blablaplane"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "825027690440-jtgl0e6tf0toifkmtdj5da66vokfpjjq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpEwgYlja3QPkKqWxcRmqB43HQFygNRbs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "825027690440-jtgl0e6tf0toifkmtdj5da66vokfpjjq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
