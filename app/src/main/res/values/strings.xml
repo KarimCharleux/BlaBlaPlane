@@ -11,7 +11,7 @@
     <string name="ACCUEIL_number_of_people">1</string>
     <string name="ACCUEIL_start">Départ</string>
     <string name="ACCUEIL_destination">Destination</string>
-    <string name="accueil8search">Rechercher</string>
+    <string name="ACCUEIL_search">Rechercher</string>
 
 
     /* RECHERCHE */

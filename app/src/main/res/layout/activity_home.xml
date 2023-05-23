@@ -36,7 +36,7 @@
             android:fontFamily="sans-serif-condensed"
             android:gravity="center"
             android:paddingHorizontal="30dp"
-            android:text="@string/title"
+            android:text="@string/ACCUEIL_title"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textStyle="bold" />
@@ -50,7 +50,6 @@
         app:cardCornerRadius="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toBottomOf="@id/title">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -90,7 +89,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:text="@string/start"
+                    android:text="@string/ACCUEIL_start"
                     android:textColor="#014752"
                     android:textSize="25sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -124,7 +123,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:text="@string/destination"
+                    android:text="@string/ACCUEIL_destination"
                     android:textColor="#014752"
                     android:textSize="25sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -166,7 +165,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:text="@string/date"
+                        android:text="@string/ACCUEIL_date"
                         android:textColor="#014752"
                         android:textSize="25sp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -201,7 +200,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_marginEnd="10dp"
-                        android:text="@string/number_of_people"
+                        android:text="@string/ACCUEIL_number_of_people"
                         android:textColor="#014752"
                         android:textSize="30sp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -226,7 +225,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:text="@string/search"
+                    android:text="@string/ACCUEIL_search"
                     android:textColor="@color/white"
                     android:textSize="30sp"
                     android:textStyle="bold"
