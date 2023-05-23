@@ -64,8 +64,7 @@ public class HomeActivity extends AppCompatActivity implements CallBackInterface
 
     @Override
     public void update(Observable observable, Object o) {
-        Message message = (Message)o;
-        Log.d(TAG,"messafe from: "+ Message.getInstance().from());
+        Log.d(TAG,"message from: "+ Message.getInstance().from());
         if(Message.getInstance().isNull()){
             Log.d(TAG,"title: "+Message.getInstance().getTitle());
             Log.d(TAG,"title: "+Message.getInstance().body());
