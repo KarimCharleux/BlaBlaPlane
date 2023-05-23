@@ -6,16 +6,21 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.blablaplane.CallBackInterface;
 import com.example.blablaplane.R;
+import com.example.blablaplane.factory.FragmentFactory;
 import com.example.blablaplane.object.trip.TripAdapter;
 import com.example.blablaplane.object.trip.TripAdapterListener;
 import com.example.blablaplane.object.trip.TripArray;
 
-public class ListTripActivity extends AppCompatActivity implements TripAdapterListener {
+public class ListTripActivity extends AppCompatActivity implements TripAdapterListener, CallBackInterface {
+
+    FragmentFactory fragmentFactory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        fragmentFactory = new FragmentFactory();
         setContentView(R.layout.activity_list_trip);
 
         // Get the list of trips
@@ -39,5 +44,10 @@ public class ListTripActivity extends AppCompatActivity implements TripAdapterLi
         Intent intent = new Intent(ListTripActivity.this, TripInfoActivity.class);
         intent.putExtra("id", tripId);
         startActivity(intent);
+    }
+
+    @Override
+    public void callBackMethod(int indexMenu) {
+        fragmentFactory.changeActivity(indexMenu, this);
     }
 }

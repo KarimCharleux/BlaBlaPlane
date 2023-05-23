@@ -62,14 +62,11 @@ public class HomeActivity extends AppCompatActivity implements CallBackInterface
         Intent intent = getIntent();
 
         ConstraintLayout depart = findViewById(R.id.startBox);
-        depart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentNavigateNewPage = new Intent(getApplicationContext(), PublishSelectCityActivity.class);
-                System.out.println("VERS HOME");
-                intentNavigateNewPage.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                getApplicationContext().startActivity(intentNavigateNewPage);
-            }
+        depart.setOnClickListener(v -> {
+            Intent intentNavigateNewPage = new Intent(getApplicationContext(), PublishSelectCityActivity.class);
+            System.out.println("VERS HOME");
+            intentNavigateNewPage.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            getApplicationContext().startActivity(intentNavigateNewPage);
         });
 
 
@@ -86,11 +83,9 @@ public class HomeActivity extends AppCompatActivity implements CallBackInterface
         }
     }
 
-
-
     @Override
-    public void callBackMethod(int nb) {
-        fragmentFactory.changeActivity(nb,this);
+    public void callBackMethod(int indexMenu) {
+        fragmentFactory.changeActivity(indexMenu,this);
     }
 
     @Override
