@@ -4,77 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    tools:context=".activity.ProfileActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/header"
-        android:name="com.example.blablaplane.HeaderFragment"
+        android:name="com.example.blablaplane.fragments.HeaderFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_header"/>
+        tools:layout="@layout/fragment_header" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/profile_summary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/header"
-        app:layout_constraintStart_toStartOf="parent"
-        android:orientation="horizontal"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header">
 
         <ImageView
             android:id="@+id/picture_profile"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:contentDescription="@string/namePilot"
+            android:src="@drawable/profile1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/profile1"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/first_name"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pierre"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/namePilot"
+            android:textColor="@color/black"
+            android:textSize="30sp"
             app:layout_constraintStart_toEndOf="@id/picture_profile"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textSize="30dp"
-            android:textColor="@color/black"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DUBOIS"
-            app:layout_constraintStart_toEndOf="@id/first_name"
-            app:layout_constraintTop_toTopOf="@id/first_name"
-            android:textSize="30dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/surnamePilot"
             android:textColor="@color/black"
-            android:textStyle="bold"/>
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/first_name"
+            app:layout_constraintTop_toTopOf="@id/first_name" />
 
         <TextView
             android:id="@+id/person_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pilote Expert"
+            android:text="@string/pilot_expert"
+            android:textColor="#a3a3a3"
+            android:textSize="25sp"
             app:layout_constraintStart_toStartOf="@id/first_name"
-            app:layout_constraintTop_toBottomOf="@id/first_name"
-            android:textSize="25dp"
-            android:textColor="#a3a3a3"/>
+            app:layout_constraintTop_toBottomOf="@id/first_name" />
 
         <RatingBar
+            style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/person_title"
-            app:layout_constraintStart_toStartOf="@id/first_name"
             android:numStars="5"
             android:rating="4"
-            style="?android:attr/ratingBarStyleSmall"
-            android:theme="@style/customRatingBar"/>
+            android:theme="@style/customRatingBar"
+            app:layout_constraintStart_toStartOf="@id/first_name"
+            app:layout_constraintTop_toBottomOf="@id/person_title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -82,87 +83,91 @@
         android:id="@+id/profile_informations"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/profile_summary"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginHorizontal="30dp"
         android:layout_marginVertical="10dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_summary">
 
         <ImageView
             android:id="@+id/checkbox_1"
             android:layout_width="35dp"
             android:layout_height="35dp"
+            android:contentDescription="@string/email"
             android:paddingVertical="5dp"
             android:src="@drawable/checked_box"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:paddingVertical="5dp"
-            app:layout_constraintStart_toEndOf="@id/checkbox_1"
-            app:layout_constraintTop_toTopOf="@id/checkbox_1"
-            android:text="pierre.dubois@gmail.com"
+            android:text="@string/emailExample"
             android:textColor="@color/black"
-            android:textSize="22dp"/>
+            android:textSize="22sp"
+            app:layout_constraintStart_toEndOf="@id/checkbox_1"
+            app:layout_constraintTop_toTopOf="@id/checkbox_1" />
 
         <ImageView
             android:id="@+id/checkbox_2"
             android:layout_width="35dp"
             android:layout_height="35dp"
+            android:contentDescription="@string/phone"
             android:paddingVertical="5dp"
             android:src="@drawable/checked_box"
             app:layout_constraintStart_toStartOf="@id/checkbox_1"
-            app:layout_constraintTop_toBottomOf="@id/checkbox_1"/>
+            app:layout_constraintTop_toBottomOf="@id/checkbox_1" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:paddingVertical="5dp"
-            app:layout_constraintStart_toEndOf="@id/checkbox_2"
-            app:layout_constraintTop_toTopOf="@id/checkbox_2"
-            android:text="06 01 02 03 04"
+            android:text="@string/phoneNumber"
             android:textColor="@color/black"
-            android:textSize="22dp"/>
+            android:textSize="22sp"
+            app:layout_constraintStart_toEndOf="@id/checkbox_2"
+            app:layout_constraintTop_toTopOf="@id/checkbox_2" />
 
         <ImageView
             android:id="@+id/checkbox_3"
             android:layout_width="35dp"
             android:layout_height="35dp"
+            android:contentDescription="@string/identity"
             android:paddingVertical="5dp"
             android:src="@drawable/checked_box"
             app:layout_constraintStart_toStartOf="@id/checkbox_1"
-            app:layout_constraintTop_toBottomOf="@id/checkbox_2"/>
+            app:layout_constraintTop_toBottomOf="@id/checkbox_2" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:paddingVertical="5dp"
-            app:layout_constraintStart_toEndOf="@id/checkbox_3"
-            app:layout_constraintTop_toTopOf="@id/checkbox_3"
-            android:text="Pièce d’identité"
+            android:text="@string/identity"
             android:textColor="@color/black"
-            android:textSize="22dp"/>
+            android:textSize="22sp"
+            app:layout_constraintStart_toEndOf="@id/checkbox_3"
+            app:layout_constraintTop_toTopOf="@id/checkbox_3" />
 
         <ImageView
             android:id="@+id/checkbox_4"
             android:layout_width="35dp"
             android:layout_height="35dp"
+            android:contentDescription="@string/pilot_license"
             android:paddingVertical="5dp"
             android:src="@drawable/checked_box"
             app:layout_constraintStart_toStartOf="@id/checkbox_1"
-            app:layout_constraintTop_toBottomOf="@id/checkbox_3"/>
+            app:layout_constraintTop_toBottomOf="@id/checkbox_3" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:paddingVertical="5dp"
-            app:layout_constraintStart_toEndOf="@id/checkbox_4"
-            app:layout_constraintTop_toTopOf="@id/checkbox_4"
-            android:text="Brevet de pilote PPL"
+            android:text="@string/pilot_license"
             android:textColor="@color/black"
-            android:textSize="22dp"/>
+            android:textSize="22sp"
+            app:layout_constraintStart_toEndOf="@id/checkbox_4"
+            app:layout_constraintTop_toTopOf="@id/checkbox_4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -170,9 +175,9 @@
         android:id="@+id/bookButtonLayout"
         android:layout_width="229dp"
         android:layout_height="55dp"
+        android:layout_marginTop="30dp"
         android:backgroundTint="#39C3FD"
         app:cardCornerRadius="30dp"
-        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profile_informations"
@@ -184,7 +189,7 @@
             android:layout_height="match_parent"
             android:backgroundTint="#39C3FD"
             android:outlineSpotShadowColor="#00BCD4"
-            android:text="Modifier"
+            android:text="@string/modify"
             android:textAllCaps="false"
             android:textSize="24sp"
             tools:layout_editor_absoluteX="105dp"
@@ -192,23 +197,19 @@
     </androidx.cardview.widget.CardView>
 
     <ListView
-        android:id="@+id/aeronef_list"
+        android:id="@+id/aircraft_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginHorizontal="15dp"
-        app:layout_constraintTop_toBottomOf="@id/bookButtonLayout"
+        android:layout_marginTop="20dp"
+        android:clickable="false"
         android:divider="@null"
-        android:clickable="false">
-
-
-
-    </ListView>
+        app:layout_constraintTop_toBottomOf="@id/bookButtonLayout" />
 
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/footer"
-        android:name="com.example.blablaplane.FooterFragment"
+        android:name="com.example.blablaplane.fragments.FooterFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

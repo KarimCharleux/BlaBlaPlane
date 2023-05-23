@@ -1,3 +1,4 @@
+/*
 package com.example.blablaplane;
 
 import static com.example.blablaplane.NotifyApp.CHANNEL_ID;
@@ -34,7 +35,8 @@ public class IHMFirebaseMessagingService extends FirebaseMessagingService {
                    .setPriority(NotificationManager.IMPORTANCE_DEFAULT);
 
            NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-           notificationManager.notify(0 /*ID*/,notifcation.build());
+           notificationManager.notify(0,notifcation.build());
         }
     }
 }
+*/

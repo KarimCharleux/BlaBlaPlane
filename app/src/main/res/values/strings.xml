@@ -12,6 +12,7 @@
 
     /* Trip */
 
+    <string name="myTrips">Mes trajets</string>
     <string name="surnamePilot">LUTUN</string>
     <string name="namePilot">Théo</string>
     <string name="photoPilote">User profile</string>
@@ -37,18 +38,21 @@
     <string name="buttonChatting">Button Messages</string>
     <string name="buttonProfile">Button Profile</string>
     <string name="pictureProfile">Photo Profile</string>
-    <string name="headerLogo">Header Logo</string>
     <string name="route">route</string>
     <string name="photoPilot">Photo Pilote</string>
 
     /* Connexion */
+
     <string name="connection">Connexion</string>
     <string name="enterId">Renseignez vos identifiants</string>
     <string name="email">E-mail</string>
     <string name="password">Mot de passe</string>
     <string name="forgotPassword">Mot de passe oublié ?</string>
+    <string name="se_connecter">Se connecter 🤙</string>
 
     /* Inscription */
+
+    <string name="s_inscrire">S\'inscrire 👋</string>
     <string name="inscription">Inscription</string>
     <string name="createProfile">Créez votre profil</string>
     <string name="name">Prénom</string>
@@ -56,5 +60,40 @@
     <string name="repeatPassword">Répétez le mot de passe</string>
     <string name="imPilot">Je suis pilote</string>
 
+    /* Create Trip */
+
+    <string name="a380">A380</string>
+    <string name="aircraft">Aéronef</string>
+    <string name="nbPassenger">Nombre de personne</string>
+    <string name="number3">3</string>
+    <string name="eurocopter_ec130">Eurocopter EC130</string>
+    <string name="selectPrice">Selectionnez un prix :</string>
+    <string name="selectAircraft">Selectionnez un aéronef :</string>
+    <string name="depart">Depart</string>
+    <string name="selectDepart">Sélectionnez un lieu de départ :</string>
+    <string name="enterAddress">Entrez une adresse</string>
+    <string name="selectPayment">Choisir un moyen de paiement</string>
+    <string name="paypal">Paypal</string>
+    <string name="cardPayment">Carte Bancaire</string>
+    <string name="apple_pay">Apple Pay</string>
+    <string name="google_pay">Google Pay</string>
+    <string name="payment_valid">Paiement validé</string>
+    <string name="addToCalendar">Ajouter au calendrier</string>
+    <string name="phone">Téléphone</string>
+    <string name="pilot_expert">Pilote Expert</string>
+    <string name="emailExample">pierre.dubois@gmail.com</string>
+    <string name="phoneNumber">06 01 02 03 04</string>
+    <string name="identity">Pièce d’identité</string>
+    <string name="pilot_license">Brevet de pilote PPL</string>
+
+
+    /* Other */
+
+    <string name="modify">Modifier</string>
+    <string name="returnText">Retour</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="blablaplane">BlaBlaPlane</string>
+    <string name="slogans">Des vols partagés pour des aventures inoubliables</string>
+    <string name="mentions_legales">Mentions légales</string>
 
 </resources>

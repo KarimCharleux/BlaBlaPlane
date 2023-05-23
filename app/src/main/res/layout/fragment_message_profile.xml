@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".object.message.MessageProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="14dp"
+        android:layout_marginStart="35dp">
+
+        <ImageView
+            android:id="@+id/pictureProfile"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:contentDescription="@string/pictureProfile"
+            android:src="@drawable/profile1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/firstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/namePilot"
+            android:textColor="#4b4b4b"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@id/pictureProfile"
+            app:layout_constraintStart_toEndOf="@id/pictureProfile"
+            app:layout_constraintTop_toTopOf="@id/pictureProfile" />
+
+        <TextView
+            android:id="@+id/lastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/surnamePilot"
+            android:textColor="#4b4b4b"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/pictureProfile"
+            app:layout_constraintStart_toEndOf="@id/firstName"
+            app:layout_constraintTop_toTopOf="@id/pictureProfile" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

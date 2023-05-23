@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
 
     <application
         android:allowBackup="true"
@@ -14,37 +16,58 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BlaBlaPlane"
         tools:targetApi="31">
+
         <activity
-            android:name=".MessageActivity"
-            android:exported="true" />
-        <activity
-            android:name=".Publish_PriceVehicule_Activity"
+            android:name=".activity.PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".MyTripActivity"
+            android:name=".activity.LandingActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activity.MessageActivity"
             android:exported="false" />
         <activity
-            android:name=".ConnectionActivity"
+            android:name=".activity.ConfirmationActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.provider.calendar.action.HANDLE_CUSTOM_EVENT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/event" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.PublishPriceAircraftActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".activity.MyTripActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ConnectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".TripInfoActivity"
+            android:name=".activity.PublishSelectCityActivity"
             android:exported="false" />
         <activity
-            android:name=".ListTripActivity"
+            android:name=".activity.TripInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".activity.ListTripActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ProfileActivity"
             android:exported="false" />
     </application>
+
 </manifest>
