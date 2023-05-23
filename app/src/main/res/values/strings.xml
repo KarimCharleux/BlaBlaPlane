@@ -120,6 +120,7 @@
     <string name="blablaplane">BlaBlaPlane</string>
     <string name="slogans">Des vols partagés pour des aventures inoubliables</string>
     <string name="mentions_legales">Mentions légales</string>
+    <string name="logout">Déconnecter</string>
 
 
 </resources>
