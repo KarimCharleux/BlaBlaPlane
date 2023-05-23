@@ -27,23 +27,26 @@
         </service>
 
         <activity
-            android:name=".activity.PaymentActivity"
+            android:name=".activity.LandingActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.LandingActivity"
+            android:name=".activity.PaymentActivity"
             android:exported="false" />
         <activity
             android:name=".activity.MessageActivity"
             android:exported="false" />
         <activity
             android:name=".activity.ConfirmationActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.provider.calendar.action.HANDLE_CUSTOM_EVENT" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="vnd.android.cursor.item/event" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".activity.PublishPriceAircraftActivity"
             android:exported="false" />
@@ -56,15 +59,6 @@
         <activity
             android:name=".activity.ConnectionActivity"
             android:exported="false" />
-        <activity
-            android:name=".activity.HomeActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".activity.PublishSelectCityActivity"
             android:exported="false" />
