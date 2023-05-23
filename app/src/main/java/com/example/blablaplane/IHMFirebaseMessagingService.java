@@ -1,4 +1,3 @@
-/*
 package com.example.blablaplane;
 
 import static com.example.blablaplane.NotifyApp.CHANNEL_ID;
@@ -12,6 +11,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
+import com.example.blablaplane.activity.HomeActivity;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -25,7 +25,7 @@ public class IHMFirebaseMessagingService extends FirebaseMessagingService {
         Message.getInstance().set(message);
 
         if(!Message.getInstance().isNull()){
-           Intent intent =  new Intent(getApplicationContext(),HomeActivity.class);
+           Intent intent =  new Intent(getApplicationContext(), HomeActivity.class);
            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
            NotificationCompat.Builder notifcation = new NotificationCompat.Builder(getApplicationContext(),CHANNEL_ID)
@@ -39,4 +39,3 @@ public class IHMFirebaseMessagingService extends FirebaseMessagingService {
         }
     }
 }
-*/

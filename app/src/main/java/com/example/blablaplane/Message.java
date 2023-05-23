@@ -1,4 +1,3 @@
-/*
 package com.example.blablaplane;
 
 import com.google.firebase.messaging.RemoteMessage;
@@ -41,4 +40,3 @@ public class Message extends Observable {
         return message.getNotification() == null;
     }
 }
-*/
