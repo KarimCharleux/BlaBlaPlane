@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -87,7 +88,7 @@ public class TripInfoActivity extends AppCompatActivity {
 
                 namePilot.setText(pilot.getName());
                 surnamePilot.setText(pilot.getSurname());
-                ratingPilot.setText(pilot.getRating());
+                ratingPilot.setText(pilot.getRatingString());
             } else {
                 System.err.println("ERROR : Pilot not found, id :" + trip.getPilotId());
             }

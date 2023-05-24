@@ -1,5 +1,29 @@
 <resources>
     <string name="app_name">BlaBlaPlane</string>
+    /* API */
+    <string name="API_googleMaps">AIzaSyAuHeVetKin8MDiHT5mrMGWDZ-24M5WwnA</string>
+
+    /* Accueil */
+
+    <string name="ACCUEIL_title">Des vols partagés pour des aventures inoubliables</string>
+    <string name="ACCUEIL_date">Aujourd\'hui</string>
+    <string name="ACCUEIL_number_of_people">1</string>
+    <string name="ACCUEIL_start">Départ</string>
+    <string name="ACCUEIL_destination">Destination</string>
+    <string name="ACCUEIL_search">Rechercher</string>
+
+
+    /* RECHERCHE */
+
+    <string name="RESEARCH_selectionDepart">Sélectionnez  un lieu de départ :</string>
+    <string name="RESEARCH_btn_validate_text">Valider</string>
+
+    /* ERRORS */
+    <string name="RESEARCH_ERR_EmptyDeparturePlaces">VEUILLEZ SELECTIONNER UN LIEU !</string>
+
+    /*INTENT */
+    <string name="RESEARCH_INTENT_stratingPlace">StartingPlace</string>
+
 
     /* Accueil */
 
@@ -95,5 +119,7 @@
     <string name="blablaplane">BlaBlaPlane</string>
     <string name="slogans">Des vols partagés pour des aventures inoubliables</string>
     <string name="mentions_legales">Mentions légales</string>
+    <string name="logout">Déconnecter</string>
+
 
 </resources>

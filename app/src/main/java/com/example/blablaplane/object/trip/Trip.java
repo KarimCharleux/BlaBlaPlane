@@ -9,14 +9,14 @@ import java.util.Locale;
 public class Trip {
     public static final SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private final int id;
-    private final int pilotId;
+    private final String pilotId;
     private final String departureDate;
     private final String arrivalDate;
     private final City departure;
     private final City arrival;
     private final Float price;
 
-    public Trip(int id, String departureDate, String arrivalDate, City departure, City arrival, Float price, int pilot) {
+    public Trip(int id, String departureDate, String arrivalDate, City departure, City arrival, Float price, String pilot) {
         this.id = id;
         this.departureDate = departureDate;
         this.arrivalDate = arrivalDate;
@@ -72,7 +72,7 @@ public class Trip {
         return formattedPrice + "€";
     }
 
-    public int getPilotId() {
+    public String getPilotId() {
         return this.pilotId;
     }
 

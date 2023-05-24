@@ -73,9 +73,11 @@ public class TripAdapter extends BaseAdapter {
 
         // Set the text of the view for the pilot
         User pilot = UserArray.getInstance().getUserById(tripArray.get(i).getPilotId());
-        firstName.setText(pilot.getName());
-        lastName.setText(pilot.getSurname());
-        rating.setText(pilot.getRating());
+        if (pilot != null) {
+            firstName.setText(pilot.getName());
+            lastName.setText(pilot.getSurname());
+            rating.setText(pilot.getRatingString());
+        }
 
         // Set the listener to the click on a trip
         tripView.setOnClickListener(v -> {
