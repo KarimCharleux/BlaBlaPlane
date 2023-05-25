@@ -20,7 +20,7 @@ public class LandingActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
 
         if (preferences.getString("user_id", null) != null) {
-            Intent intent = new Intent(this, HomeActivity.class);
+            Intent intent = new Intent(this, SwitcherActivity.class);
             startActivity(intent);
             finish();
         }

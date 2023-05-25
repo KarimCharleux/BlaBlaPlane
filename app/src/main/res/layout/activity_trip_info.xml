@@ -6,19 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".activity.TripInfoActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView2"
-        android:name="com.example.blablaplane.fragments.HeaderFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout="@layout/fragment_header" />
-
     <TextView
         android:id="@+id/dateText"
         android:layout_width="wrap_content"
@@ -30,7 +17,7 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView2" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -42,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView2"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.081">
 
         <LinearLayout
@@ -143,11 +130,11 @@
         android:id="@+id/mapView"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        app:layout_constraintBottom_toTopOf="@+id/footerTripInfo"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.050000012" />
+        app:layout_constraintVertical_bias="0.04000002" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -155,10 +142,12 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mapView">
+        app:layout_constraintTop_toBottomOf="@+id/mapView"
+        app:layout_constraintVertical_bias="0.01999998">
 
         <TextView
             android:id="@+id/price"
@@ -173,7 +162,7 @@
             android:id="@+id/picePerPassanger"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/picePerPassanger" />
+            android:text="@string/pricePerPassanger" />
     </LinearLayout>
 
     <LinearLayout
@@ -302,11 +291,11 @@
         android:layout_height="55dp"
         android:backgroundTint="#39C3FD"
         app:cardCornerRadius="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/footerTripInfo"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.9">
+        app:layout_constraintVertical_bias="0.110000014">
 
         <Button
             android:id="@+id/bookButton"
@@ -320,18 +309,4 @@
             tools:layout_editor_absoluteX="105dp"
             tools:layout_editor_absoluteY="503dp" />
     </androidx.cardview.widget.CardView>
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/footerTripInfo"
-        android:name="com.example.blablaplane.fragments.FooterFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:layout="@layout/fragment_footer" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

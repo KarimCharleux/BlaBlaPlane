@@ -6,59 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".activity.RegisterActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/header"
-        android:name="com.example.blablaplane.fragments.HeaderFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_header" />
-
-    <LinearLayout
-        android:id="@+id/connexion_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/connexion_inscription_header"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="50dp"
-            android:text="@string/inscription"
-            android:textSize="35sp" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/connexion_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/createProfile"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/connexion_header" />
 
     <ImageView
+        android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginEnd="50dp"
-        android:contentDescription="@string/inscription"
-        android:src="@color/black"
+        android:layout_height="100sp"
+        android:contentDescription="@string/blablaplane"
+        android:src="@drawable/logo_blablaplane"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/connexion_title" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:text="@string/createProfile"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        app:layout_constraintVertical_bias="0.00999999" />
 
     <EditText
         android:id="@+id/firstName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_height="45sp"
         android:autofillHints=""
         android:background="@drawable/edit_text"
+        android:backgroundTint="#EDEDED"
         android:ems="14"
         android:hint="@string/name"
         android:inputType="textPersonName"
@@ -67,17 +48,20 @@
         android:textColor="@color/black"
         android:textCursorDrawable="@color/blue"
         android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/connexion_title" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.050000012" />
 
     <EditText
         android:id="@+id/lastName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="45sp"
         android:layout_marginTop="25dp"
         android:autofillHints=""
         android:background="@drawable/edit_text"
+        android:backgroundTint="#EDEDED"
         android:ems="14"
         android:hint="@string/surname"
         android:inputType="textPersonName"
@@ -93,10 +77,11 @@
     <EditText
         android:id="@+id/EmailAddress"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="45sp"
         android:layout_marginTop="24dp"
         android:autofillHints=""
         android:background="@drawable/edit_text"
+        android:backgroundTint="#EDEDED"
         android:ems="14"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
@@ -112,10 +97,11 @@
     <EditText
         android:id="@+id/phoneNumber"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="45sp"
         android:layout_marginTop="25dp"
         android:autofillHints=""
         android:background="@drawable/edit_text"
+        android:backgroundTint="#EDEDED"
         android:ems="14"
         android:hint="@string/phone"
         android:inputType="phone"
@@ -131,10 +117,11 @@
     <EditText
         android:id="@+id/Password"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="45sp"
         android:layout_marginTop="25dp"
         android:autofillHints=""
         android:background="@drawable/edit_text"
+        android:backgroundTint="#EDEDED"
         android:ems="14"
         android:hint="@string/password"
         android:inputType="textPassword"
@@ -149,10 +136,11 @@
     <EditText
         android:id="@+id/RepeatPassword"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="45sp"
         android:layout_marginTop="25dp"
         android:autofillHints=""
         android:background="@drawable/edit_text"
+        android:backgroundTint="#EDEDED"
         android:ems="14"
         android:hint="@string/repeatPassword"
         android:inputType="textPassword"
@@ -166,6 +154,7 @@
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
@@ -174,7 +163,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.22000003">
+        app:layout_constraintTop_toBottomOf="@+id/RepeatPassword">
 
         <Button
             android:id="@+id/RegisterButton"

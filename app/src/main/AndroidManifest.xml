@@ -36,22 +36,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.HomeActivity"
+            android:name=".activity.SwitcherActivity"
             android:exported="false" />
         <activity
             android:name=".activity.PaymentActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.MessageActivity"
             android:exported="false" />
         <activity
             android:name=".activity.ConfirmationActivity"
             android:exported="false" />
         <activity
             android:name=".activity.PublishPriceAircraftActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.MyTripActivity"
             android:exported="false" />
         <activity
             android:name=".activity.RegisterActivity"
@@ -67,9 +61,6 @@
             android:exported="false" />
         <activity
             android:name=".activity.ListTripActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.ProfileActivity"
             android:exported="false" />
     </application>
 

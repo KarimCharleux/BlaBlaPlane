@@ -39,7 +39,6 @@
             android:scaleX="0.5"
             android:scaleY="0.5"
             android:src="@drawable/footer_avatar"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toLeftOf="@id/NUMBER_PASSENGER"
             app:layout_constraintTop_toTopOf="parent" />
@@ -53,7 +52,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

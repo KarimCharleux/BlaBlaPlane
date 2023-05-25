@@ -113,7 +113,7 @@ public class ConnexionTest {
         materialButton2.perform(click());
 
         ViewInteraction appCompatImageButton = onView(
-                allOf(withId(R.id.buttonProfile), withContentDescription("Button Profile"),
+                allOf(withId(R.id.access_profile), withContentDescription("Button Profile"),
                         childAtPosition(
                                 childAtPosition(
                                         withClassName(is("android.widget.LinearLayout")),
