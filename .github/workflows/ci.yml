@@ -30,7 +30,6 @@ jobs:
           target: google_apis
           arch: x86_64
           script: ./gradlew connectedCheck
-          emulator-build: 7425822
         
       - name: Run integrationTests
         run: ./gradlew connectedAndroidTest 
