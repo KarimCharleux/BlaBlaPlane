@@ -10,10 +10,7 @@ on:
   
 
 jobs:
-         
-  linter:
-    runs-on: ubuntu-latest
-      
+
   integrationTests:
     runs-on: ubuntu-latest
       
