@@ -92,7 +92,7 @@
 
     /* Create Trip */
 
-    <string name="a380">A380</string>
+    <string name="planeName">Cirrus Vision Jet</string>
     <string name="aircraft">Aéronef</string>
     <string name="nbPassenger">Nombre de personne</string>
     <string name="number3">3</string>

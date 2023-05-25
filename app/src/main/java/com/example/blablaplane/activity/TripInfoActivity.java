@@ -7,15 +7,12 @@ import android.graphics.Paint;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
-import com.example.blablaplane.CallBackInterface;
 import com.example.blablaplane.R;
-import com.example.blablaplane.factory.FragmentFactory;
 import com.example.blablaplane.object.trip.Trip;
 import com.example.blablaplane.object.trip.TripArray;
 import com.example.blablaplane.object.user.User;
@@ -35,15 +32,13 @@ import org.osmdroid.views.overlay.Polyline;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TripInfoActivity extends AppCompatActivity implements CallBackInterface {
+public class TripInfoActivity extends AppCompatActivity {
 
     private MapView map = null;
-    FragmentFactory fragmentFactory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fragmentFactory = new FragmentFactory();
         setContentView(R.layout.activity_trip_info);
 
         // Get the trip id from the intent (ListTrip)
@@ -181,10 +176,5 @@ public class TripInfoActivity extends AppCompatActivity implements CallBackInter
     public void onResume() {
         super.onResume();
         map.onResume(); // Resume the map when the activity is resumed.
-    }
-
-    @Override
-    public void callBackMethod(int indexMenu) {
-        fragmentFactory.changeActivity(indexMenu,this);
     }
 }

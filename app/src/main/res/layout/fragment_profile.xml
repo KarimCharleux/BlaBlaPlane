@@ -191,9 +191,9 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/bookButtonLayout"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
                 android:backgroundTint="#39C3FD"
                 app:cardCornerRadius="30dp">
 
@@ -210,9 +210,9 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
                 android:backgroundTint="#D5D5D5"
                 app:cardCornerRadius="30dp">
 
@@ -231,7 +231,7 @@
         <ListView
             android:id="@+id/aircraft_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_marginHorizontal="15sp"
             android:layout_marginTop="15sp"
             android:clickable="false"

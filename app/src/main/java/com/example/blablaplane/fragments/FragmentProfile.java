@@ -92,7 +92,7 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
         // Create the adapter
         AircraftAdapter aircraftAdapter = new AircraftAdapter(getContext(), aircraftArray);
 
-        // Retrieve the list of Message profiles
+        // Retrieve the list of aircraft
         ListView aircraftList = view.findViewById(R.id.aircraft_list);
 
         // Set the adapter
@@ -101,6 +101,10 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
         // Set the listener
         aircraftAdapter.setListener(this);
 
+        System.out.println("Aircraft list size : " + aircraftArray.size());
+
+
+        // Disconnect button
         Button buttonDisconnect = view.findViewById(R.id.logoutButton);
         buttonDisconnect.setOnClickListener(v -> {
             SharedPreferences.Editor editor = preferences.edit();
