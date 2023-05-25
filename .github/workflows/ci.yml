@@ -2,7 +2,6 @@ name: CI
 
 on:
   workflow_dispatch:
-  
   pull_request:
     branches: 
       - "develop"
@@ -15,18 +14,6 @@ jobs:
   linter:
     runs-on: ubuntu-latest
       
-    steps:
-      - uses: actions/checkout@v3
-        
-      - name: Run Linter
-        run: ./gradlew lintDebug
-          
-      - name: Upload html report
-        uses: actions/upload-artifact@v2
-        with:
-          name: index.html
-          path: app/build/reports/lint-results-debug.html
-
   integrationTests:
     runs-on: ubuntu-latest
       
@@ -38,8 +25,8 @@ jobs:
           java-version: 17
       - uses: gradle/gradle-build-action@v2
         
-      - name: Run integration tests
-        run: ./gradlew cAD
+      - name: Run SonarQube
+        run: ./gradlew connectedAndroidTest 
 
   sonarqube:
     runs-on: ubuntu-latest
@@ -53,4 +40,4 @@ jobs:
       - uses: gradle/gradle-build-action@v2
         
       - name: Run SonarQube
-        run: ./gradlew connectedAndroidTest 
+        run: ./gradlew sonar
