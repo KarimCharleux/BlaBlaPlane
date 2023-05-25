@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.blablaplane.R;
-import com.example.blablaplane.fragments.FooterFragment;
 import com.example.blablaplane.object.DataBase;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,12 +21,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Objects;
 
 public class ConnectionActivity extends AppCompatActivity {
-    FooterFragment footerFragment;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        footerFragment = new FooterFragment();
         setContentView(R.layout.activity_connection);
 
         Button login = findViewById(R.id.loginButton);
@@ -64,7 +60,7 @@ public class ConnectionActivity extends AppCompatActivity {
 
                             Toast.makeText(ConnectionActivity.this, "✅ Vous êtes connecté !", Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent(ConnectionActivity.this, HomeActivity.class);
+                            Intent intent = new Intent(ConnectionActivity.this, SwitcherActivity.class);
                             startActivity(intent);
                             finish();
                         } else {

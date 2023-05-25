@@ -75,7 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                                 // Go to the home page and display a confirmation message
                                 Toast.makeText(RegisterActivity.this, "✅ Votre compte a bien été créé", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
+                                Intent intent = new Intent(RegisterActivity.this, SwitcherActivity.class);
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(RegisterActivity.this, "⚠️ Erreur lors de la création du compte, veuillez réessayer", Toast.LENGTH_SHORT).show();

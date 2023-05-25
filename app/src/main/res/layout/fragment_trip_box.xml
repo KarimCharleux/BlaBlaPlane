@@ -22,7 +22,7 @@
             android:layout_marginEnd="20dp"
             android:text="@string/departureTime"
             android:textColor="@color/black"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -32,10 +32,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="-15dp"
+            android:layout_marginEnd="-8dp"
             android:text="@string/durationTime"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@id/departureTime"
             app:layout_constraintTop_toBottomOf="@id/departureTime" />
 
@@ -46,15 +46,15 @@
             android:layout_marginTop="5dp"
             android:text="@string/arrivalTime"
             android:textColor="@color/black"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/departureTime"
             app:layout_constraintTop_toBottomOf="@id/duration_time" />
 
         <ImageView
             android:id="@+id/route_image"
-            android:layout_width="50dp"
-            android:layout_height="120dp"
+            android:layout_width="30dp"
+            android:layout_height="98dp"
             android:layout_marginTop="15dp"
             android:contentDescription="@string/route"
             android:src="@drawable/traject_logo"
@@ -68,7 +68,7 @@
             android:layout_marginTop="15dp"
             android:text="@string/departureText"
             android:textColor="@color/black"
-            android:textSize="25sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/route_image"
             app:layout_constraintTop_toTopOf="parent" />
@@ -80,7 +80,7 @@
             android:layout_marginTop="5dp"
             android:text="@string/arrivalText"
             android:textColor="@color/black"
-            android:textSize="25sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/route_image"
             app:layout_constraintTop_toBottomOf="@id/duration_time" />
@@ -92,7 +92,7 @@
             android:layout_marginTop="20dp"
             android:text="@string/priceTrip"
             android:textColor="#39c3fe"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -115,7 +115,7 @@
             android:layout_height="wrap_content"
             android:text="@string/namePilot"
             android:textColor="@color/black"
-            android:textSize="25sp"
+            android:textSize="22sp"
             app:layout_constraintStart_toEndOf="@id/picture_profile"
             app:layout_constraintTop_toTopOf="@id/picture_profile" />
 
@@ -126,7 +126,7 @@
             android:layout_marginStart="5dp"
             android:text="@string/surnamePilot"
             android:textColor="@color/black"
-            android:textSize="25sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/first_name"
             app:layout_constraintTop_toTopOf="@id/first_name" />
@@ -138,7 +138,7 @@
             android:layout_marginStart="4dp"
             android:text="@string/ratingPilot"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/picture_profile"
             app:layout_constraintTop_toBottomOf="@id/first_name" />
 

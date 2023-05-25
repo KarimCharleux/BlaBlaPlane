@@ -20,7 +20,6 @@ public class PaymentActivity extends AppCompatActivity {
 
         int tripId = getIntent().getIntExtra("id", 0);
 
-
         List<Button> buttons = new ArrayList<>();
         buttons.add(findViewById(R.id.paypal_button));
         buttons.add(findViewById(R.id.cb_button));

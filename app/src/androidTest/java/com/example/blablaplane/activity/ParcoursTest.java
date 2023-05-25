@@ -184,7 +184,7 @@ public class ParcoursTest {
         frameLayout2.perform(click());
 
         ViewInteraction appCompatImageButton = onView(
-                allOf(withId(R.id.buttonProfile), withContentDescription("Button Profile"),
+                allOf(withId(R.id.access_profile), withContentDescription("Button Profile"),
                         childAtPosition(
                                 childAtPosition(
                                         withClassName(is("android.widget.LinearLayout")),
@@ -194,7 +194,7 @@ public class ParcoursTest {
         appCompatImageButton.perform(click());
 
         ViewInteraction appCompatImageButton2 = onView(
-                allOf(withId(R.id.buttonChatting), withContentDescription("Button Messages"),
+                allOf(withId(R.id.access_messages), withContentDescription("Button Messages"),
                         childAtPosition(
                                 childAtPosition(
                                         withClassName(is("android.widget.LinearLayout")),
@@ -204,7 +204,7 @@ public class ParcoursTest {
         appCompatImageButton2.perform(click());
 
         ViewInteraction appCompatImageButton3 = onView(
-                allOf(withId(R.id.buttonDefault), withContentDescription("button Home"),
+                allOf(withId(R.id.access_my_trip), withContentDescription("button Home"),
                         childAtPosition(
                                 childAtPosition(
                                         withClassName(is("android.widget.LinearLayout")),
@@ -214,7 +214,7 @@ public class ParcoursTest {
         appCompatImageButton3.perform(click());
 
         ViewInteraction appCompatImageButton4 = onView(
-                allOf(withId(R.id.buttonSearching), withContentDescription("Button Rechercher"),
+                allOf(withId(R.id.access_search), withContentDescription("Button Rechercher"),
                         childAtPosition(
                                 childAtPosition(
                                         withClassName(is("android.widget.LinearLayout")),
@@ -224,7 +224,7 @@ public class ParcoursTest {
         appCompatImageButton4.perform(click());
 
         ViewInteraction appCompatImageButton5 = onView(
-                allOf(withId(R.id.buttonAdding), withContentDescription("Button Ajouter"),
+                allOf(withId(R.id.access_add), withContentDescription("Button Ajouter"),
                         childAtPosition(
                                 childAtPosition(
                                         withClassName(is("android.widget.LinearLayout")),
@@ -234,7 +234,7 @@ public class ParcoursTest {
         appCompatImageButton5.perform(click());
 
         ViewInteraction appCompatImageButton6 = onView(
-                allOf(withId(R.id.buttonProfile), withContentDescription("Button Profile"),
+                allOf(withId(R.id.access_profile), withContentDescription("Button Profile"),
                         childAtPosition(
                                 childAtPosition(
                                         withClassName(is("android.widget.LinearLayout")),

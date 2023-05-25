@@ -15,11 +15,11 @@
 
     /* RECHERCHE */
 
-    <string name="RESEARCH_selectionDepart">Sélectionnez  un lieu de départ :</string>
+    <string name="RESEARCH_selectionDepart">Sélectionnez  un lieu de départ</string>
     <string name="RESEARCH_btn_validate_text">Valider</string>
 
     /* ERRORS */
-    <string name="RESEARCH_ERR_EmptyDeparturePlaces">VEUILLEZ SELECTIONNER UN LIEU !</string>
+    <string name="RESEARCH_ERR_EmptyDeparturePlaces">⚠️ Veuillez selectionner un lieux !</string>
 
     /*INTENT */
     <string name="RESEARCH_INTENT_stratingPlace">StartingPlace</string>
@@ -34,13 +34,19 @@
     <string name="destination">Destination</string>
     <string name="search">Rechercher</string>
 
+
+    /* Messages */
+    <string name="myMessages">Mes messages</string>
+    <string name="previousMessages">Salut t\'es ou ?</string>
+
+
     /* Trip */
 
     <string name="myTrips">Mes trajets</string>
     <string name="surnamePilot">LUTUN</string>
     <string name="namePilot">Théo</string>
     <string name="photoPilote">User profile</string>
-    <string name="picePerPassanger">Prix total pour 1 passager</string>
+    <string name="pricePerPassanger">Prix total pour 1 passager</string>
     <string name="priceTrip">200,00 €</string>
     <string name="arrivalTime">13h35</string>
     <string name="arrivalText">Nice</string>
@@ -56,11 +62,11 @@
     <string name="namePlane">Cessna 140</string>
     <string name="bookButton">Réserver</string>
     <string name="dateText">Mercredi 17 mai</string>
-    <string name="buttonsearching">Button Rechercher</string>
-    <string name="buttonAdding">Button Ajouter</string>
-    <string name="buttondefault">button Home</string>
-    <string name="buttonChatting">Button Messages</string>
-    <string name="buttonProfile">Button Profile</string>
+    <string name="buttonSearching">Rechercher</string>
+    <string name="buttonAdding">Publier</string>
+    <string name="buttonMyTrip">Mes trajets</string>
+    <string name="buttonChatting">Messages</string>
+    <string name="buttonProfile">Profile</string>
     <string name="pictureProfile">Photo Profile</string>
     <string name="route">route</string>
     <string name="photoPilot">Photo Pilote</string>
@@ -86,13 +92,13 @@
 
     /* Create Trip */
 
-    <string name="a380">A380</string>
+    <string name="planeName">Cirrus Vision Jet</string>
     <string name="aircraft">Aéronef</string>
     <string name="nbPassenger">Nombre de personne</string>
     <string name="number3">3</string>
     <string name="eurocopter_ec130">Eurocopter EC130</string>
-    <string name="selectPrice">Selectionnez un prix :</string>
-    <string name="selectAircraft">Selectionnez un aéronef :</string>
+    <string name="selectPrice">Selectionnez un prix</string>
+    <string name="selectAircraft">Selectionnez un aéronef</string>
     <string name="depart">Depart</string>
     <string name="selectDepart">Sélectionnez un lieu de départ :</string>
     <string name="enterAddress">Entrez une adresse</string>
@@ -120,6 +126,8 @@
     <string name="slogans">Des vols partagés pour des aventures inoubliables</string>
     <string name="mentions_legales">Mentions légales</string>
     <string name="logout">Déconnecter</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
