@@ -29,8 +29,6 @@ public class ModifyProfile_dialogFragment extends DialogFragment {
     }
 
     public interface InputDialogListener {
-        View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
-
         void onTextEntered(String inputText, InputFieldType fieldType);
     }
 

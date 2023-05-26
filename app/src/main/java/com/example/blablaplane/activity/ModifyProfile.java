@@ -17,11 +17,18 @@ import androidx.cardview.widget.CardView;
 
 import com.example.blablaplane.R;
 import com.example.blablaplane.fragments.ModifyProfile_dialogFragment;
+import com.example.blablaplane.object.DataBase;
+import com.example.blablaplane.object.aircraft.Aircraft;
+import com.example.blablaplane.object.trip.Trip;
 import com.example.blablaplane.object.user.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ModifyProfile extends AppCompatActivity implements ModifyProfile_dialogFragment.InputDialogListener {
 
@@ -55,73 +62,9 @@ public class ModifyProfile extends AppCompatActivity implements ModifyProfile_di
     String userEmail = "";
     String userPassword = "";
     String userPhoneNumber = "";
-    String userRating = "";
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_modify_profile, container, false);
-
-        SharedPreferences preferences = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE);
-        String userID = preferences.getString("user_id", null);
-
-        DatabaseReference userRef = DataBase.USERS_REFERENCE.child(userID);
-
-        // Check if the user exists and get its data
-        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // User exists in the database and we can get its data
-                    User user = dataSnapshot.getValue(User.class);
-
-                    Button button_first_name_answer = findViewById(R.id.firstName_answer);
-                    Button button_last_name_answer = findViewById(R.id.lastName_answer);
-                    Button button_email_answer = findViewById(R.id.email_answer);
-                    Button button_password_answer = findViewById(R.id.password_answer);
-                    Button button_phone_number_answer = findViewById(R.id.phoneNumber_answer);
-
-                    assert user != null;
-                    // Put the first letter of the name in uppercase
-                    int lengthPassword = user.getPassword().length();
-                    String hiddenPassword = "";
-                    for (int i = 0; i < lengthPassword; i++) {
-                        hiddenPassword += "*";
-                    }
-
-                    String name = user.getName().substring(0, 1).toUpperCase() + user.getName().substring(1);
-                    button_first_name_answer.setText(name);
-                    button_last_name_answer.setText(user.getSurname().toUpperCase());
-                    button_email_answer.setText(user.getEmail());
-                    button_password_answer.setText(hiddenPassword);
-
-                    // Format the phone number ex: 06 12 34 56 78
-                    String phone = user.getPhone().replace(" ", "");
-                    phone = phone.substring(0, 2) + " " + phone.substring(2, 4) + " " + phone.substring(4, 6) + " " + phone.substring(6, 8) + " " + phone.substring(8, 10);
-                    button_phone_number_answer.setText(phone);
-
-                } else {
-                    Intent intent = new Intent(getActivity(), LandingActivity.class);
-                    startActivity(intent);
-                    requireActivity().finish();
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Here should be an error message
-            }
-        });
-
-        this.userFirstName = this.button_first_name_answer.getText().toString();
-        this.userLastName = this.button_last_name_answer.getText().toString();
-        this.userEmail = this.button_email_answer.getText().toString();
-        this.userPassword = preferences.getString("user_password", null);
-        this.userPhoneNumber = this.button_phone_number_answer.getText().toString();
-        this.userRating = preferences.getString("user_rating", null);
-
-        return view;
-    }
+    float userRating = 0;
+    List<Aircraft> userAircrafts = new ArrayList<>();
+    List<Trip> userTrips = new ArrayList<>();
 
 
 
@@ -154,6 +97,69 @@ public class ModifyProfile extends AppCompatActivity implements ModifyProfile_di
         this.button_add_aircraft_title = findViewById(R.id.addAircraft_title);
         this.button_confirm = findViewById(R.id.ModifyProfile_ConfirmButton);
         this.button_return = findViewById(R.id.ModifyProfile_ReturnButton);
+
+
+
+
+        SharedPreferences preferences = this.getSharedPreferences("user_data", Context.MODE_PRIVATE);
+        String userID = preferences.getString("user_id", null);
+
+        DatabaseReference userRef = DataBase.USERS_REFERENCE.child(userID);
+
+        // Check if the user exists and get its data
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    // User exists in the database and we can get its data
+                    User user = dataSnapshot.getValue(User.class);
+
+                    Button button_first_name_answer = findViewById(R.id.firstName_answer);
+                    Button button_last_name_answer = findViewById(R.id.lastName_answer);
+                    Button button_email_answer = findViewById(R.id.email_answer);
+                    Button button_password_answer = findViewById(R.id.password_answer);
+                    Button button_phone_number_answer = findViewById(R.id.phoneNumber_answer);
+
+                    assert user != null;
+                    // Put the first letter of the name in uppercase
+                    int lengthPassword = user.getPassword().length();
+                    String hiddenPassword = "";
+                    for (int i = 0; i < lengthPassword; i++) {
+                        hiddenPassword += "*";
+                    }
+
+                    String name = user.getName().substring(0, 1).toUpperCase() + user.getName().substring(1);
+                    button_first_name_answer.setText(name);
+                    button_last_name_answer.setText(user.getSurname().toUpperCase());
+                    button_email_answer.setText(user.getEmail());
+                    button_password_answer.setText(hiddenPassword);
+
+                    userFirstName = user.getName();
+                    userLastName = user.getSurname();
+                    userEmail = user.getEmail();
+                    userPassword = user.getPassword();
+                    userPhoneNumber = user.getPhone();
+                    userRating = user.getRating();
+                    userAircrafts = user.getAircraftList();
+                    userTrips = user.getMyTripList();
+
+                    // Format the phone number ex: 06 12 34 56 78
+                    String phone = user.getPhone().replace(" ", "");
+                    phone = phone.substring(0, 2) + " " + phone.substring(2, 4) + " " + phone.substring(4, 6) + " " + phone.substring(6, 8) + " " + phone.substring(8, 10);
+                    button_phone_number_answer.setText(phone);
+
+                } else {
+                    Intent intent = new Intent(ModifyProfile.this, LandingActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Here should be an error message
+            }
+        });
 
 
         View.OnClickListener firstName = new View.OnClickListener() {
@@ -209,6 +215,9 @@ public class ModifyProfile extends AppCompatActivity implements ModifyProfile_di
         View.OnClickListener addAircraft = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(ModifyProfile.this, SelectAircraftActivity.class);
+                intent.putParcelableArrayListExtra("aircraftList", new ArrayList<>(userAircrafts));
+                startActivity(intent);
             }
         };
 
@@ -226,7 +235,7 @@ public class ModifyProfile extends AppCompatActivity implements ModifyProfile_di
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.exists()) {
                             // User already exists
-                            Toast.makeText(RegisterActivity.this, "⚠️ Cet email est déjà utilisé !", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ModifyProfile.this, "⚠️ Cet email est déjà utilisé !", Toast.LENGTH_SHORT).show();
                         } else {
                             // User does not exist so create it
                             DataBase.USERS_REFERENCE.child(user.getId()).setValue(user).addOnCompleteListener(task -> {
@@ -238,12 +247,12 @@ public class ModifyProfile extends AppCompatActivity implements ModifyProfile_di
                                     editor.apply();
 
                                     // Go to the home page and display a confirmation message
-                                    Toast.makeText(RegisterActivity.this, "✅ Votre compte a bien été créé", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(RegisterActivity.this, SwitcherActivity.class);
+                                    Toast.makeText(ModifyProfile.this, "✅ Votre compte a bien été créé", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(ModifyProfile.this, SwitcherActivity.class);
                                     startActivity(intent);
                                     finish();
                                 } else {
-                                    Toast.makeText(RegisterActivity.this, "⚠️ Erreur lors de la création du compte, veuillez réessayer", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ModifyProfile.this, "⚠️ Erreur lors de la création du compte, veuillez réessayer", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         }
@@ -251,7 +260,7 @@ public class ModifyProfile extends AppCompatActivity implements ModifyProfile_di
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-                        Toast.makeText(RegisterActivity.this, "⚠️ Erreur lors de la création du compte, veuillez réessayer", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ModifyProfile.this, "⚠️ Erreur lors de la création du compte, veuillez réessayer", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -331,6 +340,5 @@ public class ModifyProfile extends AppCompatActivity implements ModifyProfile_di
                 break;
         }
     }
-
 
 }
