@@ -23,6 +23,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.List;
+
 public class CreateNewAircraftActivity extends AppCompatActivity {
 
     EditText name, type, nbPassenger, picture, maxRange;
@@ -45,6 +47,11 @@ public class CreateNewAircraftActivity extends AppCompatActivity {
         returnButton = findViewById(R.id.ReturnButton);
         confirmCard = findViewById(R.id.cardView4);
         returnCard = findViewById(R.id.cardView5);
+
+        SharedPreferences preferences = this.getSharedPreferences("user_data", Context.MODE_PRIVATE);
+        String userID = preferences.getString("user_id", null);
+
+        DatabaseReference userRef = DataBase.USERS_REFERENCE.child(userID);
 
         //TODO : adapt to now database of aircraft
         Aircraft aircraft = new Aircraft(name.getText().toString(), type.getText().toString(), Integer.parseInt(nbPassenger.getText().toString()), Integer.parseInt(picture.getText().toString()), Integer.parseInt(maxRange.getText().toString()));
@@ -75,11 +82,19 @@ public class CreateNewAircraftActivity extends AppCompatActivity {
                                         // Go to the home page and display a confirmation message
                                         Toast.makeText(CreateNewAircraftActivity.this, "✅ L'appareil a bien été créé", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(CreateNewAircraftActivity.this, SwitcherActivity.class);
-                                        finish();
+
+                                        if (dataSnapshot.exists()) {
+                                            // User exists in the database and we can get its data
+                                            User user = dataSnapshot.getValue(User.class);
+                                            List<Aircraft> userAircrafts = user.getAircraftList();
+                                            userAircrafts.add(aircraft);
+                                            userRef.child("listAricraft").setValue(userAircrafts);
+                                            finish();
+                                        }
                                     } else {
                                         Toast.makeText(CreateNewAircraftActivity.this, "⚠️ Erreur lors de la création de l'appareil, veuillez réessayer", Toast.LENGTH_SHORT).show();
                                     }
-                                });
+                                }));
                             }
                         }
 

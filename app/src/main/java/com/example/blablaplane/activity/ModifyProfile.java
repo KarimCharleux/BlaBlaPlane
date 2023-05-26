@@ -127,6 +127,8 @@ public class ModifyProfile extends AppCompatActivity implements ModifyProfile_di
                     button_last_name_answer.setText(user.getSurname().toUpperCase());
                     button_email_answer.setText(user.getEmail());
                     button_password_answer.setText(hiddenPassword);
+                    userAircrafts = user.getAircraftList();
+                    userTrips = user.getMyTripList();
 
                     // Format the phone number ex: 06 12 34 56 78
                     String phone = user.getPhone().replace(" ", "");
