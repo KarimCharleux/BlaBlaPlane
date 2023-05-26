@@ -27,6 +27,14 @@ public class User {
     }
 
     public User(String name, String surname, String email, String password, String phone, float rating) {
+        this(name, surname, email, password, phone, rating, new ArrayList<>());
+    }
+
+    public User(String name, String surname, String email, String password, String phone, float rating, ArrayList<Aircraft> aircraftList) {
+        this(name, surname, email, password, phone, rating, aircraftList, new ArrayList<>());
+    }
+
+    public User(String name, String surname, String email, String password, String phone, float rating, ArrayList<Aircraft> aircraftList, ArrayList<Trip> myTripList) {
         this.id = email.replace("@", "").replace(".", "");
         this.name = name;
         this.surname = surname;
@@ -34,8 +42,8 @@ public class User {
         this.password = password;
         this.phone = phone;
         this.rating = rating;
-        this.aircraftList = new ArrayList<>();
-        this.myTripList = new ArrayList<>();
+        this.aircraftList = aircraftList;
+        this.myTripList = myTripList;
     }
 
     public List<Trip> getMyTripList() {
@@ -76,6 +84,18 @@ public class User {
 
     public float getRating() {
         return this.rating;
+    }
+
+    public void addAircraft(Aircraft aircraft) {
+        this.aircraftList.add(aircraft);
+    }
+
+    public void removeAircraft(Aircraft aircraft) {
+        this.aircraftList.remove(aircraft);
+    }
+
+    public void setAircraftList(List<Aircraft> aircraftList) {
+        this.aircraftList = aircraftList;
     }
 
     public List<Aircraft> getAircraftList() {
