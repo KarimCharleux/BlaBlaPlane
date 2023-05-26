@@ -1,17 +1,16 @@
 package com.example.blablaplane.object.user;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class UserArray extends ArrayList<User> {
     private static UserArray instance;
 
     private UserArray() {
         super();
-        add(new User(1, "Mario", "Rossi", "mario.rossi@gmail.com", "password", "3333333333", 4.5F, Collections.emptyList()));
-        add(new User(2, "Luigi", "Verdi", "luigi.verdi@gmail.com", "password", "3333333333", 4.35F, Collections.emptyList()));
-        add(new User(3, "Giovanni", "Bianchi", "giovanni.bianchi@gmail.com", "password", "3333333333", 3.2F, Collections.emptyList()));
-        add(new User(4, "Francesco", "Neri", "francesco@gmail.com", "password", "3333333333", 0, Collections.emptyList()));
+        add(new User("Mario", "Rossi", "mario.rossi@gmail.com", "password", "3333333333", 4.5F));
+        add(new User("Luigi", "Verdi", "luigi.verdi@gmail.com", "password", "3333333333", 4.35F));
+        add(new User("Giovanni", "Bianchi", "giovanni.bianchi@gmail.com", "password", "3333333333", 3.2F));
+        add(new User("Francesco", "Neri", "francesco@gmail.com", "password", "3333333333", 0));
     }
 
     /**
@@ -32,9 +31,9 @@ public class UserArray extends ArrayList<User> {
      * @param id the id of the user
      * @return the user with the given id
      */
-    public User getUserById(int id) {
+    public User getUserById(String id) {
         for (User user : this) {
-            if (user.getId() == id) {
+            if (user.getId().equals(id)) {
                 return user;
             }
         }

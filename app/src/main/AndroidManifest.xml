@@ -4,8 +4,11 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
 
     <application
+        android:name=".NotifyApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -14,40 +17,51 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BlaBlaPlane"
         tools:targetApi="31">
+
+        <service
+            android:name=".IHMFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
         <activity
-            android:name=".activity.MessageActivity"
-            android:exported="true"/>
-        <activity
-            android:name=".activity.Publish_PriceVehicule_Activity"
-            android:exported="false"/>
-        <activity
-            android:name=".activity.MyTripActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.InscriptionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.Connexion_Activity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.Home_Activity"
+            android:name=".activity.LandingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.Publish_SelectCity_Activity"
+            android:name=".activity.SwitcherActivity"
             android:exported="false" />
         <activity
-            android:name=".TripInfoActivity"
+            android:name=".activity.PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".ListTripActivity"
+            android:name=".activity.ConfirmationActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.ProfileActivity"
-            android:exported="false"/>
+            android:name=".activity.PublishPriceAircraftActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ConnectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.PublishSelectCityActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.TripInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ListTripActivity"
+            android:exported="false" />
     </application>
+
 </manifest>
