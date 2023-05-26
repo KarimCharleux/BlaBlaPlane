@@ -81,7 +81,6 @@ public class SelectAircraftActivity extends AppCompatActivity implements Aircraf
             }
         };
 
-        //TODO : update profile with may new aircraft
         View.OnClickListener returnButton = new View.OnClickListener() {
             @Override
             public void onClick(View view) {

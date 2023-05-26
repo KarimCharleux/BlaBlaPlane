@@ -57,16 +57,10 @@ public class ModifyProfile extends AppCompatActivity implements ModifyProfile_di
     Button button_confirm ;
     Button button_return ;
 
-    String userFirstName = "";
-    String userLastName = "";
-    String userEmail = "";
-    String userPassword = "";
-    String userPhoneNumber = "";
-    float userRating = 0;
     List<Aircraft> userAircrafts = new ArrayList<>();
     List<Trip> userTrips = new ArrayList<>();
 
-
+    DatabaseReference userRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,10 +98,10 @@ public class ModifyProfile extends AppCompatActivity implements ModifyProfile_di
         SharedPreferences preferences = this.getSharedPreferences("user_data", Context.MODE_PRIVATE);
         String userID = preferences.getString("user_id", null);
 
-        DatabaseReference userRef = DataBase.USERS_REFERENCE.child(userID);
+        this.userRef = DataBase.USERS_REFERENCE.child(userID);
 
         // Check if the user exists and get its data
-        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        this.userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
@@ -133,15 +127,6 @@ public class ModifyProfile extends AppCompatActivity implements ModifyProfile_di
                     button_last_name_answer.setText(user.getSurname().toUpperCase());
                     button_email_answer.setText(user.getEmail());
                     button_password_answer.setText(hiddenPassword);
-
-                    userFirstName = user.getName();
-                    userLastName = user.getSurname();
-                    userEmail = user.getEmail();
-                    userPassword = user.getPassword();
-                    userPhoneNumber = user.getPhone();
-                    userRating = user.getRating();
-                    userAircrafts = user.getAircraftList();
-                    userTrips = user.getMyTripList();
 
                     // Format the phone number ex: 06 12 34 56 78
                     String phone = user.getPhone().replace(" ", "");
@@ -221,50 +206,10 @@ public class ModifyProfile extends AppCompatActivity implements ModifyProfile_di
             }
         };
 
-        //TODO : delete old account in firebase
         View.OnClickListener confirm = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                User user = new User(userFirstName, userLastName, userEmail, userPassword, userPhoneNumber, userRating);
-
-                DatabaseReference userRef = DataBase.USERS_REFERENCE.child(user.getId());
-
-                // Check if the user already exists in the firebase database
-                userRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.exists()) {
-                            // User already exists
-                            Toast.makeText(ModifyProfile.this, "⚠️ Cet email est déjà utilisé !", Toast.LENGTH_SHORT).show();
-                        } else {
-                            // User does not exist so create it
-                            DataBase.USERS_REFERENCE.child(user.getId()).setValue(user).addOnCompleteListener(task -> {
-                                if (task.isSuccessful()) {
-                                    // Store the user id in the cache of the app
-                                    SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
-                                    SharedPreferences.Editor editor = preferences.edit();
-                                    editor.putString("user_id", user.getId());
-                                    editor.apply();
-
-                                    // Go to the home page and display a confirmation message
-                                    Toast.makeText(ModifyProfile.this, "✅ Votre compte a bien été créé", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(ModifyProfile.this, SwitcherActivity.class);
-                                    startActivity(intent);
-                                    finish();
-                                } else {
-                                    Toast.makeText(ModifyProfile.this, "⚠️ Erreur lors de la création du compte, veuillez réessayer", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        Toast.makeText(ModifyProfile.this, "⚠️ Erreur lors de la création du compte, veuillez réessayer", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-
+                finish();
             }
         };
 
@@ -320,23 +265,23 @@ public class ModifyProfile extends AppCompatActivity implements ModifyProfile_di
         switch (fieldType) {
             case FIRST_NAME:
                 this.button_first_name_answer.setText(inputText);
-                this.userLastName = inputText;
+                this.userRef.child("firstName").setValue(inputText);
                 break;
             case LAST_NAME:
                 this.button_last_name_answer.setText(inputText);
-                this.userLastName = inputText;
+                this.userRef.child("lastName").setValue(inputText);
                 break;
             case EMAIL:
                 this.button_email_answer.setText(inputText);
-                this.userEmail = inputText;
+                this.userRef.child("email").setValue(inputText);
                 break;
             case PASSWORD:
                 this.button_password_answer.setText(this.formateDisplayPassword(inputText));
-                this.userPassword = inputText;
+                this.userRef.child("password").setValue(inputText);
                 break;
             case PHONE_NUMBER:
                 this.button_phone_number_answer.setText(inputText);
-                this.userPhoneNumber = inputText;
+                this.userRef.child("phone").setValue(inputText);
                 break;
         }
     }
