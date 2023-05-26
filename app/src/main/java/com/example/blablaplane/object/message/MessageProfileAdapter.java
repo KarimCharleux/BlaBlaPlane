@@ -48,8 +48,8 @@ public class MessageProfileAdapter extends BaseAdapter{
         messageProfilView = (FrameLayout) (convertView == null ? inflater.inflate(R.layout.fragment_message_profile, parent, false) : convertView);
 
         // Retrieve the views
-        TextView firstName = messageProfilView.findViewById(R.id.firstName);
-        TextView lastName  = messageProfilView.findViewById(R.id.lastName);
+        TextView firstName = messageProfilView.findViewById(R.id.cardView_firstName);
+        TextView lastName  = messageProfilView.findViewById(R.id.cardView_lastName);
         ImageView pictureProfil = messageProfilView.findViewById(R.id.pictureProfile);
 
         // Set the text of the view for the trip
