@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -20,6 +22,7 @@ public class SelectAircraftActivity extends AppCompatActivity {
     CardView cardView_return;
     Button SelectAircraft_createNewAircraftButton;
     Button SelectAircraft_returnButton;
+    ListView AircraftList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -75,5 +78,18 @@ public class SelectAircraftActivity extends AppCompatActivity {
 
         this.cardView_return.setOnClickListener(returnButton);
         this.SelectAircraft_returnButton.setOnClickListener(returnButton);
+
+        this.AircraftList = findViewById(R.id.aircraft_list);
+        this.AircraftList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Récupérer l'élément cliqué à partir de la position
+                Aircraft aircraft = AircraftList.getItemAtPosition(position);
+
+                // Faire quelque chose avec l'élément cliqué
+                // Par exemple, afficher un message avec son contenu
+                Toast.makeText(getApplicationContext(), "Élément cliqué : " + clickedItem.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
