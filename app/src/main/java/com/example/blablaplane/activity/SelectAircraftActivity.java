@@ -16,6 +16,8 @@ import androidx.cardview.widget.CardView;
 import com.example.blablaplane.R;
 import com.example.blablaplane.fragments.ModifyProfile_dialogFragment;
 
+import java.util.ArrayList;
+
 public class SelectAircraftActivity extends AppCompatActivity {
 
     CardView cardView_createNewAircraft;
@@ -23,6 +25,8 @@ public class SelectAircraftActivity extends AppCompatActivity {
     Button SelectAircraft_createNewAircraftButton;
     Button SelectAircraft_returnButton;
     ListView AircraftList;
+
+    ArrayList<Aircraft> listSelectedAircraft = new ArrayList<Aircraft>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -85,10 +89,13 @@ public class SelectAircraftActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Récupérer l'élément cliqué à partir de la position
                 Aircraft aircraft = AircraftList.getItemAtPosition(position);
-
-                // Faire quelque chose avec l'élément cliqué
-                // Par exemple, afficher un message avec son contenu
-                Toast.makeText(getApplicationContext(), "Élément cliqué : " + clickedItem.toString(), Toast.LENGTH_SHORT).show();
+                if (listSelectedAircraft.contains(aircraft)) {
+                    listSelectedAircraft.remove(aircraft);
+                    Toast.makeText(SelectAircraftActivity.this, "Aircraft : " + aircraft.getName() +" removed", Toast.LENGTH_SHORT).show();
+                } else {
+                    listSelectedAircraft.add(aircraft);
+                    Toast.makeText(SelectAircraftActivity.this, "Aircraft : " + aircraft.getName() +" added", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
