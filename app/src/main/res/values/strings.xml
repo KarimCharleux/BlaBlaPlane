@@ -153,6 +153,18 @@
     <string name="SELECTAIRCRAFT_return">Retour</string>
 
 
+    /* Create new Aircraft */
+    <string name="CREATENEWAIRCRAFT_title">Créer un nouvel appareil</string>
+    <string name="CREATENEWAIRCRAFT_subtitle">Créer un nouvel appareil</string>
+    <string name="CREATENEWAIRCRAFT_name">Nom</string>
+    <string name="CREATENEWAIRCRAFT_type">Type</string>
+    <string name="CREATENEWAIRCRAFT_numberOfPassenger">Nombre de passagers</string>
+    <string name="CREATENEWAIRCRAFT_picture">Image</string>
+    <string name="CREATENEWAIRCRAFT_max_range">Autonomie</string>
+    <string name="CREATENEWAIRCRAFT_create">Créer</string>
+    <string name="CREATENEWAIRCRAFT_return">Retour</string>
+
+
 
 
 </resources>

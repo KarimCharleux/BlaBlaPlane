@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.RegisterActivity">
+
+
+    <ImageView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="100sp"
+        android:contentDescription="@string/blablaplane"
+        android:src="@drawable/logo_blablaplane"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:text="@string/createProfile"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        app:layout_constraintVertical_bias="0.00999999" />
+
+    <EditText
+        android:id="@+id/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="45sp"
+        android:autofillHints=""
+        android:background="@drawable/edit_text"
+        android:backgroundTint="#EDEDED"
+        android:ems="14"
+        android:hint="@string/CREATENEWAIRCRAFT_name"
+        android:inputType="textPersonName"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp"
+        android:textColor="@color/black"
+        android:textCursorDrawable="@color/blue"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.050000012" />
+
+    <EditText
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="45sp"
+        android:layout_marginTop="25dp"
+        android:autofillHints=""
+        android:background="@drawable/edit_text"
+        android:backgroundTint="#EDEDED"
+        android:ems="14"
+        android:hint="@string/CREATENEWAIRCRAFT_type"
+        android:inputType="text"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp"
+        android:textColor="@color/black"
+        android:textCursorDrawable="@color/blue"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Name" />
+
+    <EditText
+        android:id="@+id/numberPassenger"
+        android:layout_width="wrap_content"
+        android:layout_height="45sp"
+        android:layout_marginTop="24dp"
+        android:autofillHints=""
+        android:background="@drawable/edit_text"
+        android:backgroundTint="#EDEDED"
+        android:ems="14"
+        android:hint="@string/CREATENEWAIRCRAFT_numberOfPassenger"
+        android:inputType="number"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp"
+        android:textColor="@color/black"
+        android:textCursorDrawable="@color/blue"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/type" />
+
+    <EditText
+        android:id="@+id/picture"
+        android:layout_width="wrap_content"
+        android:layout_height="45sp"
+        android:layout_marginTop="25dp"
+        android:autofillHints=""
+        android:background="@drawable/edit_text"
+        android:backgroundTint="#EDEDED"
+        android:ems="14"
+        android:hint="@string/CREATENEWAIRCRAFT_picture"
+        android:inputType="number"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp"
+        android:textColor="@color/black"
+        android:textCursorDrawable="@color/blue"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/numberPassenger" />
+
+    <EditText
+        android:id="@+id/maxRange"
+        android:layout_width="wrap_content"
+        android:layout_height="45sp"
+        android:layout_marginTop="25dp"
+        android:autofillHints=""
+        android:background="@drawable/edit_text"
+        android:backgroundTint="#EDEDED"
+        android:ems="14"
+        android:hint="@string/CREATENEWAIRCRAFT_max_range"
+        android:inputType="text"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp"
+        android:textColor="@color/blue"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/picture" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:backgroundTint="#39C3FD"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/maxRange">
+
+        <Button
+            android:id="@+id/RegisterButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="45dp"
+            android:layout_marginVertical="5dp"
+            android:backgroundTint="#39C3FD"
+            android:outlineSpotShadowColor="#00BCD4"
+            android:text="@string/CREATENEWAIRCRAFT_create"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#39C3FD"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView4">
+
+        <Button
+            android:id="@+id/ReturnButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="45dp"
+            android:layout_marginVertical="5dp"
+            android:backgroundTint="#39C3FD"
+            android:outlineSpotShadowColor="#00BCD4"
+            android:text="@string/CREATENEWAIRCRAFT_return"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,11 +14,48 @@ public class Aircraft implements Serializable, Parcelable {
     private int passengerCount;
     private int image;
 
+    //TODO : to know the max range that this aircraft can reach ?
+    private int maxRange;
+
+    //TODO : enum with different categories of aircrafts ?
+    private String type;
+
     public Aircraft(int id, String name, int passengerCount, int image) {
         this.id = id;
         this.name = name;
         this.passengerCount = passengerCount;
         this.image = image;
+    }
+
+
+    public Aircraft(String name, String type, int passengerCount, int image, int maxRange) {
+        this.name = name;
+        this.passengerCount = passengerCount;
+        this.image = image;
+        this.maxRange = maxRange;
+        this.type = type;
+        this.id = this.createId();
+    }
+
+    /**
+     * Create an id for the aircraft thanks to its name
+     * @return the id
+     */
+    private int createId() {
+        int id = 0;
+        for (int i = 0; i < this.name.length(); i++) {
+            char letter = this.name.charAt(i);
+            int letterASCII;
+            if (letter >= 'a' && letter <= 'z') {
+                letterASCII = letter - 'a';
+            } else if (letter >= 'A' && letter <= 'Z') {
+                letterASCII = letter - 'A';
+            } else {
+                letterASCII = 26;
+            }
+            id = id + letterASCII * (100*i);
+        }
+        return id;
     }
 
     protected Aircraft(Parcel in) {
