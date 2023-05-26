@@ -56,5 +56,25 @@
     <string name="repeatPassword">Répétez le mot de passe</string>
     <string name="imPilot">Je suis pilote</string>
 
+    /* ModifyProfile */
+    <string name="MODIFYPROFILE_title">Profil</string>
+    <string name="MODIFYPROFILE_subtitle">Modifier votre profil</string>
+    <string name="MODIFYPROFILE_title_surname">Prénom :</string>
+    <string name="MODIFYPROFILE_pilot_surname">Admin</string>
+    <string name="MODIFYPROFILE_title_lastName">Nom</string>
+    <string name="MODIFYPROFILE_pilot_lastName">Admin</string>
+    <string name="MODIFYPROFILE_title_email">Email :</string>
+    <string name="MODIFYPROFILE_pilot_email">Admin</string>
+    <string name="MODIFYPROFILE_title_phoneNumber">Numéro de téléphone :</string>
+    <string name="MODIFYPROFILE_pilot_phoneNumber">Admin</string>
+    <string name="MODIFYPROFILE_title_password">Mot de passe :</string>
+    <string name="MODIFYPROFILE_pilot_password">Admin</string>
+    <string name="MODIFYPROFILE_modify">Confirmer</string>
+    <string name="MODIFYPROFILE_return">Retour</string>
+    <string name="MODIFYPROFILE_title_addAircraft">Ajouter un appareil</string>
+
+
+
+
 
 </resources>

@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ModifyProfile">
+
+
+    <ImageView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="100sp"
+        android:contentDescription="@string/MODIFYPROFILE_title"
+        android:src="@drawable/logo_blablaplane"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:text="@string/MODIFYPROFILE_subtitle"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        app:layout_constraintVertical_bias="0.00999999" />
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_firstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/edit_text"
+        android:backgroundTint="#EDEDED"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.050000012">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text"
+            android:backgroundTint="#EDEDED">
+            <androidx.appcompat.widget.AppCompatButton
+                android:textAllCaps="false"
+                android:id="@+id/firstName_title"
+                android:layout_width="wrap_content"
+                android:layout_height="45sp"
+                android:autofillHints=""
+                android:background="@drawable/edit_text"
+                android:backgroundTint="#EDEDED"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="5dp"
+                android:textColor="@color/black"
+                android:text="@string/MODIFYPROFILE_title_surname"
+                android:textSize="@dimen/MODIFYPROFILE_size_text"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:textAllCaps="false"
+                android:id="@+id/firstName_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="45sp"
+                android:text="@string/MODIFYPROFILE_pilot_surname"
+                android:textSize="@dimen/MODIFYPROFILE_size_text"
+                android:autofillHints=""
+                android:background="@drawable/edit_text"
+                android:backgroundTint="#EDEDED"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="5dp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_lastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/edit_text"
+        android:backgroundTint="#EDEDED"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardView_firstName"
+        app:layout_constraintVertical_bias="0.050000012">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text"
+            android:backgroundTint="#EDEDED">
+            <androidx.appcompat.widget.AppCompatButton
+                android:textAllCaps="false"
+                android:id="@+id/lastName_title"
+                android:layout_width="wrap_content"
+                android:layout_height="45sp"
+                android:autofillHints=""
+                android:background="@drawable/edit_text"
+                android:backgroundTint="#EDEDED"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="5dp"
+                android:textColor="@color/black"
+                android:text="@string/MODIFYPROFILE_title_lastName"
+                android:textSize="@dimen/MODIFYPROFILE_size_text"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:textAllCaps="false"
+                android:id="@+id/lastName_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="45sp"
+                android:text="@string/MODIFYPROFILE_pilot_lastName"
+                android:textSize="@dimen/MODIFYPROFILE_size_text"
+                android:autofillHints=""
+                android:background="@drawable/edit_text"
+                android:backgroundTint="#EDEDED"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="5dp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/edit_text"
+        android:backgroundTint="#EDEDED"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView_phoneNumber"
+        app:layout_constraintVertical_bias="0.050000012">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text"
+            android:backgroundTint="#EDEDED">
+            <androidx.appcompat.widget.AppCompatButton
+                android:textAllCaps="false"
+                android:id="@+id/email_title"
+                android:layout_width="wrap_content"
+                android:layout_height="45sp"
+                android:autofillHints=""
+                android:background="@drawable/edit_text"
+                android:backgroundTint="#EDEDED"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="5dp"
+                android:textColor="@color/black"
+                android:text="@string/MODIFYPROFILE_title_email"
+                android:textSize="@dimen/MODIFYPROFILE_size_text"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:textAllCaps="false"
+                android:id="@+id/email_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="45sp"
+                android:text="@string/MODIFYPROFILE_pilot_email"
+                android:textSize="@dimen/MODIFYPROFILE_size_text"
+                android:autofillHints=""
+                android:background="@drawable/edit_text"
+                android:backgroundTint="#EDEDED"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="5dp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_phoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/edit_text"
+        android:backgroundTint="#EDEDED"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardView_lastName"
+        app:layout_constraintVertical_bias="0.050000012">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text"
+            android:backgroundTint="#EDEDED">
+            <androidx.appcompat.widget.AppCompatButton
+                android:textAllCaps="false"
+                android:id="@+id/phoneNumber_title"
+                android:layout_width="wrap_content"
+                android:layout_height="45sp"
+                android:autofillHints=""
+                android:background="@drawable/edit_text"
+                android:backgroundTint="#EDEDED"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="5dp"
+                android:textColor="@color/black"
+                android:text="@string/MODIFYPROFILE_title_phoneNumber"
+                android:textSize="@dimen/MODIFYPROFILE_size_text"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:textAllCaps="false"
+                android:id="@+id/phoneNumber_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="45sp"
+                android:text="@string/MODIFYPROFILE_pilot_phoneNumber"
+                android:textSize="@dimen/MODIFYPROFILE_size_text"
+                android:autofillHints=""
+                android:background="@drawable/edit_text"
+                android:backgroundTint="#EDEDED"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="5dp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/edit_text"
+        android:backgroundTint="#EDEDED"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardView_email"
+        app:layout_constraintVertical_bias="0.050000012">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text"
+            android:backgroundTint="#EDEDED">
+            <androidx.appcompat.widget.AppCompatButton
+                android:textAllCaps="false"
+                android:id="@+id/password_title"
+                android:layout_width="wrap_content"
+                android:layout_height="45sp"
+                android:autofillHints=""
+                android:background="@drawable/edit_text"
+                android:backgroundTint="#EDEDED"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="5dp"
+                android:textColor="@color/black"
+                android:text="@string/MODIFYPROFILE_title_password"
+                android:textSize="@dimen/MODIFYPROFILE_size_text"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:textAllCaps="false"
+                android:id="@+id/password_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="45sp"
+                android:text="@string/MODIFYPROFILE_pilot_password"
+                android:textSize="@dimen/MODIFYPROFILE_size_text"
+                android:autofillHints=""
+                android:background="@drawable/edit_text"
+                android:backgroundTint="#EDEDED"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="5dp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_addAircraft"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/edit_text"
+        android:backgroundTint="#EDEDED"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardView_password"
+        app:layout_constraintVertical_bias="0.050000012">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text"
+            android:backgroundTint="#EDEDED">
+            <androidx.appcompat.widget.AppCompatButton
+                android:textAllCaps="false"
+                android:id="@+id/addAircraft_title"
+                android:layout_width="wrap_content"
+                android:layout_height="45sp"
+                android:autofillHints=""
+                android:background="@drawable/edit_text"
+                android:backgroundTint="#EDEDED"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="5dp"
+                android:textColor="@color/black"
+                android:text="@string/MODIFYPROFILE_title_addAircraft"
+                android:textSize="@dimen/MODIFYPROFILE_size_text"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#39C3FD"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView_password">
+
+        <Button
+            android:id="@+id/ModifyProfile_ConfirmButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="45dp"
+            android:layout_marginVertical="5dp"
+            android:backgroundTint="#39C3FD"
+            android:outlineSpotShadowColor="#00BCD4"
+            android:text="@string/MODIFYPROFILE_modify"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#39C3FD"
+        app:cardCornerRadius="30dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView_confirm">
+
+        <Button
+            android:id="@+id/ModifyProfile_ReturnButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="45dp"
+            android:layout_marginVertical="5dp"
+            android:backgroundTint="#39C3FD"
+            android:outlineSpotShadowColor="#00BCD4"
+            android:text="@string/MODIFYPROFILE_return"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

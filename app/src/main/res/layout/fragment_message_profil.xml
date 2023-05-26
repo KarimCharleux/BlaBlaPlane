@@ -22,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/firstName"
+            android:id="@+id/cardView_firstName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -34,7 +34,7 @@
             app:layout_constraintTop_toTopOf="@id/pictureProfile" />
 
         <TextView
-            android:id="@+id/lastName"
+            android:id="@+id/cardView_lastName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -43,7 +43,7 @@
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/pictureProfile"
-            app:layout_constraintStart_toEndOf="@id/firstName"
+            app:layout_constraintStart_toEndOf="@id/cardView_firstName"
             app:layout_constraintTop_toTopOf="@id/pictureProfile" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
