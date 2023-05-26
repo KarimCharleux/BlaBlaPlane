@@ -29,8 +29,8 @@ public class ConnectionActivity extends AppCompatActivity {
         Button login = findViewById(R.id.loginButton);
         login.setOnClickListener(view -> {
 
-            EditText email = findViewById(R.id.EmailAddress);
-            EditText password = findViewById(R.id.Password);
+            EditText email = findViewById(R.id.numberPassenger);
+            EditText password = findViewById(R.id.maxRange);
 
             if (email.getText().toString().isEmpty() || password.getText().toString().isEmpty()) {
                 Toast.makeText(this, "⚠️ Veuillez remplir tous les champs !", Toast.LENGTH_SHORT).show();
