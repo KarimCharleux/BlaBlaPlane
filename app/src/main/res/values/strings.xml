@@ -73,6 +73,11 @@
     <string name="MODIFYPROFILE_return">Retour</string>
     <string name="MODIFYPROFILE_title_addAircraft">Ajouter un appareil</string>
 
+    /* SelectAircraft */
+    <string name="SELECTAIRCRAFT_title">Sélectionner un appareil</string>
+    <string name="SELECTAIRCRAFT_subtitle">Sélectionnez un appareil</string>
+    <string name="SELECTAIRCRAFT_create_new_one">Créer un nouveau\n appareil</string>
+    <string name="SELECTAIRCRAFT_return">Retour</string>
 
 
 
