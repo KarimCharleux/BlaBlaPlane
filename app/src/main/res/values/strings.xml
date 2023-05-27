@@ -164,7 +164,11 @@
     <string name="CREATENEWAIRCRAFT_create">Créer</string>
     <string name="CREATENEWAIRCRAFT_return">Retour</string>
 
-
+    /* Change Picture Profile */
+    <string name="CHANGEPICTUREPROFILE_title">Changer la photo de profil</string>
+    <string name="CHANGEPICTUREPROFILE_subtitle">Changer la photo de profil</string>
+    <string name="CHANGEPICTUREPROFILE_takePicture">Prendre une photo</string>
+    <string name="CHANGEPICTUREPROFILE_return">Retour</string>
 
 
 </resources>
