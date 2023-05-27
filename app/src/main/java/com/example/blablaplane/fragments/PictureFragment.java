@@ -3,6 +3,7 @@ package com.example.blablaplane.fragments;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
@@ -19,7 +20,7 @@ import com.example.blablaplane.activity.PictureActivityInterface;
 
 public class PictureFragment extends Fragment {
 
-    ImageView imageView;
+    private ImageView imageView;
 
     public PictureFragment() {
 
@@ -32,7 +33,7 @@ public class PictureFragment extends Fragment {
 
         imageView = rootView.findViewById(R.id.imageView);
 
-        rootView.findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+        rootView.findViewById(R.id.buttonImage).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED){
@@ -41,10 +42,7 @@ public class PictureFragment extends Fragment {
                     takePicture();
                 }
             }
-        }
-
-
-
+        });
         return rootView;
     }
 
@@ -52,6 +50,10 @@ public class PictureFragment extends Fragment {
     public void takePicture() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         getActivity().startActivityForResult(intent, PictureActivityInterface.REQUEST_CAMERA);
+    }
+
+    public void setPicture(Bitmap bitmap) {
+        imageView.setImageBitmap(bitmap);
     }
 
 

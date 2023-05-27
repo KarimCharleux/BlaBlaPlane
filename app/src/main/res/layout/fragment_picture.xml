@@ -10,7 +10,7 @@
     tools:context=".PictureFragment">
 
     <TextView
-        android:id="@+id/aa1"
+        android:id="@+id/labelInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -19,15 +19,15 @@
         android:textSize="20dp"/>
 
     <ImageView
-        android:id="@+id/aa2"
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="50"
-        android:src="@drawable/ic_launcher_background"
+        android:src="@drawable/picture"
         android:layout_marginTop="10dp"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/aa3"
+        android:id="@+id/buttonImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
