@@ -21,6 +21,7 @@ import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.blablaplane.Interface.PictureActivityInterface;
 import com.example.blablaplane.R;
 import com.bumptech.glide.Glide;
 import com.example.blablaplane.object.DataBase;
@@ -133,7 +134,6 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
                     }
                 });
         launcher.launch(intent);
-
     }
 
 

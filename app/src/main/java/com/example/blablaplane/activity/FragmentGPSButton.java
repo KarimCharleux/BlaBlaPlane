@@ -1,6 +1,5 @@
 package com.example.blablaplane.activity;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -13,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.cardview.widget.CardView;
@@ -21,13 +19,13 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.blablaplane.Interface.OnAirportSelectedListenerInterface;
 import com.example.blablaplane.R;
-import com.example.blablaplane.fragments.ModifyProfile_dialogFragment;
 import com.example.blablaplane.object.trip.Airport;
 
 import static com.example.blablaplane.object.trip.AirportFinder.findNearestAirport;
 
-public class g extends Fragment {
+public class FragmentGPSButton extends Fragment {
 
     private CardView cardView;
     private Button button;
@@ -35,7 +33,7 @@ public class g extends Fragment {
     private static final String LOCATION_PERMISSION = android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 
-    public g(){
+    public FragmentGPSButton(){
 
     }
 

@@ -173,5 +173,9 @@
     /* Fragment GPS */
     <string name="GPSFRAGMENT_button">Position actuelle</string>
 
+    /* Destination */
+    <string name="DESTINATION_title">Destination</string>
+    <string name="DESTINATION_subtitle">Sélectionnez une destination</string>
+
 
 </resources>

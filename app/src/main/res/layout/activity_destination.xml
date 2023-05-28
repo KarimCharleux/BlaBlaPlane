@@ -7,33 +7,39 @@
     tools:context=".Destination">
 
 
-    <androidx.fragment.app.FragmentContainerView
+    <ImageView
         android:id="@+id/header"
-        android:name="com.example.blablaplane.HeaderFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100sp"
+        android:contentDescription="@string/DESTINATION_title"
+        android:src="@drawable/logo_blablaplane"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_header" />
+        app:layout_constraintVertical_bias="0.0" />
 
-    <LinearLayout
-        android:id="@+id/destination_header"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/connexion_inscription_header"
-        app:layout_constraintTop_toBottomOf="@id/header"
+        android:layout_marginHorizontal="50dp"
+        android:text="@string/DESTINATION_subtitle"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-        <TextView
-            android:text="Destination"
-            android:style="@style/text_sub_category"/>
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        app:layout_constraintVertical_bias="0.00999999" />
 
     <TextView
         android:id="@+id/destination_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/destination_header"
+        app:layout_constraintTop_toBottomOf="@id/textView"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:text="Sélectionnez votre destination"
@@ -149,7 +155,6 @@
                     android:text="Destination 6"/>
 
             </LinearLayout>
-            </ScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -164,7 +169,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintVertical_bias="0.22000003">
 
         <Button
