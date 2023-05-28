@@ -113,7 +113,6 @@ public class g extends Fragment {
                         Toast.makeText(getContext(), "Loading", Toast.LENGTH_SHORT).show();
                         getPosition();
                     } else {
-                        // La permission a été refusée par l'utilisateur
                         Toast.makeText(getContext(), "L'autorisation d'accès à la localisation a été refusée.", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -123,9 +122,7 @@ public class g extends Fragment {
             Toast.makeText(getContext(), "Loading", Toast.LENGTH_SHORT).show();
             getPosition();
         } else {
-            // Demander la permission à l'utilisateur
             requestPermissionLauncher.launch(LOCATION_PERMISSION);
         }
     }
-
 }

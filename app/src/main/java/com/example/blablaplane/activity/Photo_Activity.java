@@ -32,8 +32,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Photo_Activity extends AppCompatActivity implements PictureActivityInterface {
     private Bitmap picture;
-    private PictureFragment pictureFragment;
-
     private ImageView imageView;
     DatabaseReference userRef;
     Bitmap currentUserPicture;
@@ -157,7 +155,7 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Camera authorization granted", Toast.LENGTH_SHORT);
                     toast.show();
-                    pictureFragment.takePicture();
+                    takePicture();
                 } else {
                     Toast toast = Toast.makeText(getApplicationContext(), "Camera authorization not granted", Toast.LENGTH_SHORT);
                     toast.show();
