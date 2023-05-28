@@ -66,7 +66,7 @@ public class Destination extends AppCompatActivity implements OnAirportSelectedL
         View.OnClickListener confirm = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                select();
             }
         };
 
@@ -168,7 +168,7 @@ public class Destination extends AppCompatActivity implements OnAirportSelectedL
 
 
 
-    private void select(View view) {
+    private void select() {
         if (inputDestination == null) {
             Toast.makeText(getApplicationContext(), R.string.RESEARCH_ERR_EmptyDeparturePlaces, Toast.LENGTH_SHORT).show();
         } else {
