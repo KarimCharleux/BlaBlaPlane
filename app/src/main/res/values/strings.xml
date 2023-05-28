@@ -170,5 +170,8 @@
     <string name="CHANGEPICTUREPROFILE_takePicture">Prendre une photo</string>
     <string name="CHANGEPICTUREPROFILE_return">Retour</string>
 
+    /* Fragment GPS */
+    <string name="GPSFRAGMENT_button">Position actuelle</string>
+
 
 </resources>
