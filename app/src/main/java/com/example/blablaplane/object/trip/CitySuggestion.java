@@ -10,18 +10,18 @@ public class CitySuggestion {
     
     
 
-    public static ArrayList<String> searchingClosestCity(String cityInput, int nbCities) {
-        ArrayList<String> citiesSuggestion = new ArrayList<>();
-        HashMap<Integer,ArrayList<String>> citiesDistance = new HashMap<>();
+    public static ArrayList<City> searchingClosestCity(String cityInput, int nbCities) {
+        ArrayList<City> citiesSuggestion = new ArrayList<>();
+        HashMap<Integer,ArrayList<City>> citiesDistance = new HashMap<>();
         for (City city : City.values()) {
             String cityFormatted = city.name().toLowerCase();
             if (cityFormatted.length()>=cityInput.length()) {
                 int distance = distanceLevenshteinSimplifier(cityFormatted, cityInput.toLowerCase());
                 if (citiesDistance.containsKey(distance)) {
-                    citiesDistance.get(distance).add(cityFormatted);
+                    citiesDistance.get(distance).add(city);
                 } else {
-                    ArrayList<String> cities = new ArrayList<>();
-                    cities.add(cityFormatted);
+                    ArrayList<City> cities = new ArrayList<>();
+                    cities.add(city);
                     citiesDistance.put(distance, cities);
                 }
             }
@@ -29,7 +29,7 @@ public class CitySuggestion {
         ArrayList<Integer> allDistances = new ArrayList<>(citiesDistance.keySet());
         Collections.sort(allDistances);
         for (int i = 0; i < nbCities; i++) {
-            for (String city : citiesDistance.get(allDistances.get(i))) {
+            for (City city : citiesDistance.get(allDistances.get(i))) {
                 citiesSuggestion.add(city);
             }
         }

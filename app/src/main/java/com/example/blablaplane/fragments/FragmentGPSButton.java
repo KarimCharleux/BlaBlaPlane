@@ -1,4 +1,4 @@
-package com.example.blablaplane.activity;
+package com.example.blablaplane.fragments;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -22,6 +22,7 @@ import androidx.fragment.app.Fragment;
 import com.example.blablaplane.Interface.OnAirportSelectedListenerInterface;
 import com.example.blablaplane.R;
 import com.example.blablaplane.object.trip.Airport;
+import com.google.android.gms.maps.model.LatLng;
 
 import static com.example.blablaplane.object.trip.AirportFinder.findNearestAirport;
 
@@ -62,10 +63,10 @@ public class FragmentGPSButton extends Fragment {
         LocationListener locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                double latitude = location.getLatitude();
-                double longitude = location.getLongitude();
 
-                final Airport nearestAirport = findNearestAirport(latitude, longitude);
+                LatLng latlng = new LatLng(location.getLatitude(), location.getLongitude());
+
+                final Airport nearestAirport = findNearestAirport(latlng);
                 airportSelectedListenerInterface.onAirportSelected(nearestAirport);
                 locationManager.removeUpdates(this);
             }

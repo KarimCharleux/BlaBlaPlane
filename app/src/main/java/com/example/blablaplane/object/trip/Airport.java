@@ -1,6 +1,9 @@
 package com.example.blablaplane.object.trip;
 
-public class Airport {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Airport implements Parcelable {
     private String name;
     private double latitude;
     private double longitude;
@@ -17,6 +20,14 @@ public class Airport {
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
+    }
+
+    protected Airport(Parcel in) {
+        name = in.readString();
+        latitude = in.readDouble();
+        longitude = in.readDouble();
+        city = in.readString();
+        country = in.readString();
     }
 
     public void setName(String name) {
@@ -57,5 +68,32 @@ public class Airport {
 
     public String getCountry() {
         return country;
+    }
+
+
+    public static final Creator<Airport> CREATOR = new Creator<Airport>() {
+        @Override
+        public Airport createFromParcel(Parcel in) {
+            return new Airport(in);
+        }
+
+        @Override
+        public Airport[] newArray(int size) {
+            return new Airport[size];
+        }
+    };
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeDouble(latitude);
+        dest.writeDouble(longitude);
+        dest.writeString(city);
+        dest.writeString(country);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 }

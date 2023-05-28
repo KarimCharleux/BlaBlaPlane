@@ -20,26 +20,11 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="50dp"
-        android:text="@string/DESTINATION_subtitle"
-        android:gravity="center"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header"
-        app:layout_constraintVertical_bias="0.00999999" />
-
-    <TextView
         android:id="@+id/destination_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintTop_toBottomOf="@id/header"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:text="Sélectionnez votre destination"
@@ -74,12 +59,21 @@
         app:layout_constraintTop_toBottomOf="@id/destination_title" />
 
 
+    <fragment
+        android:id="@+id/gpsFragment"
+        android:name="com.example.blablaplane.fragments.FragmentGPSButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/selectDestination"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/suggestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        app:layout_constraintTop_toBottomOf="@id/selectDestination"
+        app:layout_constraintTop_toBottomOf="@id/gpsFragment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 

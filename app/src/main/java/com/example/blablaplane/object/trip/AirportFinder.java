@@ -1,5 +1,6 @@
 package com.example.blablaplane.object.trip;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -15,8 +16,12 @@ public class AirportFinder {
     private static final String GEONAMES_USERNAME = "randomrandom";
 
 
-    public static Airport findNearestAirport(double latitude, double longitude) {
+    public static Airport findNearestAirport(LatLng latlng) {
         try {
+            double latitude = latlng.latitude;
+            double longitude = latlng.longitude;
+
+
             // Construire l'URL pour la requête API GeoNames en utilisant les coordonnées de l'utilisateur
             String searchQuery = "airports";
             String urlStr = GEONAMES_API_URL + "?q=" + searchQuery + "&lat=" + latitude + "&lng=" + longitude + "&username=" + GEONAMES_USERNAME;
