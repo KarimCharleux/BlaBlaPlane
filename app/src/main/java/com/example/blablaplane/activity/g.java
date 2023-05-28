@@ -1,24 +1,38 @@
 package com.example.blablaplane.activity;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.blablaplane.R;
 import com.example.blablaplane.fragments.ModifyProfile_dialogFragment;
+import com.example.blablaplane.object.trip.Airport;
+
+import static com.example.blablaplane.object.trip.AirportFinder.findNearestAirport;
 
 public class g extends Fragment {
 
-    CardView cardView;
-    Button button;
-
+    private CardView cardView;
+    private Button button;
+    private OnAirportSelectedListenerInterface airportSelectedListenerInterface;
+    private static final String LOCATION_PERMISSION = android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 
     public g(){
@@ -37,15 +51,81 @@ public class g extends Fragment {
         View.OnClickListener button = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(getActivity(), new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-                }
+                requestLocationPermission();
+            }
+        };
+        this.button.setOnClickListener(button);
+        this.cardView.setOnClickListener(button);
+        return view;
+    }
+
+    private void getPosition() {
+        LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+        LocationListener locationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+                double latitude = location.getLatitude();
+                double longitude = location.getLongitude();
+
+                final Airport nearestAirport = findNearestAirport(latitude, longitude);
+                airportSelectedListenerInterface.onAirportSelected(nearestAirport);
+                locationManager.removeUpdates(this);
+            }
+
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+            }
+
+            @Override
+            public void onProviderEnabled(String provider) {
+            }
+
+
+            @Override
+            public void onProviderDisabled(String provider) {
             }
         };
 
 
+        if (ActivityCompat.checkSelfPermission(getContext(), LOCATION_PERMISSION) == PackageManager.PERMISSION_GRANTED) {
+            locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER, locationListener, null);
+        } else {
+            Toast.makeText(getContext(), "ERROR : GPS Position have been removed", Toast.LENGTH_SHORT).show();
+        }
+    }
 
-        return view;
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            airportSelectedListenerInterface = (OnAirportSelectedListenerInterface) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + " must implement OnAirportSelectedListener");
+        }
+    }
+
+
+    private void requestLocationPermission() {
+        ActivityResultLauncher<String> requestPermissionLauncher = registerForActivityResult(
+                new ActivityResultContracts.RequestPermission(),
+                isGranted -> {
+                    if (isGranted) {
+                        Toast.makeText(getContext(), "Loading", Toast.LENGTH_SHORT).show();
+                        getPosition();
+                    } else {
+                        // La permission a été refusée par l'utilisateur
+                        Toast.makeText(getContext(), "L'autorisation d'accès à la localisation a été refusée.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+        );
+        if (ContextCompat.checkSelfPermission(requireContext(), LOCATION_PERMISSION)
+                == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(getContext(), "Loading", Toast.LENGTH_SHORT).show();
+            getPosition();
+        } else {
+            // Demander la permission à l'utilisateur
+            requestPermissionLauncher.launch(LOCATION_PERMISSION);
+        }
     }
 
 }
