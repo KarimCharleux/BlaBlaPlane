@@ -10,6 +10,7 @@ import android.widget.ListView;
 import androidx.fragment.app.Fragment;
 
 import com.example.blablaplane.R;
+import com.example.blablaplane.activity.TripInfoActivity;
 import com.example.blablaplane.object.trip.TripAdapter;
 import com.example.blablaplane.object.trip.TripAdapterListener;
 import com.example.blablaplane.object.trip.TripArray;
@@ -44,8 +45,9 @@ public class FragmentMyTrips extends Fragment implements TripAdapterListener {
 
     @Override
     public void onTripClick(int tripId) {
-        Intent intent = new Intent(getActivity(), FragmentMyTrips.class);
+        Intent intent = new Intent(getActivity(), TripInfoActivity.class);
         intent.putExtra("id", tripId);
+        intent.putExtra("isMyTrip", true);
         startActivity(intent);
     }
 }

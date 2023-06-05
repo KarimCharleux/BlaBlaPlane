@@ -6,10 +6,12 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.preference.PreferenceManager;
 
 import com.example.blablaplane.R;
@@ -43,15 +45,22 @@ public class TripInfoActivity extends AppCompatActivity {
 
         // Get the trip id from the intent (ListTrip)
         int tripId = getIntent().getIntExtra("id", 0);
+        boolean isMyTrip = getIntent().getBooleanExtra("isMyTrip", false);
 
-        Button bookButton = findViewById(R.id.bookButton);
+        if (isMyTrip) {
+            CardView cardView = findViewById(R.id.cardView);
+            Button bookButton = findViewById(R.id.bookButton);
+            bookButton.setVisibility(View.GONE);
+            cardView.setVisibility(View.GONE);
 
-        bookButton.setOnClickListener(view -> {
-            Intent intentNavigateNewPage = new Intent(TripInfoActivity.this, PaymentActivity.class);
-            intentNavigateNewPage.putExtra("id", tripId);
-            System.out.println("VERS PAIEMENT");
-            TripInfoActivity.this.startActivity(intentNavigateNewPage);
-        });
+        } else {
+            Button bookButton = findViewById(R.id.bookButton);
+            bookButton.setOnClickListener(view -> {
+                Intent intentNavigateNewPage = new Intent(TripInfoActivity.this, PaymentActivity.class);
+                intentNavigateNewPage.putExtra("id", tripId);
+                TripInfoActivity.this.startActivity(intentNavigateNewPage);
+            });
+        }
 
         // Trip info
         Trip trip = TripArray.getInstance().getTripById(tripId);

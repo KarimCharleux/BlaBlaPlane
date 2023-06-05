@@ -1,5 +1,5 @@
 *.DS_STORE
-.idea/
+.idea/*
 .vscode/
 # Built application files
 *.apk
