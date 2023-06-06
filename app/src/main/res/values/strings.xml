@@ -137,6 +137,23 @@
 
     <string name="MODIFYPROFILE_title">Modifier mon profil</string>
 
+    /* Message information for the user */
+
+    <string name="confirmationAircraftCreated">✅ Votre aéronef à bien été supprimé !</string>
+    <string name="confirmationConnected">✅ Vous êtes connecté !</string>
+    <string name="confirmationDisconnected">✅ Vous êtes déconnecté !</string>
+    <string name="confirmationCreated">✅ Votre compte a bien été créé !</string>
+    <string name="confirmationModified">✅ Votre compte a bien été modifié</string>
+    <string name="errorUpdateProfile">⚠️ Échec de la mise à jour du profil</string>
+    <string name="fillAllField">⚠️ Veuillez remplir tous les champs !</string>
+    <string name="errorEmail">⚠️ Veuillez renseigner un email valide !</string>
+    <string name="errorEmailDuplicated">⚠️ Cet email est déjà utilisé !</string>
+    <string name="errorPhone">⚠️ Veuillez entrer un numéro de téléphone valide !</string>
+    <string name="errorPassword">⚠️ Les mots de passes doivent être les mêmes !</string>
+    <string name="wrongId">⚠️ Mauvais identifiants !</string>
+    <string name="errorUnknown">⚠️ Une erreur est survenue !</string>
+    <string name="errorAccountRetry">⚠️ Erreur lors de la création du compte, veuillez réessayer</string>
+
     /* Other */
 
     <string name="modify">Modifier</string>

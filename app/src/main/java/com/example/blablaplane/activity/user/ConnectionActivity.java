@@ -35,11 +35,11 @@ public class ConnectionActivity extends AppCompatActivity {
             EditText password = findViewById(R.id.registerPassword);
 
             if (email.getText().toString().isEmpty() || password.getText().toString().isEmpty()) {
-                Toast.makeText(this, "⚠️ Veuillez remplir tous les champs !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.fillAllField, Toast.LENGTH_SHORT).show();
                 return;
             }
             if (!email.getText().toString().matches(DataBase.EMAIL_REGEX)) {
-                Toast.makeText(this, "⚠️ Veuillez entrer une adresse mail valide !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.errorEmail, Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -60,22 +60,22 @@ public class ConnectionActivity extends AppCompatActivity {
                             editor.putString("user_id", userId);
                             editor.apply();
 
-                            Toast.makeText(ConnectionActivity.this, "✅ Vous êtes connecté !", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ConnectionActivity.this, R.string.confirmationConnected, Toast.LENGTH_SHORT).show();
 
                             Intent intent = new Intent(ConnectionActivity.this, SwitcherActivity.class);
                             startActivity(intent);
                             finish();
                         } else {
-                            Toast.makeText(ConnectionActivity.this, "⚠️ Mauvais identifiants !", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ConnectionActivity.this, R.string.wrongId, Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(ConnectionActivity.this, "⚠️ Mauvais identifiants !", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ConnectionActivity.this, R.string.wrongId, Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
-                    Toast.makeText(ConnectionActivity.this, "⚠️ Une erreur est survenue !", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ConnectionActivity.this, R.string.errorUnknown, Toast.LENGTH_SHORT).show();
                 }
             });
         });

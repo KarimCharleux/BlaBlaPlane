@@ -65,6 +65,7 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
                     if (dataSnapshot.exists()) {
                         // User exists in the database and we can get its data
                         User user = dataSnapshot.getValue(User.class);
+                        assert user != null;
 
                         TextView userName = view.findViewById(R.id.first_name);
                         TextView userLastName = view.findViewById(R.id.last_name);
@@ -72,17 +73,17 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
                         TextView userPhone = view.findViewById(R.id.phone_number);
                         RatingBar ratingBar = view.findViewById(R.id.ratingBar);
 
-                        assert user != null;
                         // Put the first letter of the name in uppercase
                         String name = user.getName().substring(0, 1).toUpperCase() + user.getName().substring(1);
                         userName.setText(name);
                         userLastName.setText(user.getSurname().toUpperCase());
                         userEmail.setText(user.getEmail());
+                        ratingBar.setRating(user.getRating());
+
                         // Format the phone number ex: 06 12 34 56 78
                         String phone = user.getPhone().replace(" ", "");
                         phone = phone.substring(0, 2) + " " + phone.substring(2, 4) + " " + phone.substring(4, 6) + " " + phone.substring(6, 8) + " " + phone.substring(8, 10);
                         userPhone.setText(phone);
-                        ratingBar.setRating(user.getRating());
 
                         // Get the list of Aircraft
                         List<Aircraft> aircraftArray = user.getAircraftList();
@@ -137,6 +138,8 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
             editor.remove("user_id");
             editor.apply();
 
+            Toast.makeText(getContext(), R.string.confirmationDisconnected, Toast.LENGTH_SHORT).show();
+
             Intent intent = new Intent(getActivity(), LandingActivity.class);
             startActivity(intent);
             requireActivity().finish();
@@ -189,7 +192,7 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
                         }
                     });
 
-                    Toast.makeText(getContext(), "✅ Votre aéronef à bien été supprimé !", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), R.string.confirmationAircraftCreated, Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(getActivity(), SwitcherActivity.class);
                     startActivity(intent);

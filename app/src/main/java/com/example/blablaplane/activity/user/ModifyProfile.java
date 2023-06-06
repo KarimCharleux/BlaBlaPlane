@@ -78,11 +78,11 @@ public class ModifyProfile extends AppCompatActivity {
             TextView userPhone = findViewById(R.id.modifyPhoneNumber);
 
             if (userFirstName.getText().toString().isEmpty() || userLastName.getText().toString().isEmpty() || userPhone.getText().toString().isEmpty()) {
-                Toast.makeText(this, "⚠️ Veuillez remplir tous les champs !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.fillAllField, Toast.LENGTH_SHORT).show();
                 return;
             }
             if (!userPhone.getText().toString().matches(DataBase.PHONE_REGEX)) {
-                Toast.makeText(this, "⚠️ Veuillez entrer un numéro de téléphone valide !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.errorPhone, Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -94,8 +94,8 @@ public class ModifyProfile extends AppCompatActivity {
 
             // Update the user in the database with the new values
             userRef.updateChildren(updates)
-                    .addOnSuccessListener(e -> Toast.makeText(ModifyProfile.this, "✅ Votre compte a bien été modifié", Toast.LENGTH_SHORT).show())
-                    .addOnFailureListener(e -> Toast.makeText(ModifyProfile.this, "⚠️ Échec de la mise à jour du profil", Toast.LENGTH_SHORT).show());
+                    .addOnSuccessListener(e -> Toast.makeText(ModifyProfile.this, R.string.confirmationModified, Toast.LENGTH_SHORT).show())
+                    .addOnFailureListener(e -> Toast.makeText(ModifyProfile.this, R.string.errorUpdateProfile, Toast.LENGTH_SHORT).show());
 
             // Go back to the home page
             Intent intent = new Intent(ModifyProfile.this, SwitcherActivity.class);

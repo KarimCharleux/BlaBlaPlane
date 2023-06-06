@@ -46,7 +46,7 @@ public class CreateNewAircraftActivity extends AppCompatActivity {
 
         View.OnClickListener confirmCreate = view -> {
             if (name.getText().toString().equals("") || nbPassenger.getText().toString().equals("") || picture.getText().toString().equals("")) {
-                Toast.makeText(getApplicationContext(), "Merci de remplir toutes les sections", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.fillAllField, Toast.LENGTH_SHORT).show();
             } else {
                 Aircraft theNewAircraft = new Aircraft(name.getText().toString(), Integer.parseInt(nbPassenger.getText().toString()), Integer.parseInt(picture.getText().toString()));
 
