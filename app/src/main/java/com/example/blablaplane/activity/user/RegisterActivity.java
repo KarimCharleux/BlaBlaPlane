@@ -1,4 +1,4 @@
-package com.example.blablaplane.activity;
+package com.example.blablaplane.activity.user;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.blablaplane.R;
+import com.example.blablaplane.activity.SwitcherActivity;
 import com.example.blablaplane.object.DataBase;
 import com.example.blablaplane.object.user.User;
 import com.google.firebase.database.DataSnapshot;
@@ -27,12 +28,12 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        firstName = findViewById(R.id.firstName);
-        lastName = findViewById(R.id.lastName);
-        email = findViewById(R.id.EmailAddress);
-        phone = findViewById(R.id.phoneNumber);
-        password = findViewById(R.id.Password);
-        confirmPassword = findViewById(R.id.RepeatPassword);
+        firstName = findViewById(R.id.registerFirstName);
+        lastName = findViewById(R.id.registerLastName);
+        email = findViewById(R.id.registerEmailAddress);
+        phone = findViewById(R.id.registerPhoneNumber);
+        password = findViewById(R.id.registerPassword);
+        confirmPassword = findViewById(R.id.registerRepeatPassword);
 
         Button register = findViewById(R.id.RegisterButton);
         register.setOnClickListener(v -> {

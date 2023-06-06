@@ -3,22 +3,14 @@ package com.example.blablaplane.object.aircraft;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import androidx.annotation.NonNull;
-
 import java.io.Serializable;
 
 public class Aircraft implements Serializable, Parcelable {
 
     private final int id;
     private final String name;
-    private int passengerCount;
-    private int image;
-
-    //TODO : to know the max range that this aircraft can reach ?
-    private int maxRange;
-
-    //TODO : enum with different categories of aircrafts ?
-    private String type;
+    private final int passengerCount;
+    private final int image;
 
     public Aircraft(int id, String name, int passengerCount, int image) {
         this.id = id;
@@ -28,17 +20,16 @@ public class Aircraft implements Serializable, Parcelable {
     }
 
 
-    public Aircraft(String name, String type, int passengerCount, int image, int maxRange) {
+    public Aircraft(String name, int passengerCount, int image) {
         this.name = name;
         this.passengerCount = passengerCount;
         this.image = image;
-        this.maxRange = maxRange;
-        this.type = type;
         this.id = this.createId();
     }
 
     /**
      * Create an id for the aircraft thanks to its name
+     *
      * @return the id
      */
     private int createId() {
@@ -53,7 +44,7 @@ public class Aircraft implements Serializable, Parcelable {
             } else {
                 letterASCII = 26;
             }
-            id = id + letterASCII * (100*i);
+            id = id + letterASCII * (100 * i);
         }
         return id;
     }
@@ -85,24 +76,12 @@ public class Aircraft implements Serializable, Parcelable {
         return passengerCount;
     }
 
-    public String getCapacityText() {
-        return passengerCount + "";
-    }
-
     public String getName() {
         return name;
     }
 
     public int getImage() {
         return image;
-    }
-
-    public void setImage(int image) {
-        this.image = image;
-    }
-
-    public void setPassengerCount(int passengerCount) {
-        this.passengerCount = passengerCount;
     }
 
     @Override

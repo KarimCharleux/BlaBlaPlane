@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import com.example.blablaplane.R;
-import com.example.blablaplane.fragments.ModifyProfile_dialogFragment;
 import com.example.blablaplane.object.DataBase;
 import com.example.blablaplane.object.aircraft.Aircraft;
 import com.example.blablaplane.object.user.User;
@@ -27,7 +26,7 @@ import java.util.List;
 
 public class CreateNewAircraftActivity extends AppCompatActivity {
 
-    EditText name, type, nbPassenger, picture, maxRange;
+    EditText name, nbPassenger, picture;
     Button confirmButton, returnButton;
     CardView confirmCard, returnCard;
     DatabaseReference aircraftRef;
@@ -37,11 +36,9 @@ public class CreateNewAircraftActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_new_aircraft);
 
-        name = findViewById(R.id.Name);
-        type = findViewById(R.id.type);
+        name = findViewById(R.id.firstName);
         nbPassenger = findViewById(R.id.numberPassenger);
         picture = findViewById(R.id.picture);
-        maxRange = findViewById(R.id.maxRange);
 
         confirmButton = findViewById(R.id.RegisterButton);
         returnButton = findViewById(R.id.ReturnButton);
@@ -53,68 +50,54 @@ public class CreateNewAircraftActivity extends AppCompatActivity {
 
         DatabaseReference userRef = DataBase.USERS_REFERENCE.child(userID);
 
-        //TODO : adapt to now database of aircraft
-        Aircraft aircraft = new Aircraft(name.getText().toString(), type.getText().toString(), Integer.parseInt(nbPassenger.getText().toString()), Integer.parseInt(picture.getText().toString()), Integer.parseInt(maxRange.getText().toString()));
+        Aircraft aircraft = new Aircraft(name.getText().toString(), Integer.parseInt(nbPassenger.getText().toString()), Integer.parseInt(picture.getText().toString()));
         this.aircraftRef = DataBase.AIRCRAFT_REFERENCE.child(String.valueOf(aircraft.getId()));
 
-        //TODO : idk if a database is created with all the aircraft, create it or find another solution
-        View.OnClickListener confirm = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (name.getText().toString().equals("") || type.getText().toString().equals("") || nbPassenger.getText().toString().equals("") || picture.getText().toString().equals("") || maxRange.getText().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Merci de remplir toutes les sections", Toast.LENGTH_SHORT).show();
-                } else {
+        View.OnClickListener confirm = view -> {
+            if (name.getText().toString().equals("") || nbPassenger.getText().toString().equals("") || picture.getText().toString().equals("")) {
+                Toast.makeText(getApplicationContext(), "Merci de remplir toutes les sections", Toast.LENGTH_SHORT).show();
+            } else {
 
-                    aircraftRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            if (dataSnapshot.exists()) {
-                                Toast.makeText(CreateNewAircraftActivity.this, "⚠️ Ce nom est déjà utilisé !", Toast.LENGTH_SHORT).show();
-                            } else {
-                                DataBase.AIRCRAFT_REFERENCE.child(aircraft.getId().setValue(aircraft).addOnCompleteListener(task -> {
-                                    if (task.isSuccessful()) {
-                                        // Store the user id in the cache of the app
-                                        SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
-                                        SharedPreferences.Editor editor = preferences.edit();
-                                        editor.putString("aircraft_id", String.valueOf(aircraft.getId()));
-                                        editor.apply();
+                aircraftRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            Toast.makeText(CreateNewAircraftActivity.this, "⚠️ Ce nom est déjà utilisé !", Toast.LENGTH_SHORT).show();
+                        } else {
+                            DataBase.AIRCRAFT_REFERENCE.child(String.valueOf(aircraft.getId())).setValue(aircraft).addOnCompleteListener(task -> {
+                                if (task.isSuccessful()) {
 
-                                        // Go to the home page and display a confirmation message
-                                        Toast.makeText(CreateNewAircraftActivity.this, "✅ L'appareil a bien été créé", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(CreateNewAircraftActivity.this, SwitcherActivity.class);
+                                    // Go to the home page and display a confirmation message
+                                    Toast.makeText(CreateNewAircraftActivity.this, "✅ L'appareil a bien été créé", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(CreateNewAircraftActivity.this, SwitcherActivity.class);
+                                    startActivity(intent);  // Go to the home page
 
-                                        if (dataSnapshot.exists()) {
-                                            // User exists in the database and we can get its data
-                                            User user = dataSnapshot.getValue(User.class);
-                                            List<Aircraft> userAircrafts = user.getAircraftList();
-                                            userAircrafts.add(aircraft);
-                                            userRef.child("listAricraft").setValue(userAircrafts);
-                                            finish();
-                                        }
-                                    } else {
-                                        Toast.makeText(CreateNewAircraftActivity.this, "⚠️ Erreur lors de la création de l'appareil, veuillez réessayer", Toast.LENGTH_SHORT).show();
+                                    if (dataSnapshot.exists()) {
+                                        // User exists in the database and we can get its data
+                                        User user = dataSnapshot.getValue(User.class);
+                                        assert user != null;
+                                        List<Aircraft> userAircrafts = user.getAircraftList();
+                                        userAircrafts.add(aircraft);
+                                        userRef.child("listAricraft").setValue(userAircrafts);
+                                        finish();
                                     }
-                                }));
-                            }
+                                } else {
+                                    Toast.makeText(CreateNewAircraftActivity.this, "⚠️ Erreur lors de la création de l'appareil, veuillez réessayer", Toast.LENGTH_SHORT).show();
+                                }
+                            });
                         }
+                    }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-                            Toast.makeText(CreateNewAircraftActivity.this, "⚠️ Erreur lors de la création de l'appareil, veuillez réessayer", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        Toast.makeText(CreateNewAircraftActivity.this, "⚠️ Erreur lors de la création de l'appareil, veuillez réessayer", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
-                }
             }
         };
 
-        View.OnClickListener returnView = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        };
-
+        View.OnClickListener returnView = view -> finish();
 
         this.returnButton.setOnClickListener(returnView);
         this.returnCard.setOnClickListener(returnView);

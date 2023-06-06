@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:text="@string/slogans"
         android:textAlignment="center"
-        android:textColor="#39C3FD"
+        android:textColor="@color/blue_primary"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

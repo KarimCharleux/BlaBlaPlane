@@ -59,10 +59,4 @@ public enum City {
     public GeoPoint getGeoPoint() {
         return geoPoint;
     }
-
-
-
-
-
-
 }

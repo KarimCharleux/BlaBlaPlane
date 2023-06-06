@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,9 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".activity.SelectAircraftActivity">
 
-
     <ImageView
-        android:id="@+id/header"
+        android:id="@+id/modifyHeader"
         android:layout_width="match_parent"
         android:layout_height="100sp"
         android:contentDescription="@string/SELECTAIRCRAFT_title"
@@ -31,9 +29,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header"
-        app:layout_constraintVertical_bias="0.00999999" />
-
+        app:layout_constraintTop_toBottomOf="@+id/modifyHeader"
+        app:layout_constraintVertical_bias="0.0" />
 
 
     <ListView
@@ -46,13 +43,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_createNewAircraft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="90dp"
-        android:backgroundTint="#39C3FD"
+        android:backgroundTint="@color/blue_primary"
         app:cardCornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,25 +62,24 @@
             android:layout_gravity="center"
             android:layout_marginHorizontal="45dp"
             android:layout_marginVertical="5dp"
-            android:backgroundTint="#39C3FD"
-            android:outlineSpotShadowColor="#00BCD4"
+            android:backgroundTint="@color/blue_primary"
+            android:outlineSpotShadowColor="@color/blue_primary"
             android:text="@string/SELECTAIRCRAFT_create_new_one"
+            android:textAllCaps="false"
             android:textSize="20sp"
             android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
 
 
-
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_return"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:backgroundTint="#39C3FD"
-        app:cardCornerRadius="30dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="@color/light_grey"
+        app:cardCornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,13 +92,13 @@
             android:layout_gravity="center"
             android:layout_marginHorizontal="45dp"
             android:layout_marginVertical="5dp"
-            android:backgroundTint="#39C3FD"
-            android:outlineSpotShadowColor="#00BCD4"
-            android:text="@string/SELECTAIRCRAFT_return"
+            android:backgroundTint="@color/light_grey"
+            android:outlineSpotShadowColor="@color/light_grey"
+            android:text="@string/returnText"
+            android:textAllCaps="false"
             android:textSize="20sp"
             android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

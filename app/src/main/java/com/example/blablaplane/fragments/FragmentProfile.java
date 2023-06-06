@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.blablaplane.R;
 import com.example.blablaplane.activity.LandingActivity;
+import com.example.blablaplane.activity.user.ModifyProfile;
 import com.example.blablaplane.object.DataBase;
 import com.example.blablaplane.object.aircraft.AircraftAdapter;
 import com.example.blablaplane.object.aircraft.AircraftAdapterListener;
@@ -73,6 +74,12 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
                         ratingBar.setRating(user.getRating());
 
                     } else {
+                        // User doesn't exist in the database so delete the user in the cache
+                        // and redirect to the login page
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.remove("user_id");
+                        editor.apply();
+
                         Intent intent = new Intent(getActivity(), LandingActivity.class);
                         startActivity(intent);
                         requireActivity().finish();
@@ -101,8 +108,6 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
         // Set the listener
         aircraftAdapter.setListener(this);
 
-        System.out.println("Aircraft list size : " + aircraftArray.size());
-
 
         // Disconnect button
         Button buttonDisconnect = view.findViewById(R.id.logoutButton);
@@ -114,6 +119,13 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
             Intent intent = new Intent(getActivity(), LandingActivity.class);
             startActivity(intent);
             requireActivity().finish();
+        });
+
+        // Modify profile button
+        Button buttonModifyProfile = view.findViewById(R.id.modifyButton);
+        buttonModifyProfile.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), ModifyProfile.class);
+            startActivity(intent);
         });
 
         return view;

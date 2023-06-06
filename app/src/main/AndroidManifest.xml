@@ -42,16 +42,25 @@
             android:name=".activity.PaymentActivity"
             android:exported="false" />
         <activity
+            android:name=".activity.user.ModifyProfile"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SelectAircraftActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.CreateNewAircraftActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.ConfirmationActivity"
             android:exported="false" />
         <activity
             android:name=".activity.PublishPriceAircraftActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.RegisterActivity"
+            android:name=".activity.user.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.ConnectionActivity"
+            android:name=".activity.user.ConnectionActivity"
             android:exported="false" />
         <activity
             android:name=".activity.PublishSelectCityActivity"

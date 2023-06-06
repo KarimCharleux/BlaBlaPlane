@@ -154,7 +154,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/priceTrip"
-            android:textColor="#39C3FD"
+            android:textColor="@color/blue_primary"
             android:textSize="34sp"
             android:textStyle="bold" />
 
@@ -262,14 +262,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:backgroundTint="#39C3FD"
+                android:backgroundTint="@color/blue_primary"
                 app:cardCornerRadius="30dp">
 
                 <ImageView
                     android:id="@+id/photoPlane"
                     android:layout_width="52dp"
                     android:layout_height="52dp"
-                    android:background="#39C3FD"
+                    android:background="@color/blue_primary"
                     android:contentDescription="@string/photoPlane"
                     android:padding="10dp"
                     app:srcCompat="@drawable/small_plane" />
@@ -289,7 +289,7 @@
         android:id="@+id/cardView"
         android:layout_width="229dp"
         android:layout_height="55dp"
-        android:backgroundTint="#39C3FD"
+        android:backgroundTint="@color/blue_primary"
         app:cardCornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -301,8 +301,8 @@
             android:id="@+id/bookButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:backgroundTint="#39C3FD"
-            android:outlineSpotShadowColor="#00BCD4"
+            android:backgroundTint="@color/blue_primary"
+            android:outlineSpotShadowColor="@color/blue_primary"
             android:text="@string/bookButton"
             android:textAllCaps="false"
             android:textSize="24sp"
