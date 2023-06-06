@@ -8,18 +8,19 @@ import java.util.List;
 
 public class User {
 
-    private List<Aircraft> aircraftList;
-    private List<Trip> myTripList;
-    private String id;
-    private String name;
-    private String surname;
-    private String email;
-    private String password;
-    private String phone;
-    private float rating;
+    private final List<Aircraft> aircraftList;
+    private final List<Trip> myTripList;
+    private final String id;
+    private final String name;
+    private final String surname;
+    private final String email;
+    private final String password;
+    private final String phone;
+    private final float rating;
 
     public User() {
         // Constructor for Firebase
+        this("", "", "", "", "", 0);
     }
 
     public User(String name, String surname, String email, String password, String phone, float rating) {
@@ -62,8 +63,13 @@ public class User {
         this.aircraftList.add(aircraft);
     }
 
-    public void removeAircraft(Aircraft aircraft) {
-        this.aircraftList.remove(aircraft);
+    public void removeAircraft(int aircraftId) {
+        for (int index = 0; index < this.aircraftList.size(); index++) {
+            if (this.aircraftList.get(index).getId() == aircraftId) {
+                this.aircraftList.remove(index);
+                break;
+            }
+        }
     }
 
     public List<Aircraft> getAircraftList() {

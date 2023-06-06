@@ -94,8 +94,8 @@
 
             <ImageView
                 android:id="@+id/checkbox_1"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="45sp"
+                android:layout_height="45sp"
                 android:contentDescription="@string/email"
                 android:paddingVertical="10dp"
                 android:src="@drawable/checked_box"
@@ -115,8 +115,8 @@
 
             <ImageView
                 android:id="@+id/checkbox_2"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="45sp"
+                android:layout_height="45sp"
                 android:contentDescription="@string/phone"
                 android:paddingVertical="10dp"
                 android:src="@drawable/checked_box"
@@ -136,8 +136,8 @@
 
             <ImageView
                 android:id="@+id/checkbox_3"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="45sp"
+                android:layout_height="45sp"
                 android:contentDescription="@string/identity"
                 android:paddingVertical="10dp"
                 android:src="@drawable/checked_box"
@@ -157,8 +157,8 @@
 
             <ImageView
                 android:id="@+id/checkbox_4"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="45sp"
+                android:layout_height="45sp"
                 android:contentDescription="@string/pilot_license"
                 android:paddingVertical="10dp"
                 android:src="@drawable/checked_box"
@@ -231,7 +231,7 @@
         <ListView
             android:id="@+id/aircraft_list"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="170sp"
             android:layout_marginHorizontal="15sp"
             android:layout_marginTop="15sp"
             android:clickable="false"

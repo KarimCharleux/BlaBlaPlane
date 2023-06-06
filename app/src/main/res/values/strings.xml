@@ -36,6 +36,7 @@
 
 
     /* Messages */
+
     <string name="myMessages">Mes messages</string>
     <string name="previousMessages">Salut t\'es ou ?</string>
 
@@ -120,7 +121,7 @@
 
     <string name="SELECTAIRCRAFT_title">Sélectionner un appareil</string>
     <string name="SELECTAIRCRAFT_subtitle">Sélectionnez un appareil</string>
-    <string name="SELECTAIRCRAFT_create_new_one">Créer un nouveau\n appareil</string>
+    <string name="SELECTAIRCRAFT_create_new_one">Créer mon appareil</string>
 
     /* CreateNewAircraft */
 
@@ -129,8 +130,11 @@
     <string name="CREATENEWAIRCRAFT_numberOfPassenger">Nombre de passager</string>
     <string name="CREATENEWAIRCRAFT_picture">Photo de l\'aéronef</string>
     <string name="CREATENEWAIRCRAFT_create">Créer l\'aeronef</string>
+    <string name="addNewAircraft">Ajouter un aéronef</string>
+
 
     /* ModifyProfile */
+
     <string name="MODIFYPROFILE_title">Modifier mon profil</string>
 
     /* Other */
@@ -142,4 +146,5 @@
     <string name="slogans">Des vols partagés pour des aventures inoubliables</string>
     <string name="mentions_legales">Mentions légales</string>
     <string name="logout">Déconnecter</string>
+    <string name="or">- OU -</string>
 </resources>

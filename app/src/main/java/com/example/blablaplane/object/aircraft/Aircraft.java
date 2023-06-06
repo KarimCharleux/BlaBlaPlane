@@ -12,6 +12,11 @@ public class Aircraft implements Serializable, Parcelable {
     private final int passengerCount;
     private final int image;
 
+    public Aircraft() {
+        // Constructor for Firebase
+        this(0, "", 0, 0);
+    }
+
     public Aircraft(int id, String name, int passengerCount, int image) {
         this.id = id;
         this.name = name;
@@ -72,7 +77,7 @@ public class Aircraft implements Serializable, Parcelable {
         return id;
     }
 
-    public int getCapacity() {
+    public int getPassengerCount() {
         return passengerCount;
     }
 
