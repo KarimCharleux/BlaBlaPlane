@@ -116,6 +116,22 @@
     <string name="identity">Pièce d’identité</string>
     <string name="pilot_license">Brevet de pilote PPL</string>
 
+    /* SelectAircraft */
+
+    <string name="SELECTAIRCRAFT_title">Sélectionner un appareil</string>
+    <string name="SELECTAIRCRAFT_subtitle">Sélectionnez un appareil</string>
+    <string name="SELECTAIRCRAFT_create_new_one">Créer un nouveau\n appareil</string>
+
+    /* CreateNewAircraft */
+
+    <string name="CREATENEWAIRCRAFT_title">Créer un nouvel appareil</string>
+    <string name="CREATENEWAIRCRAFT_name">Nom de l\'aeronef</string>
+    <string name="CREATENEWAIRCRAFT_numberOfPassenger">Nombre de passager</string>
+    <string name="CREATENEWAIRCRAFT_picture">Photo de l\'aéronef</string>
+    <string name="CREATENEWAIRCRAFT_create">Créer l\'aeronef</string>
+
+    /* ModifyProfile */
+    <string name="MODIFYPROFILE_title">Modifier mon profil</string>
 
     /* Other */
 
@@ -126,8 +142,4 @@
     <string name="slogans">Des vols partagés pour des aventures inoubliables</string>
     <string name="mentions_legales">Mentions légales</string>
     <string name="logout">Déconnecter</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-
 </resources>

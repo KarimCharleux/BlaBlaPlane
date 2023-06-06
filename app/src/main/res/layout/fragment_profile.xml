@@ -189,20 +189,20 @@
             app:layout_constraintVertical_bias="0.04">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/bookButtonLayout"
+                android:id="@+id/modifyButtonLayout"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="10dp"
                 android:layout_weight="1"
-                android:backgroundTint="#39C3FD"
+                android:backgroundTint="@color/blue_primary"
                 app:cardCornerRadius="30dp">
 
                 <Button
-                    android:id="@+id/bookButton"
+                    android:id="@+id/modifyButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:backgroundTint="#39C3FD"
-                    android:outlineSpotShadowColor="#00BCD4"
+                    android:backgroundTint="@color/blue_primary"
+                    android:outlineSpotShadowColor="@color/blue_primary"
                     android:text="@string/modify"
                     android:textAllCaps="false"
                     android:textSize="20sp" />
@@ -213,15 +213,15 @@
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="10dp"
                 android:layout_weight="1"
-                android:backgroundTint="#D5D5D5"
+                android:backgroundTint="@color/light_grey"
                 app:cardCornerRadius="30dp">
 
                 <Button
                     android:id="@+id/logoutButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:backgroundTint="#D5D5D5"
-                    android:outlineSpotShadowColor="#D5D5D5"
+                    android:backgroundTint="@color/light_grey"
+                    android:outlineSpotShadowColor="@color/light_grey"
                     android:text="@string/logout"
                     android:textAllCaps="false"
                     android:textSize="20sp" />

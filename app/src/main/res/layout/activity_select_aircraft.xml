@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.SelectAircraftActivity">
+
+    <ImageView
+        android:id="@+id/modifyHeader"
+        android:layout_width="match_parent"
+        android:layout_height="100sp"
+        android:contentDescription="@string/SELECTAIRCRAFT_title"
+        android:src="@drawable/logo_blablaplane"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:text="@string/SELECTAIRCRAFT_subtitle"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/modifyHeader"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <ListView
+        android:id="@+id/aircraft_list"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginHorizontal="15sp"
+        android:layout_marginTop="15sp"
+        android:divider="@null"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_createNewAircraft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="90dp"
+        android:backgroundTint="@color/blue_primary"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aircraft_list">
+
+        <Button
+            android:id="@+id/SelectAircraft_createNewAircraftButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="45dp"
+            android:layout_marginVertical="5dp"
+            android:backgroundTint="@color/blue_primary"
+            android:outlineSpotShadowColor="@color/blue_primary"
+            android:text="@string/SELECTAIRCRAFT_create_new_one"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="@color/light_grey"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView_createNewAircraft">
+
+        <Button
+            android:id="@+id/SelectAircraft_returnButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="45dp"
+            android:layout_marginVertical="5dp"
+            android:backgroundTint="@color/light_grey"
+            android:outlineSpotShadowColor="@color/light_grey"
+            android:text="@string/returnText"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

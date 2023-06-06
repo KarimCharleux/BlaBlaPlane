@@ -53,7 +53,7 @@ public class ConnexionTest {
         materialButton.perform(click());
 
         ViewInteraction appCompatEditText = onView(
-                allOf(withId(R.id.EmailAddress),
+                allOf(withId(R.id.registerEmailAddress),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -63,7 +63,7 @@ public class ConnexionTest {
         appCompatEditText.perform(replaceText("github"), closeSoftKeyboard());
 
         ViewInteraction appCompatEditText2 = onView(
-                allOf(withId(R.id.EmailAddress), withText("github"),
+                allOf(withId(R.id.registerEmailAddress), withText("github"),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -73,7 +73,7 @@ public class ConnexionTest {
         appCompatEditText2.perform(click());
 
         ViewInteraction appCompatEditText3 = onView(
-                allOf(withId(R.id.EmailAddress), withText("github"),
+                allOf(withId(R.id.registerEmailAddress), withText("github"),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -83,7 +83,7 @@ public class ConnexionTest {
         appCompatEditText3.perform(replaceText("github.action@gmail.com"));
 
         ViewInteraction appCompatEditText4 = onView(
-                allOf(withId(R.id.EmailAddress), withText("github.action@gmail.com"),
+                allOf(withId(R.id.registerEmailAddress), withText("github.action@gmail.com"),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -93,7 +93,7 @@ public class ConnexionTest {
         appCompatEditText4.perform(closeSoftKeyboard());
 
         ViewInteraction appCompatEditText5 = onView(
-                allOf(withId(R.id.Password),
+                allOf(withId(R.id.registerPassword),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),

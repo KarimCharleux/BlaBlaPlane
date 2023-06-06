@@ -22,7 +22,7 @@
     <EditText
         android:id="@+id/EDIT_price"
         android:layout_width="wrap_content"
-        android:layout_height="45sp"
+        android:layout_height="48sp"
         android:autofillHints=""
         android:background="@drawable/edit_text"
         android:backgroundTint="#EDEDED"
