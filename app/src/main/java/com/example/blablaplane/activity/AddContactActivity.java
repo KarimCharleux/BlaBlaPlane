@@ -10,8 +10,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
-import com.example.blablaplane.databinding.ContentAddContactBinding;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,13 +26,6 @@ import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.view.WindowCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.example.blablaplane.databinding.ActivityAddContactBinding;
 
 import com.example.blablaplane.R;
 
@@ -45,7 +36,7 @@ import java.util.ArrayList;
 
 public class AddContactActivity extends AppCompatActivity {
 
-    private ActivityAddContactBinding binding;
+
     private static final String TAG = "CONTACT_TAG";
     private static final int WRITE_CONTACT_PERMISSION_CODE = 100;
     private String[] contactPermissions;
