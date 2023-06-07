@@ -8,7 +8,7 @@
     <string name="ACCUEIL_title">Des vols partagés pour des aventures inoubliables</string>
     <string name="ACCUEIL_date">Aujourd\'hui</string>
     <string name="ACCUEIL_number_of_people">1</string>
-    <string name="ACCUEIL_start">Départ</string>
+    <string name="ACCUEIL_start">Depart</string>
     <string name="ACCUEIL_destination">Destination</string>
     <string name="ACCUEIL_search">Rechercher</string>
 
@@ -16,13 +16,15 @@
     /* RECHERCHE */
 
     <string name="RESEARCH_selectionDepart">Sélectionnez  un lieu de départ</string>
+    <string name="RESEARCH_selectionArrivee">"Sélectionnez  un lieu d'arriver"</string>
     <string name="RESEARCH_btn_validate_text">Valider</string>
 
     /* ERRORS */
     <string name="RESEARCH_ERR_EmptyDeparturePlaces">⚠️ Veuillez selectionner un lieux !</string>
 
     /*INTENT */
-    <string name="RESEARCH_INTENT_stratingPlace">StartingPlace</string>
+    <string name="RESEARCH_INTENT_startingPlace">StartingPlace</string>
+    <string name="RESEARCH_INTENT_destinationPlace">DestinationPlace</string>
 
 
     /* Accueil */
