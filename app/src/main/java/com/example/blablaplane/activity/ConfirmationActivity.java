@@ -1,12 +1,16 @@
 package com.example.blablaplane.activity;
 
+import static com.example.blablaplane.NotifyApp.CHANNEL_IDP;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import com.example.blablaplane.NotifyApp;
 import com.example.blablaplane.R;
 import com.example.blablaplane.object.trip.Trip;
 import com.example.blablaplane.object.trip.TripArray;
@@ -14,6 +18,8 @@ import com.example.blablaplane.object.trip.TripArray;
 import java.util.TimeZone;
 
 public class ConfirmationActivity extends AppCompatActivity {
+
+    private int notificationId = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,18 @@ public class ConfirmationActivity extends AppCompatActivity {
             ConfirmationActivity.this.startActivity(intentNavigateNewPage);
         });
 
+        String title = "BlaBlaPlane";
+        String message = "Confirmation de paiement validé !";
+        sendNotificationOnChannel(title,message, CHANNEL_IDP, NotificationCompat.PRIORITY_HIGH);
+    }
+
+    private void sendNotificationOnChannel(String title, String message, String channelId, int priority) {
+        NotificationCompat.Builder notification = new NotificationCompat.Builder(getApplicationContext(),channelId)
+                .setSmallIcon(R.drawable.footer_logo)
+                .setContentTitle(title)
+                .setContentText(message)
+                .setPriority(priority);
+        NotifyApp.getNotificationManager().notify(++notificationId, notification.build());
     }
 
     private void addToCalendar(Trip trip) {
