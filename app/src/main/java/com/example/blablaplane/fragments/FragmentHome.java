@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
-import com.example.blablaplane.Message;
+import com.example.blablaplane.notifications.Message;
 import com.example.blablaplane.R;
 import com.example.blablaplane.activity.ListTripActivity;
 import com.example.blablaplane.activity.PublishSelectCityActivity;
