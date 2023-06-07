@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
 
-import com.example.blablaplane.Message;
+import com.example.blablaplane.notifications.Message;
 import com.example.blablaplane.R;
 import com.example.blablaplane.activity.ListTripActivity;
 import com.example.blablaplane.activity.PublishSelectCityActivity;

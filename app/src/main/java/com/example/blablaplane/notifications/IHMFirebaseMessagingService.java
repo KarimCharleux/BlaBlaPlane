@@ -1,6 +1,6 @@
-package com.example.blablaplane;
+package com.example.blablaplane.notifications;
 
-import static com.example.blablaplane.NotifyApp.CHANNEL_ID;
+import static com.example.blablaplane.notifications.NotifyApp.CHANNEL_IDP;
 
 import android.app.NotificationManager;
 import android.content.Context;
@@ -10,6 +10,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
+import com.example.blablaplane.R;
 import com.example.blablaplane.activity.SwitcherActivity;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
@@ -27,7 +28,7 @@ public class IHMFirebaseMessagingService extends FirebaseMessagingService {
            Intent intent =  new Intent(getApplicationContext(), SwitcherActivity.class);
            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-           NotificationCompat.Builder notifcation = new NotificationCompat.Builder(getApplicationContext(),CHANNEL_ID)
+           NotificationCompat.Builder notifcation = new NotificationCompat.Builder(getApplicationContext(),CHANNEL_IDP)
                    .setSmallIcon(R.drawable.ic_launcher_background)
                    .setContentTitle(Message.getInstance().getTitle())
                    .setContentText(Message.getInstance().body())
