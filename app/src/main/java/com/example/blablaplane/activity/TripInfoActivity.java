@@ -1,13 +1,17 @@
 package com.example.blablaplane.activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +34,7 @@ import org.osmdroid.views.overlay.ItemizedOverlayWithFocus;
 import org.osmdroid.views.overlay.Overlay;
 import org.osmdroid.views.overlay.OverlayItem;
 import org.osmdroid.views.overlay.Polyline;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +66,26 @@ public class TripInfoActivity extends AppCompatActivity {
                 TripInfoActivity.this.startActivity(intentNavigateNewPage);
             });
         }
+
+        Button addContact = findViewById(R.id.BTN_addContact);
+
+        addContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newIntent = new Intent(TripInfoActivity.this, AddContactActivity.class);
+                ImageView iv_pilote = findViewById(R.id.photoPilote);
+                TextView TV_lastName = findViewById(R.id.namePilot);
+                TextView TV_firstName = findViewById(R.id.surnamePilot);
+
+                iv_pilote.buildDrawingCache();
+                Bitmap bmap = iv_pilote.getDrawingCache();
+                newIntent.putExtra("photo", bmap);
+                newIntent.putExtra("tripId", tripId);
+                newIntent.putExtra("lastName", TV_lastName.getText().toString().trim());
+                newIntent.putExtra("firstName", TV_firstName.getText().toString().trim() );
+                startActivity(newIntent);
+            }
+        });
 
         // Trip info
         Trip trip = TripArray.getInstance().getTripById(tripId);
@@ -186,4 +211,7 @@ public class TripInfoActivity extends AppCompatActivity {
         super.onResume();
         map.onResume(); // Resume the map when the activity is resumed.
     }
+
+
+
 }
