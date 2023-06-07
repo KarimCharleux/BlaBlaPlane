@@ -1,6 +1,6 @@
 package com.example.blablaplane.activity;
 
-import static com.example.blablaplane.NotifyApp.CHANNEL_ID;
+import static com.example.blablaplane.NotifyApp.CHANNEL_IDP;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -41,9 +41,8 @@ public class ConfirmationActivity extends AppCompatActivity {
         });
 
         String title = "BlaBlaPlane";
-        String message = "Confirmation de paiement validée !";
-        sendNotificationOnChannel(title,message, CHANNEL_ID, NotificationCompat.PRIORITY_DEFAULT);
-
+        String message = "Confirmation de paiement validé !";
+        sendNotificationOnChannel(title,message, CHANNEL_IDP, NotificationCompat.PRIORITY_HIGH);
     }
 
     private void sendNotificationOnChannel(String title, String message, String channelId, int priority) {

@@ -9,7 +9,7 @@ import java.util.Objects;
 
 public class NotifyApp extends Application {
 
-    public static final String CHANNEL_ID= "my channel";
+    public static final String CHANNEL_IDP= "Channel Paiement";
 
     public static NotificationManager getNotificationManager() {
         return notificationManager;
@@ -19,7 +19,7 @@ public class NotifyApp extends Application {
 
     private void createNotificationChannel(String name, String description, int importance) {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID,name,importance);
+            NotificationChannel channel = new NotificationChannel(CHANNEL_IDP,name,importance);
             channel.setDescription(description);
             notificationManager = getSystemService(NotificationManager.class);
             Objects.requireNonNull(notificationManager).createNotificationChannel(channel);
@@ -29,17 +29,7 @@ public class NotifyApp extends Application {
     @Override
     public void onCreate(){
         super.onCreate();
-        createNotificationChannel("channel de blablaplane", "channel pour l'application blablaplane",NotificationManager.IMPORTANCE_DEFAULT);
-        String channelName = "my channel Name";
-        NotificationChannel notificationChannel = null;
-
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            notificationChannel = new NotificationChannel(CHANNEL_ID,channelName, NotificationManager.IMPORTANCE_DEFAULT);
-        }
-        NotificationManager notificationManager = getSystemService(NotificationManager.class);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            notificationManager.createNotificationChannel(notificationChannel);
-        }
+        createNotificationChannel("channel de paiement", "channel de paiement pour l'application blablaplane",NotificationManager.IMPORTANCE_HIGH);
     }
 
 
