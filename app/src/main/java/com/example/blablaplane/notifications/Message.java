@@ -1,4 +1,4 @@
-package com.example.blablaplane;
+package com.example.blablaplane.notifications;
 
 import com.google.firebase.messaging.RemoteMessage;
 

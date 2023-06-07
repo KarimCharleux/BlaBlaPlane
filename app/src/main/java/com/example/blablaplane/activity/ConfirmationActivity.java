@@ -1,6 +1,6 @@
 package com.example.blablaplane.activity;
 
-import static com.example.blablaplane.NotifyApp.CHANNEL_IDP;
+import static com.example.blablaplane.notifications.NotifyApp.CHANNEL_IDP;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
-import com.example.blablaplane.NotifyApp;
+import com.example.blablaplane.notifications.Notification;
+import com.example.blablaplane.notifications.NotifyApp;
 import com.example.blablaplane.R;
 import com.example.blablaplane.object.trip.Trip;
 import com.example.blablaplane.object.trip.TripArray;
@@ -40,17 +41,17 @@ public class ConfirmationActivity extends AppCompatActivity {
             ConfirmationActivity.this.startActivity(intentNavigateNewPage);
         });
 
-        String title = "BlaBlaPlane";
-        String message = "Confirmation de paiement validé !";
-        sendNotificationOnChannel(title,message, CHANNEL_IDP, NotificationCompat.PRIORITY_HIGH);
+        Intent intent = getIntent();
+        Notification notification = intent.getExtras().getParcelable("notif");
+        sendNotificationOnChannel(notification);
     }
 
-    private void sendNotificationOnChannel(String title, String message, String channelId, int priority) {
-        NotificationCompat.Builder notification = new NotificationCompat.Builder(getApplicationContext(),channelId)
+    private void sendNotificationOnChannel(Notification notificationCustom) {
+        NotificationCompat.Builder notification = new NotificationCompat.Builder(getApplicationContext(),notificationCustom.getChannelId())
                 .setSmallIcon(R.drawable.footer_logo)
-                .setContentTitle(title)
-                .setContentText(message)
-                .setPriority(priority);
+                .setContentTitle(notificationCustom.toString())
+                .setContentText(notificationCustom.getMessage())
+                .setPriority(notificationCustom.getPriority());
         NotifyApp.getNotificationManager().notify(++notificationId, notification.build());
     }
 
