@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.SavedStateHandle;
@@ -18,6 +20,8 @@ import com.example.blablaplane.notifications.Message;
 import com.example.blablaplane.R;
 import com.example.blablaplane.activity.ListTripActivity;
 import com.example.blablaplane.activity.PublishSelectCityActivity;
+import com.example.blablaplane.object.trip.Trip;
+import com.example.blablaplane.object.trip.TripInfo;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.firebase.messaging.FirebaseMessaging;
 
@@ -26,7 +30,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class FragmentHome extends Fragment implements Observer {
-
+    int savedState=0;
     private final String TAG = "Notification :  " + getClass().getSimpleName();
 
     public FragmentHome() {
@@ -37,8 +41,6 @@ public class FragmentHome extends Fragment implements Observer {
     private String arrivee;
     private Date date;
     private int nbTravelers;
-
-
 
 
     @Override
@@ -55,9 +57,9 @@ public class FragmentHome extends Fragment implements Observer {
 
         if(savedInstanceState == null){
             //it is the first time the fragment is being called
-            depart = getResources().getString(R.string.ACCUEIL_start);
-            arrivee = getResources().getString(R.string.ACCUEIL_destination);
-            nbTravelers = Integer.parseInt(getResources().getString(R.string.ACCUEIL_number_of_people));
+            depart = TripInfo.depart;
+            arrivee = TripInfo.destination;
+            nbTravelers = TripInfo.nb_passager;
         }else{
             //not the first time so we will check SavedInstanceState bundle
             depart = savedInstanceState.getString("tvDepart",getResources().getString(R.string.ACCUEIL_start));
@@ -67,13 +69,11 @@ public class FragmentHome extends Fragment implements Observer {
 
 
         buttonSearch.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), ListTripActivity.class);
-            startActivity(intent);
+            search();
         });
 
         buttonSearchText.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), ListTripActivity.class);
-            startActivity(intent);
+            search();
         });
 
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
@@ -121,11 +121,21 @@ public class FragmentHome extends Fragment implements Observer {
             Place startingPlace = intent.getParcelableExtra(getResources().getString(R.string.RESEARCH_INTENT_startingPlace));
             Place destinationPlace = intent.getParcelableExtra(getResources().getString(R.string.RESEARCH_INTENT_destinationPlace));
 
-            if (startingPlace != null) {TV_depart.setText(startingPlace.getName());}
-            if(destinationPlace!=null){TV_arrivee.setText(destinationPlace.getName());}
+            if (startingPlace != null) {
+                TripInfo.depart=startingPlace.getName();}
+            if(destinationPlace!=null){
+                TripInfo.destination=destinationPlace.getName();}
         }
+        System.out.println("SetText");
+        System.out.println(TripInfo.depart);
+        System.out.println(TripInfo.destination);
+        TV_depart.setText(TripInfo.depart);
+        TV_arrivee.setText(TripInfo.destination);
+
         return view;
     }
+
+
 
     @Override
     public void update(Observable observable, Object o) {
@@ -134,5 +144,31 @@ public class FragmentHome extends Fragment implements Observer {
             Log.d(TAG, "Title: " + Message.getInstance().getTitle());
             Log.d(TAG, "Title: " + Message.getInstance().body());
         }
+    }
+
+    private void search()
+    {
+        Intent intent = new Intent(getActivity(), ListTripActivity.class);
+        intent.putExtra("depart", TripInfo.depart);
+        intent.putExtra("destination", TripInfo.destination);
+        intent.putExtra("nb_personnes", nbTravelers);
+        intent.putExtra("date", date);
+
+        startActivity(intent);
+    }
+
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        System.out.println("SAVE FRAG");
+        outState.putString("string_value","Hello world");
+
+        super.onSaveInstanceState(outState);
+    }
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        System.out.println("onCreate");
+        System.out.println(savedInstanceState);
     }
 }
