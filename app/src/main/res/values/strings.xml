@@ -1,5 +1,29 @@
 <resources>
     <string name="app_name">BlaBlaPlane</string>
+    /* API */
+    <string name="API_googleMaps">AIzaSyAuHeVetKin8MDiHT5mrMGWDZ-24M5WwnA</string>
+
+    /* Accueil */
+
+    <string name="ACCUEIL_title">Des vols partagés pour des aventures inoubliables</string>
+    <string name="ACCUEIL_date">Aujourd\'hui</string>
+    <string name="ACCUEIL_number_of_people">1</string>
+    <string name="ACCUEIL_start">Départ</string>
+    <string name="ACCUEIL_destination">Destination</string>
+    <string name="ACCUEIL_search">Rechercher</string>
+
+
+    /* RECHERCHE */
+
+    <string name="RESEARCH_selectionDepart">Sélectionnez  un lieu de départ</string>
+    <string name="RESEARCH_btn_validate_text">Valider</string>
+
+    /* ERRORS */
+    <string name="RESEARCH_ERR_EmptyDeparturePlaces">⚠️ Veuillez selectionner un lieux !</string>
+
+    /*INTENT */
+    <string name="RESEARCH_INTENT_stratingPlace">StartingPlace</string>
+
 
     /* API */
     <string name="api_googleMaps">AIzaSyAuHeVetKin8MDiHT5mrMGWDZ-24M5WwnA</string>
@@ -28,12 +52,20 @@
 
 
 
+
+    /* Messages */
+
+    <string name="myMessages">Mes messages</string>
+    <string name="previousMessages">Salut t\'es ou ?</string>
+
+
     /* Trip */
 
+    <string name="myTrips">Mes trajets</string>
     <string name="surnamePilot">LUTUN</string>
     <string name="namePilot">Théo</string>
     <string name="photoPilote">User profile</string>
-    <string name="picePerPassanger">Prix total pour 1 passager</string>
+    <string name="pricePerPassanger">Prix total pour 1 passager</string>
     <string name="priceTrip">200,00 €</string>
     <string name="arrivalTime">13h35</string>
     <string name="arrivalText">Nice</string>
@@ -49,24 +81,27 @@
     <string name="namePlane">Cessna 140</string>
     <string name="bookButton">Réserver</string>
     <string name="dateText">Mercredi 17 mai</string>
-    <string name="buttonsearching">Button Rechercher</string>
-    <string name="buttonAdding">Button Ajouter</string>
-    <string name="buttondefault">button Home</string>
-    <string name="buttonChatting">Button Messages</string>
-    <string name="buttonProfile">Button Profile</string>
+    <string name="buttonSearching">Rechercher</string>
+    <string name="buttonAdding">Publier</string>
+    <string name="buttonMyTrip">Mes trajets</string>
+    <string name="buttonChatting">Messages</string>
+    <string name="buttonProfile">Profile</string>
     <string name="pictureProfile">Photo Profile</string>
-    <string name="headerLogo">Header Logo</string>
     <string name="route">route</string>
     <string name="photoPilot">Photo Pilote</string>
 
     /* Connexion */
+
     <string name="connection">Connexion</string>
     <string name="enterId">Renseignez vos identifiants</string>
     <string name="email">E-mail</string>
     <string name="password">Mot de passe</string>
     <string name="forgotPassword">Mot de passe oublié ?</string>
+    <string name="se_connecter">Se connecter 🤙</string>
 
     /* Inscription */
+
+    <string name="s_inscrire">S\'inscrire 👋</string>
     <string name="inscription">Inscription</string>
     <string name="createProfile">Créez votre profil</string>
     <string name="name">Prénom</string>
@@ -74,5 +109,77 @@
     <string name="repeatPassword">Répétez le mot de passe</string>
     <string name="imPilot">Je suis pilote</string>
 
+    /* Create Trip */
 
+    <string name="planeName">Cirrus Vision Jet</string>
+    <string name="aircraft">Aéronef</string>
+    <string name="nbPassenger">Nombre de personne</string>
+    <string name="number3">3</string>
+    <string name="eurocopter_ec130">Eurocopter EC130</string>
+    <string name="selectPrice">Selectionnez un prix</string>
+    <string name="selectAircraft">Selectionnez un aéronef</string>
+    <string name="depart">Depart</string>
+    <string name="selectDepart">Sélectionnez un lieu de départ :</string>
+    <string name="enterAddress">Entrez une adresse</string>
+    <string name="selectPayment">Choisir un moyen de paiement</string>
+    <string name="paypal">Paypal</string>
+    <string name="cardPayment">Carte Bancaire</string>
+    <string name="apple_pay">Apple Pay</string>
+    <string name="google_pay">Google Pay</string>
+    <string name="payment_valid">Paiement validé</string>
+    <string name="addToCalendar">Ajouter au calendrier</string>
+    <string name="phone">Téléphone</string>
+    <string name="pilot_expert">Pilote Expert</string>
+    <string name="emailExample">pierre.dubois@gmail.com</string>
+    <string name="phoneNumber">06 01 02 03 04</string>
+    <string name="identity">Pièce d’identité</string>
+    <string name="pilot_license">Brevet de pilote PPL</string>
+
+    /* SelectAircraft */
+
+    <string name="SELECTAIRCRAFT_title">Sélectionner un appareil</string>
+    <string name="SELECTAIRCRAFT_subtitle">Sélectionnez un appareil</string>
+    <string name="SELECTAIRCRAFT_create_new_one">Créer mon appareil</string>
+
+    /* CreateNewAircraft */
+
+    <string name="CREATENEWAIRCRAFT_title">Créer un nouvel appareil</string>
+    <string name="CREATENEWAIRCRAFT_name">Nom de l\'aeronef</string>
+    <string name="CREATENEWAIRCRAFT_numberOfPassenger">Nombre de passager</string>
+    <string name="CREATENEWAIRCRAFT_picture">Photo de l\'aéronef</string>
+    <string name="CREATENEWAIRCRAFT_create">Créer l\'aeronef</string>
+    <string name="addNewAircraft">Ajouter un aéronef</string>
+
+
+    /* ModifyProfile */
+
+    <string name="MODIFYPROFILE_title">Modifier mon profil</string>
+
+    /* Message information for the user */
+
+    <string name="confirmationAircraftCreated">✅ Votre aéronef à bien été supprimé !</string>
+    <string name="confirmationConnected">✅ Vous êtes connecté !</string>
+    <string name="confirmationDisconnected">✅ Vous êtes déconnecté !</string>
+    <string name="confirmationCreated">✅ Votre compte a bien été créé !</string>
+    <string name="confirmationModified">✅ Votre compte a bien été modifié</string>
+    <string name="errorUpdateProfile">⚠️ Échec de la mise à jour du profil</string>
+    <string name="fillAllField">⚠️ Veuillez remplir tous les champs !</string>
+    <string name="errorEmail">⚠️ Veuillez renseigner un email valide !</string>
+    <string name="errorEmailDuplicated">⚠️ Cet email est déjà utilisé !</string>
+    <string name="errorPhone">⚠️ Veuillez entrer un numéro de téléphone valide !</string>
+    <string name="errorPassword">⚠️ Les mots de passes doivent être les mêmes !</string>
+    <string name="wrongId">⚠️ Mauvais identifiants !</string>
+    <string name="errorUnknown">⚠️ Une erreur est survenue !</string>
+    <string name="errorAccountRetry">⚠️ Erreur lors de la création du compte, veuillez réessayer</string>
+
+    /* Other */
+
+    <string name="modify">Modifier</string>
+    <string name="returnText">Retour</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="blablaplane">BlaBlaPlane</string>
+    <string name="slogans">Des vols partagés pour des aventures inoubliables</string>
+    <string name="mentions_legales">Mentions légales</string>
+    <string name="logout">Déconnecter</string>
+    <string name="or">- OU -</string>
 </resources>

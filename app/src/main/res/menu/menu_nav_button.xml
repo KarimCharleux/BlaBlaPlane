@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/access_search"
+        android:icon="@drawable/footer_magnifying_glass"
+        android:title="@string/buttonSearching" />
+
+    <item
+        android:id="@+id/access_add"
+        android:icon="@drawable/footer_plus"
+        android:title="@string/buttonAdding" />
+
+    <item
+        android:id="@+id/access_my_trip"
+        android:icon="@drawable/footer_logo"
+        android:title="@string/buttonMyTrip" />
+
+
+    <item
+        android:id="@+id/access_messages"
+        android:icon="@drawable/footer_conversation"
+        android:title="@string/buttonChatting" />
+
+    <item
+        android:id="@+id/access_profile"
+        android:icon="@drawable/footer_avatar"
+        android:title="@string/buttonProfile" />
+</menu>

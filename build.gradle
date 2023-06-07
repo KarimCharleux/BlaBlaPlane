@@ -1,4 +1,17 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.4.2'
+        classpath 'com.google.gms:google-services:4.3.15'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
 plugins {
     id 'com.android.application' version '7.4.1' apply false
     id 'com.android.library' version '7.4.1' apply false
@@ -12,4 +25,8 @@ sonarqube {
     property("sonar.host.url", "http://129.151.226.254:80")
     property("sonar.token", "squ_61597e457d26196486714f7c5602f628cf72b965")
   }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
