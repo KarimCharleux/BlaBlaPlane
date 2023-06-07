@@ -12,8 +12,6 @@ import com.example.blablaplane.object.trip.TripAdapterListener;
 import com.example.blablaplane.object.trip.TripArray;
 
 public class ListTripActivity extends AppCompatActivity implements TripAdapterListener {
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

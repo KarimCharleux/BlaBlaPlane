@@ -2,8 +2,10 @@ package com.example.blablaplane.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,10 +24,8 @@ import com.google.android.libraries.places.widget.listener.PlaceSelectionListene
 import java.util.Arrays;
 
 public class PublishSelectCityActivity extends AppCompatActivity {
-    private Place startingPlace = null;
-    private Place arrivalPlace;
-
-    private boolean startFill = false;
+    private Place place = null;
+    private boolean typeStart = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,9 +51,9 @@ public class PublishSelectCityActivity extends AppCompatActivity {
 
             autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
                 @Override
-                public void onPlaceSelected(@NonNull Place place) {
+                public void onPlaceSelected(@NonNull Place placeSelected) {
                     // TODO: Get info about the selected place.
-                    startingPlace = place;
+                    place = placeSelected;
                 }
 
                 @Override
@@ -67,16 +67,46 @@ public class PublishSelectCityActivity extends AppCompatActivity {
             Button btn_search_text = findViewById(R.id.btn_confirm_search_text);
             btn_search.setOnClickListener(this::select);
             btn_search_text.setOnClickListener(this::select);
+
+            Intent intent = getIntent();
+
+            if(intent!=null){
+                String typeRequest = intent.getStringExtra("type");
+
+                TextView titlePage = findViewById(R.id.frag_publish_title);
+                TextView description = findViewById(R.id.frag_publish_txt_select);
+
+                if(typeRequest!=null){
+                    Log.d("typeRequest",typeRequest);
+                    //definition des labels en fonction
+                    if(typeRequest.equals(getResources().getString(R.string.ACCUEIL_start))){
+                        titlePage.setText(R.string.ACCUEIL_start);
+                        description.setText(R.string.RESEARCH_selectionDepart);
+                        this.typeStart = true;
+                    }
+                    else{
+                        titlePage.setText(R.string.ACCUEIL_destination);
+                        description.setText(R.string.RESEARCH_selectionArrivee);
+                        this.typeStart = false;
+                    }
+                }
+            }
         }
     }
 
     private void select(View view) {
-        if (startingPlace == null) {
+        if (place == null) {
             Toast.makeText(getApplicationContext(), R.string.RESEARCH_ERR_EmptyDeparturePlaces, Toast.LENGTH_SHORT).show();
         } else {
             Intent intentNavigateNewPage = new Intent(getApplicationContext(), SwitcherActivity.class);
 
-            intentNavigateNewPage.putExtra(getResources().getString(R.string.RESEARCH_INTENT_stratingPlace), startingPlace);
+            if(this.typeStart){
+                intentNavigateNewPage.putExtra(getResources().getString(R.string.RESEARCH_INTENT_startingPlace), place);
+            }
+            else{
+                intentNavigateNewPage.putExtra(getResources().getString(R.string.RESEARCH_INTENT_destinationPlace), place);
+            }
+
 
             intentNavigateNewPage.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             getApplicationContext().startActivity(intentNavigateNewPage);
