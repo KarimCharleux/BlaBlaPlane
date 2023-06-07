@@ -10,6 +10,7 @@ import java.util.Objects;
 public class NotifyApp extends Application {
 
     public static final String CHANNEL_IDP= "Channel Paiement";
+    public static final String CHANNEL_IDC= "Channel Calendrier";
 
     public static NotificationManager getNotificationManager() {
         return notificationManager;
@@ -17,19 +18,23 @@ public class NotifyApp extends Application {
 
     private static NotificationManager notificationManager;
 
-    private void createNotificationChannel(String name, String description, int importance) {
+    private void createNotificationChannels() {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            NotificationChannel channel = new NotificationChannel(CHANNEL_IDP,name,importance);
-            channel.setDescription(description);
+            NotificationChannel channelp = new NotificationChannel(CHANNEL_IDP,"Channel Paiement",NotificationManager.IMPORTANCE_HIGH);
+            channelp.setDescription("Channel de BlaBlaPane réservé aux confirmations de paiement.");
             notificationManager = getSystemService(NotificationManager.class);
-            Objects.requireNonNull(notificationManager).createNotificationChannel(channel);
+            Objects.requireNonNull(notificationManager).createNotificationChannel(channelp);
+            NotificationChannel channelc = new NotificationChannel(CHANNEL_IDC,"Channel Calendrier ",NotificationManager.IMPORTANCE_DEFAULT);
+            channelc.setDescription("Channel de BlaBlaPane réservé aux confirmation d'ajout sur le calendrier.");
+            notificationManager = getSystemService(NotificationManager.class);
+            Objects.requireNonNull(notificationManager).createNotificationChannel(channelc);
         }
     }
 
     @Override
     public void onCreate(){
         super.onCreate();
-        createNotificationChannel("channel de paiement", "channel de paiement pour l'application blablaplane",NotificationManager.IMPORTANCE_HIGH);
+        createNotificationChannels();
     }
 
 
