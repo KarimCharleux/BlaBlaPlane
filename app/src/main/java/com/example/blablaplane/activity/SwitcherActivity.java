@@ -1,10 +1,14 @@
 package com.example.blablaplane.activity;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.NonUiContext;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.blablaplane.R;
@@ -18,9 +22,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class SwitcherActivity extends AppCompatActivity implements BottomNavigationView.OnItemSelectedListener {
 
     private FragmentManager fragmentManager;
+    private Fragment fragment;
 
     @Override
     public void onCreate(Bundle bundle) {
+        System.out.println("Bundle");
+        System.out.println(bundle);
         super.onCreate(bundle);
         setContentView(R.layout.activity_switcher);
         BottomNavigationView bottomNavigationView = findViewById(R.id.footer_nav);
@@ -38,7 +45,8 @@ public class SwitcherActivity extends AppCompatActivity implements BottomNavigat
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.access_search:
-                fragmentManager.beginTransaction().replace(R.id.frame_fragment_container, new FragmentHome()).commit();
+                fragment = new FragmentHome();
+                fragmentManager.beginTransaction().replace(R.id.frame_fragment_container, fragment).commit();
                 return true;
             case R.id.access_add:
                 fragmentManager.beginTransaction().replace(R.id.frame_fragment_container, new FragmentAdding()).commit();
@@ -56,5 +64,38 @@ public class SwitcherActivity extends AppCompatActivity implements BottomNavigat
                 fragmentManager.beginTransaction().replace(R.id.frame_fragment_container, new FragmentHome()).commit();
                 return true;
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("SCORE_KEY",2);
+        getSupportFragmentManager().putFragment(outState, "FragmentHome", fragment);
+        System.out.println("Frag saved in Act");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        System.out.println("RESTORING");
+        System.out.println("My String : "+savedInstanceState.getString("string_value"));
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        System.out.println("On Start ...");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        System.out.println("ON_DESTROY");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        System.out.println("ON_STOP");
     }
 }
