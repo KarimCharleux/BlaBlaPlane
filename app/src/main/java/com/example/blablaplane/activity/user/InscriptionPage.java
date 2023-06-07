@@ -1,4 +1,5 @@
-package com.example.blablaplane;
+/*
+package com.example.blablaplane.activity.user;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -15,6 +16,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.blablaplane.R;
 import com.example.blablaplane.fragments.FooterFragment;
 
 import java.util.HashMap;
@@ -51,7 +53,7 @@ public class InscriptionPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inscription);
+        setContentView(R.layout.activity_register);
 
         isPiloteCheckBox = findViewById(R.id.checkBoxInscription);
         AirplaneCheckBox = findViewById(R.id.subCheckBoxInscriptionAirplane);
@@ -68,15 +70,15 @@ public class InscriptionPage extends AppCompatActivity {
         fragmentTransaction.add(R.id.fragmentFooter, myFragment);
         fragmentTransaction.commit();
 
-        firstName = findViewById(R.id.editTextInscriptionSurname);
-        lastName = findViewById(R.id.editTextInscriptionName);
-        emailAdress = findViewById(R.id.editTextInscriptionEmail);
-        password = findViewById(R.id.editTextInscriptionPassword);
-        repeatPassword = findViewById(R.id.editTextInscriptionRepeatPassword);
+        firstName = findViewById(R.id.registerFirstName);
+        lastName = findViewById(R.id.registerLastName);
+        emailAdress = findViewById(R.id.registerEmailAddress);
+        password = findViewById(R.id.registerPassword);
+        repeatPassword = findViewById(R.id.registerPassword);
 
-        inscriptionButton = findViewById(R.id.inscriptionButton);
+        inscriptionButton = findViewById(R.id.RegisterButton);
 
-        warningTextInscription = findViewById(R.id.warningTextInscription);
+        warningTextInscription = findViewById(R.id.reg);
 
         this.isPiloteCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -232,7 +234,7 @@ public class InscriptionPage extends AppCompatActivity {
 
 
 
-
+*/
 
 
 

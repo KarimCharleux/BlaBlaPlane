@@ -7,17 +7,21 @@
     android:orientation="vertical"
     tools:context=".activity.ModifyProfile">
 
-    <ImageView
+    <androidx.cardview.widget.CardView
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="100sp"
-        android:contentDescription="@string/CHANGEPICTUREPROFILE_title"
-        android:src="@drawable/logo_blablaplane"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="68dp"
+        android:layout_marginBottom="-25dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:cardCornerRadius="30dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/blablaplane"
+            android:src="@drawable/logo_blablaplane" />
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/textView"
@@ -71,37 +75,6 @@
             android:backgroundTint="#39C3FD"
             android:outlineSpotShadowColor="#00BCD4"
             android:text="@string/CHANGEPICTUREPROFILE_takePicture"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-    </androidx.cardview.widget.CardView>
-
-
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView_return"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:backgroundTint="#39C3FD"
-        app:cardCornerRadius="30dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView_takePicture">
-
-        <Button
-            android:id="@+id/ReturnButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="45dp"
-            android:layout_marginVertical="5dp"
-            android:backgroundTint="#39C3FD"
-            android:outlineSpotShadowColor="#00BCD4"
-            android:text="@string/CHANGEPICTUREPROFILE_return"
             android:textSize="20sp"
             android:textStyle="bold" />
 

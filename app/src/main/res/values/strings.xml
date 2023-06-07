@@ -138,6 +138,9 @@
     /* ModifyProfile */
 
     <string name="MODIFYPROFILE_title">Modifier mon profil</string>
+    <string name="CHANGEPICTUREPROFILE_subtitle">Changer la photo de profil</string>
+    <string name="CHANGEPICTUREPROFILE_takePicture">Prendre la photo</string>
+    <string name="GPSFRAGMENT_button">GPS</string>
 
     /* Message information for the user */
 

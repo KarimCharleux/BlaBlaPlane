@@ -57,8 +57,11 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
 
         SharedPreferences preferences = this.getSharedPreferences("user_data", Context.MODE_PRIVATE);
         String userID = preferences.getString("user_id", null);
+        if(userID != null)
+        {
+            this.userRef = DataBase.USERS_REFERENCE.child(userID);
+        }
 
-        this.userRef = DataBase.USERS_REFERENCE.child(userID);
 
         // Check if the user exists and get its data
         this.userRef.addListenerForSingleValueEvent(new ValueEventListener() {

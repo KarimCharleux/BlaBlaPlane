@@ -1,5 +1,7 @@
 package com.example.blablaplane.object.user;
 
+import android.graphics.Bitmap;
+
 import com.example.blablaplane.object.aircraft.Aircraft;
 import com.example.blablaplane.object.trip.Trip;
 
@@ -106,5 +108,9 @@ public class User {
 
     public float getRating() {
         return this.rating;
+    }
+
+    public Bitmap getPicture() {
+        return null;
     }
 }

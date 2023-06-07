@@ -1,4 +1,4 @@
-package com.example.blablaplane.activity;
+/*package com.example.blablaplane.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -289,3 +289,4 @@ public class ModifyProfile extends AppCompatActivity implements ModifyProfile_di
     }
 
 }
+*/
