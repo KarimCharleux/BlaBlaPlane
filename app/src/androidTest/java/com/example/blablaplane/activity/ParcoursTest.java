@@ -56,7 +56,7 @@ public class ParcoursTest {
         materialButton.perform(click());
 
         ViewInteraction appCompatEditText = onView(
-                allOf(withId(R.id.numberPassenger),
+                allOf(withId(R.id.registerEmailAddress),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -66,7 +66,7 @@ public class ParcoursTest {
         appCompatEditText.perform(replaceText("github.actionGa.m"), closeSoftKeyboard());
 
         ViewInteraction appCompatEditText2 = onView(
-                allOf(withId(R.id.numberPassenger), withText("github.actionGa.m"),
+                allOf(withId(R.id.registerEmailAddress), withText("github.actionGa.m"),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -76,7 +76,7 @@ public class ParcoursTest {
         appCompatEditText2.perform(click());
 
         ViewInteraction appCompatEditText3 = onView(
-                allOf(withId(R.id.numberPassenger), withText("github.actionGa.m"),
+                allOf(withId(R.id.registerEmailAddress), withText("github.actionGa.m"),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -86,7 +86,7 @@ public class ParcoursTest {
         appCompatEditText3.perform(replaceText("github.action@gmail.com"));
 
         ViewInteraction appCompatEditText4 = onView(
-                allOf(withId(R.id.numberPassenger), withText("github.action@gmail.com"),
+                allOf(withId(R.id.registerEmailAddress), withText("github.action@gmail.com"),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -96,7 +96,7 @@ public class ParcoursTest {
         appCompatEditText4.perform(closeSoftKeyboard());
 
         ViewInteraction appCompatEditText5 = onView(
-                allOf(withId(R.id.maxRange),
+                allOf(withId(R.id.registerPassword),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),

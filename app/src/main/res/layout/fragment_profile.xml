@@ -94,8 +94,8 @@
 
             <ImageView
                 android:id="@+id/checkbox_1"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="45sp"
+                android:layout_height="45sp"
                 android:contentDescription="@string/email"
                 android:paddingVertical="10dp"
                 android:src="@drawable/checked_box"
@@ -115,8 +115,8 @@
 
             <ImageView
                 android:id="@+id/checkbox_2"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="45sp"
+                android:layout_height="45sp"
                 android:contentDescription="@string/phone"
                 android:paddingVertical="10dp"
                 android:src="@drawable/checked_box"
@@ -136,8 +136,8 @@
 
             <ImageView
                 android:id="@+id/checkbox_3"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="45sp"
+                android:layout_height="45sp"
                 android:contentDescription="@string/identity"
                 android:paddingVertical="10dp"
                 android:src="@drawable/checked_box"
@@ -157,8 +157,8 @@
 
             <ImageView
                 android:id="@+id/checkbox_4"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="45sp"
+                android:layout_height="45sp"
                 android:contentDescription="@string/pilot_license"
                 android:paddingVertical="10dp"
                 android:src="@drawable/checked_box"
@@ -189,20 +189,20 @@
             app:layout_constraintVertical_bias="0.04">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/bookButtonLayout"
+                android:id="@+id/modifyButtonLayout"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="10dp"
                 android:layout_weight="1"
-                android:backgroundTint="#39C3FD"
+                android:backgroundTint="@color/blue_primary"
                 app:cardCornerRadius="30dp">
 
                 <Button
-                    android:id="@+id/bookButton"
+                    android:id="@+id/modifyButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:backgroundTint="#39C3FD"
-                    android:outlineSpotShadowColor="#00BCD4"
+                    android:backgroundTint="@color/blue_primary"
+                    android:outlineSpotShadowColor="@color/blue_primary"
                     android:text="@string/modify"
                     android:textAllCaps="false"
                     android:textSize="20sp" />
@@ -213,15 +213,15 @@
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="10dp"
                 android:layout_weight="1"
-                android:backgroundTint="#D5D5D5"
+                android:backgroundTint="@color/light_grey"
                 app:cardCornerRadius="30dp">
 
                 <Button
                     android:id="@+id/logoutButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:backgroundTint="#D5D5D5"
-                    android:outlineSpotShadowColor="#D5D5D5"
+                    android:backgroundTint="@color/light_grey"
+                    android:outlineSpotShadowColor="@color/light_grey"
                     android:text="@string/logout"
                     android:textAllCaps="false"
                     android:textSize="20sp" />
@@ -231,7 +231,7 @@
         <ListView
             android:id="@+id/aircraft_list"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="170sp"
             android:layout_marginHorizontal="15sp"
             android:layout_marginTop="15sp"
             android:clickable="false"

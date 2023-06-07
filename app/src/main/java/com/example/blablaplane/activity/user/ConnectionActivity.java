@@ -1,4 +1,4 @@
-package com.example.blablaplane.activity;
+package com.example.blablaplane.activity.user;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.blablaplane.R;
+import com.example.blablaplane.activity.SwitcherActivity;
 import com.example.blablaplane.object.DataBase;
+import com.example.blablaplane.object.user.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,19 +31,19 @@ public class ConnectionActivity extends AppCompatActivity {
         Button login = findViewById(R.id.loginButton);
         login.setOnClickListener(view -> {
 
-            EditText email = findViewById(R.id.numberPassenger);
-            EditText password = findViewById(R.id.maxRange);
+            EditText email = findViewById(R.id.registerEmailAddress);
+            EditText password = findViewById(R.id.registerPassword);
 
             if (email.getText().toString().isEmpty() || password.getText().toString().isEmpty()) {
-                Toast.makeText(this, "⚠️ Veuillez remplir tous les champs !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.fillAllField, Toast.LENGTH_SHORT).show();
                 return;
             }
             if (!email.getText().toString().matches(DataBase.EMAIL_REGEX)) {
-                Toast.makeText(this, "⚠️ Veuillez entrer une adresse mail valide !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.errorEmail, Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            String userId = email.getText().toString().replace(".", "").replace("@", "");
+            String userId = User.generateUserId(email.getText().toString());
 
             DatabaseReference userRef = DataBase.USERS_REFERENCE.child(userId);
 
@@ -58,22 +60,22 @@ public class ConnectionActivity extends AppCompatActivity {
                             editor.putString("user_id", userId);
                             editor.apply();
 
-                            Toast.makeText(ConnectionActivity.this, "✅ Vous êtes connecté !", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ConnectionActivity.this, R.string.confirmationConnected, Toast.LENGTH_SHORT).show();
 
                             Intent intent = new Intent(ConnectionActivity.this, SwitcherActivity.class);
                             startActivity(intent);
                             finish();
                         } else {
-                            Toast.makeText(ConnectionActivity.this, "⚠️ Mauvais identifiants !", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ConnectionActivity.this, R.string.wrongId, Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(ConnectionActivity.this, "⚠️ Mauvais identifiants !", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ConnectionActivity.this, R.string.wrongId, Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
-                    Toast.makeText(ConnectionActivity.this, "⚠️ Une erreur est survenue !", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ConnectionActivity.this, R.string.errorUnknown, Toast.LENGTH_SHORT).show();
                 }
             });
         });

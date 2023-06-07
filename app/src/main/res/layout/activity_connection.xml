@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.ConnectionActivity">
+    tools:context=".activity.user.ConnectionActivity">
 
     <ImageView
         android:id="@+id/header"
@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/connexion_title"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
@@ -33,7 +33,7 @@
         app:layout_constraintVertical_bias="0.00999999" />
 
     <EditText
-        android:id="@+id/cardView_email"
+        android:id="@+id/registerEmailAddress"
         android:layout_width="wrap_content"
         android:layout_height="50sp"
         android:autofillHints=""
@@ -45,16 +45,16 @@
         android:paddingHorizontal="15dp"
         android:paddingVertical="5dp"
         android:textColor="@color/black"
-        android:textCursorDrawable="@color/blue"
+        android:textCursorDrawable="@color/blue_primary"
         android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/connexion_title"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.100000024" />
 
     <EditText
-        android:id="@+id/cardView_password"
+        android:id="@+id/registerPassword"
         android:layout_width="wrap_content"
         android:layout_height="50sp"
         android:layout_marginTop="20dp"
@@ -66,11 +66,11 @@
         android:inputType="textPassword"
         android:paddingHorizontal="15dp"
         android:paddingVertical="5dp"
-        android:textColor="@color/blue"
+        android:textColor="@color/blue_primary"
         android:textSize="21sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardView_email" />
+        app:layout_constraintTop_toBottomOf="@id/registerEmailAddress" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -81,18 +81,18 @@
         android:textColor="@color/black"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardView_password" />
+        app:layout_constraintTop_toBottomOf="@id/registerPassword" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:backgroundTint="#39C3FD"
+        android:backgroundTint="@color/blue_primary"
         app:cardCornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardView_password">
+        app:layout_constraintTop_toBottomOf="@id/registerPassword">
 
         <Button
             android:id="@+id/loginButton"
@@ -101,8 +101,8 @@
             android:layout_gravity="center"
             android:layout_marginHorizontal="45dp"
             android:layout_marginVertical="5dp"
-            android:backgroundTint="#39C3FD"
-            android:outlineSpotShadowColor="#00BCD4"
+            android:backgroundTint="@color/blue_primary"
+            android:outlineSpotShadowColor="@color/blue_primary"
             android:text="@string/connection"
             android:textSize="20sp"
             android:textStyle="bold" />

@@ -1,9 +1,11 @@
 package com.example.blablaplane.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -20,6 +22,8 @@ import com.google.android.libraries.places.widget.listener.PlaceSelectionListene
 import java.util.Arrays;
 
 public class FragmentAdding extends Fragment {
+    private boolean typeStart = false;
+    private Place place = null;
 
     public FragmentAdding() {
         // Required empty public constructor
@@ -55,6 +59,25 @@ public class FragmentAdding extends Fragment {
                     System.err.println("An error occurred: " + status);
                 }
             });
+        }
+
+        Intent intent = getActivity().getIntent();
+        String typeRequest = intent.getParcelableExtra("type");
+
+        TextView titlePage = getActivity().findViewById(R.id.frag_publish_title);
+        TextView description = getActivity().findViewById(R.id.frag_publish_txt_select);
+
+        if(typeRequest!=null){
+            //definition des labels en fonction
+            if(typeRequest.equals(R.string.ACCUEIL_start)){
+                titlePage.setText(R.string.ACCUEIL_start);
+                description.setText(R.string.RESEARCH_selectionDepart);
+                this.typeStart = true;
+            }
+            else{
+                titlePage.setText(R.string.ACCUEIL_destination);
+                description.setText(R.string.RESEARCH_selectionArrivee);
+            }
         }
 
 

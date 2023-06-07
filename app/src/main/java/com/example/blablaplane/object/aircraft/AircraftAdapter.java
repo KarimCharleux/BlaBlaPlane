@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.example.blablaplane.R;
 
+import java.util.List;
+
 public class AircraftAdapter extends BaseAdapter {
 
     /**
@@ -21,14 +23,14 @@ public class AircraftAdapter extends BaseAdapter {
     /**
      * List of aircrafts
      */
-    private final AircraftArray aircraftArray;
+    private final List<Aircraft> aircraftArray;
 
     /**
      * Mechanism to generate the graphic view from the XML file
      */
     private final LayoutInflater inflater;
 
-    public AircraftAdapter(Context context, AircraftArray aircraftArray) {
+    public AircraftAdapter(Context context, List<Aircraft> aircraftArray) {
         this.inflater = LayoutInflater.from(context);
         this.aircraftArray = aircraftArray;
     }
@@ -63,7 +65,7 @@ public class AircraftAdapter extends BaseAdapter {
         // Set the text of the view for the trip
         planeName.setText(aircraftArray.get(i).getName());
         image.setImageResource(aircraftArray.get(i).getImage());
-        nbPassenger.setText(String.valueOf(aircraftArray.get(i).getCapacity()));
+        nbPassenger.setText(String.valueOf(aircraftArray.get(i).getPassengerCount()));
 
         // Set the listener to the click on a trip
         aircraftSelectionView.setOnClickListener(v -> {

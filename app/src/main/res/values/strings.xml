@@ -8,7 +8,7 @@
     <string name="ACCUEIL_title">Des vols partagés pour des aventures inoubliables</string>
     <string name="ACCUEIL_date">Aujourd\'hui</string>
     <string name="ACCUEIL_number_of_people">1</string>
-    <string name="ACCUEIL_start">Départ</string>
+    <string name="ACCUEIL_start">Depart</string>
     <string name="ACCUEIL_destination">Destination</string>
     <string name="ACCUEIL_search">Rechercher</string>
 
@@ -16,13 +16,15 @@
     /* RECHERCHE */
 
     <string name="RESEARCH_selectionDepart">Sélectionnez  un lieu de départ</string>
+    <string name="RESEARCH_selectionArrivee">"Sélectionnez  un lieu d'arriver"</string>
     <string name="RESEARCH_btn_validate_text">Valider</string>
 
     /* ERRORS */
     <string name="RESEARCH_ERR_EmptyDeparturePlaces">⚠️ Veuillez selectionner un lieux !</string>
 
     /*INTENT */
-    <string name="RESEARCH_INTENT_stratingPlace">StartingPlace</string>
+    <string name="RESEARCH_INTENT_startingPlace">StartingPlace</string>
+    <string name="RESEARCH_INTENT_destinationPlace">DestinationPlace</string>
 
 
     /* Accueil */
@@ -36,6 +38,7 @@
 
 
     /* Messages */
+
     <string name="myMessages">Mes messages</string>
     <string name="previousMessages">Salut t\'es ou ?</string>
 
@@ -116,6 +119,42 @@
     <string name="identity">Pièce d’identité</string>
     <string name="pilot_license">Brevet de pilote PPL</string>
 
+    /* SelectAircraft */
+
+    <string name="SELECTAIRCRAFT_title">Sélectionner un appareil</string>
+    <string name="SELECTAIRCRAFT_subtitle">Sélectionnez un appareil</string>
+    <string name="SELECTAIRCRAFT_create_new_one">Créer mon appareil</string>
+
+    /* CreateNewAircraft */
+
+    <string name="CREATENEWAIRCRAFT_title">Créer un nouvel appareil</string>
+    <string name="CREATENEWAIRCRAFT_name">Nom de l\'aeronef</string>
+    <string name="CREATENEWAIRCRAFT_numberOfPassenger">Nombre de passager</string>
+    <string name="CREATENEWAIRCRAFT_picture">Photo de l\'aéronef</string>
+    <string name="CREATENEWAIRCRAFT_create">Créer l\'aeronef</string>
+    <string name="addNewAircraft">Ajouter un aéronef</string>
+
+
+    /* ModifyProfile */
+
+    <string name="MODIFYPROFILE_title">Modifier mon profil</string>
+
+    /* Message information for the user */
+
+    <string name="confirmationAircraftCreated">✅ Votre aéronef à bien été supprimé !</string>
+    <string name="confirmationConnected">✅ Vous êtes connecté !</string>
+    <string name="confirmationDisconnected">✅ Vous êtes déconnecté !</string>
+    <string name="confirmationCreated">✅ Votre compte a bien été créé !</string>
+    <string name="confirmationModified">✅ Votre compte a bien été modifié</string>
+    <string name="errorUpdateProfile">⚠️ Échec de la mise à jour du profil</string>
+    <string name="fillAllField">⚠️ Veuillez remplir tous les champs !</string>
+    <string name="errorEmail">⚠️ Veuillez renseigner un email valide !</string>
+    <string name="errorEmailDuplicated">⚠️ Cet email est déjà utilisé !</string>
+    <string name="errorPhone">⚠️ Veuillez entrer un numéro de téléphone valide !</string>
+    <string name="errorPassword">⚠️ Les mots de passes doivent être les mêmes !</string>
+    <string name="wrongId">⚠️ Mauvais identifiants !</string>
+    <string name="errorUnknown">⚠️ Une erreur est survenue !</string>
+    <string name="errorAccountRetry">⚠️ Erreur lors de la création du compte, veuillez réessayer</string>
 
     /* Other */
 
@@ -126,56 +165,5 @@
     <string name="slogans">Des vols partagés pour des aventures inoubliables</string>
     <string name="mentions_legales">Mentions légales</string>
     <string name="logout">Déconnecter</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    /* ModifyProfile */
-    <string name="MODIFYPROFILE_title">Profil</string>
-    <string name="MODIFYPROFILE_subtitle">Modifier votre profil</string>
-    <string name="MODIFYPROFILE_title_surname">Prénom :</string>
-    <string name="MODIFYPROFILE_pilot_surname">Admin</string>
-    <string name="MODIFYPROFILE_title_lastName">Nom</string>
-    <string name="MODIFYPROFILE_pilot_lastName">Admin</string>
-    <string name="MODIFYPROFILE_title_email">Email :</string>
-    <string name="MODIFYPROFILE_pilot_email">Admin</string>
-    <string name="MODIFYPROFILE_title_phoneNumber">Numéro de téléphone :</string>
-    <string name="MODIFYPROFILE_pilot_phoneNumber">Admin</string>
-    <string name="MODIFYPROFILE_title_password">Mot de passe :</string>
-    <string name="MODIFYPROFILE_pilot_password">Admin</string>
-    <string name="MODIFYPROFILE_modify">Confirmer</string>
-    <string name="MODIFYPROFILE_return">Retour</string>
-    <string name="MODIFYPROFILE_title_addAircraft">Ajouter un appareil</string>
-
-    /* SelectAircraft */
-    <string name="SELECTAIRCRAFT_title">Sélectionner un appareil</string>
-    <string name="SELECTAIRCRAFT_subtitle">Sélectionnez un appareil</string>
-    <string name="SELECTAIRCRAFT_create_new_one">Créer un nouveau\n appareil</string>
-    <string name="SELECTAIRCRAFT_return">Retour</string>
-
-
-    /* Create new Aircraft */
-    <string name="CREATENEWAIRCRAFT_title">Créer un nouvel appareil</string>
-    <string name="CREATENEWAIRCRAFT_subtitle">Créer un nouvel appareil</string>
-    <string name="CREATENEWAIRCRAFT_name">Nom</string>
-    <string name="CREATENEWAIRCRAFT_type">Type</string>
-    <string name="CREATENEWAIRCRAFT_numberOfPassenger">Nombre de passagers</string>
-    <string name="CREATENEWAIRCRAFT_picture">Image</string>
-    <string name="CREATENEWAIRCRAFT_max_range">Autonomie</string>
-    <string name="CREATENEWAIRCRAFT_create">Créer</string>
-    <string name="CREATENEWAIRCRAFT_return">Retour</string>
-
-    /* Change Picture Profile */
-    <string name="CHANGEPICTUREPROFILE_title">Changer la photo de profil</string>
-    <string name="CHANGEPICTUREPROFILE_subtitle">Changer la photo de profil</string>
-    <string name="CHANGEPICTUREPROFILE_takePicture">Prendre une photo</string>
-    <string name="CHANGEPICTUREPROFILE_return">Retour</string>
-
-    /* Fragment GPS */
-    <string name="GPSFRAGMENT_button">Position actuelle</string>
-
-    /* Destination */
-    <string name="DESTINATION_title">Destination</string>
-    <string name="DESTINATION_subtitle">Sélectionnez une destination</string>
-
-
+    <string name="or">- OU -</string>
 </resources>

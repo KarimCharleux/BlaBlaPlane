@@ -2,118 +2,123 @@ package com.example.blablaplane.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import com.example.blablaplane.R;
 import com.example.blablaplane.object.DataBase;
 import com.example.blablaplane.object.aircraft.Aircraft;
 import com.example.blablaplane.object.aircraft.AircraftAdapter;
 import com.example.blablaplane.object.aircraft.AircraftAdapterListener;
-import com.example.blablaplane.object.aircraft.AircraftArray;
+import com.example.blablaplane.object.user.User;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class SelectAircraftActivity extends AppCompatActivity implements AircraftAdapterListener {
 
-    CardView cardView_createNewAircraft;
-    CardView cardView_return;
-    Button SelectAircraft_createNewAircraftButton;
-    Button SelectAircraft_returnButton;
-    ListView AircraftList;
-
-    List<Aircraft> aircraftListSelected = new ArrayList<Aircraft>();
-    private DatabaseReference Database;
-
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_aircraft);
-        
-        Intent intent = getIntent();
-        this.aircraftListSelected = intent.getParcelableArrayListExtra("aircraftList");
 
+        ArrayList<Aircraft> aircraftList = new ArrayList<>();
 
-        this.cardView_createNewAircraft = findViewById(R.id.cardView_createNewAircraft);
-        this.cardView_return = findViewById(R.id.cardView_return);
-        this.SelectAircraft_createNewAircraftButton = findViewById(R.id.SelectAircraft_createNewAircraftButton);
-        this.SelectAircraft_returnButton = findViewById(R.id.SelectAircraft_returnButton);
-
-
-        // Get the list of Aircraft
-        AircraftArray aircraftArray = AircraftArray.getInstance();
-        aircraftArray.removeAll(aircraftListSelected);
-
-        // Create the adapter
-        AircraftAdapter aircraftAdapter = new AircraftAdapter(this, aircraftArray);
-        
-
-        // Set the adapter
-        this.AircraftList.setAdapter(aircraftAdapter);
-
-        // Set the listener
-        aircraftAdapter.setListener(this);
-
-
-        SharedPreferences preferences = this.getSharedPreferences("user_data", Context.MODE_PRIVATE);
-        String userID = preferences.getString("user_id", null);
-
-        DatabaseReference userRef = DataBase.USERS_REFERENCE.child(userID);
-
-        //TODO : open new view
-        View.OnClickListener createNewAircraft = new View.OnClickListener() {
+        // Fetch all aircraft from the database
+        DataBase.AIRCRAFT_REFERENCE.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
-
-            }
-        };
-
-        View.OnClickListener returnButton = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                userRef.child("listAricraft").setValue(aircraftListSelected);
-                finish();
-            }
-        };
-
-        this.cardView_createNewAircraft.setOnClickListener(createNewAircraft);
-        this.SelectAircraft_createNewAircraftButton.setOnClickListener(createNewAircraft);
-
-        this.cardView_return.setOnClickListener(returnButton);
-        this.SelectAircraft_returnButton.setOnClickListener(returnButton);
-
-        this.AircraftList = findViewById(R.id.aircraft_list);
-        this.AircraftList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Récupérer l'élément cliqué à partir de la position
-                Aircraft aircraft = (Aircraft) AircraftList.getItemAtPosition(position);
-                if (aircraftListSelected.contains(aircraft)) {
-                    aircraftListSelected.remove(aircraft);
-                    Toast.makeText(SelectAircraftActivity.this, "Aircraft : " + aircraft.getName() +" removed", Toast.LENGTH_SHORT).show();
-                } else {
-                    aircraftListSelected.add(aircraft);
-                    Toast.makeText(SelectAircraftActivity.this, "Aircraft : " + aircraft.getName() +" added", Toast.LENGTH_SHORT).show();
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot aircraftSnapshot : snapshot.getChildren()) {
+                    Aircraft aircraft = aircraftSnapshot.getValue(Aircraft.class);
+                    aircraftList.add(aircraft); // Add each aircraft to the list
                 }
+
+                // Create the adapter
+                AircraftAdapter aircraftAdapter = new AircraftAdapter(getApplicationContext(), aircraftList);
+
+                // Set the adapter
+                ListView AircraftList = findViewById(R.id.SelectAircraft_aircraftList);
+                AircraftList.setAdapter(aircraftAdapter);
+
+                // Set the listener
+                aircraftAdapter.setListener(SelectAircraftActivity.this);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                System.err.println("Error while fetching aircrafts from the database");
             }
         });
+
+        Button buttonCreateAircraft = findViewById(R.id.SelectAircraft_createNewAircraftButton);
+        buttonCreateAircraft.setOnClickListener(view -> {
+            Intent intent = new Intent(SelectAircraftActivity.this, CreateNewAircraftActivity.class);
+            startActivity(intent);
+        });
+
+        Button buttonReturn = findViewById(R.id.SelectAircraft_returnButton);
+        buttonReturn.setOnClickListener(view -> this.onBackPressed());
     }
 
+    /**
+     * This method is called when the user clicks on an aircraft
+     * It adds the aircraft to the user's list of aircraft
+     *
+     * @param aircraftId The id of the aircraft
+     */
     @Override
     public void onAircraftClick(int aircraftId) {
-        System.out.println("Aircraft clicked : " + aircraftId);
+        DatabaseReference aircraftDR = DataBase.AIRCRAFT_REFERENCE.child(String.valueOf(aircraftId));
+        aircraftDR.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                // Get the aircraft from the database
+                Aircraft aircraft = snapshot.getValue(Aircraft.class);
+                assert aircraft != null;
+
+                // Fetch the user id from the shared preferences
+                String userID = getSharedPreferences("user_data", Context.MODE_PRIVATE).getString("user_id", null);
+                DatabaseReference userRef = DataBase.USERS_REFERENCE.child(userID);
+
+                // Fetch the user from the database
+                userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        // Get the user object
+                        User user = snapshot.getValue(User.class);
+                        assert user != null;
+
+                        // Add the new aircraft to the user's list of aircraft
+                        user.addAircraft(aircraft);
+
+                        // Update the user in the database
+                        userRef.setValue(user);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        System.err.println("Error while fetching user from the database");
+                    }
+                });
+
+                Toast.makeText(getApplicationContext(), "✅ " + aircraft.getName() + " ajouté !", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(SelectAircraftActivity.this, SwitcherActivity.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                System.err.println("Error while fetching aircraft from the database");
+            }
+        });
     }
 }

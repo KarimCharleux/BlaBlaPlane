@@ -21,14 +21,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/header">
 
         <TextView
+            android:id="@+id/textNotify"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
@@ -36,7 +36,7 @@
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
         <ImageView
             android:layout_width="match_parent"
@@ -73,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:backgroundTint="#39C3FD"
+            android:backgroundTint="@color/blue_primary"
             app:cardCornerRadius="30dp"
             app:layout_constraintVertical_bias="0.22000003">
 
@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="40dp"
-                android:backgroundTint="#39C3FD"
+                android:backgroundTint="@color/blue_primary"
                 android:outlineSpotShadowColor="#e1e1e1"
                 android:text="@string/returnText"
                 android:textSize="17sp"

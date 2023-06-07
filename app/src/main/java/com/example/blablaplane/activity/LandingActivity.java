@@ -9,6 +9,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.blablaplane.R;
+import com.example.blablaplane.activity.user.ConnectionActivity;
+import com.example.blablaplane.activity.user.RegisterActivity;
 
 public class LandingActivity extends AppCompatActivity {
 
