@@ -35,7 +35,7 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.signature.ObjectKey;
-import com.example.blablaplane.Interface.PictureActivityInterface;
+import com.example.blablaplane.Interface.PictureActivitySingleton;
 import com.example.blablaplane.R;
 import com.bumptech.glide.Glide;
 import com.example.blablaplane.object.DataBase;
@@ -47,7 +47,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.concurrent.ExecutionException;
 
-public class Photo_Activity extends AppCompatActivity implements PictureActivityInterface {
+public class Photo_Activity extends AppCompatActivity {
     ActivityResultLauncher<Intent> launcher;
     private Bitmap picture;
     private ImageView imageView;
@@ -73,7 +73,7 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
 
         Glide.with(getApplicationContext())
                 .asBitmap()
-                .load(PictureActivityInterface.cacheKey)
+                .load(PictureActivitySingleton.cacheKey)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(new SimpleTarget<Bitmap>() {
                     @Override
@@ -91,7 +91,7 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
             @Override
             public void onClick(View view) {
                 if(ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED){
-                    ActivityCompat.requestPermissions(Photo_Activity.this, new String[]{Manifest.permission.CAMERA}, PictureActivityInterface.REQUEST_CAMERA);
+                    ActivityCompat.requestPermissions(Photo_Activity.this, new String[]{Manifest.permission.CAMERA}, PictureActivitySingleton.REQUEST_CAMERA);
                 } else {
                     takePicture();
                 }
@@ -108,6 +108,8 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
         this.returnButton.setOnClickListener(returnButton);
         this.cardView_takePicture.setOnClickListener(buttonTakePhoto);
         this.takePictureButton.setOnClickListener(buttonTakePhoto);
+
+        takePicture();
     }
 
     private void askPermission() {
@@ -151,7 +153,7 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
         Glide.with(getApplicationContext())
                 .load(imageBitmap)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .signature(PictureActivityInterface.cacheKey)
+                .signature(PictureActivitySingleton.cacheKey)
                 .into(new CustomTarget<Drawable>() {
                     @Override
                     public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
@@ -168,6 +170,7 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
                         // Une erreur s'est produite lors du chargement de l'image
                     }
                 });
+        PictureActivitySingleton.pictureProfile = currentUserPicture;
     }
 
 
@@ -175,7 +178,7 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
-            case PictureActivityInterface.REQUEST_CAMERA:
+            case PictureActivitySingleton.REQUEST_CAMERA:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Camera authorization granted", Toast.LENGTH_SHORT);
                     toast.show();

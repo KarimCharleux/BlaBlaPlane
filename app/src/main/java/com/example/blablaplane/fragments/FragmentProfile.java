@@ -28,7 +28,7 @@ import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.example.blablaplane.Interface.PictureActivityInterface;
+import com.example.blablaplane.Interface.PictureActivitySingleton;
 import com.example.blablaplane.R;
 import com.example.blablaplane.activity.LandingActivity;
 import com.example.blablaplane.activity.Photo_Activity;
@@ -52,7 +52,8 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
 
     SharedPreferences sharedPreferences;
     String userID;
-    Object cacheKey = PictureActivityInterface.cacheKey;
+    Object cacheKey = PictureActivitySingleton.cacheKey;
+    ImageView pictureProfil;
 
     public FragmentProfile() {
         // Required empty public constructor
@@ -64,7 +65,7 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
 
         sharedPreferences = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE);
         userID = sharedPreferences.getString("user_id", null);
-        ImageView picture_profile = view.findViewById(R.id.picture_profile);
+        pictureProfil = view.findViewById(R.id.picture_profile);
 
         if (userID.isEmpty()) {
             Intent intent = new Intent(getActivity(), LandingActivity.class);
@@ -146,22 +147,6 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
             });
         }
 
-        Glide.with(getContext())
-                .asBitmap()
-                .load(PictureActivityInterface.cacheKey)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(new SimpleTarget<Bitmap>() {
-                    @Override
-                    public void onResourceReady(@NonNull Bitmap bitmap, @Nullable Transition<? super Bitmap> transition) {
-                        picture_profile.setImageBitmap(bitmap);
-                    }
-                    @Override
-                    public void onLoadFailed(@Nullable Drawable errorDrawable) {
-                        picture_profile.setImageResource(R.drawable.pp_default);
-                    }
-                });
-
-
         // Disconnect button
         Button buttonDisconnect = view.findViewById(R.id.logoutButton);
         buttonDisconnect.setOnClickListener(v -> {
@@ -183,8 +168,7 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
             startActivity(intent);
         });
 
-        ImageView pictureProfile = view.findViewById(R.id.picture_profile);
-        pictureProfile.setOnClickListener(new View.OnClickListener() {
+        pictureProfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Photo_Activity.class);
@@ -193,6 +177,39 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
         });
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        Glide.with(getContext())
+                .asBitmap()
+                .load(PictureActivitySingleton.cacheKey)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(new SimpleTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        pictureProfil.setImageBitmap(resource);
+                    }
+                    @Override
+                    public void onLoadFailed(@Nullable Drawable errorDrawable) {
+                        if(PictureActivitySingleton.pictureProfile != null)
+                        {
+                            setPicture(pictureProfil, PictureActivitySingleton.pictureProfile);
+                        }else
+                        {
+                            pictureProfil.setImageResource(R.drawable.pp_default);
+                        }
+                    }
+                });
+    }
+
+    private void setPicture(ImageView imageView, Bitmap pictureProfil) {
+        Glide.with(this)
+                .load(pictureProfil)
+                .circleCrop()
+                .into(imageView);
     }
 
     /**
