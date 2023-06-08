@@ -26,6 +26,7 @@ import com.bumptech.glide.load.model.GlideUrl;
 import com.example.blablaplane.Interface.PictureActivityInterface;
 import com.example.blablaplane.R;
 import com.example.blablaplane.activity.LandingActivity;
+import com.example.blablaplane.activity.Photo_Activity;
 import com.example.blablaplane.activity.SelectAircraftActivity;
 import com.example.blablaplane.activity.SwitcherActivity;
 import com.example.blablaplane.activity.user.ModifyProfile;
@@ -176,6 +177,15 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
         buttonModifyProfile.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), ModifyProfile.class);
             startActivity(intent);
+        });
+
+        ImageView pictureProfile = view.findViewById(R.id.picture_profile);
+        pictureProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Photo_Activity.class);
+                startActivity(intent);
+            }
         });
 
         return view;
