@@ -141,10 +141,7 @@ public class ModifyProfile extends AppCompatActivity {
         if(pictureProfil != null)
         {
             ImageView pictureProfilOnActivity = findViewById(R.id.pictureProfile);
-            Glide.with(this)
-                    .load(pictureProfil)
-                    .circleCrop()
-                    .into(pictureProfilOnActivity);
+            pictureProfilOnActivity.setImageBitmap(pictureProfil);
         }
 
     }
