@@ -123,6 +123,7 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
             @Override
             public void onClick(View view) {
                 userRef.child("picture").setValue(currentUserPicture);
+                System.out.println("PICTURE SAVED");
                 finish();
             }
         };
@@ -130,6 +131,8 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
         this.cardView_takePicture.setOnClickListener(buttonTakePhoto);
         this.takePictureButton.setOnClickListener(buttonTakePhoto);
         this.returnButton.setOnClickListener(returnButton);
+
+        buttonTakePhoto.onClick(null);
     }
 
 
