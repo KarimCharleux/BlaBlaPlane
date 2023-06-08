@@ -48,7 +48,7 @@ public class CreateNewAircraftActivity extends AppCompatActivity {
             if (name.getText().toString().equals("") || nbPassenger.getText().toString().equals("") || picture.getText().toString().equals("")) {
                 Toast.makeText(getApplicationContext(), R.string.fillAllField, Toast.LENGTH_SHORT).show();
             } else {
-                Aircraft theNewAircraft = new Aircraft(name.getText().toString(), Integer.parseInt(nbPassenger.getText().toString()), Integer.parseInt(picture.getText().toString()));
+                Aircraft theNewAircraft = new Aircraft(name.getText().toString(), Integer.parseInt(nbPassenger.getText().toString()), R.drawable.smaal_plane_round_logo);
 
                 // Add the new aircraft to the Aircraft database for future use
                 DataBase.AIRCRAFT_REFERENCE.child(String.valueOf(theNewAircraft.getId())).setValue(theNewAircraft);

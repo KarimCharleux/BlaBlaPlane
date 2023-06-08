@@ -22,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/Name"
+            android:id="@+id/firstnameProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -33,7 +33,7 @@
             app:layout_constraintTop_toTopOf="@id/pictureProfile" />
 
         <TextView
-            android:id="@+id/type"
+            android:id="@+id/lastnameProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -41,7 +41,7 @@
             android:textColor="#4b4b4b"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/Name"
+            app:layout_constraintStart_toEndOf="@id/firstnameProfile"
             app:layout_constraintTop_toTopOf="@id/pictureProfile" />
 
         <TextView
@@ -51,7 +51,7 @@
             android:layout_marginStart="20dp"
             android:text="@string/previousMessages"
             app:layout_constraintStart_toEndOf="@+id/pictureProfile"
-            app:layout_constraintTop_toBottomOf="@+id/Name" />
+            app:layout_constraintTop_toBottomOf="@+id/firstnameProfile" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

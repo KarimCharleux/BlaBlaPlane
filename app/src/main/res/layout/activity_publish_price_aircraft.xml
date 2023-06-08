@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.PublishPriceAircraftActivity">
+    tools:context=".activity.SelectPriceAircraftActivity">
 
     <TextView
         android:id="@+id/TV_price"

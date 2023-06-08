@@ -2,6 +2,8 @@ package com.example.blablaplane.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +13,6 @@ import com.example.blablaplane.object.trip.Trip;
 import com.example.blablaplane.object.trip.TripAdapter;
 import com.example.blablaplane.object.trip.TripAdapterListener;
 import com.example.blablaplane.object.trip.TripArray;
-import com.example.blablaplane.object.trip.TripInfo;
 
 import java.util.Date;
 import java.util.List;
@@ -23,40 +24,43 @@ public class ListTripActivity extends AppCompatActivity implements TripAdapterLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_trip);
 
-        String depart = getIntent().getStringExtra("depart");
+        String depart = getIntent().getStringExtra("departure");
         String destination = getIntent().getStringExtra("destination");
-        int nb_personnes = getIntent().getIntExtra("nb_personnes", 1);
-        Date date = getIntent().getParcelableExtra("depart");
+        int nbPassenger = getIntent().getIntExtra("nbPassenger", 1);
+        Date date = getIntent().getParcelableExtra("date");
 
         // Get the list of trips
         TripArray tripArray = TripArray.getInstance();
         TripAdapter tripAdapter;
 
-        System.out.println(depart);
-        System.out.println(destination);
+        List<Trip> filteredList = tripArray;
 
-        if(depart != null && !depart.equals("Départ") && destination != null && !destination.equals("Destination"))
-        {
-            tripArray.stream()
-                    .forEach((k) -> {
-                        System.out.print(k.getDeparture().getCityName());
-                    });
-            List<Trip> filtredList = tripArray.stream()
-                    .filter(x->x.getDeparture().getCityName().equals(depart))
-                    .filter(x->x.getArrival().getCityName().equals(destination))
+        // Filter the list of trips according to departure and destination
+        if (!depart.equals("Départ") && !destination.equals("Destination")) {
+            filteredList = tripArray.stream()
+                    .filter(x -> x.getDeparture().getCityName().equals(depart))
+                    .filter(x -> x.getArrival().getCityName().equals(destination))
                     .collect(Collectors.toList());
-            System.out.println(filtredList.size());
-            System.out.println(filtredList);
-            tripAdapter = new TripAdapter(getApplicationContext(), filtredList);
-
-            TripInfo.depart = "Départ";
-            TripInfo.destination = "Destination";
+        } else if (!destination.equals("Destination")) {
+            filteredList = tripArray.stream()
+                    .filter(x -> x.getArrival().getCityName().equals(destination))
+                    .collect(Collectors.toList());
+        } else if (!depart.equals("Départ")) {
+            filteredList = tripArray.stream()
+                    .filter(x -> x.getDeparture().getCityName().equals(depart))
+                    .collect(Collectors.toList());
         }
-        else {
-            tripAdapter = new TripAdapter(getApplicationContext(), tripArray);
-        }
 
+        // Filter the list of trips according to the number of passengers
+        filteredList = filteredList.stream()
+                .filter(x -> x.getSeatsLeft() >= nbPassenger)
+                .collect(Collectors.toList());
 
+        // Filter the list of trips according to the date
+        // TODO: filter the list of trips according to the date
+
+        // Set the adapter
+        tripAdapter = new TripAdapter(getApplicationContext(), filteredList);
 
         // Retrieve the list of trips
         ListView tripList = findViewById(R.id.listTripView);
@@ -66,6 +70,18 @@ public class ListTripActivity extends AppCompatActivity implements TripAdapterLi
 
         // Set the listener
         tripAdapter.setListener(this);
+
+        // If the list is empty, display a message
+        LinearLayout noTripMessage = findViewById(R.id.noTripMessage);
+        if (filteredList.isEmpty()) {
+            noTripMessage.setVisibility(View.VISIBLE);
+            noTripMessage.setOnClickListener(view -> this.onBackPressed());
+        } else {
+            noTripMessage.setVisibility(View.INVISIBLE);
+        }
+
+        // Set the listener on the return button
+        findViewById(R.id.returnHome).setOnClickListener(view -> this.onBackPressed());
     }
 
     @Override

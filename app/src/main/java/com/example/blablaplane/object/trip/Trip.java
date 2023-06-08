@@ -1,7 +1,6 @@
 package com.example.blablaplane.object.trip;
 
 import java.text.NumberFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -10,13 +9,32 @@ public class Trip {
     public static final SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private final int id;
     private final String pilotId;
-    private final String departureDate;
-    private final String arrivalDate;
+    private final int aircraftId;
+    private final Date departureDate;
+    private final Date arrivalDate;
     private final City departure;
     private final City arrival;
     private final Float price;
+    private int seatsLeft;
 
-    public Trip(int id, String departureDate, String arrivalDate, City departure, City arrival, Float price, String pilot) {
+    public Trip() {
+        // Constructor for Firebase
+        this(0, null, null, null, null, null, null, 0, 0);
+    }
+
+    public Trip(Date departureDate, Date arrivalDate, City departure, City arrival, Float price, String pilot, int aircraftId, int seatsLeft) {
+        this.departureDate = departureDate;
+        this.arrivalDate = arrivalDate;
+        this.departure = departure;
+        this.arrival = arrival;
+        this.price = price;
+        this.pilotId = pilot;
+        this.seatsLeft = seatsLeft;
+        this.aircraftId = aircraftId;
+        this.id = createId();
+    }
+
+    public Trip(int id, Date departureDate, Date arrivalDate, City departure, City arrival, Float price, String pilot, int aircraftId, int seatsLeft) {
         this.id = id;
         this.departureDate = departureDate;
         this.arrivalDate = arrivalDate;
@@ -24,6 +42,36 @@ public class Trip {
         this.arrival = arrival;
         this.price = price;
         this.pilotId = pilot;
+        this.seatsLeft = seatsLeft;
+        this.aircraftId = aircraftId;
+    }
+
+    private int createId() {
+        if (departureDate == null || arrivalDate == null || departure == null || arrival == null || price == null || pilotId == null) {
+            return 0;
+        }
+        String combinedString = "" + departureDate + arrivalDate + departure +
+                arrival + price + pilotId + aircraftId + seatsLeft;
+
+        // Calculating the hash code of the combined string
+        int hashCode = combinedString.hashCode();
+
+        // Taking the absolute value of the hash code to ensure a positive ID
+        return Math.abs(hashCode);
+    }
+
+    public int getAircraftId() {
+        return this.aircraftId;
+    }
+
+    public int getSeatsLeft() {
+        return this.seatsLeft;
+    }
+
+    public void bookSeats(int nbSeats) {
+        if (this.seatsLeft >= nbSeats) {
+            this.seatsLeft -= nbSeats;
+        }
     }
 
     public int getId() {
@@ -31,21 +79,11 @@ public class Trip {
     }
 
     public Date getDepartureDate() {
-        try {
-            return dateFormatter.parse(this.departureDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return this.departureDate;
     }
 
     public Date getArrivalDate() {
-        try {
-            return dateFormatter.parse(this.arrivalDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return this.arrivalDate;
     }
 
     public City getDeparture() {

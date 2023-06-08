@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/home_fragment"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/accueil_background"
@@ -72,6 +72,19 @@
                     app:layout_constraintStart_toEndOf="@id/IV_startCircle"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <ImageButton
+                    android:id="@+id/closeDeparture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#dcebf3"
+                    android:contentDescription="@string/delete"
+                    android:src="@drawable/quantum_ic_clear_grey600_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/IV_startCircle"
+                    app:layout_constraintTop_toTopOf="parent" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -106,6 +119,19 @@
                     android:textSize="25sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/IV_destinationCircle"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/closeDestination"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#dcebf3"
+                    android:contentDescription="@string/delete"
+                    android:src="@drawable/quantum_ic_clear_grey600_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/IV_destinationCircle"
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -178,11 +204,11 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <Spinner
-                        android:spinnerMode="dropdown"
                         android:id="@+id/numberOfPeople"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="0dp"
+                        android:spinnerMode="dropdown"
                         android:textSize="25sp"
                         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
                         app:layout_constraintEnd_toEndOf="parent"
