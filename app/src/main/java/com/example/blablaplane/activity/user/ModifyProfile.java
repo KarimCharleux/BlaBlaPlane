@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +15,7 @@ import androidx.cardview.widget.CardView;
 
 import com.example.blablaplane.R;
 import com.example.blablaplane.activity.LandingActivity;
+import com.example.blablaplane.activity.Photo_Activity;
 import com.example.blablaplane.activity.SwitcherActivity;
 import com.example.blablaplane.object.DataBase;
 import com.example.blablaplane.object.user.User;
@@ -70,6 +72,12 @@ public class ModifyProfile extends AppCompatActivity {
                 }
             });
         }
+
+        ImageView pictureProfil = findViewById(R.id.picture_profile);
+        pictureProfil.setOnClickListener(x ->{
+            Intent intent = new Intent(ModifyProfile.this, Photo_Activity.class);
+            startActivity(intent);
+        });
 
         Button modifyButton = findViewById(R.id.ModifyProfile_ConfirmButton);
         modifyButton.setOnClickListener(v -> {

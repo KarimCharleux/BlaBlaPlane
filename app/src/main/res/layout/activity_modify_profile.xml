@@ -33,6 +33,17 @@
         app:layout_constraintTop_toBottomOf="@+id/modifyHeader"
         app:layout_constraintVertical_bias="0.00999999" />
 
+    <ImageView
+        android:layout_marginTop="15dp"
+        android:id="@+id/picture_profile"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:contentDescription="@string/namePilot"
+        android:src="@drawable/profile1"
+        app:layout_constraintTop_toBottomOf="@id/modifyTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:clickable="true"/>
 
     <EditText
         android:id="@+id/modifyFirstName"
@@ -52,7 +63,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/modifyTitle"
+        app:layout_constraintTop_toBottomOf="@+id/picture_profile"
         app:layout_constraintVertical_bias="0.050000012" />
 
     <EditText

@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
@@ -36,11 +38,11 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
     private ImageView imageView;
     DatabaseReference userRef;
     Bitmap currentUserPicture;
+    ActivityResultLauncher<Intent> launcher;
 
     CardView cardView_takePicture;
     Button takePictureButton;
-    CardView cardView_return;
-    Button ReturnButton;
+    ImageView returnButton;
 
 
 
@@ -49,10 +51,9 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
 
-        this.cardView_return = findViewById(R.id.cardView_return);
-        this.ReturnButton = findViewById(R.id.ReturnButton);
         this.cardView_takePicture = findViewById(R.id.cardView_takePicture);
         this.takePictureButton = findViewById(R.id.takePictureButton);
+        this.returnButton = findViewById(R.id.returnButton);
 
 
         SharedPreferences preferences = this.getSharedPreferences("user_data", Context.MODE_PRIVATE);
@@ -61,7 +62,6 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
         {
             this.userRef = DataBase.USERS_REFERENCE.child(userID);
         }
-
 
         // Check if the user exists and get its data
         this.userRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -84,11 +84,29 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
                     setPicture();
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+
+        launcher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    int resultCode = result.getResultCode();
+                    if (resultCode == RESULT_OK) {
+                        Bundle extras = result.getData().getExtras();
+                        currentUserPicture = (Bitmap) extras.get("data");
+                        setPicture();
+                        Toast toast = Toast.makeText(getApplicationContext(), "Picture taken", Toast.LENGTH_SHORT);
+                        toast.show();
+                    } else if (resultCode == RESULT_CANCELED) {
+                        Toast toast = Toast.makeText(getApplicationContext(), "Picture not taken", Toast.LENGTH_SHORT);
+                        toast.show();
+                    } else {
+                        Toast toast = Toast.makeText(getApplicationContext(), "Picture not taken", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                });
 
         View.OnClickListener buttonTakePhoto = new View.OnClickListener() {
             @Override
@@ -109,33 +127,14 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
             }
         };
 
-        this.cardView_return.setOnClickListener(returnButton);
-        this.ReturnButton.setOnClickListener(returnButton);
         this.cardView_takePicture.setOnClickListener(buttonTakePhoto);
         this.takePictureButton.setOnClickListener(buttonTakePhoto);
+        this.returnButton.setOnClickListener(returnButton);
     }
 
 
     public void takePicture() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        ActivityResultLauncher<Intent> launcher = registerForActivityResult(
-                new ActivityResultContracts.StartActivityForResult(),
-                result -> {
-                    int resultCode = result.getResultCode();
-                    if (resultCode == RESULT_OK) {
-                        Bundle extras = result.getData().getExtras();
-                        currentUserPicture = (Bitmap) extras.get("data");
-                        setPicture();
-                        Toast toast = Toast.makeText(getApplicationContext(), "Picture taken", Toast.LENGTH_SHORT);
-                        toast.show();
-                    } else if (resultCode == RESULT_CANCELED) {
-                        Toast toast = Toast.makeText(getApplicationContext(), "Picture not taken", Toast.LENGTH_SHORT);
-                        toast.show();
-                    } else {
-                        Toast toast = Toast.makeText(getApplicationContext(), "Picture not taken", Toast.LENGTH_SHORT);
-                        toast.show();
-                    }
-                });
         launcher.launch(intent);
     }
 

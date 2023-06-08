@@ -70,7 +70,7 @@ public class SwitcherActivity extends AppCompatActivity implements BottomNavigat
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt("SCORE_KEY",2);
-        getSupportFragmentManager().putFragment(outState, "FragmentHome", fragment);
+        //getSupportFragmentManager().putFragment(outState, "FragmentHome", fragment);
         System.out.println("Frag saved in Act");
     }
 
