@@ -8,6 +8,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -32,6 +34,8 @@ public class FragmentGPSButton extends Fragment {
     private OnAirportSelectedListenerInterface airportSelectedListenerInterface;
     private static final String LOCATION_PERMISSION = android.Manifest.permission.ACCESS_FINE_LOCATION;
 
+    private ActivityResultLauncher<String> requestPermissionLauncher;
+
     public FragmentGPSButton() {
 
     }
@@ -44,6 +48,23 @@ public class FragmentGPSButton extends Fragment {
         } catch (ClassCastException e) {
             throw new ClassCastException(context + " must implement OnAirportSelectedListener");
         }
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        requestPermissionLauncher = registerForActivityResult(
+                new ActivityResultContracts.RequestPermission(),
+                isGranted -> {
+                    if (isGranted) {
+                        Toast.makeText(getContext(), "Loading", Toast.LENGTH_SHORT).show();
+                        getPosition();
+                    } else {
+                        Toast.makeText(getContext(), "L'autorisation d'accès à la localisation a été refusée.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+        );
     }
 
     @Override
@@ -67,9 +88,8 @@ public class FragmentGPSButton extends Fragment {
             public void onLocationChanged(Location location) {
 
                 LatLng latlng = new LatLng(location.getLatitude(), location.getLongitude());
-
-                final Airport nearestAirport = findNearestAirport(latlng);
-                airportSelectedListenerInterface.onAirportSelected(nearestAirport);
+                Log.d("TAG", latlng.toString());
+                airportSelectedListenerInterface.onLatLngSelected(latlng);
                 locationManager.removeUpdates(this);
             }
 
@@ -91,18 +111,6 @@ public class FragmentGPSButton extends Fragment {
     }
 
     private void requestLocationPermission() {
-        ActivityResultLauncher<String> requestPermissionLauncher = registerForActivityResult(
-                new ActivityResultContracts.RequestPermission(),
-                isGranted -> {
-                    if (isGranted) {
-                        Toast.makeText(getContext(), "Loading", Toast.LENGTH_SHORT).show();
-                        getPosition();
-                    } else {
-                        Toast.makeText(getContext(), "L'autorisation d'accès à la localisation a été refusée.", Toast.LENGTH_SHORT).show();
-                    }
-                }
-        );
-
         if (ContextCompat.checkSelfPermission(requireContext(), LOCATION_PERMISSION)
                 == PackageManager.PERMISSION_GRANTED) {
             Toast.makeText(getContext(), "Loading", Toast.LENGTH_SHORT).show();

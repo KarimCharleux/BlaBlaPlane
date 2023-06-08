@@ -1,6 +1,8 @@
 package com.example.blablaplane.activity;
 
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,13 +22,16 @@ import com.example.blablaplane.object.trip.Airport;
 import com.example.blablaplane.object.trip.CreateTripInfo;
 import com.example.blablaplane.object.trip.SearchTripInfo;
 import com.google.android.gms.common.api.Status;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.api.model.TypeFilter;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 public class SelectCityActivity extends AppCompatActivity implements OnAirportSelectedListenerInterface {
     private Place place = null;
@@ -127,8 +132,30 @@ public class SelectCityActivity extends AppCompatActivity implements OnAirportSe
         }
     }
 
+
+
+
+    @Override
+    public void onLatLngSelected(LatLng latLng) {
+        reverseGeocode(latLng);
+    }
+
     @Override
     public void onAirportSelected(Airport airport) {
-        autocompleteFragment.setText(airport.getCity());
+    }
+
+    private void reverseGeocode(LatLng latLng) {
+        Geocoder geocoder = new Geocoder(this);
+        try {
+            List<Address> addresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1);
+            if (!addresses.isEmpty()) {
+                Address address = addresses.get(0);
+                String city = address.getLocality();
+                place = Place.builder().setName(city).build();
+                autocompleteFragment.setText(city);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -166,6 +166,10 @@ public class Destination extends AppCompatActivity implements OnAirportSelectedL
         this.inputDestination = airport.getCity();
     }
 
+    @Override
+    public void onLatLngSelected(LatLng latLng) {
+
+    }
 
 
     private void select() {
