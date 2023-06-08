@@ -28,7 +28,7 @@ import com.google.android.libraries.places.widget.listener.PlaceSelectionListene
 
 import java.util.Arrays;
 
-public class PublishSelectCityActivity extends AppCompatActivity implements OnAirportSelectedListenerInterface {
+public class SelectCityActivity extends AppCompatActivity {
     private Place place = null;
     private boolean typeStart = false;
     private AutocompleteSupportFragment autocompleteFragment;
@@ -83,21 +83,20 @@ public class PublishSelectCityActivity extends AppCompatActivity implements OnAi
 
             Intent intent = getIntent();
 
-            if(intent!=null){
+            if (intent != null) {
                 String typeRequest = intent.getStringExtra("type");
 
                 TextView titlePage = findViewById(R.id.frag_publish_title);
                 TextView description = findViewById(R.id.frag_publish_txt_select);
 
-                if(typeRequest!=null){
-                    Log.d("typeRequest",typeRequest);
+                if (typeRequest != null) {
+                    Log.d("typeRequest", typeRequest);
                     //definition des labels en fonction
-                    if(typeRequest.equals(getResources().getString(R.string.ACCUEIL_start))){
+                    if (typeRequest.equals(getResources().getString(R.string.ACCUEIL_start))) {
                         titlePage.setText(R.string.ACCUEIL_start);
                         description.setText(R.string.RESEARCH_selectionDepart);
                         this.typeStart = true;
-                    }
-                    else{
+                    } else {
                         titlePage.setText(R.string.ACCUEIL_destination);
                         description.setText(R.string.RESEARCH_selectionArrivee);
                         this.typeStart = false;
@@ -113,10 +112,9 @@ public class PublishSelectCityActivity extends AppCompatActivity implements OnAi
         } else {
             Intent intentNavigateNewPage = new Intent(getApplicationContext(), SwitcherActivity.class);
 
-            if(this.typeStart){
+            if (this.typeStart) {
                 intentNavigateNewPage.putExtra(getResources().getString(R.string.RESEARCH_INTENT_startingPlace), place);
-            }
-            else{
+            } else {
                 intentNavigateNewPage.putExtra(getResources().getString(R.string.RESEARCH_INTENT_destinationPlace), place);
             }
 

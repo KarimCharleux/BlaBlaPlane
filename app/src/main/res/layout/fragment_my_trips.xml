@@ -26,7 +26,7 @@
         android:paddingBottom="50sp" />
 
     <LinearLayout
-        android:id="@+id/noTripMessage"
+        android:id="@+id/noMyTripMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -35,7 +35,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/noTripMessage"
+            android:text="@string/noMyTripMessage"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />

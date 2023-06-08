@@ -8,10 +8,13 @@
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
 
     <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+
     <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
@@ -26,16 +29,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BlaBlaPlane"
         tools:targetApi="31">
-        <activity
-            android:name=".activity.AddContactActivity"
-            android:exported="false"
-            android:label="@string/title_activity_add_contact"
-            android:theme="@style/Theme.BlaBlaPlane" />
-        <activity
-            android:name=".activity.user.AddContactActivity"
-            android:exported="false"
-            android:label="@string/title_activity_add_contact"
-            android:theme="@style/Theme.BlaBlaPlane" />
 
         <service
             android:name=".notifications.IHMFirebaseMessagingService"
@@ -54,6 +47,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.AddContactActivity"
+            android:exported="false"
+            android:label="@string/title_activity_add_contact"
+            android:theme="@style/Theme.BlaBlaPlane" />
         <activity
             android:name=".activity.SwitcherActivity"
             android:exported="false" />
@@ -82,7 +80,7 @@
             android:name=".activity.user.ConnectionActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.PublishSelectCityActivity"
+            android:name=".activity.SelectCityActivity"
             android:exported="false" />
         <activity
             android:name=".activity.TripInfoActivity"

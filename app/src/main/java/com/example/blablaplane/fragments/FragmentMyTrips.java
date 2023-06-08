@@ -66,9 +66,9 @@ public class FragmentMyTrips extends Fragment implements TripAdapterListener {
 
                     // If there is no trip, display a message
                     if (tripArray.isEmpty()) {
-                        view.findViewById(R.id.noTripMessage).setVisibility(View.VISIBLE);
+                        view.findViewById(R.id.noMyTripMessage).setVisibility(View.VISIBLE);
                     } else {
-                        view.findViewById(R.id.noTripMessage).setVisibility(View.GONE);
+                        view.findViewById(R.id.noMyTripMessage).setVisibility(View.INVISIBLE);
                     }
                 }
             }

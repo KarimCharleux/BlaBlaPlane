@@ -15,8 +15,9 @@ public class Trip {
     private final City departure;
     private final City arrival;
     private final Float price;
+    private int seatsLeft;
 
-    public Trip(int id, String departureDate, String arrivalDate, City departure, City arrival, Float price, String pilot) {
+    public Trip(int id, String departureDate, String arrivalDate, City departure, City arrival, Float price, String pilot, int seatsLeft) {
         this.id = id;
         this.departureDate = departureDate;
         this.arrivalDate = arrivalDate;
@@ -24,6 +25,17 @@ public class Trip {
         this.arrival = arrival;
         this.price = price;
         this.pilotId = pilot;
+        this.seatsLeft = seatsLeft;
+    }
+
+    public int getSeatsLeft() {
+        return this.seatsLeft;
+    }
+
+    public void bookSeats(int nbSeats) {
+        if(this.seatsLeft >= nbSeats) {
+            this.seatsLeft -= nbSeats;
+        }
     }
 
     public int getId() {
