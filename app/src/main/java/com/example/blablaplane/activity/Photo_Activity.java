@@ -31,6 +31,7 @@ import com.bumptech.glide.load.engine.cache.DiskCacheAdapter;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.signature.ObjectKey;
@@ -71,21 +72,20 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
         askPermission();
 
         Glide.with(getApplicationContext())
+                .asBitmap()
                 .load(PictureActivityInterface.cacheKey)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(new CustomTarget<Drawable>() {
+                .into(new SimpleTarget<Bitmap>() {
                     @Override
-                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
-                        imageView.setImageDrawable(resource);
-                    }
-                    @Override
-                    public void onLoadCleared(@Nullable Drawable placeholder) {
+                    public void onResourceReady(@NonNull Bitmap bitmap, @Nullable Transition<? super Bitmap> transition) {
+                        imageView.setImageBitmap(bitmap);
                     }
                     @Override
                     public void onLoadFailed(@Nullable Drawable errorDrawable) {
                         imageView.setImageResource(R.drawable.pp_default);
                     }
                 });
+
 
         View.OnClickListener buttonTakePhoto = new View.OnClickListener() {
             @Override
