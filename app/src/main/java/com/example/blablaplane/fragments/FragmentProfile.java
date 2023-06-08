@@ -24,7 +24,6 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.blablaplane.Interface.PictureActivitySingleton;
@@ -181,6 +180,7 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
     @Override
     public void onResume() {
         super.onResume();
+
         Glide.with(getContext())
                 .load(PictureActivitySingleton.cacheKey)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -193,6 +193,7 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
                     @Override
                     public void onLoadCleared(@Nullable Drawable placeholder) {
                     }
+
 
                     @Override
                     public void onLoadFailed(@Nullable Drawable errorDrawable) {

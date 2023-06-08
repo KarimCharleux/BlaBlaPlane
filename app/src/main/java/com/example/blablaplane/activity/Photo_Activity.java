@@ -31,6 +31,7 @@ import com.bumptech.glide.load.engine.cache.DiskCacheAdapter;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.CustomTarget;
+
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.signature.ObjectKey;
@@ -80,6 +81,7 @@ public class Photo_Activity extends AppCompatActivity {
                     }
                     @Override
                     public void onLoadCleared(@Nullable Drawable placeholder) {
+
                     }
                     @Override
                     public void onLoadFailed(@Nullable Drawable errorDrawable) {
