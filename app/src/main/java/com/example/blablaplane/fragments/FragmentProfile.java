@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,7 +27,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.example.blablaplane.Interface.PictureActivityInterface;
+import com.example.blablaplane.Interface.PictureActivitySingleton;
 import com.example.blablaplane.R;
 import com.example.blablaplane.activity.LandingActivity;
 import com.example.blablaplane.activity.Photo_Activity;
@@ -50,7 +51,8 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
 
     SharedPreferences sharedPreferences;
     String userID;
-    Object cacheKey = PictureActivityInterface.cacheKey;
+    Object cacheKey = PictureActivitySingleton.cacheKey;
+    ImageView pictureProfil;
 
     public FragmentProfile() {
         // Required empty public constructor
@@ -62,7 +64,7 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
 
         sharedPreferences = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE);
         userID = sharedPreferences.getString("user_id", null);
-        ImageView picture_profile = view.findViewById(R.id.picture_profile);
+        pictureProfil = view.findViewById(R.id.picture_profile);
 
         if (userID.isEmpty()) {
             Intent intent = new Intent(getActivity(), LandingActivity.class);
@@ -144,26 +146,6 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
             });
         }
 
-
-        Glide.with(getContext())
-                .load(PictureActivityInterface.cacheKey)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(new CustomTarget<Drawable>() {
-                    @Override
-                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
-                        picture_profile.setImageDrawable(resource);
-                    }
-                    @Override
-                    public void onLoadCleared(@Nullable Drawable placeholder) {
-                    }
-                    @Override
-                    public void onLoadFailed(@Nullable Drawable errorDrawable) {
-                        picture_profile.setImageResource(R.drawable.pp_default);
-                    }
-                });
-
-
-
         // Disconnect button
         Button buttonDisconnect = view.findViewById(R.id.logoutButton);
         buttonDisconnect.setOnClickListener(v -> {
@@ -185,8 +167,7 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
             startActivity(intent);
         });
 
-        ImageView pictureProfile = view.findViewById(R.id.picture_profile);
-        pictureProfile.setOnClickListener(new View.OnClickListener() {
+        pictureProfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Photo_Activity.class);
@@ -195,6 +176,42 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
         });
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Glide.with(getContext())
+                .load(PictureActivitySingleton.cacheKey)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(new CustomTarget<Drawable>() {
+                    @Override
+                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                        pictureProfil.setImageDrawable(resource);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+                    }
+
+                    @Override
+                    public void onLoadFailed(@Nullable Drawable errorDrawable) {
+                        if(PictureActivitySingleton.pictureProfile != null)
+                        {
+                            setPicture(pictureProfil, PictureActivitySingleton.pictureProfile);
+                        }else
+                        {
+                            pictureProfil.setImageResource(R.drawable.pp_default);
+                        }
+                    }
+                });
+    }
+
+    private void setPicture(ImageView imageView, Bitmap pictureProfil) {
+        Glide.with(this)
+                .load(pictureProfil)
+                .circleCrop()
+                .into(imageView);
     }
 
     /**

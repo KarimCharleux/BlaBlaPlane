@@ -20,7 +20,7 @@ import androidx.cardview.widget.CardView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.model.GlideUrl;
-import com.example.blablaplane.Interface.PictureActivityInterface;
+import com.example.blablaplane.Interface.PictureActivitySingleton;
 import com.example.blablaplane.R;
 import com.example.blablaplane.activity.LandingActivity;
 import com.example.blablaplane.activity.Photo_Activity;
@@ -136,7 +136,7 @@ public class ModifyProfile extends AppCompatActivity {
         Drawable cachedProfileImage = null;
         try {
             cachedProfileImage = Glide.with(this)
-                    .load(PictureActivityInterface.cacheKey)
+                    .load(PictureActivitySingleton.cacheKey)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .submit()
                     .get();
@@ -147,8 +147,20 @@ public class ModifyProfile extends AppCompatActivity {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            imageView.setImageResource(R.drawable.pp_default);
+            if(PictureActivitySingleton.pictureProfile != null)
+            {
+                setPicture(imageView, PictureActivitySingleton.pictureProfile);
+            }else
+            {
+                imageView.setImageResource(R.drawable.pp_default);
+            }
         }
 
+    }
+    private void setPicture(ImageView imageView, Bitmap pictureProfil) {
+        Glide.with(this)
+                .load(pictureProfil)
+                .circleCrop()
+                .into(imageView);
     }
 }
