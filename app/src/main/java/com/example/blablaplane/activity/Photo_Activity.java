@@ -70,24 +70,22 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
 
         askPermission();
 
-        Drawable cachedProfileImage = null;
-        try {
-            cachedProfileImage = Glide.with(this)
-                    .load(PictureActivityInterface.cacheKey)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .submit()
-                    .get();
-            if (cachedProfileImage != null) {
-                imageView.setImageDrawable(cachedProfileImage);
-            } else {
-                imageView.setImageResource(R.drawable.pp_default);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            imageView.setImageResource(R.drawable.pp_default);
-        }
-
-
+        Glide.with(getApplicationContext())
+                .load(PictureActivityInterface.cacheKey)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(new CustomTarget<Drawable>() {
+                    @Override
+                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                        imageView.setImageDrawable(resource);
+                    }
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+                    }
+                    @Override
+                    public void onLoadFailed(@Nullable Drawable errorDrawable) {
+                        imageView.setImageResource(R.drawable.pp_default);
+                    }
+                });
 
         View.OnClickListener buttonTakePhoto = new View.OnClickListener() {
             @Override
