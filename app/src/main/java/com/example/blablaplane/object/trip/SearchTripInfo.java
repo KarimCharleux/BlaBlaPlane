@@ -15,5 +15,14 @@ public class SearchTripInfo {
         date = null;
         nbPassenger = 1;
     }
+
+    public static void resetDeparture() {
+        departure = "Départ";
+    }
+
+    public static void resetDestination() {
+        destination = "Destination";
+    }
+
 }
 

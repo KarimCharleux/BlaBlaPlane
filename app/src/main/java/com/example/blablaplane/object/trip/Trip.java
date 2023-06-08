@@ -10,6 +10,7 @@ public class Trip {
     public static final SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private final int id;
     private final String pilotId;
+    private final int aircraftId;
     private final String departureDate;
     private final String arrivalDate;
     private final City departure;
@@ -17,7 +18,7 @@ public class Trip {
     private final Float price;
     private int seatsLeft;
 
-    public Trip(int id, String departureDate, String arrivalDate, City departure, City arrival, Float price, String pilot, int seatsLeft) {
+    public Trip(int id, String departureDate, String arrivalDate, City departure, City arrival, Float price, String pilot, int aircraftId, int seatsLeft) {
         this.id = id;
         this.departureDate = departureDate;
         this.arrivalDate = arrivalDate;
@@ -26,6 +27,11 @@ public class Trip {
         this.price = price;
         this.pilotId = pilot;
         this.seatsLeft = seatsLeft;
+        this.aircraftId = aircraftId;
+    }
+
+    public int getAircraftId() {
+        return this.aircraftId;
     }
 
     public int getSeatsLeft() {
@@ -33,7 +39,7 @@ public class Trip {
     }
 
     public void bookSeats(int nbSeats) {
-        if(this.seatsLeft >= nbSeats) {
+        if (this.seatsLeft >= nbSeats) {
             this.seatsLeft -= nbSeats;
         }
     }

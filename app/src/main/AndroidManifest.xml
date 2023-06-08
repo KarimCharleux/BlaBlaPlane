@@ -71,7 +71,7 @@
             android:name=".activity.ConfirmationActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.PublishPriceAircraftActivity"
+            android:name=".activity.SelectPriceAircraftActivity"
             android:exported="false" />
         <activity
             android:name=".activity.user.RegisterActivity"

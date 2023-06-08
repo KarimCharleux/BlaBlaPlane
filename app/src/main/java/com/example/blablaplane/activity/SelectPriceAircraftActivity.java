@@ -2,6 +2,7 @@ package com.example.blablaplane.activity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -11,13 +12,14 @@ import com.example.blablaplane.R;
 import com.example.blablaplane.object.DataBase;
 import com.example.blablaplane.object.aircraft.AircraftAdapter;
 import com.example.blablaplane.object.aircraft.AircraftAdapterListener;
+import com.example.blablaplane.object.trip.CreateTripInfo;
 import com.example.blablaplane.object.user.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
-public class PublishPriceAircraftActivity extends AppCompatActivity implements AircraftAdapterListener {
+public class SelectPriceAircraftActivity extends AppCompatActivity implements AircraftAdapterListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +49,7 @@ public class PublishPriceAircraftActivity extends AppCompatActivity implements A
                 vehiculeList.setAdapter(aircraftAdapter);
 
                 // Set the listener
-                aircraftAdapter.setListener(PublishPriceAircraftActivity.this);
+                aircraftAdapter.setListener(SelectPriceAircraftActivity.this);
             }
 
             @Override
@@ -59,6 +61,16 @@ public class PublishPriceAircraftActivity extends AppCompatActivity implements A
 
     @Override
     public void onAircraftClick(int vehiculeId) {
-        System.out.println("GG CA FONCTIONNE");
+        // Get the aircraft ID
+        CreateTripInfo.aircraftId = vehiculeId;
+
+        // Get the price
+        CreateTripInfo.price = Float.valueOf(((EditText) findViewById(R.id.EDIT_price)).getText().toString().replace(',', '.').replace(" €", ""));
+
+        System.out.println("Aircraft ID: " + CreateTripInfo.aircraftId);
+        System.out.println("Price: " + CreateTripInfo.price);
+        System.out.println("Departure: " + CreateTripInfo.departure);
+        System.out.println("Arrival: " + CreateTripInfo.destination);
+        System.out.println("Date: " + CreateTripInfo.date);
     }
 }

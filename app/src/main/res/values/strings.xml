@@ -19,9 +19,6 @@
     <string name="RESEARCH_selectionArrivee">"Sélectionnez  un lieu d'arriver"</string>
     <string name="RESEARCH_btn_validate_text">Valider</string>
 
-    /* ERRORS */
-    <string name="RESEARCH_ERR_EmptyDeparturePlaces">⚠️ Veuillez selectionner un lieux !</string>
-
     /*INTENT */
     <string name="RESEARCH_INTENT_startingPlace">StartingPlace</string>
     <string name="RESEARCH_INTENT_destinationPlace">DestinationPlace</string>
@@ -76,6 +73,8 @@
     <string name="noMyTripMessage">Vous avez réservé aucun trajets pour le moment.</string>
     <string name="noTripMessage">Aucun trajets disponible pour le moment.</string>
     <string name="bookTrips">Réserver des trajets</string>
+    <string name="selectDepart">Sélectionnez un lieu de départ :</string>
+
 
     /* Connexion */
 
@@ -98,16 +97,29 @@
 
     /* Create Trip */
 
+    <string name="beforePostTrip">Avant de publier votre trajet, vous devez être avoir un compte valide, ainsi que : \n\n ✅ Votre brevet de pilote valide ! 🎓 \n\n ✅ Votre carte d\'identité valide ! 🪪️</string>
+    <string name="addTripMessage">Ajouter un trajet</string>
+    <string name="selectPrice">Selectionnez un prix</string>
+    <string name="selectAircraft">Selectionnez un aéronef</string>
+
+
+    /* Aircraft */
+
     <string name="planeName">Cirrus Vision Jet</string>
     <string name="aircraft">Aéronef</string>
     <string name="nbPassenger">Nombre de personne</string>
     <string name="number3">3</string>
     <string name="eurocopter_ec130">Eurocopter EC130</string>
-    <string name="selectPrice">Selectionnez un prix</string>
-    <string name="selectAircraft">Selectionnez un aéronef</string>
     <string name="depart">Depart</string>
-    <string name="selectDepart">Sélectionnez un lieu de départ :</string>
     <string name="enterAddress">Entrez une adresse</string>
+    <string name="phone">Téléphone</string>
+    <string name="pilot_expert">Pilote Expert</string>
+    <string name="emailExample">pierre.dubois@gmail.com</string>
+    <string name="phoneNumber">06 01 02 03 04</string>
+    <string name="identity">Pièce d’identité</string>
+    <string name="pilot_license">Brevet de pilote PPL</string>
+
+    /* Payment */
     <string name="selectPayment">Choisir un moyen de paiement</string>
     <string name="paypal">Paypal</string>
     <string name="cardPayment">Carte Bancaire</string>
@@ -115,12 +127,6 @@
     <string name="google_pay">Google Pay</string>
     <string name="payment_valid">Paiement validé</string>
     <string name="addToCalendar">Ajouter au calendrier</string>
-    <string name="phone">Téléphone</string>
-    <string name="pilot_expert">Pilote Expert</string>
-    <string name="emailExample">pierre.dubois@gmail.com</string>
-    <string name="phoneNumber">06 01 02 03 04</string>
-    <string name="identity">Pièce d’identité</string>
-    <string name="pilot_license">Brevet de pilote PPL</string>
 
     /* SelectAircraft */
 
@@ -157,6 +163,8 @@
     <string name="wrongId">⚠️ Mauvais identifiants !</string>
     <string name="errorUnknown">⚠️ Une erreur est survenue !</string>
     <string name="errorAccountRetry">⚠️ Erreur lors de la création du compte, veuillez réessayer</string>
+    <string name="RESEARCH_ERR_EmptyDeparturePlaces">⚠️ Veuillez selectionner un lieux !</string>
+
 
     /* Change Picture Profile */
     <string name="CHANGEPICTUREPROFILE_title">Changer la photo de profil</string>
@@ -222,4 +230,5 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
     <string name="delete">Supprimer</string>
+    <string name="title_activity_select_date">SelectDateActivity</string>
 </resources>

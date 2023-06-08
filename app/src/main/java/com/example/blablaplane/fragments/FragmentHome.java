@@ -19,9 +19,9 @@ import androidx.fragment.app.Fragment;
 import com.example.blablaplane.R;
 import com.example.blablaplane.activity.ListTripActivity;
 import com.example.blablaplane.activity.SelectCityActivity;
+import com.example.blablaplane.activity.SelectCityType;
 import com.example.blablaplane.notifications.Message;
 import com.example.blablaplane.object.trip.SearchTripInfo;
-import com.google.android.libraries.places.api.model.Place;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.Observable;
@@ -54,31 +54,17 @@ public class FragmentHome extends Fragment implements Observer {
         // Go to the select city activity when the user click on the departure or destination box
         view.findViewById(R.id.startBox).setOnClickListener(v -> {
             Intent intentNavigateNewPage = new Intent(getContext(), SelectCityActivity.class);
-            intentNavigateNewPage.putExtra("type", getResources().getString(R.string.ACCUEIL_start));
+            intentNavigateNewPage.putExtra("SelectType", SelectCityType.SEARCH_DEPARTURE);
 
             requireActivity().startActivity(intentNavigateNewPage);
         });
 
         view.findViewById(R.id.destinationBox).setOnClickListener(v -> {
             Intent intentNavigateNewPage = new Intent(getContext(), SelectCityActivity.class);
-            intentNavigateNewPage.putExtra("type", getResources().getString(R.string.ACCUEIL_destination));
+            intentNavigateNewPage.putExtra("SelectType", SelectCityType.SEARCH_DESTINATION);
 
             requireActivity().startActivity(intentNavigateNewPage);
         });
-
-        // Retrieve the intent from the research activity and set the text of the departure and destination
-        Intent intent = requireActivity().getIntent();
-        if (intent != null) {
-            Place startingPlace = intent.getParcelableExtra(getResources().getString(R.string.RESEARCH_INTENT_startingPlace));
-            Place destinationPlace = intent.getParcelableExtra(getResources().getString(R.string.RESEARCH_INTENT_destinationPlace));
-
-            if (startingPlace != null) {
-                SearchTripInfo.departure = startingPlace.getName();
-            }
-            if (destinationPlace != null) {
-                SearchTripInfo.destination = destinationPlace.getName();
-            }
-        }
 
         // Set the text of the departure and destination from the SearchTripInfo
         TextView DepartureText = view.findViewById(R.id.TV_startText);
@@ -97,6 +83,7 @@ public class FragmentHome extends Fragment implements Observer {
                 DepartureText.setText(getResources().getString(R.string.ACCUEIL_start));
                 DepartureText.setTextColor(getResources().getColor(com.google.android.material.R.color.secondary_text_default_material_light));
                 closeDeparture.setVisibility(View.INVISIBLE);
+                SearchTripInfo.resetDeparture();
             });
         } else {
             DepartureText.setTextColor(getResources().getColor(com.google.android.material.R.color.secondary_text_default_material_light));
@@ -112,6 +99,7 @@ public class FragmentHome extends Fragment implements Observer {
                 DestinationText.setText(getResources().getString(R.string.ACCUEIL_destination));
                 DestinationText.setTextColor(getResources().getColor(com.google.android.material.R.color.secondary_text_default_material_light));
                 closeDestination.setVisibility(View.INVISIBLE);
+                SearchTripInfo.resetDestination();
             });
         } else {
             DestinationText.setTextColor(getResources().getColor(com.google.android.material.R.color.secondary_text_default_material_light));
@@ -139,7 +127,6 @@ public class FragmentHome extends Fragment implements Observer {
 
         return view;
     }
-
 
     @Override
     public void update(Observable observable, Object o) {
