@@ -28,7 +28,7 @@ import com.google.android.libraries.places.widget.listener.PlaceSelectionListene
 
 import java.util.Arrays;
 
-public class SelectCityActivity extends AppCompatActivity {
+public class SelectCityActivity extends AppCompatActivity implements OnAirportSelectedListenerInterface {
     private Place place = null;
     private AutocompleteSupportFragment autocompleteFragment;
 

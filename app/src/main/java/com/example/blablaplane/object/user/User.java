@@ -11,7 +11,7 @@ import java.util.List;
 public class User {
 
     private final List<Aircraft> aircraftList;
-    private final List<Trip> myTripList;
+    private final List<Integer> myTripList;
     private final String id;
     private final String name;
     private final String surname;
@@ -35,7 +35,7 @@ public class User {
         this(name, surname, email, password, phone, rating, aircraftList, new ArrayList<>(), null);
     }
 
-    public User(String name, String surname, String email, String password, String phone, float rating, ArrayList<Aircraft> aircraftList, ArrayList<Trip> myTripList, Bitmap picture) {
+    public User(String name, String surname, String email, String password, String phone, float rating, ArrayList<Aircraft> aircraftList, ArrayList<Integer> myTripList, Bitmap picture) {
         this.id = generateUserId(email);
         this.name = name;
         this.surname = surname;
@@ -52,7 +52,7 @@ public class User {
         return email.replace("@", "").replace(".", "");
     }
 
-    public List<Trip> getMyTripList() {
+    public List<Integer> getMyTripList() {
         return myTripList;
     }
 
@@ -64,8 +64,8 @@ public class User {
         this.picture = picture;
     }
 
-    public boolean addTrip(Trip trip) {
-        return this.myTripList.add(trip);
+    public void addTrip(int tripId) {
+        this.myTripList.add(tripId);
     }
 
     public boolean removeTrip(Trip trip) {

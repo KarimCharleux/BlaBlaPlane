@@ -19,12 +19,14 @@ import com.example.blablaplane.object.DataBase;
 import com.example.blablaplane.object.trip.Trip;
 import com.example.blablaplane.object.trip.TripAdapter;
 import com.example.blablaplane.object.trip.TripAdapterListener;
+import com.example.blablaplane.object.trip.TripArray;
 import com.example.blablaplane.object.user.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentMyTrips extends Fragment implements TripAdapterListener {
@@ -49,8 +51,17 @@ public class FragmentMyTrips extends Fragment implements TripAdapterListener {
                     User user = dataSnapshot.getValue(User.class);
                     assert user != null;
 
+                    // Get the list of trips id
+                    List<Integer> tripIdArray = user.getMyTripList();
+
+                    List<Trip> tripArray = new ArrayList<>();
                     // Get the list of trips
-                    List<Trip> tripArray = user.getMyTripList();
+                    for(int tripId : tripIdArray){
+                        Trip trip = TripArray.getInstance().getTripById(tripId);
+                        if(trip != null){
+                            tripArray.add(trip);
+                        }
+                    }
 
                     // Create the adapter
                     TripAdapter tripAdapter = new TripAdapter(getActivity(), tripArray);
@@ -65,7 +76,7 @@ public class FragmentMyTrips extends Fragment implements TripAdapterListener {
                     tripAdapter.setListener(FragmentMyTrips.this);
 
                     // If there is no trip, display a message
-                    if (tripArray.isEmpty()) {
+                    if (tripIdArray.isEmpty()) {
                         view.findViewById(R.id.noMyTripMessage).setVisibility(View.VISIBLE);
                     } else {
                         view.findViewById(R.id.noMyTripMessage).setVisibility(View.INVISIBLE);

@@ -2,11 +2,13 @@ package com.example.blablaplane.activity;
 
 import static com.example.blablaplane.notifications.NotifyApp.CHANNEL_IDC;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
@@ -14,10 +16,16 @@ import com.example.blablaplane.R;
 import com.example.blablaplane.notifications.CalendarNotificationFactory;
 import com.example.blablaplane.notifications.Notification;
 import com.example.blablaplane.notifications.NotifyApp;
+import com.example.blablaplane.object.DataBase;
 import com.example.blablaplane.object.trip.CreateTripInfo;
 import com.example.blablaplane.object.trip.SearchTripInfo;
 import com.example.blablaplane.object.trip.Trip;
 import com.example.blablaplane.object.trip.TripArray;
+import com.example.blablaplane.object.user.User;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.TimeZone;
 
@@ -52,8 +60,34 @@ public class ConfirmationActivity extends AppCompatActivity {
             System.out.println("VERS HOME");
             ConfirmationActivity.this.startActivity(intentNavigateNewPage);
         });
-
         sendNotificationOnChannel(notification);
+
+        // Get the user ID from the cache
+        String userID = this.getSharedPreferences("user_data", Context.MODE_PRIVATE).getString("user_id", null);
+
+        // Add the trip to he user's trip list in database
+        DatabaseReference userRef = DataBase.USERS_REFERENCE.child(userID);
+
+        // Fetch the user from the database
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                // Get the user object
+                User user = snapshot.getValue(User.class);
+                assert user != null;
+
+                // Remove the aircraft from the user
+                user.addTrip(tripId);
+
+                // Update the user in the database
+                userRef.setValue(user);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                System.err.println("Error while fetching user from the database");
+            }
+        });
     }
 
     private void sendNotificationOnChannel(Notification notificationCustom) {

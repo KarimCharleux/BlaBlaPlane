@@ -97,7 +97,7 @@
 
     /* Create Trip */
 
-    <string name="beforePostTrip">Avant de publier votre trajet, vous devez être avoir un compte valide, ainsi que : \n\n ✅ Votre brevet de pilote valide ! 🎓 \n\n ✅ Votre carte d\'identité valide ! 🪪️</string>
+    <string name="beforePostTrip">Avant de publier votre trajet, vous devez avoir un compte valide, ainsi que : \n\n ✅ Votre brevet de pilote valide ! 🎓 \n\n ✅ Votre carte d\'identité valide ! 🪪️</string>
     <string name="addTripMessage">Ajouter un trajet</string>
     <string name="selectPrice">Selectionnez un prix</string>
     <string name="selectAircraft">Selectionnez un aéronef</string>
