@@ -12,6 +12,8 @@ import com.example.blablaplane.R;
 import com.example.blablaplane.object.user.User;
 import com.example.blablaplane.object.user.UserArray;
 
+import java.util.List;
+
 public class TripAdapter extends BaseAdapter {
 
     /**
@@ -19,14 +21,14 @@ public class TripAdapter extends BaseAdapter {
      */
     private TripAdapterListener listener;
 
-    private final TripArray tripArray;
+    private final List<Trip> tripArray;
 
     /**
      * Mechanism to generate the graphic view from the XML file
      */
     private final LayoutInflater inflater;
 
-    public TripAdapter(Context context, TripArray tripArray) {
+    public TripAdapter(Context context, List<Trip> tripArray) {
         this.inflater = LayoutInflater.from(context);
         this.tripArray = tripArray;
     }

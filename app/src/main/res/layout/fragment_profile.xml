@@ -27,7 +27,7 @@
                 android:layout_width="80sp"
                 android:layout_height="80sp"
                 android:contentDescription="@string/namePilot"
-                android:src="@drawable/profile1"
+                android:src="@drawable/pp_default"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

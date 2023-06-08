@@ -49,13 +49,13 @@ public class MessageProfileAdapter extends BaseAdapter{
 
         // Retrieve the views
         TextView firstName = messageProfilView.findViewById(R.id.firstName);
-        TextView lastName  = messageProfilView.findViewById(R.id.lastName);
+        TextView lastName  = messageProfilView.findViewById(R.id.last_name);
         ImageView pictureProfil = messageProfilView.findViewById(R.id.pictureProfile);
 
         // Set the text of the view for the trip
         firstName.setText(messageProfileArray.get(i).getFirstName());
         lastName.setText(messageProfileArray.get(i).getLastName());
-        pictureProfil.setImageResource(R.drawable.profile1); //A CHANGER
+        pictureProfil.setImageResource(R.drawable.pp_default); //A CHANGER
 
 
 
