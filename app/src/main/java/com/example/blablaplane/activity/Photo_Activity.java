@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.provider.MediaStore;
+import android.util.LruCache;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -35,11 +36,11 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Photo_Activity extends AppCompatActivity implements PictureActivityInterface {
     private Bitmap picture;
+    private LruCache<String, Bitmap> memoryCache;
     private ImageView imageView;
     DatabaseReference userRef;
     Bitmap currentUserPicture;
     ActivityResultLauncher<Intent> launcher;
-
     CardView cardView_takePicture;
     Button takePictureButton;
     ImageView returnButton;
@@ -51,10 +52,18 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
 
+        final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
+        final int cacheSize = maxMemory / 8;
+        memoryCache = new LruCache<String, Bitmap>(cacheSize) {
+            @Override
+            protected int sizeOf(String key, Bitmap bitmap) {
+                return bitmap.getByteCount() / 1024;
+            }
+        };
+
         this.cardView_takePicture = findViewById(R.id.cardView_takePicture);
         this.takePictureButton = findViewById(R.id.takePictureButton);
         this.returnButton = findViewById(R.id.returnButton);
-
 
         SharedPreferences preferences = this.getSharedPreferences("user_data", Context.MODE_PRIVATE);
         String userID = preferences.getString("user_id", null);
@@ -122,8 +131,8 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
         View.OnClickListener returnButton = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userRef.child("picture").setValue(currentUserPicture);
-                System.out.println("PICTURE SAVED");
+                addBitmapToMemoryCache("pp", currentUserPicture);
+                System.out.println("Saved");
                 finish();
             }
         };
@@ -148,6 +157,11 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
                 .load(currentUserPicture)
                 .circleCrop()
                 .into(imageView);
+    }
+
+    public void addBitmapToMemoryCache(String key, Bitmap bitmap) {
+        memoryCache.put(key, bitmap);
+        if(memoryCache.get(key) == null)System.out.println("ERROR CACHING");
     }
 
 
