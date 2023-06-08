@@ -73,6 +73,8 @@
     <string name="pictureProfile">Photo Profile</string>
     <string name="route">route</string>
     <string name="photoPilot">Photo Pilote</string>
+    <string name="noTripMessage">Vous avez réservé aucun trajets pour le moment.</string>
+    <string name="bookTrips">Réserver des trajets</string>
 
     /* Connexion */
 

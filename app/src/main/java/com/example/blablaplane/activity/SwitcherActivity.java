@@ -1,12 +1,9 @@
 package com.example.blablaplane.activity;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.NonUiContext;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -69,8 +66,7 @@ public class SwitcherActivity extends AppCompatActivity implements BottomNavigat
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt("SCORE_KEY",2);
-        //getSupportFragmentManager().putFragment(outState, "FragmentHome", fragment);
+        outState.putInt("SCORE_KEY", 2);
         System.out.println("Frag saved in Act");
     }
 
@@ -78,7 +74,7 @@ public class SwitcherActivity extends AppCompatActivity implements BottomNavigat
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         System.out.println("RESTORING");
-        System.out.println("My String : "+savedInstanceState.getString("string_value"));
+        System.out.println("My String : " + savedInstanceState.getString("string_value"));
     }
 
     @Override
