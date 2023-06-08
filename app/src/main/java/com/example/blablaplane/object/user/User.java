@@ -19,6 +19,8 @@ public class User {
     private final String password;
     private final String phone;
     private final float rating;
+    private Bitmap picture;
+
 
     public User() {
         // Constructor for Firebase
@@ -30,10 +32,10 @@ public class User {
     }
 
     public User(String name, String surname, String email, String password, String phone, float rating, ArrayList<Aircraft> aircraftList) {
-        this(name, surname, email, password, phone, rating, aircraftList, new ArrayList<>());
+        this(name, surname, email, password, phone, rating, aircraftList, new ArrayList<>(), null);
     }
 
-    public User(String name, String surname, String email, String password, String phone, float rating, ArrayList<Aircraft> aircraftList, ArrayList<Trip> myTripList) {
+    public User(String name, String surname, String email, String password, String phone, float rating, ArrayList<Aircraft> aircraftList, ArrayList<Trip> myTripList, Bitmap picture) {
         this.id = generateUserId(email);
         this.name = name;
         this.surname = surname;
@@ -43,6 +45,7 @@ public class User {
         this.rating = rating;
         this.aircraftList = aircraftList;
         this.myTripList = myTripList;
+        this.picture = picture;
     }
 
     public static String generateUserId(String email) {
@@ -51,6 +54,14 @@ public class User {
 
     public List<Trip> getMyTripList() {
         return myTripList;
+    }
+
+    public Bitmap getPicture() {
+        return this.picture;
+    }
+
+    public void setPicture(Bitmap picture) {
+        this.picture = picture;
     }
 
     public boolean addTrip(Trip trip) {

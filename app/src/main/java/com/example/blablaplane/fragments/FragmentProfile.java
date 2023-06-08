@@ -4,11 +4,13 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -18,8 +20,13 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.model.GlideUrl;
+import com.example.blablaplane.Interface.PictureActivityInterface;
 import com.example.blablaplane.R;
 import com.example.blablaplane.activity.LandingActivity;
+import com.example.blablaplane.activity.Photo_Activity;
 import com.example.blablaplane.activity.SelectAircraftActivity;
 import com.example.blablaplane.activity.SwitcherActivity;
 import com.example.blablaplane.activity.user.ModifyProfile;
@@ -34,11 +41,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class FragmentProfile extends Fragment implements AircraftAdapterListener {
 
     SharedPreferences sharedPreferences;
     String userID;
+    String cacheKey = PictureActivityInterface.cacheKey;
 
     public FragmentProfile() {
         // Required empty public constructor
@@ -50,6 +59,7 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
 
         sharedPreferences = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE);
         userID = sharedPreferences.getString("user_id", null);
+        ImageView picture_profile = view.findViewById(R.id.picture_profile);
 
         if (userID.isEmpty()) {
             Intent intent = new Intent(getActivity(), LandingActivity.class);
@@ -131,6 +141,23 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
             });
         }
 
+        Drawable cachedProfileImage = null;
+        try {
+            cachedProfileImage = Glide.with(this)
+                    .load(new GlideUrl(this.cacheKey))
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .submit()
+                    .get();
+            if (cachedProfileImage != null) {
+                picture_profile.setImageDrawable(cachedProfileImage);
+            } else {
+                picture_profile.setImageResource(R.drawable.pp_default);
+            }
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+            picture_profile.setImageResource(R.drawable.pp_default);
+        }
+
         // Disconnect button
         Button buttonDisconnect = view.findViewById(R.id.logoutButton);
         buttonDisconnect.setOnClickListener(v -> {
@@ -150,6 +177,15 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
         buttonModifyProfile.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), ModifyProfile.class);
             startActivity(intent);
+        });
+
+        ImageView pictureProfile = view.findViewById(R.id.picture_profile);
+        pictureProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Photo_Activity.class);
+                startActivity(intent);
+            }
         });
 
         return view;

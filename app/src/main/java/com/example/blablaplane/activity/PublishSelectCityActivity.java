@@ -11,8 +11,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.example.blablaplane.Interface.OnAirportSelectedListenerInterface;
 import com.example.blablaplane.R;
+import com.example.blablaplane.fragments.FragmentGPSButton;
+import com.example.blablaplane.object.trip.Airport;
 import com.google.android.gms.common.api.Status;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
@@ -23,15 +28,23 @@ import com.google.android.libraries.places.widget.listener.PlaceSelectionListene
 
 import java.util.Arrays;
 
-public class PublishSelectCityActivity extends AppCompatActivity {
+public class PublishSelectCityActivity extends AppCompatActivity implements OnAirportSelectedListenerInterface {
     private Place place = null;
     private boolean typeStart = false;
+    private AutocompleteSupportFragment autocompleteFragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publish_selectcity);
         setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        FragmentGPSButton gps = new FragmentGPSButton();
+        fragmentTransaction.add(R.id.fragment_container, gps);
+        fragmentTransaction.commit();
+
 
         // Google Maps API part
         String apiKey = getString(R.string.API_googleMaps);
@@ -43,7 +56,7 @@ public class PublishSelectCityActivity extends AppCompatActivity {
         PlacesClient placesClient = Places.createClient(this);
 
         // Initialize the AutocompleteSupportFragment.
-        AutocompleteSupportFragment autocompleteFragment = (AutocompleteSupportFragment)
+        autocompleteFragment = (AutocompleteSupportFragment)
                 getSupportFragmentManager().findFragmentById(R.id.autocomplete_fragment);
         if (autocompleteFragment != null) {
             autocompleteFragment.setTypeFilter(TypeFilter.CITIES);
@@ -111,5 +124,10 @@ public class PublishSelectCityActivity extends AppCompatActivity {
             intentNavigateNewPage.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             getApplicationContext().startActivity(intentNavigateNewPage);
         }
+    }
+
+    @Override
+    public void onAirportSelected(Airport airport) {
+        autocompleteFragment.setText(airport.getCity());
     }
 }
