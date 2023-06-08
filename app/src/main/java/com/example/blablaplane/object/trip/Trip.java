@@ -18,11 +18,24 @@ public class Trip {
     private int seatsLeft;
 
     public Trip() {
-        this(null, null, null, null, null, null, 0, 0);
+        // Constructor for Firebase
+        this(0, null, null, null, null, null, null, 0, 0);
     }
 
     public Trip(Date departureDate, Date arrivalDate, City departure, City arrival, Float price, String pilot, int aircraftId, int seatsLeft) {
+        this.departureDate = departureDate;
+        this.arrivalDate = arrivalDate;
+        this.departure = departure;
+        this.arrival = arrival;
+        this.price = price;
+        this.pilotId = pilot;
+        this.seatsLeft = seatsLeft;
+        this.aircraftId = aircraftId;
         this.id = createId();
+    }
+
+    public Trip(int id, Date departureDate, Date arrivalDate, City departure, City arrival, Float price, String pilot, int aircraftId, int seatsLeft) {
+        this.id = id;
         this.departureDate = departureDate;
         this.arrivalDate = arrivalDate;
         this.departure = departure;
@@ -34,9 +47,17 @@ public class Trip {
     }
 
     private int createId() {
-        long currentTime = System.currentTimeMillis();
-        int randomValue = (int) (Math.random() * 1000000);
-        return (int) (currentTime + randomValue);
+        if (departureDate == null || arrivalDate == null || departure == null || arrival == null || price == null || pilotId == null) {
+            return 0;
+        }
+        String combinedString = "" + departureDate + arrivalDate + departure +
+                arrival + price + pilotId + aircraftId + seatsLeft;
+
+        // Calculating the hash code of the combined string
+        int hashCode = combinedString.hashCode();
+
+        // Taking the absolute value of the hash code to ensure a positive ID
+        return Math.abs(hashCode);
     }
 
     public int getAircraftId() {

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.example.blablaplane.R;
 
-public class MessageProfileAdapter extends BaseAdapter{
+public class MessageProfileAdapter extends BaseAdapter {
 
     private MessageProfileAdapterListener listener;
     private final MessageProfileArray messageProfileArray;
@@ -28,18 +28,18 @@ public class MessageProfileAdapter extends BaseAdapter{
 
     @Override
     public int getCount() {
-            return messageProfileArray.size();
-        }
+        return messageProfileArray.size();
+    }
 
     @Override
     public Object getItem(int i) {
-            return messageProfileArray.get(i);
-        }
+        return messageProfileArray.get(i);
+    }
 
     @Override
     public long getItemId(int i) {
-            return messageProfileArray.get(i).getId();
-        }
+        return messageProfileArray.get(i).getId();
+    }
 
     @Override
     public View getView(int i, View convertView, ViewGroup parent) {
@@ -48,15 +48,14 @@ public class MessageProfileAdapter extends BaseAdapter{
         messageProfilView = (FrameLayout) (convertView == null ? inflater.inflate(R.layout.fragment_message_profile, parent, false) : convertView);
 
         // Retrieve the views
-        TextView firstName = messageProfilView.findViewById(R.id.firstName);
-        TextView lastName  = messageProfilView.findViewById(R.id.last_name);
+        TextView firstName = messageProfilView.findViewById(R.id.firstnameProfile);
+        TextView lastName = messageProfilView.findViewById(R.id.lastnameProfile);
         ImageView pictureProfil = messageProfilView.findViewById(R.id.pictureProfile);
 
         // Set the text of the view for the trip
         firstName.setText(messageProfileArray.get(i).getFirstName());
         lastName.setText(messageProfileArray.get(i).getLastName());
         pictureProfil.setImageResource(R.drawable.pp_default); //A CHANGER
-
 
 
         // Set the listener to the click on a trip
@@ -75,7 +74,7 @@ public class MessageProfileAdapter extends BaseAdapter{
      * @param listener Listener to the click on a trip
      */
     public void setListener(MessageProfileAdapterListener listener) {
-            this.listener = listener;
-        }
+        this.listener = listener;
+    }
 
 }

@@ -1,5 +1,7 @@
 package com.example.blablaplane.fragments;
 
+import static com.example.blablaplane.object.trip.AirportFinder.findNearestAirport;
+
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -24,42 +27,41 @@ import com.example.blablaplane.R;
 import com.example.blablaplane.object.trip.Airport;
 import com.google.android.gms.maps.model.LatLng;
 
-import static com.example.blablaplane.object.trip.AirportFinder.findNearestAirport;
-
 public class FragmentGPSButton extends Fragment {
 
-    private CardView cardView;
-    private Button button;
     private OnAirportSelectedListenerInterface airportSelectedListenerInterface;
     private static final String LOCATION_PERMISSION = android.Manifest.permission.ACCESS_FINE_LOCATION;
 
-
-    public FragmentGPSButton(){
+    public FragmentGPSButton() {
 
     }
 
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        try {
+            airportSelectedListenerInterface = (OnAirportSelectedListenerInterface) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context + " must implement OnAirportSelectedListener");
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_gps, container, false);
 
-        this.button = view.findViewById(R.id.button);
-        this.cardView = view.findViewById(R.id.cardView);
+        Button button1 = view.findViewById(R.id.button);
+        CardView cardView = view.findViewById(R.id.cardView);
 
-        View.OnClickListener button = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                requestLocationPermission();
-            }
-        };
-        this.button.setOnClickListener(button);
-        this.cardView.setOnClickListener(button);
+        View.OnClickListener button = view1 -> requestLocationPermission();
+        button1.setOnClickListener(button);
+        cardView.setOnClickListener(button);
         return view;
     }
 
     private void getPosition() {
-        LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+        LocationManager locationManager = (LocationManager) requireActivity().getSystemService(Context.LOCATION_SERVICE);
         LocationListener locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
@@ -72,13 +74,8 @@ public class FragmentGPSButton extends Fragment {
             }
 
             @Override
-            public void onStatusChanged(String provider, int status, Bundle extras) {
-            }
-
-            @Override
             public void onProviderEnabled(String provider) {
             }
-
 
             @Override
             public void onProviderDisabled(String provider) {
@@ -86,23 +83,12 @@ public class FragmentGPSButton extends Fragment {
         };
 
 
-        if (ActivityCompat.checkSelfPermission(getContext(), LOCATION_PERMISSION) == PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(requireContext(), LOCATION_PERMISSION) == PackageManager.PERMISSION_GRANTED) {
             locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER, locationListener, null);
         } else {
-            Toast.makeText(getContext(), "ERROR : GPS Position have been removed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "ERROR: GPS Position has been removed", Toast.LENGTH_SHORT).show();
         }
     }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        try {
-            airportSelectedListenerInterface = (OnAirportSelectedListenerInterface) context;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString() + " must implement OnAirportSelectedListener");
-        }
-    }
-
 
     private void requestLocationPermission() {
         ActivityResultLauncher<String> requestPermissionLauncher = registerForActivityResult(
@@ -116,6 +102,7 @@ public class FragmentGPSButton extends Fragment {
                     }
                 }
         );
+
         if (ContextCompat.checkSelfPermission(requireContext(), LOCATION_PERMISSION)
                 == PackageManager.PERMISSION_GRANTED) {
             Toast.makeText(getContext(), "Loading", Toast.LENGTH_SHORT).show();

@@ -3,7 +3,6 @@ package com.example.blablaplane.object.user;
 import android.graphics.Bitmap;
 
 import com.example.blablaplane.object.aircraft.Aircraft;
-import com.example.blablaplane.object.trip.Trip;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +19,6 @@ public class User {
     private final String phone;
     private final float rating;
     private Bitmap picture;
-
 
     public User() {
         // Constructor for Firebase
@@ -66,10 +64,6 @@ public class User {
 
     public void addTrip(int tripId) {
         this.myTripList.add(tripId);
-    }
-
-    public boolean removeTrip(Trip trip) {
-        return this.myTripList.remove(trip);
     }
 
     public void addAircraft(Aircraft aircraft) {

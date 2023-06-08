@@ -125,6 +125,13 @@ public class FragmentHome extends Fragment implements Observer {
             }
         });
 
+        System.out.println("Piper "+R.drawable.piper_seneca);
+        System.out.println("jet "+R.drawable.jet_ranger);
+        System.out.println("diamond "+R.drawable.diamond_da42);
+        System.out.println("circus "+R.drawable.cirrus_sf50);
+        System.out.println("cesna "+R.drawable.cessna182);
+        System.out.println("da "+R.drawable.smaal_plane_round_logo);
+
         return view;
     }
 

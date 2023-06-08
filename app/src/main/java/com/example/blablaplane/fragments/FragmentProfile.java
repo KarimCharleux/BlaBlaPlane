@@ -29,7 +29,7 @@ import com.bumptech.glide.request.transition.Transition;
 import com.example.blablaplane.Interface.PictureActivitySingleton;
 import com.example.blablaplane.R;
 import com.example.blablaplane.activity.LandingActivity;
-import com.example.blablaplane.activity.Photo_Activity;
+import com.example.blablaplane.activity.PhotoActivity;
 import com.example.blablaplane.activity.SelectAircraftActivity;
 import com.example.blablaplane.activity.SwitcherActivity;
 import com.example.blablaplane.activity.user.ModifyProfile;
@@ -44,13 +44,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 public class FragmentProfile extends Fragment implements AircraftAdapterListener {
 
     SharedPreferences sharedPreferences;
     String userID;
-    Object cacheKey = PictureActivitySingleton.cacheKey;
     ImageView pictureProfil;
 
     public FragmentProfile() {
@@ -166,12 +164,9 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
             startActivity(intent);
         });
 
-        pictureProfil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Photo_Activity.class);
-                startActivity(intent);
-            }
+        pictureProfil.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), PhotoActivity.class);
+            startActivity(intent);
         });
 
         return view;
@@ -181,7 +176,7 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
     public void onResume() {
         super.onResume();
 
-        Glide.with(getContext())
+        Glide.with(requireContext())
                 .load(PictureActivitySingleton.cacheKey)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(new CustomTarget<Drawable>() {
@@ -197,11 +192,9 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
 
                     @Override
                     public void onLoadFailed(@Nullable Drawable errorDrawable) {
-                        if(PictureActivitySingleton.pictureProfile != null)
-                        {
+                        if (PictureActivitySingleton.pictureProfile != null) {
                             setPicture(pictureProfil, PictureActivitySingleton.pictureProfile);
-                        }else
-                        {
+                        } else {
                             pictureProfil.setImageResource(R.drawable.pp_default);
                         }
                     }
