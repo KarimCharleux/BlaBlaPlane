@@ -136,7 +136,6 @@
 
 
     /* ModifyProfile */
-
     <string name="MODIFYPROFILE_title">Modifier mon profil</string>
 
     /* Message information for the user */
@@ -155,6 +154,16 @@
     <string name="wrongId">⚠️ Mauvais identifiants !</string>
     <string name="errorUnknown">⚠️ Une erreur est survenue !</string>
     <string name="errorAccountRetry">⚠️ Erreur lors de la création du compte, veuillez réessayer</string>
+
+    /* Change Picture Profile */
+    <string name="CHANGEPICTUREPROFILE_title">Changer la photo de profil</string>
+    <string name="CHANGEPICTUREPROFILE_subtitle">Changer la photo de profil</string>
+    <string name="CHANGEPICTUREPROFILE_takePicture">Prendre une photo</string>
+    <string name="CHANGEPICTUREPROFILE_return">Retour</string>
+
+    /* Fragment GPS */
+    <string name="GPSFRAGMENT_button">Position actuelle</string>
+
 
     /* Other */
 

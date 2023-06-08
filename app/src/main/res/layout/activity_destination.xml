@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Destination">
+
+
+    <ImageView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="100sp"
+        android:contentDescription="@string/destination"
+        android:src="@drawable/logo_blablaplane"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/destination_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Sélectionnez votre destination"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:src="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/destination_title"
+        android:layout_marginRight="50dp"/>
+
+    <EditText
+        android:id="@+id/selectDestination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/edit_text"
+        android:ems="14"
+        android:hint="Destination"
+        android:inputType="text"
+        android:paddingVertical="5dp"
+        android:paddingHorizontal="15dp"
+        android:textColor="@color/black"
+        android:textSize="21dp"
+        android:textCursorDrawable="@color/blue_primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/destination_title" />
+
+
+    <fragment
+        android:id="@+id/gpsFragment"
+        android:name="com.example.blablaplane.fragments.FragmentGPSButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/selectDestination"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/suggestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/gpsFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/subSuggestionDisplay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_default="wrap"
+            app:layout_constraintWidth_percent="0.8"
+            app:layout_constraintTop_toTopOf="@id/suggestion"
+            app:layout_constraintRight_toRightOf="@id/suggestion"
+            app:layout_constraintLeft_toLeftOf="@id/suggestion">
+
+
+            <LinearLayout
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/destination1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_suggestion"
+                    android:text="Destination 1"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/destination2"
+                    android:layout_marginTop="5px"
+                    android:alpha="0.84"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_suggestion"
+                    android:text="Destination 2"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/destination3"
+                    android:layout_marginTop="5px"
+                    android:alpha="0.68"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_suggestion"
+                    android:text="Destination 3"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/destination4"
+                    android:layout_marginTop="5px"
+                    android:alpha="0.52"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_suggestion"
+                    android:text="Destination 4"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/destination5"
+                    android:layout_marginTop="5px"
+                    android:alpha="0.36"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_suggestion"
+                    android:text="Destination 5"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/destination6"
+                    android:layout_marginTop="5px"
+                    android:alpha="0.2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_suggestion"
+                    android:text="Destination 6"/>
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#39C3FD"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintVertical_bias="0.22000003">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#39C3FD"
+            android:outlineSpotShadowColor="#00BCD4"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="45dp"
+            android:layout_marginVertical="5dp"
+            android:text="Confirmer"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

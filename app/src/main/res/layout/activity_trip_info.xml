@@ -189,7 +189,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:contentDescription="@string/photoPilote"
-                app:srcCompat="@drawable/profile1" />
+                app:srcCompat="@drawable/pp_default" />
 
             <LinearLayout
                 android:layout_width="120dp"

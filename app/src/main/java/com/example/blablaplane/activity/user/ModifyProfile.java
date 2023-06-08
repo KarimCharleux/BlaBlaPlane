@@ -3,8 +3,13 @@ package com.example.blablaplane.activity.user;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
+import android.util.LruCache;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,8 +17,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.model.GlideUrl;
+import com.example.blablaplane.Interface.PictureActivitySingleton;
 import com.example.blablaplane.R;
 import com.example.blablaplane.activity.LandingActivity;
+import com.example.blablaplane.activity.Photo_Activity;
 import com.example.blablaplane.activity.SwitcherActivity;
 import com.example.blablaplane.object.DataBase;
 import com.example.blablaplane.object.user.User;
@@ -24,6 +34,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 public class ModifyProfile extends AppCompatActivity {
 
@@ -71,6 +82,12 @@ public class ModifyProfile extends AppCompatActivity {
             });
         }
 
+        ImageView pictureProfil = findViewById(R.id.picture_profile);
+        pictureProfil.setOnClickListener(x ->{
+            Intent intent = new Intent(ModifyProfile.this, Photo_Activity.class);
+            startActivity(intent);
+        });
+
         Button modifyButton = findViewById(R.id.ModifyProfile_ConfirmButton);
         modifyButton.setOnClickListener(v -> {
             TextView userFirstName = findViewById(R.id.modifyFirstName);
@@ -106,5 +123,44 @@ public class ModifyProfile extends AppCompatActivity {
         returnButton.setOnClickListener(v -> super.onBackPressed());
         CardView returnButtonCard = findViewById(R.id.modifyCardViewReturn);
         returnButtonCard.setOnClickListener(v -> super.onBackPressed());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setPictureProfil();
+    }
+
+    private void setPictureProfil() {
+        ImageView imageView = findViewById(R.id.picture_profile);
+        Drawable cachedProfileImage = null;
+        try {
+            cachedProfileImage = Glide.with(this)
+                    .load(PictureActivitySingleton.cacheKey)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .submit()
+                    .get();
+            if (cachedProfileImage != null) {
+                imageView.setImageDrawable(cachedProfileImage);
+            } else {
+                imageView.setImageResource(R.drawable.pp_default);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            if(PictureActivitySingleton.pictureProfile != null)
+            {
+                setPicture(imageView, PictureActivitySingleton.pictureProfile);
+            }else
+            {
+                imageView.setImageResource(R.drawable.pp_default);
+            }
+        }
+
+    }
+    private void setPicture(ImageView imageView, Bitmap pictureProfil) {
+        Glide.with(this)
+                .load(pictureProfil)
+                .circleCrop()
+                .into(imageView);
     }
 }
