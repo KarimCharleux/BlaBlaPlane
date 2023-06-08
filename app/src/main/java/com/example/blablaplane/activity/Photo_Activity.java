@@ -55,7 +55,6 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
     CardView cardView_takePicture;
     Button takePictureButton;
     ImageView returnButton;
-    String cacheKey = PictureActivityInterface.cacheKey;
 
 
 
@@ -74,7 +73,7 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
         Drawable cachedProfileImage = null;
         try {
             cachedProfileImage = Glide.with(this)
-                    .load(this.cacheKey)
+                    .load(PictureActivityInterface.cacheKey)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .submit()
                     .get();
@@ -154,7 +153,7 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
         Glide.with(getApplicationContext())
                 .load(imageBitmap)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .signature(new ObjectKey(this.cacheKey))
+                .signature(PictureActivityInterface.cacheKey)
                 .into(new CustomTarget<Drawable>() {
                     @Override
                     public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
