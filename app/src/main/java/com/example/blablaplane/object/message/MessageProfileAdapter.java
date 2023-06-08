@@ -55,7 +55,7 @@ public class MessageProfileAdapter extends BaseAdapter{
         // Set the text of the view for the trip
         firstName.setText(messageProfileArray.get(i).getFirstName());
         lastName.setText(messageProfileArray.get(i).getLastName());
-        pictureProfil.setImageResource(R.drawable.profile1); //A CHANGER
+        pictureProfil.setImageResource(R.drawable.pp_default); //A CHANGER
 
 
 

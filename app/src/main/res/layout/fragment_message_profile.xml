@@ -17,7 +17,7 @@
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:contentDescription="@string/pictureProfile"
-            android:src="@drawable/profile1"
+            android:src="@drawable/pp_default"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

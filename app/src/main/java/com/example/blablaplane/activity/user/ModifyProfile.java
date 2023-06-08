@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.LruCache;
 import android.widget.Button;
@@ -16,6 +18,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.model.GlideUrl;
+import com.example.blablaplane.Interface.PictureActivityInterface;
 import com.example.blablaplane.R;
 import com.example.blablaplane.activity.LandingActivity;
 import com.example.blablaplane.activity.Photo_Activity;
@@ -29,6 +34,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 public class ModifyProfile extends AppCompatActivity {
 
@@ -126,22 +132,22 @@ public class ModifyProfile extends AppCompatActivity {
     }
 
     private void setPictureProfil() {
-        final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
-        final int cacheSize = maxMemory / 8;
-         LruCache<String, Bitmap> memoryCache = new LruCache<String, Bitmap>(cacheSize) {
-            @Override
-            protected int sizeOf(String key, Bitmap bitmap) {
-                // The cache size will be measured in kilobytes rather than
-                // number of items.
-                return bitmap.getByteCount() / 1024;
+        ImageView imageView = findViewById(R.id.picture_profile);
+        Drawable cachedProfileImage = null;
+        try {
+            cachedProfileImage = Glide.with(this)
+                    .load(PictureActivityInterface.cacheKey)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .submit()
+                    .get();
+            if (cachedProfileImage != null) {
+                imageView.setImageDrawable(cachedProfileImage);
+            } else {
+                imageView.setImageResource(R.drawable.pp_default);
             }
-        };
-        Bitmap pictureProfil = memoryCache.get("pp");
-        System.out.println("PP = "+ pictureProfil);
-        if(pictureProfil != null)
-        {
-            ImageView pictureProfilOnActivity = findViewById(R.id.pictureProfile);
-            pictureProfilOnActivity.setImageBitmap(pictureProfil);
+        } catch (Exception e) {
+            e.printStackTrace();
+            imageView.setImageResource(R.drawable.pp_default);
         }
 
     }

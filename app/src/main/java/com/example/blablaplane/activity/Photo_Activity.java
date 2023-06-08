@@ -6,10 +6,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.provider.MediaStore;
-import android.util.LruCache;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -24,6 +24,16 @@ import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.load.engine.cache.DiskCacheAdapter;
+import com.bumptech.glide.load.model.GlideUrl;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.request.transition.Transition;
+import com.bumptech.glide.signature.ObjectKey;
 import com.example.blablaplane.Interface.PictureActivityInterface;
 import com.example.blablaplane.R;
 import com.bumptech.glide.Glide;
@@ -34,16 +44,18 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.concurrent.ExecutionException;
+
 public class Photo_Activity extends AppCompatActivity implements PictureActivityInterface {
-    private Bitmap picture;
-    private LruCache<String, Bitmap> memoryCache;
-    private ImageView imageView;
-    DatabaseReference userRef;
-    Bitmap currentUserPicture;
     ActivityResultLauncher<Intent> launcher;
+    private Bitmap picture;
+    private ImageView imageView;
+    Bitmap currentUserPicture;
+
     CardView cardView_takePicture;
     Button takePictureButton;
     ImageView returnButton;
+    String cacheKey = PictureActivityInterface.cacheKey;
 
 
 
@@ -52,53 +64,57 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
 
-        final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
-        final int cacheSize = maxMemory / 8;
-        memoryCache = new LruCache<String, Bitmap>(cacheSize) {
+        this.returnButton = findViewById(R.id.returnButton);
+        this.cardView_takePicture = findViewById(R.id.cardView_takePicture);
+        this.takePictureButton = findViewById(R.id.takePictureButton);
+        this.imageView = findViewById(R.id.imageView);
+
+        askPermission();
+
+        Drawable cachedProfileImage = null;
+        try {
+            cachedProfileImage = Glide.with(this)
+                    .load(this.cacheKey)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .submit()
+                    .get();
+            if (cachedProfileImage != null) {
+                imageView.setImageDrawable(cachedProfileImage);
+            } else {
+                imageView.setImageResource(R.drawable.pp_default);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            imageView.setImageResource(R.drawable.pp_default);
+        }
+
+
+
+        View.OnClickListener buttonTakePhoto = new View.OnClickListener() {
             @Override
-            protected int sizeOf(String key, Bitmap bitmap) {
-                return bitmap.getByteCount() / 1024;
+            public void onClick(View view) {
+                if(ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED){
+                    ActivityCompat.requestPermissions(Photo_Activity.this, new String[]{Manifest.permission.CAMERA}, PictureActivityInterface.REQUEST_CAMERA);
+                } else {
+                    takePicture();
+                }
             }
         };
 
-        this.cardView_takePicture = findViewById(R.id.cardView_takePicture);
-        this.takePictureButton = findViewById(R.id.takePictureButton);
-        this.returnButton = findViewById(R.id.returnButton);
-
-        SharedPreferences preferences = this.getSharedPreferences("user_data", Context.MODE_PRIVATE);
-        String userID = preferences.getString("user_id", null);
-        if(userID != null)
-        {
-            this.userRef = DataBase.USERS_REFERENCE.child(userID);
-        }
-
-        // Check if the user exists and get its data
-        this.userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        View.OnClickListener returnButton = new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    // User exists in the database and we can get its data
-                    User user = dataSnapshot.getValue(User.class);
-                    assert user != null;
-                    // Put the first letter of the name in uppercase
-                    int lengthPassword = user.getPassword().length();
-                    String hiddenPassword = "";
-                    for (int i = 0; i < lengthPassword; i++) {
-                        hiddenPassword += "*";
-                    }
-
-                    //TODO create a way to get picture from firebase
-                    String name = user.getName().substring(0, 1).toUpperCase() + user.getName().substring(1);
-                    currentUserPicture = user.getPicture();
-                    setPicture();
-                }
+            public void onClick(View view) {
+                saveProfileImageToCache(currentUserPicture);
+                finish();
             }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
+        };
+        this.returnButton.setOnClickListener(returnButton);
+        this.cardView_takePicture.setOnClickListener(buttonTakePhoto);
+        this.takePictureButton.setOnClickListener(buttonTakePhoto);
+    }
 
-        launcher = registerForActivityResult(
+    private void askPermission() {
+         launcher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
                     int resultCode = result.getResultCode();
@@ -116,32 +132,6 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
                         toast.show();
                     }
                 });
-
-        View.OnClickListener buttonTakePhoto = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED){
-                    ActivityCompat.requestPermissions(Photo_Activity.this, new String[]{Manifest.permission.CAMERA}, PictureActivityInterface.REQUEST_CAMERA);
-                } else {
-                    takePicture();
-                }
-            }
-        };
-
-        View.OnClickListener returnButton = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addBitmapToMemoryCache("pp", currentUserPicture);
-                System.out.println("Saved");
-                finish();
-            }
-        };
-
-        this.cardView_takePicture.setOnClickListener(buttonTakePhoto);
-        this.takePictureButton.setOnClickListener(buttonTakePhoto);
-        this.returnButton.setOnClickListener(returnButton);
-
-        buttonTakePhoto.onClick(null);
     }
 
 
@@ -159,11 +149,29 @@ public class Photo_Activity extends AppCompatActivity implements PictureActivity
                 .into(imageView);
     }
 
-    public void addBitmapToMemoryCache(String key, Bitmap bitmap) {
-        memoryCache.put(key, bitmap);
-        if(memoryCache.get(key) == null)System.out.println("ERROR CACHING");
-    }
 
+    private void saveProfileImageToCache(Bitmap imageBitmap) {
+        Glide.with(getApplicationContext())
+                .load(imageBitmap)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .signature(new ObjectKey(this.cacheKey))
+                .into(new CustomTarget<Drawable>() {
+                    @Override
+                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                        // L'image a été chargée avec succès et mise en cache avec la clé spécifiée
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+                        // L'image a été supprimée du cache
+                    }
+
+                    @Override
+                    public void onLoadFailed(@Nullable Drawable errorDrawable) {
+                        // Une erreur s'est produite lors du chargement de l'image
+                    }
+                });
+    }
 
 
     @Override
