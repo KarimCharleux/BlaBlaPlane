@@ -101,7 +101,8 @@
     <string name="addTripMessage">Ajouter un trajet</string>
     <string name="selectPrice">Selectionnez un prix</string>
     <string name="selectAircraft">Selectionnez un aéronef</string>
-
+    <string name="confirmationCreateTrip">Est-ce que c\'est bon pour vous ?</string>
+    <string name="recapCreateTRip">Votre trajet : Nice vers Paris</string>
 
     /* Aircraft */
 
@@ -120,6 +121,7 @@
     <string name="pilot_license">Brevet de pilote PPL</string>
 
     /* Payment */
+
     <string name="selectPayment">Choisir un moyen de paiement</string>
     <string name="paypal">Paypal</string>
     <string name="cardPayment">Carte Bancaire</string>
@@ -164,7 +166,7 @@
     <string name="errorUnknown">⚠️ Une erreur est survenue !</string>
     <string name="errorAccountRetry">⚠️ Erreur lors de la création du compte, veuillez réessayer</string>
     <string name="RESEARCH_ERR_EmptyDeparturePlaces">⚠️ Veuillez selectionner un lieux !</string>
-
+    <string name="ConfirmationTripCreated">Le trajet a bien été créé ✅</string>
 
     /* Change Picture Profile */
     <string name="CHANGEPICTUREPROFILE_title">Changer la photo de profil</string>
@@ -178,6 +180,7 @@
 
     /* Other */
 
+    <string name="delete">Supprimer</string>
     <string name="modify">Modifier</string>
     <string name="returnText">Retour</string>
     <string name="confirmation">Confirmation</string>
@@ -187,6 +190,7 @@
     <string name="logout">Déconnecter</string>
     <string name="or">- OU -</string>
     <string name="title_activity_add_contact">AddContactActivity</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -229,6 +233,4 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
-    <string name="delete">Supprimer</string>
-    <string name="title_activity_select_date">SelectDateActivity</string>
 </resources>

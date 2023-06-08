@@ -14,6 +14,7 @@ import com.example.blablaplane.R;
 import com.example.blablaplane.notifications.CalendarNotificationFactory;
 import com.example.blablaplane.notifications.Notification;
 import com.example.blablaplane.notifications.NotifyApp;
+import com.example.blablaplane.object.trip.CreateTripInfo;
 import com.example.blablaplane.object.trip.SearchTripInfo;
 import com.example.blablaplane.object.trip.Trip;
 import com.example.blablaplane.object.trip.TripArray;
@@ -31,6 +32,9 @@ public class ConfirmationActivity extends AppCompatActivity {
 
         // Reset the search context to avoid to keep the previous search
         SearchTripInfo.reset();
+
+        // Reset the create context
+        CreateTripInfo.reset();
 
         int tripId = getIntent().getIntExtra("id", 0);
         Trip trip = TripArray.getInstance().getTripById(tripId);

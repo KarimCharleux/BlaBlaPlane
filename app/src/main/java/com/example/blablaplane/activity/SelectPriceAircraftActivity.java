@@ -1,6 +1,7 @@
 package com.example.blablaplane.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -61,16 +62,17 @@ public class SelectPriceAircraftActivity extends AppCompatActivity implements Ai
 
     @Override
     public void onAircraftClick(int vehiculeId) {
+        // Get the pilot ID
+        CreateTripInfo.pilotId = getSharedPreferences("user_data", Context.MODE_PRIVATE).getString("user_id", null);
+
         // Get the aircraft ID
         CreateTripInfo.aircraftId = vehiculeId;
 
         // Get the price
         CreateTripInfo.price = Float.valueOf(((EditText) findViewById(R.id.EDIT_price)).getText().toString().replace(',', '.').replace(" €", ""));
 
-        System.out.println("Aircraft ID: " + CreateTripInfo.aircraftId);
-        System.out.println("Price: " + CreateTripInfo.price);
-        System.out.println("Departure: " + CreateTripInfo.departure);
-        System.out.println("Arrival: " + CreateTripInfo.destination);
-        System.out.println("Date: " + CreateTripInfo.date);
+        // Go to set the date of the trip
+        Intent intentNavigateNewPage = new Intent(getApplicationContext(), SelectDateActivity.class);
+        startActivity(intentNavigateNewPage);
     }
 }

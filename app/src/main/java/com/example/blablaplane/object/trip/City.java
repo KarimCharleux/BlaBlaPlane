@@ -23,7 +23,7 @@ public enum City {
     BERLIN("Berlin", "BER", "Allemagne", new GeoPoint(52.520008, 13.404954)),
     AMSTERDAM("Amsterdam", "AMS", "Pays-Bas", new GeoPoint(52.370216, 4.895168));
 
-    private final String cityName;
+    private String cityName;
     private final String cityCode;
     private final String country;
     private final GeoPoint geoPoint;
@@ -41,7 +41,9 @@ public enum City {
                 return city;
             }
         }
-        return null;
+        City cityByDefault = City.NICE;
+        cityByDefault.setCityName(cityName);
+        return cityByDefault;
     }
 
     public String getCountry() {
@@ -60,9 +62,7 @@ public enum City {
         return geoPoint;
     }
 
-
-
-
-
-
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
 }

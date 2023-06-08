@@ -1,7 +1,6 @@
 package com.example.blablaplane.object.trip;
 
 import java.text.NumberFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -11,15 +10,19 @@ public class Trip {
     private final int id;
     private final String pilotId;
     private final int aircraftId;
-    private final String departureDate;
-    private final String arrivalDate;
+    private final Date departureDate;
+    private final Date arrivalDate;
     private final City departure;
     private final City arrival;
     private final Float price;
     private int seatsLeft;
 
-    public Trip(int id, String departureDate, String arrivalDate, City departure, City arrival, Float price, String pilot, int aircraftId, int seatsLeft) {
-        this.id = id;
+    public Trip() {
+        this(null, null, null, null, null, null, 0, 0);
+    }
+
+    public Trip(Date departureDate, Date arrivalDate, City departure, City arrival, Float price, String pilot, int aircraftId, int seatsLeft) {
+        this.id = createId();
         this.departureDate = departureDate;
         this.arrivalDate = arrivalDate;
         this.departure = departure;
@@ -28,6 +31,12 @@ public class Trip {
         this.pilotId = pilot;
         this.seatsLeft = seatsLeft;
         this.aircraftId = aircraftId;
+    }
+
+    private int createId() {
+        long currentTime = System.currentTimeMillis();
+        int randomValue = (int) (Math.random() * 1000000);
+        return (int) (currentTime + randomValue);
     }
 
     public int getAircraftId() {
@@ -49,21 +58,11 @@ public class Trip {
     }
 
     public Date getDepartureDate() {
-        try {
-            return dateFormatter.parse(this.departureDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return this.departureDate;
     }
 
     public Date getArrivalDate() {
-        try {
-            return dateFormatter.parse(this.arrivalDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return this.arrivalDate;
     }
 
     public City getDeparture() {

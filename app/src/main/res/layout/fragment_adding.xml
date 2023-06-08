@@ -26,7 +26,7 @@
             app:layout_constraintVertical_bias="0.171" />
 
         <TextView
-            android:id="@+id/frag_publish_txt_select"
+            android:id="@+id/recapCreateTrip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:labelFor="@id/EDIT_price"
@@ -50,7 +50,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/frag_publish_txt_select"
+            app:layout_constraintTop_toBottomOf="@+id/recapCreateTrip"
             app:layout_constraintVertical_bias="0.18">
 
             <Button

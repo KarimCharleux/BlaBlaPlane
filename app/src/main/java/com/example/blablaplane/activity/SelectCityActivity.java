@@ -23,7 +23,6 @@ import com.google.android.gms.common.api.Status;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.api.model.TypeFilter;
-import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 
@@ -76,7 +75,7 @@ public class SelectCityActivity extends AppCompatActivity {
             CardView buttonCardView = findViewById(R.id.btn_confirm_search);
             Button buttonText = findViewById(R.id.btn_confirm_search_text);
             TextView titlePage = findViewById(R.id.frag_publish_title);
-            TextView descriptionPage = findViewById(R.id.frag_publish_txt_select);
+            TextView descriptionPage = findViewById(R.id.recapCreateTrip);
 
             buttonCardView.setOnClickListener(this::select);
             buttonText.setOnClickListener(this::select);
