@@ -120,8 +120,4 @@ public class User {
     public float getRating() {
         return this.rating;
     }
-
-    public Bitmap getPicture() {
-        return null;
-    }
 }

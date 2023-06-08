@@ -17,12 +17,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.model.GlideUrl;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.example.blablaplane.Interface.PictureActivityInterface;
 import com.example.blablaplane.R;
 import com.example.blablaplane.activity.LandingActivity;
@@ -47,7 +50,7 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
 
     SharedPreferences sharedPreferences;
     String userID;
-    String cacheKey = PictureActivityInterface.cacheKey;
+    Object cacheKey = PictureActivityInterface.cacheKey;
 
     public FragmentProfile() {
         // Required empty public constructor
@@ -141,22 +144,25 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
             });
         }
 
-        Drawable cachedProfileImage = null;
-        try {
-            cachedProfileImage = Glide.with(this)
-                    .load(new GlideUrl(this.cacheKey))
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .submit()
-                    .get();
-            if (cachedProfileImage != null) {
-                picture_profile.setImageDrawable(cachedProfileImage);
-            } else {
-                picture_profile.setImageResource(R.drawable.pp_default);
-            }
-        } catch (ExecutionException | InterruptedException e) {
-            e.printStackTrace();
-            picture_profile.setImageResource(R.drawable.pp_default);
-        }
+
+        Glide.with(getContext())
+                .load(PictureActivityInterface.cacheKey)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(new CustomTarget<Drawable>() {
+                    @Override
+                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                        picture_profile.setImageDrawable(resource);
+                    }
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+                    }
+                    @Override
+                    public void onLoadFailed(@Nullable Drawable errorDrawable) {
+                        picture_profile.setImageResource(R.drawable.pp_default);
+                    }
+                });
+
+
 
         // Disconnect button
         Button buttonDisconnect = view.findViewById(R.id.logoutButton);
