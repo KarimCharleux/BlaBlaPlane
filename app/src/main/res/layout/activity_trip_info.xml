@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.TripInfoActivity">
+
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dateText"
+        android:textColor="#054B68"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.081">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/location1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/departureLocationDescription"
+                app:srcCompat="@drawable/location_pin" />
+
+            <TextView
+                android:id="@+id/departureText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/departureText"
+                android:textColor="#000000"
+                android:textSize="23sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/departureTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/departureTime"
+                android:textColor="#595959"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/arrow_plane"
+                android:layout_width="120dp"
+                android:layout_height="44dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="-5dp"
+                android:contentDescription="@string/arrowPlaneDescription"
+                app:srcCompat="@drawable/plane_arrow" />
+
+            <TextView
+                android:id="@+id/durationTime"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@string/durationTime" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/location2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/location2"
+                app:srcCompat="@drawable/location_pin" />
+
+            <TextView
+                android:id="@+id/arrivalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/arrivalText"
+                android:textColor="#000000"
+                android:textSize="23sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/arrivalTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/arrivalTime"
+                android:textColor="#595959"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <org.osmdroid.views.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.04000002" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapView"
+        app:layout_constraintVertical_bias="0.01999998">
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/priceTrip"
+            android:textColor="@color/blue_primary"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/picePerPassanger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pricePerPassanger" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/photoPilote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:contentDescription="@string/photoPilote"
+                app:srcCompat="@drawable/pp_default" />
+
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/namePilot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:text="@string/namePilot"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/surnamePilot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/surnamePilot"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/ratingPilot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ratingPilot" />
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#F1F1F1"
+                app:cardCornerRadius="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/contactButton"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="-2dp"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#F1F1F1"
+                        android:outlineSpotShadowColor="#F1F1F1"
+                        android:text="@string/contactButton"
+                        android:textAllCaps="false"
+                        android:textColor="#4A4A4A"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        />
+                    <Button
+                        android:id="@+id/BTN_addContact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#F1F1F1"
+                        android:outlineSpotShadowColor="#F1F1F1"
+                        android:text="Ajouter aux contact"
+                        android:textAllCaps="false"
+                        android:textColor="#4A4A4A"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/blue_primary"
+                app:cardCornerRadius="30dp">
+
+                <ImageView
+                    android:id="@+id/photoPlane"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@color/blue_primary"
+                    android:contentDescription="@string/photoPlane"
+                    android:padding="10dp"
+                    app:srcCompat="@drawable/small_plane" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/namePlane"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/namePlane"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="229dp"
+        android:layout_height="55dp"
+        android:backgroundTint="@color/blue_primary"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.110000014">
+
+        <Button
+            android:id="@+id/bookButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/blue_primary"
+            android:outlineSpotShadowColor="@color/blue_primary"
+            android:text="@string/bookButton"
+            android:textAllCaps="false"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="105dp"
+            tools:layout_editor_absoluteY="503dp" />
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

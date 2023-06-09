@@ -1,9 +1,11 @@
+*.DS_STORE
+.idea/*
+.vscode/
 # Built application files
 *.apk
 *.aar
 *.ap_
 *.aab
-
 # Files for the ART/Dalvik VM
 *.dex
 
@@ -40,6 +42,8 @@ captures/
 *.iml
 .idea/workspace.xml
 .idea/tasks.xml
+.idea/deploymentTargetsDropDown.xml
+.idea/misc.xml
 .idea/gradle.xml
 .idea/assetWizardSettings.xml
 .idea/dictionaries

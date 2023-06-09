@@ -1,3 +1,236 @@
 <resources>
     <string name="app_name">BlaBlaPlane</string>
+    /* API */
+    <string name="API_googleMaps">AIzaSyAuHeVetKin8MDiHT5mrMGWDZ-24M5WwnA</string>
+
+    /* Accueil */
+
+    <string name="ACCUEIL_title">Des vols partagés pour des aventures inoubliables</string>
+    <string name="ACCUEIL_date">Aujourd\'hui</string>
+    <string name="ACCUEIL_number_of_people">1</string>
+    <string name="ACCUEIL_start">Depart</string>
+    <string name="ACCUEIL_destination">Destination</string>
+    <string name="ACCUEIL_search">Rechercher</string>
+
+
+    /* RECHERCHE */
+
+    <string name="RESEARCH_selectionDepart">Sélectionnez  un lieu de départ</string>
+    <string name="RESEARCH_selectionArrivee">"Sélectionnez  un lieu d'arriver"</string>
+    <string name="RESEARCH_btn_validate_text">Valider</string>
+
+    /*INTENT */
+    <string name="RESEARCH_INTENT_startingPlace">StartingPlace</string>
+    <string name="RESEARCH_INTENT_destinationPlace">DestinationPlace</string>
+
+
+    /* Accueil */
+
+    <string name="title">Des vols partagés pour des aventures inoubliables</string>
+    <string name="date">Aujourd\'hui</string>
+    <string name="number_of_people">1</string>
+    <string name="start">Départ</string>
+    <string name="destination">Destination</string>
+    <string name="search">Rechercher</string>
+
+
+    /* Messages */
+
+    <string name="myMessages">Mes messages</string>
+    <string name="previousMessages">Salut t\'es ou ?</string>
+
+
+    /* Trip */
+
+    <string name="myTrips">Mes trajets</string>
+    <string name="surnamePilot">LUTUN</string>
+    <string name="namePilot">Théo</string>
+    <string name="photoPilote">User profile</string>
+    <string name="pricePerPassanger">Prix total pour 1 passager</string>
+    <string name="priceTrip">200,00 €</string>
+    <string name="arrivalTime">13h35</string>
+    <string name="arrivalText">Nice</string>
+    <string name="location2">Arrival location</string>
+    <string name="durationTime">1h30</string>
+    <string name="arrowPlaneDescription">Durée du vol</string>
+    <string name="departureTime">12h05</string>
+    <string name="departureText">Paris</string>
+    <string name="departureLocationDescription">Localisation Départ</string>
+    <string name="ratingPilot">★ 2/5</string>
+    <string name="contactButton">Contacter</string>
+    <string name="photoPlane">Avion Profile</string>
+    <string name="namePlane">Cessna 140</string>
+    <string name="bookButton">Réserver</string>
+    <string name="dateText">Mercredi 17 mai</string>
+    <string name="buttonSearching">Rechercher</string>
+    <string name="buttonAdding">Publier</string>
+    <string name="buttonMyTrip">Mes trajets</string>
+    <string name="buttonChatting">Messages</string>
+    <string name="buttonProfile">Profile</string>
+    <string name="pictureProfile">Photo Profile</string>
+    <string name="route">route</string>
+    <string name="photoPilot">Photo Pilote</string>
+    <string name="noMyTripMessage">Vous avez réservé aucun trajets pour le moment.</string>
+    <string name="noTripMessage">Aucun trajets disponible pour le moment.</string>
+    <string name="bookTrips">Réserver des trajets</string>
+    <string name="selectDepart">Sélectionnez un lieu de départ :</string>
+
+
+    /* Connexion */
+
+    <string name="connection">Connexion</string>
+    <string name="enterId">Renseignez vos identifiants</string>
+    <string name="email">E-mail</string>
+    <string name="password">Mot de passe</string>
+    <string name="forgotPassword">Mot de passe oublié ?</string>
+    <string name="se_connecter">Se connecter 🤙</string>
+
+    /* Inscription */
+
+    <string name="s_inscrire">S\'inscrire 👋</string>
+    <string name="inscription">Inscription</string>
+    <string name="createProfile">Créez votre profil</string>
+    <string name="name">Prénom</string>
+    <string name="surname">Nom</string>
+    <string name="repeatPassword">Répétez le mot de passe</string>
+    <string name="imPilot">Je suis pilote</string>
+
+    /* Create Trip */
+
+    <string name="beforePostTrip">Avant de publier votre trajet, vous devez avoir un compte valide, ainsi que : \n\n ✅ Votre brevet de pilote valide ! 🎓 \n\n ✅ Votre carte d\'identité valide ! 🪪️</string>
+    <string name="addTripMessage">Ajouter un trajet</string>
+    <string name="selectPrice">Selectionnez un prix</string>
+    <string name="selectAircraft">Selectionnez un aéronef</string>
+    <string name="confirmationCreateTrip">Est-ce que c\'est bon pour vous ?</string>
+    <string name="recapCreateTRip">Votre trajet : Nice vers Paris</string>
+
+    /* Aircraft */
+
+    <string name="planeName">Cirrus Vision Jet</string>
+    <string name="aircraft">Aéronef</string>
+    <string name="nbPassenger">Nombre de personne</string>
+    <string name="number3">3</string>
+    <string name="eurocopter_ec130">Eurocopter EC130</string>
+    <string name="depart">Depart</string>
+    <string name="enterAddress">Entrez une adresse</string>
+    <string name="phone">Téléphone</string>
+    <string name="pilot_expert">Pilote Expert</string>
+    <string name="emailExample">pierre.dubois@gmail.com</string>
+    <string name="phoneNumber">06 01 02 03 04</string>
+    <string name="identity">Pièce d’identité</string>
+    <string name="pilot_license">Brevet de pilote PPL</string>
+
+    /* Payment */
+
+    <string name="selectPayment">Choisir un moyen de paiement</string>
+    <string name="paypal">Paypal</string>
+    <string name="cardPayment">Carte Bancaire</string>
+    <string name="apple_pay">Apple Pay</string>
+    <string name="google_pay">Google Pay</string>
+    <string name="trajet_comfirm">Trajet Confirmé</string>
+    <string name="addToCalendar">Ajouter au calendrier</string>
+
+    /* SelectAircraft */
+
+    <string name="SELECTAIRCRAFT_title">Sélectionner un appareil</string>
+    <string name="SELECTAIRCRAFT_subtitle">Sélectionnez un appareil</string>
+    <string name="SELECTAIRCRAFT_create_new_one">Créer mon appareil</string>
+
+    /* CreateNewAircraft */
+
+    <string name="CREATENEWAIRCRAFT_title">Créer un nouvel appareil</string>
+    <string name="CREATENEWAIRCRAFT_name">Nom de l\'aeronef</string>
+    <string name="CREATENEWAIRCRAFT_numberOfPassenger">Nombre de passager</string>
+    <string name="CREATENEWAIRCRAFT_picture">Photo de l\'aéronef</string>
+    <string name="CREATENEWAIRCRAFT_create">Créer l\'aeronef</string>
+    <string name="addNewAircraft">Ajouter un aéronef</string>
+
+
+    /* ModifyProfile */
+    <string name="MODIFYPROFILE_title">Modifier mon profil</string>
+
+    /* Message information for the user */
+
+    <string name="confirmationAircraftCreated">✅ Votre aéronef à bien été supprimé !</string>
+    <string name="confirmationConnected">✅ Vous êtes connecté !</string>
+    <string name="confirmationDisconnected">✅ Vous êtes déconnecté !</string>
+    <string name="confirmationCreated">✅ Votre compte a bien été créé !</string>
+    <string name="confirmationModified">✅ Votre compte a bien été modifié</string>
+    <string name="errorUpdateProfile">⚠️ Échec de la mise à jour du profil</string>
+    <string name="fillAllField">⚠️ Veuillez remplir tous les champs !</string>
+    <string name="errorEmail">⚠️ Veuillez renseigner un email valide !</string>
+    <string name="errorEmailDuplicated">⚠️ Cet email est déjà utilisé !</string>
+    <string name="errorPhone">⚠️ Veuillez entrer un numéro de téléphone valide !</string>
+    <string name="errorPassword">⚠️ Les mots de passes doivent être les mêmes !</string>
+    <string name="wrongId">⚠️ Mauvais identifiants !</string>
+    <string name="errorUnknown">⚠️ Une erreur est survenue !</string>
+    <string name="errorAccountRetry">⚠️ Erreur lors de la création du compte, veuillez réessayer</string>
+    <string name="RESEARCH_ERR_EmptyDeparturePlaces">⚠️ Veuillez selectionner un lieux !</string>
+    <string name="ConfirmationTripCreated">Le trajet a bien été créé ✅</string>
+
+    /* Change Picture Profile */
+    <string name="CHANGEPICTUREPROFILE_title">Changer la photo de profil</string>
+    <string name="CHANGEPICTUREPROFILE_subtitle">Changer la photo de profil</string>
+    <string name="CHANGEPICTUREPROFILE_takePicture">Prendre une photo</string>
+    <string name="CHANGEPICTUREPROFILE_return">Retour</string>
+
+    /* Fragment GPS */
+    <string name="GPSFRAGMENT_button">Position actuelle</string>
+
+
+    /* Other */
+
+    <string name="delete">Supprimer</string>
+    <string name="modify">Modifier</string>
+    <string name="returnText">Retour</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="blablaplane">BlaBlaPlane</string>
+    <string name="slogans">Des vols partagés pour des aventures inoubliables</string>
+    <string name="mentions_legales">Mentions légales</string>
+    <string name="logout">Déconnecter</string>
+    <string name="or">- OU -</string>
+    <string name="title_activity_add_contact">AddContactActivity</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
+        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
+        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
+        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
+        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
+        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
+        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
+        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
+        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
+        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
+        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
+        bibendum, vel congue leo egestas.\n\n
+        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
+        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
+        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
+        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
+        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
+        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
+        est.\n\n
+        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
+        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
+        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
+        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
+        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
+        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
+        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
+        convallis.\n\n
+        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
+        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
+        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
+        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
+        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
+        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
+    </string>
 </resources>

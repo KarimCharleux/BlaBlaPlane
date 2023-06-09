@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.FragmentAdding">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/frag_publish_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
+            android:text="@string/addTripMessage"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.171" />
+
+        <TextView
+            android:id="@+id/recapCreateTrip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/EDIT_price"
+            android:textAppearance="?android:textAppearanceListItem"
+            android:text="@string/beforePostTrip"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frag_publish_title"
+            app:layout_constraintVertical_bias="0.096" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_confirm_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/blue_primary"
+            app:cardCornerRadius="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recapCreateTrip"
+            app:layout_constraintVertical_bias="0.18">
+
+            <Button
+                android:id="@+id/btn_confirm_search_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="45dp"
+                android:layout_marginVertical="5dp"
+                android:backgroundTint="@color/blue_primary"
+                android:outlineSpotShadowColor="@color/blue_primary"
+                android:text="@string/RESEARCH_btn_validate_text"
+                android:textAllCaps="false"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
