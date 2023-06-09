@@ -127,7 +127,7 @@
     <string name="cardPayment">Carte Bancaire</string>
     <string name="apple_pay">Apple Pay</string>
     <string name="google_pay">Google Pay</string>
-    <string name="payment_valid">Paiement validé</string>
+    <string name="trajet_comfirm">Trajet Confirmé</string>
     <string name="addToCalendar">Ajouter au calendrier</string>
 
     /* SelectAircraft */
