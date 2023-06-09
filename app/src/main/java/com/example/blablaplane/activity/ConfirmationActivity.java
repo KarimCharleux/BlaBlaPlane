@@ -46,12 +46,20 @@ public class ConfirmationActivity extends AppCompatActivity {
 
         int tripId = getIntent().getIntExtra("id", 0);
         Trip trip = TripArray.getInstance().getTripById(tripId);
+        System.out.println("My trip = "+ trip);
+        System.out.println("My trip = "+ trip.getDeparture());
+        System.out.println("My trip = "+ trip.getArrival());
 
         Button addToCalendarButton = findViewById(R.id.AddToCalendarButton);
         Button backToHomeButton = findViewById(R.id.backToHomeButton);
 
         Intent intent = getIntent();
-        Notification notification = intent.getExtras().getParcelable("notif");
+
+        if(intent.getExtras() != null)
+        {
+            Notification notification = intent.getExtras().getParcelable("notif");
+            if(notification != null) sendNotificationOnChannel(notification);
+        }
 
         addToCalendarButton.setOnClickListener(view -> addToCalendar(trip));
 
@@ -60,7 +68,7 @@ public class ConfirmationActivity extends AppCompatActivity {
             System.out.println("VERS HOME");
             ConfirmationActivity.this.startActivity(intentNavigateNewPage);
         });
-        sendNotificationOnChannel(notification);
+
 
         // Get the user ID from the cache
         String userID = this.getSharedPreferences("user_data", Context.MODE_PRIVATE).getString("user_id", null);

@@ -44,7 +44,8 @@ public class SelectDateActivity extends AppCompatActivity implements DatePickerD
             TripArray.getInstance().add(trip);
             Toast.makeText(this, R.string.ConfirmationTripCreated, Toast.LENGTH_SHORT).show();
 
-            Intent intent = new Intent(this, SwitcherActivity.class);
+            Intent intent = new Intent(this, ConfirmationActivity.class);
+            intent.putExtra("id", trip.getId());
             startActivity(intent);
         });
     }
