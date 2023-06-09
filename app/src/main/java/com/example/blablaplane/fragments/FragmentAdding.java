@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 import com.example.blablaplane.R;
-import com.example.blablaplane.activity.SelectCityActivity;
-import com.example.blablaplane.activity.SelectCityType;
+import com.example.blablaplane.activity.select.SelectCityActivity;
+import com.example.blablaplane.activity.select.SelectCityType;
 
 public class FragmentAdding extends Fragment {
 

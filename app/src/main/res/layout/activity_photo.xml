@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.ModifyProfile">
+    tools:context=".activity.user.ModifyProfile">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/header"
@@ -49,8 +49,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView"
         android:scaleType="centerCrop"
-        android:background="@drawable/circle_shape"/>
-
+        android:background="@drawable/circle_shape"
+        android:contentDescription="@string/photoPilot" />
 
 
     <androidx.cardview.widget.CardView
@@ -90,8 +90,7 @@
         app:layout_constraintTop_toBottomOf="@id/cardView_takePicture"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:clickable="true"/>
-
+        android:clickable="true" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

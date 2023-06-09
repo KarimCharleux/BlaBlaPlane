@@ -1,7 +1,5 @@
 package com.example.blablaplane.object.trip;
 
-import android.content.Context;
-
 import java.util.Date;
 
 public class CreateTripInfo {

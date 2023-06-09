@@ -4,10 +4,12 @@ import org.osmdroid.util.GeoPoint;
 
 /**
  * Cities available for the trips
+ * Used to get geo points for the map from the city name
  */
 public enum City {
     PARIS("Paris", "PAR", "France", new GeoPoint(48.856614, 2.3522219)),
     NICE("Nice", "NCE", "France", new GeoPoint(43.710173, 7.2619532)),
+    CANNES("Cannes", "CEQ", "France", new GeoPoint(43.552847, 7.017369)),
     LYON("Lyon", "LYS", "France", new GeoPoint(45.764043, 4.835659)),
     MARSEILLE("Marseille", "MRS", "France", new GeoPoint(43.296482, 5.36978)),
     TOULOUSE("Toulouse", "TLS", "France", new GeoPoint(43.604652, 1.444209)),

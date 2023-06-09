@@ -9,8 +9,8 @@ import java.util.Objects;
 
 public class NotifyApp extends Application {
 
-    public static final String CHANNEL_IDP= "Channel Paiement";
-    public static final String CHANNEL_IDC= "Channel Calendrier";
+    public static final String CHANNEL_IDP = "Channel Paiement";
+    public static final String CHANNEL_IDC = "Channel Calendrier";
 
     public static NotificationManager getNotificationManager() {
         return notificationManager;
@@ -19,12 +19,12 @@ public class NotifyApp extends Application {
     private static NotificationManager notificationManager;
 
     private void createNotificationChannels() {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            NotificationChannel channelp = new NotificationChannel(CHANNEL_IDP,"Channel Paiement",NotificationManager.IMPORTANCE_HIGH);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channelp = new NotificationChannel(CHANNEL_IDP, "Channel Paiement", NotificationManager.IMPORTANCE_HIGH);
             channelp.setDescription("Channel de BlaBlaPane réservé aux confirmations de paiement.");
             notificationManager = getSystemService(NotificationManager.class);
             Objects.requireNonNull(notificationManager).createNotificationChannel(channelp);
-            NotificationChannel channelc = new NotificationChannel(CHANNEL_IDC,"Channel Calendrier ",NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationChannel channelc = new NotificationChannel(CHANNEL_IDC, "Channel Calendrier ", NotificationManager.IMPORTANCE_DEFAULT);
             channelc.setDescription("Channel de BlaBlaPane réservé aux confirmation d'ajout sur le calendrier.");
             notificationManager = getSystemService(NotificationManager.class);
             Objects.requireNonNull(notificationManager).createNotificationChannel(channelc);
@@ -32,11 +32,10 @@ public class NotifyApp extends Application {
     }
 
     @Override
-    public void onCreate(){
+    public void onCreate() {
         super.onCreate();
         createNotificationChannels();
     }
-
 
 
 }

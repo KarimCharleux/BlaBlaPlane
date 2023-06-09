@@ -56,9 +56,9 @@ public class FragmentMyTrips extends Fragment implements TripAdapterListener {
 
                     List<Trip> tripArray = new ArrayList<>();
                     // Get the list of trips
-                    for(int tripId : tripIdArray){
+                    for (int tripId : tripIdArray) {
                         Trip trip = TripArray.getInstance().getTripById(tripId);
-                        if(trip != null){
+                        if (trip != null) {
                             tripArray.add(trip);
                         }
                     }

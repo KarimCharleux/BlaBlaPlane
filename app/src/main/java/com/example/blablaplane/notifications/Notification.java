@@ -60,12 +60,12 @@ public class Notification implements Parcelable {
     public String getMessage() {
         return message;
     }
+
     public String getChannelId() {
         return channelId;
     }
-    public int getPriority() { return priority; }
 
-
-    public void setName(String pizzaName) {
+    public int getPriority() {
+        return priority;
     }
 }

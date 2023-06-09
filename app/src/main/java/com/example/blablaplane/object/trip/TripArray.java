@@ -15,6 +15,8 @@ public class TripArray extends ArrayList<Trip> {
             add(new Trip(Trip.dateFormatter.parse("2021-05-01 22:05:00"), Trip.dateFormatter.parse("2021-05-01 23:00:00"), City.MONTPELLIER, City.PARIS, 200F, "francescogmailcom", 4, 4));
             add(new Trip(Trip.dateFormatter.parse("2021-05-01 17:12:00"), Trip.dateFormatter.parse("2021-05-01 18:00:00"), City.MARSEILLE, City.STRASBOURG, 110F, "mariorossigmailcom", 3, 0));
             add(new Trip(Trip.dateFormatter.parse("2021-05-01 02:45:00"), Trip.dateFormatter.parse("2021-05-01 08:06:00"), City.AMSTERDAM, City.PISE, 150F, "luigiverdigmailcom\"", 2, 5));
+            add(new Trip(Trip.dateFormatter.parse("2021-05-01 02:45:00"), Trip.dateFormatter.parse("2021-05-01 08:06:00"), City.NICE, City.CANNES, 50F, "mariorossigmailcom\"", 2, 5));
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -45,41 +47,5 @@ public class TripArray extends ArrayList<Trip> {
             }
         }
         return null;
-    }
-
-    /**
-     * Get all the trips of a pilot
-     *
-     * @param pilotId the id of the pilot
-     * @return a TripArray containing all the trips of the pilot
-     */
-    public TripArray getTripsByPilotId(String pilotId) {
-        TripArray trips = new TripArray();
-        for (Trip trip : this) {
-            if (trip.getPilotId().equals(pilotId)) {
-                trips.add(trip);
-            }
-        }
-        return trips;
-    }
-
-    /**
-     * Get all the trips of a pilot
-     *
-     * @param departure the departure city
-     * @param arrival   the arrival city
-     * @param date      the departure date
-     * @return a TripArray containing all the trips of the pilot
-     */
-    public TripArray getTripsByDepartureAndArrival(String departure, String arrival, String date) throws ParseException {
-        TripArray trips = new TripArray();
-        for (Trip trip : this) {
-            if (trip.getDeparture().equals(City.getCityByName(departure))
-                    && trip.getArrival().equals(City.getCityByName(arrival))
-                    && trip.getDepartureDate().equals(Trip.dateFormatter.parse(date))) {
-                trips.add(trip);
-            }
-        }
-        return trips;
     }
 }

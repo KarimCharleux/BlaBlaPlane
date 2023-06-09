@@ -18,8 +18,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.blablaplane.R;
 import com.example.blablaplane.activity.ListTripActivity;
-import com.example.blablaplane.activity.SelectCityActivity;
-import com.example.blablaplane.activity.SelectCityType;
+import com.example.blablaplane.activity.select.SelectCityActivity;
+import com.example.blablaplane.activity.select.SelectCityType;
 import com.example.blablaplane.notifications.Message;
 import com.example.blablaplane.object.trip.SearchTripInfo;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -124,13 +124,6 @@ public class FragmentHome extends Fragment implements Observer {
                 // Nothing to do
             }
         });
-
-        System.out.println("Piper "+R.drawable.piper_seneca);
-        System.out.println("jet "+R.drawable.jet_ranger);
-        System.out.println("diamond "+R.drawable.diamond_da42);
-        System.out.println("circus "+R.drawable.cirrus_sf50);
-        System.out.println("cesna "+R.drawable.cessna182);
-        System.out.println("da "+R.drawable.smaal_plane_round_logo);
 
         return view;
     }

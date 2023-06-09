@@ -17,12 +17,12 @@ import androidx.cardview.widget.CardView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.blablaplane.Interface.PictureActivitySingleton;
 import com.example.blablaplane.R;
 import com.example.blablaplane.activity.LandingActivity;
 import com.example.blablaplane.activity.PhotoActivity;
 import com.example.blablaplane.activity.SwitcherActivity;
 import com.example.blablaplane.object.DataBase;
+import com.example.blablaplane.object.PictureStore;
 import com.example.blablaplane.object.user.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -79,7 +79,7 @@ public class ModifyProfile extends AppCompatActivity {
         }
 
         ImageView pictureProfil = findViewById(R.id.picture_profile);
-        pictureProfil.setOnClickListener(x ->{
+        pictureProfil.setOnClickListener(x -> {
             Intent intent = new Intent(ModifyProfile.this, PhotoActivity.class);
             startActivity(intent);
         });
@@ -132,7 +132,7 @@ public class ModifyProfile extends AppCompatActivity {
         Drawable cachedProfileImage;
         try {
             cachedProfileImage = Glide.with(this)
-                    .load(PictureActivitySingleton.cacheKey)
+                    .load(PictureStore.cacheKey)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .submit()
                     .get();
@@ -143,16 +143,15 @@ public class ModifyProfile extends AppCompatActivity {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            if(PictureActivitySingleton.pictureProfile != null)
-            {
-                setPicture(imageView, PictureActivitySingleton.pictureProfile);
-            }else
-            {
+            if (PictureStore.pictureProfile != null) {
+                setPicture(imageView, PictureStore.pictureProfile);
+            } else {
                 imageView.setImageResource(R.drawable.pp_default);
             }
         }
 
     }
+
     private void setPicture(ImageView imageView, Bitmap pictureProfil) {
         Glide.with(this)
                 .load(pictureProfil)

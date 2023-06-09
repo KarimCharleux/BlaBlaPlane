@@ -25,8 +25,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.example.blablaplane.Interface.PictureActivitySingleton;
 import com.example.blablaplane.R;
+import com.example.blablaplane.object.PictureStore;
 
 public class PhotoActivity extends AppCompatActivity {
     ActivityResultLauncher<Intent> launcher;
@@ -50,7 +50,7 @@ public class PhotoActivity extends AppCompatActivity {
         askPermission();
 
         Glide.with(getApplicationContext())
-                .load(PictureActivitySingleton.cacheKey)
+                .load(PictureStore.cacheKey)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(new CustomTarget<Drawable>() {
                     @Override
@@ -71,7 +71,7 @@ public class PhotoActivity extends AppCompatActivity {
 
         View.OnClickListener buttonTakePhoto = view -> {
             if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
-                ActivityCompat.requestPermissions(PhotoActivity.this, new String[]{Manifest.permission.CAMERA}, PictureActivitySingleton.REQUEST_CAMERA);
+                ActivityCompat.requestPermissions(PhotoActivity.this, new String[]{Manifest.permission.CAMERA}, PictureStore.REQUEST_CAMERA);
             } else {
                 takePicture();
             }
@@ -128,7 +128,7 @@ public class PhotoActivity extends AppCompatActivity {
         Glide.with(getApplicationContext())
                 .load(imageBitmap)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .signature(PictureActivitySingleton.cacheKey)
+                .signature(PictureStore.cacheKey)
                 .into(new CustomTarget<Drawable>() {
                     @Override
                     public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
@@ -145,14 +145,14 @@ public class PhotoActivity extends AppCompatActivity {
                         // Une erreur s'est produite lors du chargement de l'image
                     }
                 });
-        PictureActivitySingleton.pictureProfile = currentUserPicture;
+        PictureStore.pictureProfile = currentUserPicture;
     }
 
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == PictureActivitySingleton.REQUEST_CAMERA) {
+        if (requestCode == PictureStore.REQUEST_CAMERA) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast toast = Toast.makeText(getApplicationContext(), "Camera authorization granted", Toast.LENGTH_SHORT);
                 toast.show();

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">BlaBlaPlane</string>
+
     /* API */
+
     <string name="API_googleMaps">AIzaSyAuHeVetKin8MDiHT5mrMGWDZ-24M5WwnA</string>
 
     /* Accueil */
@@ -12,17 +14,11 @@
     <string name="ACCUEIL_destination">Destination</string>
     <string name="ACCUEIL_search">Rechercher</string>
 
-
-    /* RECHERCHE */
+    /* Recherche */
 
     <string name="RESEARCH_selectionDepart">Sélectionnez  un lieu de départ</string>
     <string name="RESEARCH_selectionArrivee">"Sélectionnez  un lieu d'arriver"</string>
     <string name="RESEARCH_btn_validate_text">Valider</string>
-
-    /*INTENT */
-    <string name="RESEARCH_INTENT_startingPlace">StartingPlace</string>
-    <string name="RESEARCH_INTENT_destinationPlace">DestinationPlace</string>
-
 
     /* Accueil */
 
@@ -33,12 +29,10 @@
     <string name="destination">Destination</string>
     <string name="search">Rechercher</string>
 
-
     /* Messages */
 
     <string name="myMessages">Mes messages</string>
     <string name="previousMessages">Salut t\'es ou ?</string>
-
 
     /* Trip */
 
@@ -74,7 +68,7 @@
     <string name="noTripMessage">Aucun trajets disponible pour le moment.</string>
     <string name="bookTrips">Réserver des trajets</string>
     <string name="selectDepart">Sélectionnez un lieu de départ :</string>
-
+    <string name="addContact">Ajouter aux contact</string>
 
     /* Connexion */
 
@@ -130,13 +124,13 @@
     <string name="trajet_comfirm">Trajet Confirmé</string>
     <string name="addToCalendar">Ajouter au calendrier</string>
 
-    /* SelectAircraft */
+    /* Select Aircraft */
 
     <string name="SELECTAIRCRAFT_title">Sélectionner un appareil</string>
     <string name="SELECTAIRCRAFT_subtitle">Sélectionnez un appareil</string>
     <string name="SELECTAIRCRAFT_create_new_one">Créer mon appareil</string>
 
-    /* CreateNewAircraft */
+    /* Create New Aircraft */
 
     <string name="CREATENEWAIRCRAFT_title">Créer un nouvel appareil</string>
     <string name="CREATENEWAIRCRAFT_name">Nom de l\'aeronef</string>
@@ -147,6 +141,7 @@
 
 
     /* ModifyProfile */
+
     <string name="MODIFYPROFILE_title">Modifier mon profil</string>
 
     /* Message information for the user */
@@ -169,17 +164,19 @@
     <string name="ConfirmationTripCreated">Le trajet a bien été créé ✅</string>
 
     /* Change Picture Profile */
+
     <string name="CHANGEPICTUREPROFILE_title">Changer la photo de profil</string>
     <string name="CHANGEPICTUREPROFILE_subtitle">Changer la photo de profil</string>
     <string name="CHANGEPICTUREPROFILE_takePicture">Prendre une photo</string>
     <string name="CHANGEPICTUREPROFILE_return">Retour</string>
 
     /* Fragment GPS */
-    <string name="GPSFRAGMENT_button">Position actuelle</string>
 
+    <string name="GPSFRAGMENT_button">Position actuelle</string>
 
     /* Other */
 
+    <string name="save">Enregistrer</string>
     <string name="delete">Supprimer</string>
     <string name="modify">Modifier</string>
     <string name="returnText">Retour</string>
@@ -190,13 +187,6 @@
     <string name="logout">Déconnecter</string>
     <string name="or">- OU -</string>
     <string name="title_activity_add_contact">AddContactActivity</string>
-
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

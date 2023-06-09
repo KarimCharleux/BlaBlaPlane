@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@id/modifyTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:clickable="true"/>
+        android:clickable="true" />
 
     <EditText
         android:id="@+id/modifyFirstName"

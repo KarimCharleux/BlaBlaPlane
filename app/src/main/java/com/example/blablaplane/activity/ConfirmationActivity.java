@@ -46,19 +46,15 @@ public class ConfirmationActivity extends AppCompatActivity {
 
         int tripId = getIntent().getIntExtra("id", 0);
         Trip trip = TripArray.getInstance().getTripById(tripId);
-        System.out.println("My trip = "+ trip);
-        System.out.println("My trip = "+ trip.getDeparture());
-        System.out.println("My trip = "+ trip.getArrival());
 
         Button addToCalendarButton = findViewById(R.id.AddToCalendarButton);
         Button backToHomeButton = findViewById(R.id.backToHomeButton);
 
         Intent intent = getIntent();
 
-        if(intent.getExtras() != null)
-        {
+        if (intent.getExtras() != null) {
             Notification notification = intent.getExtras().getParcelable("notif");
-            if(notification != null) sendNotificationOnChannel(notification);
+            if (notification != null) sendNotificationOnChannel(notification);
         }
 
         addToCalendarButton.setOnClickListener(view -> addToCalendar(trip));

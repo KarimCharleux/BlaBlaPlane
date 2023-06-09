@@ -19,12 +19,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class SwitcherActivity extends AppCompatActivity implements BottomNavigationView.OnItemSelectedListener {
 
     private FragmentManager fragmentManager;
-    private Fragment fragment;
 
     @Override
     public void onCreate(Bundle bundle) {
-        System.out.println("Bundle");
-        System.out.println(bundle);
         super.onCreate(bundle);
         setContentView(R.layout.activity_switcher);
         BottomNavigationView bottomNavigationView = findViewById(R.id.footer_nav);
@@ -42,7 +39,7 @@ public class SwitcherActivity extends AppCompatActivity implements BottomNavigat
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.access_search:
-                fragment = new FragmentHome();
+                Fragment fragment = new FragmentHome();
                 fragmentManager.beginTransaction().replace(R.id.frame_fragment_container, fragment).commit();
                 return true;
             case R.id.access_add:

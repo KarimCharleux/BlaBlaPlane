@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="margin_edit_text_inscription_top">15dp</dimen>
-    <dimen name="margin_edit_text_inscription_top_first_one">15dp</dimen>
-    <dimen name="margin_edit_text_inscription_left">30dp</dimen>
-    <dimen name="margin_edit_text_inscription_right">30dp</dimen>
-    <dimen name="margin_check_box_inscription_top">50dp</dimen>
-    <dimen name="margin_check_box_inscription_left">30dp</dimen>
-
-
 
     /* MODIFYPROFILE */
-    <dimen name="MODIFYPROFILE_size_text">15dp</dimen>
 
+    <dimen name="MODIFYPROFILE_size_text">15sp</dimen>
 
 </resources>
