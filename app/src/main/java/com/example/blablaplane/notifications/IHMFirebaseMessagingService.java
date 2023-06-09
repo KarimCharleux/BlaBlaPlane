@@ -21,27 +21,27 @@ public class IHMFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(@NonNull RemoteMessage message) {
         super.onMessageReceived(message);
-        Log.d(TAG,"message received");
+        Log.d(TAG, "message received");
         Message.getInstance().set(message);
 
-        if(!Message.getInstance().isNull()){
-           Intent intent =  new Intent(getApplicationContext(), SwitcherActivity.class);
-           intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        if (!Message.getInstance().isNull()) {
+            Intent intent = new Intent(getApplicationContext(), SwitcherActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-           NotificationCompat.Builder notifcation = new NotificationCompat.Builder(getApplicationContext(),CHANNEL_IDP)
-                   .setSmallIcon(R.drawable.ic_launcher_background)
-                   .setContentTitle(Message.getInstance().getTitle())
-                   .setContentText(Message.getInstance().body())
-                   .setPriority(NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationCompat.Builder notifcation = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_IDP)
+                    .setSmallIcon(R.drawable.ic_launcher_background)
+                    .setContentTitle(Message.getInstance().getTitle())
+                    .setContentText(Message.getInstance().body())
+                    .setPriority(NotificationManager.IMPORTANCE_DEFAULT);
 
-           NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-           notificationManager.notify(0,notifcation.build());
+            NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            notificationManager.notify(0, notifcation.build());
         }
     }
 
     @Override
     public void onNewToken(@NonNull String token) {
         super.onNewToken(token);
-        Log.d(TAG,"new token");
+        Log.d(TAG, "new token");
     }
 }

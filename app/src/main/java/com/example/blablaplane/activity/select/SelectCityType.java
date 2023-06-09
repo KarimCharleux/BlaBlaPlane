@@ -1,4 +1,4 @@
-package com.example.blablaplane.activity;
+package com.example.blablaplane.activity.select;
 
 public enum SelectCityType {
     SEARCH_DEPARTURE("Départ", "Séléctionnez votre ville de départ", "Valider"),

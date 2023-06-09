@@ -1,4 +1,4 @@
-package com.example.blablaplane.activity;
+package com.example.blablaplane.activity.select;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.blablaplane.R;
+import com.example.blablaplane.activity.CreateNewAircraftActivity;
+import com.example.blablaplane.activity.SwitcherActivity;
 import com.example.blablaplane.object.DataBase;
 import com.example.blablaplane.object.aircraft.Aircraft;
 import com.example.blablaplane.object.aircraft.AircraftAdapter;

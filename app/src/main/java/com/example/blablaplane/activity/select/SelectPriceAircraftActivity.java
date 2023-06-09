@@ -1,4 +1,4 @@
-package com.example.blablaplane.activity;
+package com.example.blablaplane.activity.select;
 
 import android.content.Context;
 import android.content.Intent;

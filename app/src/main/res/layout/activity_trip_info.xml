@@ -252,20 +252,19 @@
                         android:textAllCaps="false"
                         android:textColor="#4A4A4A"
                         android:textSize="15sp"
-                        android:textStyle="bold"
-                        />
+                        android:textStyle="bold" />
+
                     <Button
                         android:id="@+id/BTN_addContact"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#F1F1F1"
                         android:outlineSpotShadowColor="#F1F1F1"
-                        android:text="Ajouter aux contact"
+                        android:text="@string/addContact"
                         android:textAllCaps="false"
                         android:textColor="#4A4A4A"
                         android:textSize="15sp"
-                        android:textStyle="bold"
-                        />
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 

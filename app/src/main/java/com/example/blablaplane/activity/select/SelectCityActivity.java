@@ -1,4 +1,4 @@
-package com.example.blablaplane.activity;
+package com.example.blablaplane.activity.select;
 
 import android.content.Intent;
 import android.location.Address;
@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.blablaplane.Interface.OnAirportSelectedListenerInterface;
 import com.example.blablaplane.R;
+import com.example.blablaplane.activity.SwitcherActivity;
 import com.example.blablaplane.fragments.FragmentGPSButton;
 import com.example.blablaplane.object.trip.CreateTripInfo;
 import com.example.blablaplane.object.trip.SearchTripInfo;

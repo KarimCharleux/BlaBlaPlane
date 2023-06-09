@@ -2,48 +2,31 @@ package com.example.blablaplane.activity;
 
 import android.Manifest;
 import android.content.ContentProviderOperation;
-import android.content.ContentProviderResult;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.provider.ContactsContract;
-import android.provider.MediaStore;
-import android.util.Base64;
-import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.blablaplane.R;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 public class AddContactActivity extends AppCompatActivity {
 
-
-    private static final String TAG = "CONTACT_TAG";
     private static final int WRITE_CONTACT_PERMISSION_CODE = 100;
     private String[] contactPermissions;
-    private Uri image_uri;
-
-    private Bitmap photoPilote;
-
+    private Bitmap photoPilot;
     private int tripId;
 
 
@@ -59,12 +42,11 @@ public class AddContactActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_contact);
 
         Intent intent = getIntent();
-        this.photoPilote = intent.getParcelableExtra("photo");
-        this.tripId = intent.getIntExtra("tripId",0);
+        this.photoPilot = intent.getParcelableExtra("photo");
+        this.tripId = intent.getIntExtra("tripId", 0);
 
         String parcellableLastName = intent.getStringExtra("lastName");
         String parcellableFirstName = intent.getStringExtra("firstName");
-
 
 
         firstName_ET = findViewById(R.id.ET_firstName);
@@ -73,13 +55,17 @@ public class AddContactActivity extends AppCompatActivity {
         PhoneMobile_ET = findViewById(R.id.ET_phoneMobile);
 
 
-        if(parcellableFirstName!=null){firstName_ET.setText(parcellableFirstName);}
-        if(parcellableLastName!=null){lastName_ET.setText(parcellableLastName);}
+        if (parcellableFirstName != null) {
+            firstName_ET.setText(parcellableFirstName);
+        }
+        if (parcellableLastName != null) {
+            lastName_ET.setText(parcellableLastName);
+        }
 
-        if(this.photoPilote!=null){
-            //je prend l'image view dans la page
+        if (this.photoPilot != null) {
+            // Take the image from the intent and set it to the ImageView
             ImageView pilotePhoto = findViewById(R.id.thumbnailIv);
-            pilotePhoto.setImageBitmap(this.photoPilote);
+            pilotePhoto.setImageBitmap(this.photoPilot);
         }
 
         contactPermissions = new String[]{Manifest.permission.WRITE_CONTACTS};
@@ -87,32 +73,19 @@ public class AddContactActivity extends AppCompatActivity {
 
         //save Contact
 
-        findViewById(R.id.saveContact).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(isWriteContactPermissionEnabled()){
-                    //permission already enabled -> save contact
-                    saveContact();
-                }
-                else{
-                    //permission not enabled, request
-                    requestWriteContactPermission();
-                }
+        findViewById(R.id.saveContact).setOnClickListener(v -> {
+            if (isWriteContactPermissionEnabled()) {
+                //permission already enabled -> save contact
+                saveContact();
+            } else {
+                //permission not enabled, request
+                requestWriteContactPermission();
             }
         });
 
-        findViewById(R.id.backToInfo).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
+        findViewById(R.id.backToInfo).setOnClickListener(v -> {
+            this.onBackPressed();
         });
-    }
-
-    private byte[] convertImgToBytes() {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        photoPilote.compress(Bitmap.CompressFormat.JPEG, 50, baos);
-        return baos.toByteArray();
     }
 
     private void saveContact() {
@@ -125,10 +98,10 @@ public class AddContactActivity extends AppCompatActivity {
         ArrayList<ContentProviderOperation> cpo = new ArrayList<>();
 
         //contact id
-        int rawContactId = cpo.size();
+        int rawContactId = 0;
 
         cpo.add(ContentProviderOperation.newInsert(
-                ContactsContract.RawContacts.CONTENT_URI)
+                        ContactsContract.RawContacts.CONTENT_URI)
                 .withValue(ContactsContract.RawContacts.ACCOUNT_TYPE, null)
                 .withValue(ContactsContract.RawContacts.ACCOUNT_NAME, null)
                 .build());
@@ -161,52 +134,39 @@ public class AddContactActivity extends AppCompatActivity {
         //CONVERSION IMAGE EN BYTES POUR SAUVEGARDER DANS L'IMAGE
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        photoPilote.compress(Bitmap.CompressFormat.JPEG, 50, baos);
+        photoPilot.compress(Bitmap.CompressFormat.JPEG, 50, baos);
         byte[] pilotePhotoInBytes = baos.toByteArray();
 
-        if(pilotePhotoInBytes!=null){
-            //contact avec image
-            //Ajout email
-            cpo.add(ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI)
-                    .withValueBackReference(ContactsContract.RawContacts.Data.RAW_CONTACT_ID, rawContactId)
-                    .withValue(ContactsContract.RawContacts.Data.MIMETYPE, ContactsContract.CommonDataKinds.Photo.CONTENT_ITEM_TYPE)
-                    .withValue(ContactsContract.CommonDataKinds.Photo.PHOTO, pilotePhotoInBytes)
-                    .withValue(ContactsContract.CommonDataKinds.Email.DATA, Email)
-                    .build());
-        }
-        //contact sans images
-        else{
-            cpo.add(ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI)
-                    .withValueBackReference(ContactsContract.RawContacts.Data.RAW_CONTACT_ID, rawContactId)
-                    .withValue(ContactsContract.RawContacts.Data.MIMETYPE, ContactsContract.CommonDataKinds.Photo.CONTENT_ITEM_TYPE)
-                    .withValue(ContactsContract.CommonDataKinds.Email.DATA, Email)
-                    .build());
-        }
+        //contact avec image
+        //Ajout email
+        cpo.add(ContentProviderOperation.newInsert(ContactsContract.Data.CONTENT_URI)
+                .withValueBackReference(ContactsContract.RawContacts.Data.RAW_CONTACT_ID, rawContactId)
+                .withValue(ContactsContract.RawContacts.Data.MIMETYPE, ContactsContract.CommonDataKinds.Photo.CONTENT_ITEM_TYPE)
+                .withValue(ContactsContract.CommonDataKinds.Photo.PHOTO, pilotePhotoInBytes)
+                .withValue(ContactsContract.CommonDataKinds.Email.DATA, Email)
+                .build());
 
         //save contact
-        try{
-            ContentProviderResult[] contactFinal = getContentResolver().applyBatch(ContactsContract.AUTHORITY, cpo);
+        try {
+            getContentResolver().applyBatch(ContactsContract.AUTHORITY, cpo);
 
-
-            Toast.makeText(this, "Contact enregistré ✅",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Contact enregistré ✅", Toast.LENGTH_SHORT).show();
 
             //retour sur la page precedente
             Intent intent = new Intent(AddContactActivity.this, TripInfoActivity.class);
             intent.putExtra("id", tripId);
             startActivity(intent);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private boolean isWriteContactPermissionEnabled(){
-        boolean result = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_CONTACTS) == (PackageManager.PERMISSION_GRANTED);
-        return result;
+    private boolean isWriteContactPermissionEnabled() {
+        return ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_CONTACTS) == (PackageManager.PERMISSION_GRANTED);
     }
 
-    private void requestWriteContactPermission(){
-        ActivityCompat.requestPermissions(this,contactPermissions, WRITE_CONTACT_PERMISSION_CODE);
+    private void requestWriteContactPermission() {
+        ActivityCompat.requestPermissions(this, contactPermissions, WRITE_CONTACT_PERMISSION_CODE);
     }
 
     @Override
@@ -214,39 +174,21 @@ public class AddContactActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         //handle permission results
 
-        if(grantResults.length > 0){
-            if(requestCode == WRITE_CONTACT_PERMISSION_CODE){
+        if (grantResults.length > 0) {
+            if (requestCode == WRITE_CONTACT_PERMISSION_CODE) {
                 boolean haveWriteContactPermission = grantResults[0] == PackageManager.PERMISSION_GRANTED;
-                if(haveWriteContactPermission){
+                if (haveWriteContactPermission) {
                     //permission granted -> save contact
                     saveContact();
-                }
-                else{
+                } else {
                     //permission denied
-                    Toast.makeText(this, "Permission denied to save contact",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Permission denied to save contact", Toast.LENGTH_SHORT).show();
                 }
             }
         }
     }
 
-    private byte[] imageUriToBytes() {
-        Bitmap bitmap;
-        ByteArrayOutputStream baos = null;
-        try {
-            bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_uri);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
-            return baos.toByteArray();
-        }
-        catch (Exception e){
-            Log.d(TAG, "imageUriToBytes: "+e.getMessage());
-            return null;
-        }
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
-
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
-        super.onActivityResult(requestCode,resultCode,data);
-
-
-    }
-
 }

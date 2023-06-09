@@ -5,7 +5,6 @@ import static com.example.blablaplane.notifications.NotifyApp.CHANNEL_IDP;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -33,8 +32,8 @@ public class PaymentActivity extends AppCompatActivity {
 
         for (Button button : buttons) {
             button.setOnClickListener(view -> {
-                Notification notification = null;
-                String paymentMethod = (String)button.getText();
+                Notification notification;
+                String paymentMethod = (String) button.getText();
                 try {
                     notification = new PaymentNotificationFactory().createNotification(CHANNEL_IDP, paymentMethod);
                 } catch (Throwable e) {

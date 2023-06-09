@@ -1,15 +1,17 @@
-package com.example.blablaplane.activity;
+package com.example.blablaplane.activity.select;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.DatePicker;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.blablaplane.R;
+import com.example.blablaplane.activity.ConfirmationActivity;
 import com.example.blablaplane.object.trip.CreateTripInfo;
 import com.example.blablaplane.object.trip.Trip;
 import com.example.blablaplane.object.trip.TripArray;
@@ -48,6 +50,9 @@ public class SelectDateActivity extends AppCompatActivity implements DatePickerD
             intent.putExtra("id", trip.getId());
             startActivity(intent);
         });
+
+        TextView textView = findViewById(R.id.recapCreateTrip);
+        textView.setText("Votre trajet : " + CreateTripInfo.departure + " ✈️ " + CreateTripInfo.destination);
     }
 
     @Override

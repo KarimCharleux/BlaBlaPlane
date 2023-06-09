@@ -4,6 +4,7 @@ import org.osmdroid.util.GeoPoint;
 
 /**
  * Cities available for the trips
+ * Used to get geo points for the map from the city name
  */
 public enum City {
     PARIS("Paris", "PAR", "France", new GeoPoint(48.856614, 2.3522219)),

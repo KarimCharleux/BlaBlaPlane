@@ -2,6 +2,9 @@ package com.example.blablaplane.object.message;
 
 import java.util.ArrayList;
 
+/**
+ * MessageProfileArray is a singleton that contains all the Messages of the current user
+ */
 public class MessageProfileArray extends ArrayList<MessageProfile> {
     private static MessageProfileArray instance;
 

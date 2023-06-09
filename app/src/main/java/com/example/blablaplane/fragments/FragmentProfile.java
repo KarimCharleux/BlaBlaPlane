@@ -26,14 +26,14 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.example.blablaplane.Interface.PictureActivitySingleton;
 import com.example.blablaplane.R;
 import com.example.blablaplane.activity.LandingActivity;
 import com.example.blablaplane.activity.PhotoActivity;
-import com.example.blablaplane.activity.SelectAircraftActivity;
 import com.example.blablaplane.activity.SwitcherActivity;
+import com.example.blablaplane.activity.select.SelectAircraftActivity;
 import com.example.blablaplane.activity.user.ModifyProfile;
 import com.example.blablaplane.object.DataBase;
+import com.example.blablaplane.object.PictureStore;
 import com.example.blablaplane.object.aircraft.Aircraft;
 import com.example.blablaplane.object.aircraft.AircraftAdapter;
 import com.example.blablaplane.object.aircraft.AircraftAdapterListener;
@@ -177,7 +177,7 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
         super.onResume();
 
         Glide.with(requireContext())
-                .load(PictureActivitySingleton.cacheKey)
+                .load(PictureStore.cacheKey)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(new CustomTarget<Drawable>() {
                     @Override
@@ -192,8 +192,8 @@ public class FragmentProfile extends Fragment implements AircraftAdapterListener
 
                     @Override
                     public void onLoadFailed(@Nullable Drawable errorDrawable) {
-                        if (PictureActivitySingleton.pictureProfile != null) {
-                            setPicture(pictureProfil, PictureActivitySingleton.pictureProfile);
+                        if (PictureStore.pictureProfile != null) {
+                            setPicture(pictureProfil, PictureStore.pictureProfile);
                         } else {
                             pictureProfil.setImageResource(R.drawable.pp_default);
                         }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,82 +9,77 @@
         android:id="@+id/thumbnailIv"
         android:layout_width="120dp"
         android:layout_height="120dp"
+        android:contentDescription="@string/photoPilot"
         android:src="@drawable/quantum_ic_arrow_back_grey600_24"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/ET_firstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:hint="@string/name"
         android:inputType="textPersonName"
-        android:hint="Prenom"
-        app:layout_constraintTop_toBottomOf="@+id/thumbnailIv"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/thumbnailIv" />
 
     <EditText
         android:id="@+id/ET_lastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:hint="@string/surname"
         android:inputType="textPersonName"
-        android:hint="Nom"
-        app:layout_constraintTop_toBottomOf="@+id/ET_firstName"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/ET_firstName" />
 
     <EditText
         android:id="@+id/ET_phoneMobile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:hint="@string/phone"
         android:inputType="phone"
-        android:hint="Phone (Mobile)"
-        app:layout_constraintTop_toBottomOf="@+id/ET_lastName"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/ET_lastName" />
 
     <EditText
         android:id="@+id/ET_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
-        android:hint="Email"
-        app:layout_constraintTop_toBottomOf="@+id/ET_phoneMobile"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/ET_phoneMobile" />
 
     <Button
         android:id="@+id/saveContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enregistrer"
-
-        app:layout_constraintTop_toBottomOf="@+id/ET_email"
+        android:text="@string/save"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/backToInfo"
-        />
-
+        app:layout_constraintTop_toBottomOf="@+id/ET_email" />
 
 
     <Button
         android:id="@+id/backToInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Retour"
-
-        app:layout_constraintTop_toBottomOf="@+id/ET_email"
+        android:text="@string/returnText"
         app:layout_constraintLeft_toRightOf="@+id/saveContact"
         app:layout_constraintRight_toRightOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/ET_email" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
